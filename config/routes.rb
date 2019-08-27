@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   Get “bands/search” , to: "bands#search"
   Get “bands/filter” , to: "bands#filter"
   Get “dashboard” ,  to: "pages#dashboard"
-  Resources : conversations , only [:index, :show, :create] do {
+  Resources :conversations , only [:index, :show, :create] do {
   Resources :messages , only [:create]
   }
   Get “users/search”, to: "users#search"
