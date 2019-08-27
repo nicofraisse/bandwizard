@@ -1,0 +1,2 @@
+class StylesController < ApplicationController
+end

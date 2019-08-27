@@ -1,2 +1,0 @@
-class FavoriteArtistUserController < ApplicationController
-end
