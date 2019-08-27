@@ -5,4 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :conversations
+  has_many :bands
+
+  has_many :instrument_users
+  has_many :instruments, through: :instrument_users
+
+  has_many :style_users
+  has_many :styles, through: :style_users
+
+  has_many :favorite_artist_users
+  has_many :favorite_artists, through: :favorite_artist_users
 end
