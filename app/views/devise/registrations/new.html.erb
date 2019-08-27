@@ -15,6 +15,23 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :username %>
+    <%= f.input :full_name %>
+    <%= f.input :gender %>
+    <%= f.input :age %>
+    <%= f.input :address %>
+    <%= f.input :photo %>
+    <%= f.input :soundcloud_link %>
+    <%= f.input :youtube_link %>
+    <%= f.input :personal_website %>
+    <%= f.input :bio %>
+    <%= f.input :is_live %>
+    <%= f.input :is_recording %>
+    <%= f.input :is_jamming %>
+    <%= f.input :is_composition %>
+    <%= f.input :is_covers %>
+    <%= f.input :is_pro  %>
+
   </div>
 
   <div class="form-actions">
@@ -23,3 +40,21 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+:username
+:full_name
+:gender
+:age
+:address
+:photo
+:soundcloud_link
+:youtube_link
+:personal_website
+:bio
+:is_live
+:is_recording
+:is_jamming
+:is_composition
+:is_covers
+:is_pro
