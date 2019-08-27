@@ -1,0 +1,2 @@
+class BandPhotosController < ApplicationController
+end

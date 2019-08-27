@@ -1,0 +1,2 @@
+class StyleUsersController < ApplicationController
+end

@@ -1,2 +1,2 @@
-class InstrumentController < ApplicationController
+class InstrumentsController < ApplicationController
 end

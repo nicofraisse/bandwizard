@@ -1,2 +1,0 @@
-class StyleBandController < ApplicationController
-end
