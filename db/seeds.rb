@@ -9,8 +9,8 @@ Message.delete_all
 Conversation.delete_all
 Band.delete_all
 User.delete_all
-nacera = User.create!(email: "nacera@gmail.com",password: "123456",username:"nacera",full_name: "nacerahammid",gender:"f",age:"30",address:"Montreal",bio:"im cool",is_jamming: true, youtube_link: "https://www.youtube.com/channel/UCFWMfhxupSN4omXMaX4Lmyg?view_as=subscriber")
-nac = User.create!(email: "nac@gmail.com",password: "123456",username:"luc",full_name: "nacerahammid",gender:"f",age:"30",address:"Montreal",bio:"im cool",is_jamming: true, youtube_link: "https://www.youtube.com/channel/UCFWMfhxupSN4omXMaX4Lmyg?view_as=subscriber")
+nacera = User.create!(email: "nacera@gmail.com",password: "123456",username:"nacera1",full_name: "nacerahammid",gender:"f",age:"30",address:"Montreal",bio:"im cool",is_jamming: true, youtube_link: "https://www.youtube.com/channel/UCFWMfhxupSN4omXMaX4Lmyg?view_as=subscriber")
+nac = User.create!(email: "nac@gmail.com",password: "123456",username:"nacera2",full_name: "nacerahammid",gender:"f",age:"30",address:"Montreal",bio:"im cool",is_jamming: true, youtube_link: "https://www.youtube.com/channel/UCFWMfhxupSN4omXMaX4Lmyg?view_as=subscriber")
 bad = Band.new(name:"bad",bio:" we are so cool and bad",is_jamming:true)
 bad.user = nacera
 bad.save!
