@@ -15,4 +15,6 @@ class User < ApplicationRecord
 
   has_many :favorite_artist_users
   has_many :favorite_artists, through: :favorite_artist_users
+  has_many :conversations, through: :messages
+  validates :username, presence: true, uniqueness: true
 end
