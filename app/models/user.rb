@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :messages
   has_many :conversations
   has_many :bands
 
@@ -15,6 +16,5 @@ class User < ApplicationRecord
 
   has_many :favorite_artist_users
   has_many :favorite_artists, through: :favorite_artist_users
-  has_many :conversations, through: :messages
   validates :username, presence: true, uniqueness: true
 end
