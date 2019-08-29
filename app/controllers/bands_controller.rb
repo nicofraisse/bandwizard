@@ -4,7 +4,16 @@ class BandsController < ApplicationController
     filtering_params(params).each do |key, value|
     @bands = @bands.public_send(key, value) if value.present?
   end
-  render "results"
+   @bands = Band.geocoded #returns flats with coordinates
+
+    @markers = @bands.map do |band|
+      {
+        lat: band.latitude,
+        lng: band.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { band: band })
+      }
+    end
+  #render "results"
   end
 
 
