@@ -33,7 +33,6 @@ styles = ["Afro", "Blues", "Country", "Electronic", "Flamenco", "Folk", "Hip Hop
 # INSTRUMENT SEED
 instruments = ["Guitar", "Bass", "Drums", "Vocals", "Synthesizer", "Saxophone"]
 
-
 # BAND SEED
 band_name = ["Fateful Local", "Alternate Generation", "Slink Over Acrobat", "Creamy Escort", "Seemingly Yoke Of The Mellow Poetry", "Nickelback", "Nautical Barracuda", "Needy Balboa", "Favored Photograph", "Reverent Banter", "Repressed Wickedly"]
 band_bios = ["Communicator. Typical beer trailblazer. Web buff. Professional coffee fanatic. Bacon aficionado.", "Gamer. Incurable twitter junkie. Hardcore analyst. Freelance coffee advocate. Evil pop culture aficionado. Tv guru. Proud student.", "Tv geek. Award-winning travel scholar. Music lover. Student. Coffee junkie. Freelance communicator.", "Typical pop cultureaholic. Music fanatic. Social media buff. Hipster-friendly food scholar. Total gamer. Beer expert.", "Travel enthusiast. Thinker. Total pop culture guru. Infuriatingly humble explorer. Avid bacon geek.", "Bacon nerd. Typical tv fanatic. General twitter evangelist. Beer buff. Lifelong problem solver." ]
@@ -43,7 +42,8 @@ band_youtube_links = []
 band_soundcloud_links = []
 band_bools = [true, true, true, false]
 
-
+# MISC SEED
+experiences = ["Beginner", "Intermediate", "Advanced"]
 
 # Delete all records
 NeededInstrument.delete_all
@@ -93,6 +93,7 @@ band_name.each do |name|
     youtube_link: band_youtube_links.sample,
     soundcloud_link: band_soundcloud_links.sample,
     bio: band_bios.sample,
+    experience: experiences.sample,
     is_live: band_bools.sample,
     is_recording: band_bools.sample,
     is_jamming: band_bools.sample,
@@ -139,7 +140,7 @@ puts "Associating instrument(s) to users..."
 all_users.each do |user|
   instruments = all_instruments.sample([1, 1, 1, 1, 2, 2, 2, 3, 3, 4].sample)
   instruments.each do |instrument|
-    InstrumentUser.create(instrument: instrument, user: user)
+    InstrumentUser.create(instrument: instrument, user: user, experience: experiences.sample, is_available: [true, true, true, true, true, true, false].sample)
   end
 end
 
@@ -167,3 +168,23 @@ message.user = User.first
 message.save!
 
 puts "************* D O N E *************"
+
+puts("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░")
+puts("░░░░░░░░░░░░░▄▄▄▄▄▄▄░░░░░░░░░")
+puts("░░░░░░░░░▄▀▀▀░░░░░░░▀▄░░░░░░░")
+puts("░░░░░░░▄▀░░░░░░░░░░░░▀▄░░░░░░")
+puts("░░░░░░▄▀░░░░░░░░░░▄▀▀▄▀▄░░░░░")
+puts("░░░░▄▀░░░░░░░░░░▄▀░░██▄▀▄░░░░")
+puts("░░░▄▀░░▄▀▀▀▄░░░░█░░░▀▀░█▀▄░░░")
+puts("░░░█░░█▄▄░░░█░░░▀▄░░░░░▐░█░░░")
+puts("░░▐▌░░█▀▀░░▄▀░░░░░▀▄▄▄▄▀░░█░░")
+puts("░░▐▌░░█░░░▄▀░░░░░░░░░░░░░░█░░")
+puts("░░▐▌░░░▀▀▀░░░░░░░░░░░░░░░░▐▌░")
+puts("░░▐▌░░░░░░░░░░░░░░░▄░░░░░░▐▌░")
+puts("░░▐▌░░░░░░░░░▄░░░░░█░░░░░░▐▌░")
+puts("░░░█░░░░░░░░░▀█▄░░▄█░░░░░░▐▌░")
+puts("░░░▐▌░░░░░░░░░░▀▀▀▀░░░░░░░▐▌░")
+puts("░░░░█░░░░░░░░░░░░░░░░░░░░░█░░")
+puts("░░░░▐▌▀▄░░░░░░░░░░░░░░░░░▐▌░░")
+puts("░░░░░█░░▀░░░░░░░░░░░░░░░░▀░░░")
+puts("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░")
