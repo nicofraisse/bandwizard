@@ -5,12 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "deleting previous records"
 NeededInstrument.delete_all
 StyleBand.delete_all
-puts "deleting previous records"
 Style.delete_all
 Instrument.delete_all
-
 Message.delete_all
 Conversation.delete_all
 Band.delete_all

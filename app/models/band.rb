@@ -4,12 +4,10 @@ class Band < ApplicationRecord
   has_many :instruments, through: :needed_instruments
   has_many :style_bands
   has_many :styles, through: :style_bands
-  has_many :ffavorite_band_artists
+  has_many :favorite_band_artists
   has_many :favorite_artists, through: :favorite_band_artists
   belongs_to :user
   accepts_nested_attributes_for :band_photos
-
-
   has_many :starred_bands
 
   geocoded_by :address

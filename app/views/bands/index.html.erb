@@ -1,16 +1,33 @@
 <input type="text" id="hello">
 
-<h1>bands</h1>
-<ul>
-  <% @bands.each  do |band| %>
-   <li><%= link_to band.name ,band_path(band) %></li>
-  <% end %>
+  <% if !@bands.nil?%>
+    <h1>bands</h1>
+    <ul>
+      <% @bands.each  do |band| %>
+       <li><%= link_to band.name ,band_path(band) %></li>
+      <% end %>
+    </ul>
+    <div
+      id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+   <% elsif  !@musicians.nil? %>
+      <h1>musicians</h1>
+    <ul>
+      <% @musicians.each  do |musician| %>
+       <li><%= link_to band.name ,band_path(musician) %></li>
+      <% end %>
+    </ul>
+    <div
+      id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
 
-/<ul>
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+     <% end %>
+
