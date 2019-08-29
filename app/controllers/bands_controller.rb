@@ -4,9 +4,17 @@ class BandsController < ApplicationController
     filtering_params(params).each do |key, value|
     @bands = @bands.public_send(key, value) if value.present?
   end
-  render "results"
-  end
+   @bands = Band.geocoded #returns flats with coordinates
 
+    @markers = @bands.map do |band|
+      {
+        lat: band.latitude,
+        lng: band.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { band: band })
+      }
+    end
+  #render "results"
+  end
 
   def new
     @band = Band.new
@@ -30,13 +38,18 @@ class BandsController < ApplicationController
     @band = Band.find(params[:id])
   end
 
-private
-def band_params
-  params.require(:band).permit(:name, :bio,:personal_website, :youtube_link, :address, :soundcloud_link, :is_recording,:is_pro,:is_live,:is_jamming, :is_cover,:is_pro,:is_composition,band_photos_attributes:
-  [:id, :band_id, :photo])
-end
-def filtering_params(params)
-  params.slice(:instruments, :styles, :address)
-end
+  def mybands
+    @bands = Band.where(user: current_user)
+  end
+
+  private
+
+  def band_params
+    params.require(:band).permit(:name, :bio,:personal_website, :youtube_link, :address, :soundcloud_link, :is_recording,:is_pro,:is_live,:is_jamming, :is_cover,:is_pro,:is_composition,band_photos_attributes:
+    [:id, :band_id, :photo])
+  end
+  def filtering_params(params)
+    params.slice(:instruments, :styles, :address)
+  end
 
 end

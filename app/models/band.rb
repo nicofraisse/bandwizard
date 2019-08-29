@@ -9,7 +9,12 @@ class Band < ApplicationRecord
   belongs_to :user
   accepts_nested_attributes_for :band_photos
 
+
   has_many :starred_bands
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   # search
   scope :instrument, -> (instrument) { where instrument: instrument }
   scope :style, -> (style) { where style: style }
