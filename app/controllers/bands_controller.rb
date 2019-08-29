@@ -10,11 +10,15 @@ class BandsController < ApplicationController
     #render "results"
   else
     # *********************search band**************************************
-     @bands = Band.where(nil) # creates an anonymous scope
+
+
+     @bands = Band.where(nil)
+      # creates an anonymous scope
      filtering_params(params).each do |key, value|
       @bands = @bands.public_send(key, value) if value.present?
     end
-     @bands = Band.geocoded
+
+     # @bands = Band.geocoded
 
       @markers = @bands.map do |band|
         {
