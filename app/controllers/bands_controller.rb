@@ -16,7 +16,6 @@ class BandsController < ApplicationController
   #render "results"
   end
 
-
   def new
     @band = Band.new
     @band_photo = @band.band_photos.build
@@ -39,13 +38,18 @@ class BandsController < ApplicationController
     @band = Band.find(params[:id])
   end
 
-private
-def band_params
-  params.require(:band).permit(:name, :bio,:personal_website, :youtube_link, :address, :soundcloud_link, :is_recording,:is_pro,:is_live,:is_jamming, :is_cover,:is_pro,:is_composition,band_photos_attributes:
-  [:id, :band_id, :photo])
-end
-def filtering_params(params)
-  params.slice(:instruments, :styles, :address)
-end
+  def mybands
+    @bands = Band.where(user: current_user)
+  end
+
+  private
+
+  def band_params
+    params.require(:band).permit(:name, :bio,:personal_website, :youtube_link, :address, :soundcloud_link, :is_recording,:is_pro,:is_live,:is_jamming, :is_cover,:is_pro,:is_composition,band_photos_attributes:
+    [:id, :band_id, :photo])
+  end
+  def filtering_params(params)
+    params.slice(:instruments, :styles, :address)
+  end
 
 end
