@@ -159,14 +159,14 @@ all_bands.each do |band|
 end
 
 # Create conversations
-puts "Creating conversations..."
+puts "Creating test conversations..."
 conv = Conversation.new()
 conv.user1 = all_users[0]
 conv.user2 = all_users[1]
 conv.save!
 
 # Create messages
-puts "Creating messages..."
+puts "Creating test messages..."
 message = Message.new(msg:"helloooo")
 message.conversation = conv
 message.user = User.first
