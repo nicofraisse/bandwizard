@@ -6,9 +6,13 @@
 <form action="/bands" method="get">
   <input type="text" name="instrument" placeholder="Instrument you looking for">
   <input type="text" name="style" placeholder="Style">
-  <input type="text" name="address" placeholder="Address">
+  <input type="text" name="address" placeholder="Address" id="address">
   <input type="text" name="slider" placeholder="km">
   <input type="hidden" name="choice" value=1>
+  <div>
+    <label for="current_positionc">use my current position</label>
+    <input type="checkbox" name="current_position" id="current-position">
+  </div>
   <button type="submit"> confirm</button>
 </form>
 
@@ -27,3 +31,24 @@
 
 <% end %>
 
+<script>
+  const inputButton = document.querySelector('#current-position')
+  const inputForAddress = document.querySelector('#address')
+
+  inputButton.addEventListener('click', e => {
+    if (e.target.checked) {
+      // const currentPosition = new Map
+      let string = ''
+      const location = navigator.geolocation.getCurrentPosition( e => {
+        const latitude = e.coords.latitude
+        const longitude = e.coords.longitude
+        inputForAddress.value = `${latitude.toString()}, ${longitude.toString()}`
+        // currentPosition.set('lat', latitude)
+        // currentPosition.set('long', longitude)
+      });
+      console.log(string)
+    }
+  })
+
+
+</script>

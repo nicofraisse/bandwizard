@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "bands", to: "bands#index"
   get "bands/filter", to: "bands#filter", as: "filter"
   get "bands/mybands", to: "bands#mybands", as: "mybands"
-  get "dashboard",  to: "pages#dashboard"
+  get "dashboard/:user_id",  to: "pages#dashboard", as: 'dashboard'
   get "edit_profile", to: "pages#edit", as: "edit"
   resources :conversations , only: [:index, :show, :create] do
   end

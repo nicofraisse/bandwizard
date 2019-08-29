@@ -8,6 +8,9 @@ class PagesController < ApplicationController
 
   end
 
+  def dashboard
+    @musician = User.find(params[:user_id])
+  end
 
   private
 
