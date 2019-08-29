@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' },{ name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+puts "************* B E G I N *************"
 
 # USER SEED
 users = [
@@ -42,7 +42,6 @@ band_personal_websites = []
 band_youtube_links = []
 band_soundcloud_links = []
 band_bools = [true, true, true, false]
-
 
 
 
@@ -154,16 +153,17 @@ all_bands.each do |band|
 end
 
 # Create conversations
-puts "Creating conversations..."
+puts "Creating test conversations..."
 conv = Conversation.new()
 conv.user1 = all_users[0]
 conv.user2 = all_users[1]
 conv.save!
 
 # Create messages
-puts "Creating messages..."
+puts "Creating test messages..."
 message = Message.new(msg:"helloooo")
 message.conversation = conv
 message.user = User.first
 message.save!
-puts "donnnnnnnnnnnnnnnnnnnne:::::!!!!!!!???"
+
+puts "************* D O N E *************"
