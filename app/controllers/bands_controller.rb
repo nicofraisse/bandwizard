@@ -1,19 +1,33 @@
 class BandsController < ApplicationController
   def index
-    @bands = Band.where(nil) # creates an anonymous scope
-    filtering_params(params).each do |key, value|
-    @bands = @bands.public_send(key, value) if value.present?
-  end
-   @bands = Band.geocoded #returns flats with coordinates
+    @choice = params[:choice].to_i
+    if @choice == 1
+      # *********************search musicien**************************************
+     instrument = Instrument.find_by(params[:isntrument])
+     style = Style.find_by(name: params[:style])
+     User.where(instrument: instrument, style: style, address: location)
 
-    @markers = @bands.map do |band|
-      {
-        lat: band.latitude,
-        lng: band.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { band: band })
-      }
+    #render "results"
+  else
+    # *********************search band**************************************
+     @bands = Band.where(nil) # creates an anonymous scope
+     filtering_params(params).each do |key, value|
+      @bands = @bands.public_send(key, value) if value.present?
     end
-  #render "results"
+     @bands = Band.geocoded
+
+      @markers = @bands.map do |band|
+        {
+          lat: band.latitude,
+          lng: band.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { band: band })
+        }
+
+  end
+
+
+  end
+
   end
 
   def new
