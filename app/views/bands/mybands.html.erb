@@ -1,0 +1,5 @@
+<% @bands.each do |band| %>
+<%= link_to band.name, band_path(band.id) %>
+<% end %>
+
+<%= link_to "Add Band", new_band_path%>
