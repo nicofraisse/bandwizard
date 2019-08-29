@@ -1,0 +1,2 @@
+class StarredBand < ApplicationRecord
+end

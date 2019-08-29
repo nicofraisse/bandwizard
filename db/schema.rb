@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_220117) do
+ActiveRecord::Schema.define(version: 2019_08_29_161508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,20 @@ ActiveRecord::Schema.define(version: 2019_08_27_220117) do
     t.index ["instrument_id"], name: "index_needed_instruments_on_instrument_id"
   end
 
+  create_table "starred_bands", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "band_id"
+    t.index ["band_id"], name: "index_starred_bands_on_band_id"
+    t.index ["user_id"], name: "index_starred_bands_on_user_id"
+  end
+
+  create_table "starred_users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "style_bands", force: :cascade do |t|
     t.bigint "band_id"
     t.bigint "style_id"
@@ -177,6 +191,8 @@ ActiveRecord::Schema.define(version: 2019_08_27_220117) do
   add_foreign_key "messages", "users"
   add_foreign_key "needed_instruments", "bands"
   add_foreign_key "needed_instruments", "instruments"
+  add_foreign_key "starred_bands", "bands"
+  add_foreign_key "starred_bands", "users"
   add_foreign_key "style_bands", "bands"
   add_foreign_key "style_bands", "styles"
   add_foreign_key "style_users", "styles"

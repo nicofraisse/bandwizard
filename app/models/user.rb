@@ -17,4 +17,7 @@ class User < ApplicationRecord
   has_many :favorite_artist_users
   has_many :favorite_artists, through: :favorite_artist_users
   validates :username, presence: true, uniqueness: true
+
+  has_many :starred_users
+  has_many :starred_bands
 end
