@@ -14,7 +14,7 @@ class Band < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   # search
-  scope :instrument, -> (instrument) { where instrument: instrument }
-  scope :style, -> (style) { where style: style }
+  scope :instruments, -> (instrument) { where instruments: instrument }
+  scope :styles, -> (style) { where styles: style }
   scope :address, -> (address) { where address: address }
 end
