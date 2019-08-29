@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_29_161508) do
+ActiveRecord::Schema.define(version: 2019_08_29_184652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,11 +30,11 @@ ActiveRecord::Schema.define(version: 2019_08_29_161508) do
     t.string "youtube_link"
     t.string "personal_website"
     t.string "soundcloud_link"
-    t.boolean "is_live"
-    t.boolean "is_recording"
-    t.boolean "is_jamming"
-    t.boolean "is_composition"
-    t.boolean "is_cover"
+    t.boolean "is_live", default: true
+    t.boolean "is_recording", default: true
+    t.boolean "is_jamming", default: true
+    t.boolean "is_composition", default: true
+    t.boolean "is_cover", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -169,11 +169,11 @@ ActiveRecord::Schema.define(version: 2019_08_29_161508) do
     t.string "youtube_link"
     t.string "personal_website"
     t.text "bio"
-    t.boolean "is_live"
-    t.boolean "is_recording"
-    t.boolean "is_jamming"
-    t.boolean "is_composition"
-    t.boolean "is_covers"
+    t.boolean "is_live", default: true
+    t.boolean "is_recording", default: true
+    t.boolean "is_jamming", default: true
+    t.boolean "is_composition", default: true
+    t.boolean "is_covers", default: true
     t.float "latitude"
     t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
