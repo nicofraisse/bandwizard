@@ -2,26 +2,82 @@
 <% choice = params[:choice].to_i %>
 
 <% if choice == 1 %>
- <!-- searching for musicien -->
-<form action="/bands" method="get">
-  <input type="text" name="instrument" placeholder="Instrument you looking for">
-  <input type="text" name="style" placeholder="Style">
-  <input type="text" name="address" placeholder="Address">
-  <input type="hidden" name="choice" value=1>
-  <button type="submit"> confirm</button>
-</form>
+ <!-- searching for musician -->
+ <div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+     <div class="searchform">
+      <form action="/bands" method="get">
+        <div class="form-group">
+        <label for="exampleFormControlSelect1">What musician are you looking for?</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+          <option>Guitarist</option>
+          <option>Bassist</option>
+          <option>Drummer</option>
+          <option>Pianist</option>
+          <option>Singer</option>
+        </select>
+        </div>
+
+        <div class="form-group">
+        <label for="exampleFormControlSelect2">What location?</label>
+        <select class="form-control" id="exampleFormControlSelect2">
+          <option>Montreal</option>
+          <option>Toronto</option>
+          <option>Vancouver</option>
+          <option>Ottawa</option>
+          <option>Edmonton</option>
+        </select>
+        </div>
+        <!-- <input type="text" name="instrument" placeholder="What musician are you looking for?"> -->
+        <input type="text" name="style" placeholder="Style">
+        <input type="text" name="address" placeholder="Address">
+        <input type="hidden" name="choice" value=1>
+        <button type="submit">SEARCH</button>
+      </form>
+    </div>
+  </div>
+</div>
+
 
 
 <% else %>
 <!-- searching for band -->
-<form action="/bands" method="get">
-  <input type="text" name="instruments" placeholder="Instrument you play">
-  <input type="text" name="styles" placeholder="Style">
-  <input type="text" name="address" placeholder="Address">
-  <input type="hidden" name="choice" value=2>
-  <button type="submit"> confirm</button>
-
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="searchform">
+        <form action="/bands" method="get">
+          <div class="form-group">
+          <label for="exampleFormControlSelect1">What instrument do you play?</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>Guitar</option>
+            <option>Bass</option>
+            <option>Drums</option>
+            <option>Piano</option>
+            <option>Vocals</option>
+          </select>
+          </div>
+          <div class="form-group">
+          <label for="exampleFormControlSelect2">What location?</label>
+          <select class="form-control" id="exampleFormControlSelect2">
+            <option>Montreal</option>
+            <option>Toronto</option>
+            <option>Vancouver</option>
+            <option>Ottawa</option>
+            <option>Edmonton</option>
+          </select>
+          </div>
+          <!-- <input type="text" name="instruments" placeholder="What instrument do you play?"> -->
+          <input type="text" name="styles" placeholder="Style">
+          <input type="text" name="address" placeholder="Address">
+          <input type="hidden" name="choice" value=2>
+          <button type="submit">SEARCH</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <% end %>
 
