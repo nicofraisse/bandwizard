@@ -1,5 +1,12 @@
 <input type="text" id="hello">
 
+<h1>bands</h1>
+<ul>
+  <% @bands.each  do |band| %>
+   <li><%= link_to band.name ,band_path(band) %></li>
+  <% end %>
+
+/<ul>
 <div
   id="map"
   style="width: 100%;
