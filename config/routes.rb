@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get "bands/search" , to: "bands#search"
+  get "bands/search" , to: "bands#search" ,as: "search"
    get "bands" , to: "bands#index"
-  get "bands/filter" , to: "bands#filter"
+  get "bands/filter" , to: "bands#filter", as: "filter"
   get "dashboard" ,  to: "pages#dashboard"
   resources :conversations , only: [:index, :show, :create] do
   end

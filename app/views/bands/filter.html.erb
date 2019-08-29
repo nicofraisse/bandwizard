@@ -1,0 +1,23 @@
+<% filter = params[:filter].to_i %>
+
+<% if filter == 1 %>
+ <!-- searching for musicien -->
+<form action="/bands" method="get">
+  <input type="text" name="gender" placeholder="demographics">
+  <input type="text" name="experience" placeholder="experience">
+  <button type="submit"> confirm</button>
+</form>
+<% else %>
+<!-- searching for band -->
+<form action="/bands" method="get">
+  <input type="text" name="experience" placeholder="experience">
+  <input type="text" name="address" placeholder="Address">
+  <button type="submit"> confirm</button>
+
+</form>
+
+<% end %>
+<!-- i will need these two buttons to go here -->
+<!-- but i need also to bting the previous inputs here by these buttons  -->
+<button type="submit"> <%= link_to "search musicien", filter_path(filter:1)=%></button>
+<button type="submit"> <%= link_to "search musicien", filter_path(filter:2)=%></button>

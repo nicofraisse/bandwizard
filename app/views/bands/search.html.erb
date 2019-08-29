@@ -1,6 +1,23 @@
+
+<% choice = params[:choice].to_i %>
+
+<% if choice == 1 %>
+ <!-- searching for musicien -->
 <form action="/bands" method="get">
-  <input type="text" name="instrument" placeholder="Instrument">
+  <input type="text" name="instrument" placeholder="Instrument you looking for">
   <input type="text" name="style" placeholder="Style">
   <input type="text" name="address" placeholder="Address">
   <button type="submit"> confirm</button>
 </form>
+
+<% else %>
+<!-- searching for band -->
+<form action="/bands" method="get">
+  <input type="text" name="instrument" placeholder="Instrument you play">
+  <input type="text" name="style" placeholder="Style">
+  <input type="text" name="address" placeholder="Address">
+  <button type="submit"> confirm</button>
+
+</form>
+
+<% end %>
