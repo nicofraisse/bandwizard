@@ -12,9 +12,9 @@ const initAutocomplete = () => {
       }).on('change', e => console.log(e));
   }
 
-  if (navigator) {
-    const location = navigator.geolocation.getCurrentPosition(console.log)
-  }
+  // if (navigator) {
+  //   const location = navigator.geolocation.getCurrentPosition(console.log)
+  // }
 };
 
 export { initAutocomplete };

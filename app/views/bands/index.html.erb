@@ -21,7 +21,7 @@
     <h1>musicians</h1>
       <ul>
         <% @musicians.each  do |musician| %>
-        <li><%= link_to musician.full_name ,dashboard_path(musician) %></li>
+        <li><%= link_to musician.username, dashboard_path(musician) %></li>
           <% end %>
       </ul>
     <div
