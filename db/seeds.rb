@@ -3,12 +3,53 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   movies = Movie.create([{ name: 'Star Wars' },{ name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# USER SEED
+users = [
+  ["bob@gmail.com", "bob", "Bobby Lee"],
+  ["joe@gmail.com", "joe", "Joe Jackson"],
+  ["luc@gmail.com", "luc", "Luc M"],
+  ["nacera@gmail.com", "nacera", "Nacera H"],
+  ["nicolas@gmail.com", "nicolas", "Nicolas F"],
+  ["simon@gmail.com", "simon", "Simon R"],
+]
+password = "123123"
+genders = ["Male", "Female"]
+ages = [14..99]
+user_addresses = ["5139 avenue Casgrain, Montréal, Canada", "5350 avenue Decelles, Montréal, Canada"]
+user_photos = []
+user_personal_websites = []
+user_youtube_links = []
+user_soundcloud_links = []
+user_bios = ["Extreme communicator. Problem solver. Avid travel expert. Food specialist. Unapologetic coffee guru.", "Incurable tv evangelist. Alcohol aficionado. Food fan. Social mediaholic. Twitter maven.", "Hardcore alcohol evangelist. Beer buff. Social media fanatic. Troublemaker. Explorer.", "Unapologetic social media lover. Twitter fanatic. Web fan. Tv ninja. Music guru. Baconaholic.", "Gamer. Unable to type with boxing gloves on. Social media lover. Extreme music fan. Passionate troublemaker.", "Travel practitioner. Web fanatic. Problem solver. Reader. General explorer. Music junkie. Twitter aficionado."]
+user_bool = [true, true, false]
+
+# STYLE SEED
+styles = ["Afro", "Blues", "Country", "Electronic", "Flamenco", "Folk", "Hip Hop", "Jazz", "Latin", "Pop", "R&B", "Soul" "Rock", "Heavy Metal", "Punk"]
+
+# INSTRUMENT SEED
+instruments = ["Guitar", "Bass", "Drums", "Vocals", "Synthesizer", "Saxophone"]
+
+
+# BAND SEED
+band_name = ["Fateful Local", "Alternate Generation", "Slink Over Acrobat", "Creamy Escort", "Seemingly Yoke Of The Mellow Poetry", "Nickelback", "Nautical Barracuda", "Needy Balboa", "Favored Photograph", "Reverent Banter", "Repressed Wickedly"]
+band_bios = ["Communicator. Typical beer trailblazer. Web buff. Professional coffee fanatic. Bacon aficionado.", "Gamer. Incurable twitter junkie. Hardcore analyst. Freelance coffee advocate. Evil pop culture aficionado. Tv guru. Proud student.", "Tv geek. Award-winning travel scholar. Music lover. Student. Coffee junkie. Freelance communicator.", "Typical pop cultureaholic. Music fanatic. Social media buff. Hipster-friendly food scholar. Total gamer. Beer expert.", "Travel enthusiast. Thinker. Total pop culture guru. Infuriatingly humble explorer. Avid bacon geek.", "Bacon nerd. Typical tv fanatic. General twitter evangelist. Beer buff. Lifelong problem solver." ]
+band_addresses = ["3920  René-Lévesque Blvd, Montréal, Canada", "4298  Derry Rd, Malton, Canada", "4470  Pine Street, Coronation, Alberta, Canada", "4421  Weir Crescent, Toronto, Ontario"]
+band_personal_websites = []
+band_youtube_links = []
+band_soundcloud_links = []
+band_bools = [true, true, true, false]
+
+
+
 
 # Delete all records
 NeededInstrument.delete_all
 StyleBand.delete_all
+StyleUser.delete_all
+InstrumentUser.delete_all
 puts "Deleting previous records..."
 Style.delete_all
 Instrument.delete_all
@@ -19,41 +60,103 @@ User.delete_all
 
 # Create users
 puts "Creating users..."
-nacera = User.create!(email: "nacera@gmail.com", password: "123456", username:"nacera", full_name: "Nacera H",  gender:"Female", age:"30", address:"Montreal", bio:"im cool", is_jamming: true,  youtube_link: "https://www.youtube.com/channel/UCFWMfhxupSN4omXMaX4Lmyg?view_as=subscriber")
-luc = User.create!(email: "luc@gmail.com", password: "123456", username:"luc", full_name: "Luc M",  gender:"m", age:"Male", address:"Montreal", bio:"im cool", is_jamming: true,  youtube_link: "https://www.youtube.com/channel/UCFWMfhxupSN4omXMaX4Lmyg?view_as=subscriber")
+all_users = []
+users.each do |user|
+  all_users << User.create!(
+    email: user[0],
+    username: user[1],
+    full_name: user[2],
+    password: password,
+    gender: genders.sample,
+    age: ages.sample,
+    address: user_addresses.sample,
+    photo: user_photos.sample,
+    personal_website: user_personal_websites.sample,
+    youtube_link: user_youtube_links.sample,
+    soundcloud_link: user_soundcloud_links.sample,
+    bio: user_bios.sample,
+    is_live: user_bool.sample,
+    is_recording: user_bool.sample,
+    is_jamming: user_bool.sample,
+    is_composition: user_bool.sample,
+    is_covers: user_bool.sample
+    )
+end
 
 # Create bands
 puts "Creating bands..."
-thebeatles = Band.new(name:"The Beatles", bio:"We are an old band", is_jamming:true, address:"16 Villa Gaudelet, Paris")
-thebeatles.user = nacera
-thebeatles.save!
+all_bands = []
+band_name.each do |name|
+   all_bands << Band.new(name: name,
+    address: band_addresses.sample,
+    personal_website: band_personal_websites.sample,
+    youtube_link: band_youtube_links.sample,
+    soundcloud_link: band_soundcloud_links.sample,
+    bio: band_bios.sample,
+    is_live: band_bools.sample,
+    is_recording: band_bools.sample,
+    is_jamming: band_bools.sample,
+    is_composition: band_bools.sample,
+    is_cover: band_bools.sample)
+end
+
+# Associate band(s) to user
+puts "Associating band(s) to users..."
+all_bands.each_with_index do |band, i|
+  if all_users[i].nil?
+    band.user = all_users.sample
+  else
+    band.user = all_users[i]
+  end
+  band.save!
+end
 
 # Create styles
 puts "Creating styles..."
-jazz = Style.new(name:"jazz")
+all_styles = []
+styles.each do |style|
+  all_styles << Style.new(name: "#{style}")
+end
 
 # Create instruments
 puts "Creating instruments..."
-guitar = Instrument.new(name:"guitar")
+all_instruments = []
+instruments.each do |instrument|
+  all_instruments << Instrument.new(name: "#{instrument}")
+end
 
-# Associate style & instrument to band
-puts "Adding style and instrument to join tables style_bands and instrument_bands"
-style_band = StyleBand.new()
-style_band.style = jazz
-style_band.band = thebeatles
-style_band.save!
+# Associate style(s) to users
+puts "Associating style(s) to users..."
+all_users.each do |user|
+  styles = all_styles.sample([2, 2, 2, 2, 3, 3, 1, 1, 1, 4, 5].sample)
+  styles.each do |style|
+    StyleUser.create(style: style, user: user)
+  end
+end
 
-# style_user= StyleUser.new()
-needed_instrument = NeededInstrument.new()
-needed_instrument.band = thebeatles
-needed_instrument.instrument = guitar
-needed_instrument.save!
+# Associate instrument(s) to user
+puts "Associating instrument(s) to users..."
+all_users.each do |user|
+  instruments = all_instruments.sample([1, 1, 1, 1, 2, 2, 2, 3, 3, 4].sample)
+  instruments.each do |instrument|
+    InstrumentUser.create(instrument: instrument, user: user)
+  end
+end
+
+# Associate style(s) to bands
+puts "Associating style(s) to bands..."
+all_bands.each do |band|
+  styles = all_styles.sample([2, 2, 2, 2, 3, 3, 1, 1, 1, 4, 5].sample)
+  styles.each do |style|
+    StyleBand.create(style: style, band: band)
+  end
+end
 
 # Create conversations
 puts "Creating conversations..."
 conv = Conversation.new()
-conv.user1 = nacera
-conv.user2 = luc
+conv.user1 = all_users[0]
+conv.user2 = all_users[1]
 conv.save!
 
 # Create messages
