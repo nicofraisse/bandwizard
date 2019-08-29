@@ -1,2 +1,8 @@
-<h2><%= band.name %></h2>
-<p><%= band.address %></p>
+<% @choice = params[:choice].to_i  %>
+<% if @choice == 1 %>
+  <h2><%= musician.full_name %></h2>
+  <p><%= musician.address %></p>
+<% else  %>
+  <h2><%= band.name %></h2>
+  <p><%= band.address %></p>
+<% end %>

@@ -1,37 +1,38 @@
 class BandsController < ApplicationController
   def index
     @choice = params[:choice].to_i
-    if @choice == 1
-      # *********************search musicien**************************************
-     instrument = Instrument.find_by(params[:isntrument])
-     style = Style.find_by(name: params[:style])
-     User.where(instrument: instrument, style: style, address: location)
-
-    #render "results"
-  else
-    # *********************search band**************************************
-
-
-     @bands = Band.where(nil)
-      # creates an anonymous scope
-     filtering_params(params).each do |key, value|
-      @bands = @bands.public_send(key, value) if value.present?
-    end
-
-     # @bands = Band.geocoded
-
+      if @choice == 1
+        # *********************search musicien**************************************
+        instrument = Instrument.find_by(params[:isntrument])
+        style = Style.find_by(name: params[:style])
+        User.where(instrument: instrument, style: style, address: location)
+        # Musician will be the sected one, not all
+        # Need to delete this line after
+      @musicians = User.all
+      @markers = @musicians.map do |musician|
+        {
+          lat: musician.latitude,
+          lng: musician.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { musician: musician })
+        }
+      end
+      #render "results"
+      else
+        # *********************search band**************************************
+        @bands = Band.where(nil)
+        # creates an anonymous scope
+        filtering_params(params).each do |key, value|
+        @bands = @bands.public_send(key, value) if value.present?
+        end
+      # @bands = Band.geocoded
       @markers = @bands.map do |band|
         {
           lat: band.latitude,
           lng: band.longitude,
           infoWindow: render_to_string(partial: "info_window", locals: { band: band })
         }
-
-  end
-
-
-  end
-
+      end
+      end
   end
 
   def new
@@ -43,9 +44,9 @@ class BandsController < ApplicationController
     band = Band.new(band_params)
     band.user = current_user
     if band.save!
-       params[:band_photos]['photo'].each do |a|
-          band_photo = band.band_photos.create!(:photo => a, :band_id => band.id)
-       end
+      params[:band_photos]['photo'].each do |a|
+      band_photo = band.band_photos.create!(:photo => a, :band_id => band.id)
+      end
       redirect_to band_path(band)
     else
       render :new
@@ -69,5 +70,4 @@ class BandsController < ApplicationController
   def filtering_params(params)
     params.slice(:instruments, :styles, :address)
   end
-
 end
