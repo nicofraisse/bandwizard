@@ -10,8 +10,8 @@
         <form action="/bands" method="get">
           <div class="form-group">
             <label for="exampleFormControlSelect1">What musician are you looking for?</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>Guitarist</option>
+            <select class="form-control" name="instrument" id="exampleFormControlSelect1">
+              <option>Guitar</option>
               <option>Bassist</option>
               <option>Drummer</option>
               <option>Pianist</option>
@@ -25,8 +25,9 @@
           <br>
           <input type="text" name="slider" placeholder="distance (km)">
           <input type="hidden" name="choice" value=1>
+          <br>
           <div>
-          <label for="current_positionc">use my current position</label>
+          <label for="current_position">use my current position</label>
           <input type="checkbox" name="current_position" id="current-position">
           </div>
           <button type="submit">SEARCH</button>
@@ -57,10 +58,15 @@
           <br>
           <input type="text" name="styles" placeholder="Style">
           <br>
-          <input type="text" name="address" placeholder="Address">
+          <input type="text" name="address" placeholder="Address" id="address">
           <br>
           <input type="text" name="slider" placeholder="km">
           <input type="hidden" name="choice" value=2>
+          <br>
+          <div>
+          <label for="current_position">use my current position</label>
+          <input type="checkbox" name="current_position" id="current-position">
+          </div>
           <br>
           <button type="submit">SEARCH</button>
         </form>
@@ -85,9 +91,16 @@
         // currentPosition.set('lat', latitude)
         // currentPosition.set('long', longitude)
       });
-      console.log(string)
-    }
-  })
 
+      // console.log(string)
+      // const secret = ...
+      // const url = ...
+      // fetch(url)
+      // .then(response.json())
+      // .then(console.log(data // insert address into dom w/ query select)
+
+    }
+
+  })
 
 </script>
