@@ -9,17 +9,27 @@
        <div class="searchform">
         <form action="/bands" method="get">
           <div class="form-group">
-            <label for="exampleFormControlSelect1">What musician are you looking for?</label>
-            <select class="form-control" id="exampleFormControlSelect1" name="instrument">
-              <option>Guitarist</option>
-              <option>Bassist</option>
-              <option>Drummer</option>
-              <option>Pianist</option>
-              <option>Singer</option>
+            <label for="exampleFormControlSelect1">What sound is missing in your band?</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="instruments">
+              <option>Guitar</option>
+              <option>Bass</option>
+              <option>Drum</option>
+              <option>Piano</option>
+              <option>voice</option>
             </select>
           </div>
           <br>
-          <input type="text" name="style" placeholder="Music style">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">What style are you looking for?</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="styles">
+              <option>Jazz</option>
+              <option>Pop</option>
+              <option>Blues</option>
+              <option>Rock</option>
+              <option>Flamenco</option>
+            </select>
+          </div>
+
           <br>
           <input type="text" name="address" placeholder="Address" id="address">
           <br>
@@ -45,17 +55,26 @@
       <div class="searchform">
         <form action="/bands" method="get">
           <div class="form-group">
-            <label for="exampleFormControlSelect2">What instrument do you play?</label>
-            <select class="form-control" id="exampleFormControlSelect2">
+            <label for="exampleFormControlSelect1">What instrument do you play?</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="instruments">
               <option>Guitar</option>
               <option>Bass</option>
-              <option>Drums</option>
+              <option>Drum</option>
               <option>Piano</option>
-              <option>Vocals</option>
+              <option>voice</option>
             </select>
           </div>
           <br>
-          <input type="text" name="styles" placeholder="Style">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">What style do you looking for ?</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="styles">
+              <option>Jazz</option>
+              <option>Pop</option>
+              <option>Blues</option>
+              <option>Rock</option>
+              <option>Flamenco</option>
+            </select>
+          </div>
           <br>
           <input type="text" name="address" placeholder="Address">
           <br>

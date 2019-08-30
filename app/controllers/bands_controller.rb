@@ -3,8 +3,9 @@ class BandsController < ApplicationController
     @choice = params[:choice].to_i
       if @choice == 1
         # *********************search musicien**************************************
-        instrument = Instrument.find_by(name: params[:instrument])
-        style = Style.find_by(name: params[:style])
+        @instruments = Instrument.all
+        instrument = Instrument.find_by(name: params[:instruments])
+        style = Style.find_by(name: params[:styles])
         all_musicians = User.joins(:instruments, :styles).where(instruments: { id: instrument.id }, styles: {id: style.id})
         geocoded_address = Geocoder.coordinates(params[:address])
         @musicians = all_musicians.near(geocoded_address, params[:slider].to_i,units: :km)
