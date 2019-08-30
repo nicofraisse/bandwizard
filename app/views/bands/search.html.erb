@@ -4,16 +4,16 @@
 <% if choice == 1 %>
  <!-- searching for musicien -->
 <form action="/bands" method="get">
-  <input type="text" name="instrument" placeholder="Instrument you looking for">
-  <input type="text" name="style" placeholder="Style">
+  <input type="text" name="instrument" placeholder="Instrument you are looking for">
+  <input type="text" name="style" placeholder="Music style">
   <input type="text" name="address" placeholder="Address" id="address">
-  <input type="text" name="slider" placeholder="km">
+  <input type="text" name="slider" placeholder="distance (km)">
   <input type="hidden" name="choice" value=1>
   <div>
     <label for="current_positionc">use my current position</label>
     <input type="checkbox" name="current_position" id="current-position">
   </div>
-  <button type="submit"> confirm</button>
+  <button type="submit">SEARCH</button>
 </form>
 
 
@@ -25,7 +25,7 @@
   <input type="text" name="address" placeholder="Address">
   <input type="text" name="slider" placeholder="km">
   <input type="hidden" name="choice" value=2>
-  <button type="submit"> confirm</button>
+  <button type="submit">SEARCH</button>
 
 </form>
 
