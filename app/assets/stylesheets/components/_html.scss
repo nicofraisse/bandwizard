@@ -3,11 +3,12 @@
 body {
   background: rgb(67,20,28);
   background: linear-gradient(160deg, rgba(67,20,28,1) 0%, rgba(70,39,108,1) 100%);
+  // display: relative;
+  background-position: center center;
   background-repeat: no-repeat;
-}
+  background-attachment: fixed;
+  background-size: cover;
 
-html {
-  height: 100%;
 }
 
 .navbar {
