@@ -32,7 +32,7 @@ user_bios = ["Extreme communicator. Problem solver. Avid travel expert. Food spe
 user_bool = [true, true, false]
 
 # STYLE SEED
-styles = ["Blues", "Country", "Electronic", "Flamenco", "Folk", "Hip Hop", "Jazz", "Latin", "Pop", "R&B", "Soul" "Rock", "Heavy Metal", "Punk"]
+styles = ["Blues", "Country", "Electronic", "Flamenco", "Folk", "Hip Hop", "Jazz", "Latin", "Pop", "R&B", "Soul", "Rock", "Heavy Metal", "Punk"]
 
 # INSTRUMENT SEED
 instruments = ["Guitar", "Bass", "Drums", "Vocals", "Synthesizer", "Saxophone", "Violin"]
