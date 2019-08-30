@@ -3,7 +3,6 @@ class BandsController < ApplicationController
     @choice = params[:choice].to_i
       if @choice == 1
         # *********************search musicien**************************************
-        @instruments = Instrument.all
         instrument = Instrument.find_by(name: params[:instruments])
         style = Style.find_by(name: params[:styles])
         all_musicians = User.joins(:instruments, :styles).where(instruments: { id: instrument.id }, styles: {id: style.id})
