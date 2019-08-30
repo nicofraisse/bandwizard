@@ -15,6 +15,7 @@ users = [
   ["nacera@gmail.com", "nacera", "Nacera H"],
   ["nicolas@gmail.com", "nicolas", "Nicolas F"],
   ["simon@gmail.com", "simon", "Simon R"],
+  ["esther@gmail.com", "esther", "Esther Dufour"]
 ]
 password = "123123"
 genders = ["Male", "Female"]
