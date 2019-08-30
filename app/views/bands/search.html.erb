@@ -2,35 +2,73 @@
 <% choice = params[:choice].to_i %>
 
 <% if choice == 1 %>
- <!-- searching for musicien -->
-<form action="/bands" method="get">
-  <input type="text" name="instrument" placeholder="Instrument you looking for">
-  <input type="text" name="style" placeholder="Style">
-  <input type="text" name="address" placeholder="Address" id="address">
-  <input type="text" name="slider" placeholder="km">
-  <input type="hidden" name="choice" value=1>
-  <div>
-    <label for="current_positionc">use my current position</label>
-    <input type="checkbox" name="current_position" id="current-position">
+ <!-- searching for musician -->
+ <div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+       <div class="searchform">
+        <form action="/bands" method="get">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">What musician are you looking for?</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>Guitarist</option>
+              <option>Bassist</option>
+              <option>Drummer</option>
+              <option>Pianist</option>
+              <option>Singer</option>
+            </select>
+          </div>
+          <br>
+          <input type="text" name="style" placeholder="Music style">
+          <br>
+          <input type="text" name="address" placeholder="Address" id="address">
+          <br>
+          <input type="text" name="slider" placeholder="distance (km)">
+          <input type="hidden" name="choice" value=1>
+          <div>
+          <label for="current_positionc">use my current position</label>
+          <input type="checkbox" name="current_position" id="current-position">
+          </div>
+          <button type="submit">SEARCH</button>
+        </form>
+      </div>
+    </div>
   </div>
-  <button type="submit"> confirm</button>
-</form>
+</div>
 
 
 <% else %>
 <!-- searching for band -->
-<form action="/bands" method="get">
-  <input type="text" name="instruments" placeholder="Instrument you play">
-  <input type="text" name="styles" placeholder="Style">
-  <input type="text" name="address" placeholder="Address">
-  <input type="text" name="slider" placeholder="km">
-  <input type="hidden" name="choice" value=2>
-  <button type="submit"> confirm</button>
-
-</form>
-
-
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="searchform">
+        <form action="/bands" method="get">
+          <div class="form-group">
+            <label for="exampleFormControlSelect2">What instrument do you play?</label>
+            <select class="form-control" id="exampleFormControlSelect2">
+              <option>Guitar</option>
+              <option>Bass</option>
+              <option>Drums</option>
+              <option>Piano</option>
+              <option>Vocals</option>
+            </select>
+          </div>
+          <br>
+          <input type="text" name="styles" placeholder="Style">
+          <br>
+          <input type="text" name="address" placeholder="Address">
+          <br>
+          <input type="text" name="slider" placeholder="km">
+          <input type="hidden" name="choice" value=2>
+          <br>
+          <button type="submit">SEARCH</button>
+        </form>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
   const inputButton = document.querySelector('#current-position')
