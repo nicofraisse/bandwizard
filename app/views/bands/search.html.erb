@@ -87,8 +87,9 @@
           <br>
           <input type="text" name="slider" placeholder="distance (km)">
           <input type="hidden" name="choice" value=1>
+          <br>
           <div>
-          <label for="current_positionc">use my current position</label>
+          <label for="current_position">use my current position</label>
           <input type="checkbox" name="current_position" id="current-position">
           </div>
           <button class="searchbutton" type="submit">SEARCH</button>
@@ -128,10 +129,15 @@
             </select>
           </div>
           <br>
-          <input type="text" name="address" placeholder="Address">
+          <input type="text" name="address" placeholder="Address" id="address">
           <br>
           <input type="text" name="slider" placeholder="km">
           <input type="hidden" name="choice" value=2>
+          <br>
+          <div>
+          <label for="current_position">use my current position</label>
+          <input type="checkbox" name="current_position" id="current-position">
+          </div>
           <br>
           <button class="searchbutton" type="submit">SEARCH</button>
         </form>
@@ -156,9 +162,16 @@
         // currentPosition.set('lat', latitude)
         // currentPosition.set('long', longitude)
       });
-      console.log(string)
-    }
-  })
 
+      // console.log(string)
+      // const secret = ...
+      // const url = ...
+      // fetch(url)
+      // .then(response.json())
+      // .then(console.log(data // insert address into dom w/ query select)
+
+    }
+
+  })
 
 </script>
