@@ -205,7 +205,7 @@ conv.save!
 
 # Create messages
 puts "Creating test messages..."
-message = Message.new(msg:"helloooo")
+message = Message.new()
 message.conversation = conv
 message.user = User.first
 message.save!
