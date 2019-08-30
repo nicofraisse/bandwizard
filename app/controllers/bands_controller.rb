@@ -123,6 +123,10 @@ class BandsController < ApplicationController
     @bands = Band.where(user: current_user)
   end
 
+  def musicians
+    @musicians = User.all
+  end
+
   private
 
   def band_params
