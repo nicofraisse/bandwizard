@@ -1,0 +1,13 @@
+.stylebutton {
+  background: rgba(217, 217, 217, 0.55);
+  border-radius: 50px;
+  padding: 5px;
+  margin: 5px;
+  margin-bottom: 15px;
+  // display: flex;
+  display: inline-block;
+}
+
+.stylebutton:hover {
+  background-color: #9376E2;
+}
