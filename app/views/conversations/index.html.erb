@@ -1,3 +1,5 @@
+<h1>Conversations</h1>
+
 <% @conversations.each do |conversation| %>
 <%= link_to "#{conversation.user1.username} and #{conversation.user2.username}", conversation_path(conversation.id) %>
 <% end %>
