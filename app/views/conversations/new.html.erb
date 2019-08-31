@@ -1,6 +1,6 @@
 <div class="row col-md-8 col-md-offset-2">
-  <% if @conversation.present? %>
-  <h1><%= @conversation.id %></h1>
+
+  <h1><%= @conversation %></h1>
 
 <div class="panel panel-default">
   <% if @conversation.messages.any? %>
@@ -15,8 +15,5 @@
 
   <%= render partial: 'messages/message_form', locals: {message: @message, conversation: @conversation}%>
 </div>
-<% else %>
-<div class="panel-body hidden" id="messages">
-    </div>
-<%= link_to "add conversation", new_conversation_path({conversation:{user2:@user2}})%>
-<% end %>
+
+
