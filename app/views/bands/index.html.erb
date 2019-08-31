@@ -1,31 +1,35 @@
-  <% unless @bands.nil?%>
-    <h1>bands</h1>
-    <ul>
-      <% @bands.each  do |band| %>
-       <li><%= link_to band.name ,band_path(band) %></li>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.0/mapbox-gl.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:220px; left: 450px; bottom:0; width:100%; }
+</style>
+
+  <div class="container">
+    <h1 class="title">bands</h1>
+    <div class="d-flex">
+      <!-- text -->
+      <% unless @bands.nil?%>
+        <ul style='padding-inline-start: 0px;'>
+          <% @bands.each  do |band| %>
+            <div class="card-product">
+            <!--   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> -->
+             <li><%= link_to band.name ,band_path(band) %></li>
+             <div class="card-product-infos">
+                <li><%= link_to band.bio ,band_path(band) %></li>
+             </div>
+          </div>
+            <% end %>
+        </ul>
       <% end %>
-    </ul>
-    <div
-      id="map"
-      style="height: 300px; width: 600px"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      <!-- map -->
+      <div
+        id="map"
+        class="map-custom col-md-6"
+        style="height: 100%; width: 100%"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-  <% end %>
 
-  <% unless @musicians.nil? %>
-
-    <h1>musicians</h1>
-      <ul>
-        <% @musicians.each  do |musician| %>
-        <li><%= link_to musician.username, public_profile_path(musician) %></li>
-          <% end %>
-      </ul>
-    <div
-      id="map"
-      style="height: 300px; width: 600px"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-  <% end %>
 
