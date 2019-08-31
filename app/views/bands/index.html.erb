@@ -13,12 +13,14 @@
       <!-- text -->
       <% unless @bands.nil?%>
         <ul style='padding-inline-start: 0px;'>
-          <% @bands.each  do |band| %>
+          <% @bands.each do |band| %>
             <div class="card-product">
+
             <!--   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> -->
               <li><%= link_to band.name ,band_path(band) %></li>
               <div class="card-product-infos">
                 <li><%= link_to band.bio ,band_path(band) %></li>
+
               </div>
             </div>
           <% end %>
@@ -33,8 +35,6 @@
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-
-
 
   <% unless @musicians.nil? %>
 
