@@ -85,7 +85,7 @@ class BandsController < ApplicationController
             end
           end
 
-          # @bands = Band.all
+          @bands = Band.all
 
           @markers = @bands.map do |band|
             {
