@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_29_184652) do
+ActiveRecord::Schema.define(version: 2019_08_30_221259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,8 +49,10 @@ ActiveRecord::Schema.define(version: 2019_08_29_184652) do
     t.bigint "user2_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["user1_id"], name: "index_conversations_on_user1_id"
     t.index ["user2_id"], name: "index_conversations_on_user2_id"
+    t.index ["user_id"], name: "index_conversations_on_user_id"
   end
 
   create_table "favorite_artist_users", force: :cascade do |t|
@@ -182,6 +184,7 @@ ActiveRecord::Schema.define(version: 2019_08_29_184652) do
 
   add_foreign_key "band_photos", "bands"
   add_foreign_key "bands", "users"
+  add_foreign_key "conversations", "users"
   add_foreign_key "conversations", "users", column: "user1_id"
   add_foreign_key "conversations", "users", column: "user2_id"
   add_foreign_key "favorite_artist_users", "favorite_artists"

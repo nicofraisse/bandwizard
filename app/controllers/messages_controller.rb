@@ -11,14 +11,12 @@ class MessagesController < ApplicationController
         user: message.user.username
 
       head :ok
-    else
-      redirect_to request.referrer
     end
   end
 
   private
 
-    def message_params
-      params.require(:message).permit(:msg, :conversation_id)
-    end
+  def message_params
+    params.require(:message).permit(:msg, :conversation_id)
+  end
 end

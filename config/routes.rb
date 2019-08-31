@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => '/cable'
 
+  resources :conversations, param: :user2_id
+  resources :messages
+
   root to: 'pages#home', as: "home"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "bands/search", to: "bands#search" ,as: "search"
@@ -13,9 +16,7 @@ Rails.application.routes.draw do
   get "dashboard/:user_id",  to: "pages#dashboard", as: 'dashboard'
   get "public_profile/:user_id",  to: "pages#public_profile", as: :public_profile
   get "edit_profile", to: "pages#edit", as: "edit"
-  resources :conversations , only: [:index, :show, :create,:new] do
-  end
-  resources :messages , only: [:create]
+
 
   get "users/search", to: "users#search"
   get "users/filter" , to: "users#filter"
