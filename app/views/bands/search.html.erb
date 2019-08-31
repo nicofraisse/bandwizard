@@ -94,12 +94,13 @@
           <label for="current_position">use my current position</label>
           <input type="checkbox" name="current_position" id="current-position">
           </div>
-          <button class="searchbutton" type="submit">SEARCH</button>
-        </form>
       </div>
     </div>
+    <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A MUSICIAN</button>
+    </form>
   </div>
 </div>
+<br>
 
 
 <% else %>
@@ -194,13 +195,15 @@
           <input type="checkbox" name="current_position" id="current-position">
           </div>
           <br>
-          <button class="searchbutton" type="submit">SEARCH</button>
-        </form>
-        <% end %>
       </div>
     </div>
+    <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
+    </form>
+    <% end %>
   </div>
 </div>
+<br>
+
 
 <script>
   const inputButton = document.querySelector('#current-position')
