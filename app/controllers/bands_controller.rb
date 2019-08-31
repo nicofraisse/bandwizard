@@ -1,9 +1,11 @@
 class BandsController < ApplicationController
+   skip_before_action :authenticate_user!, only: [:index, :show,:search]
+
   def index
-    @choice = params[:choice].to_i
+
+   @choice = params[:choice].to_i
       if @choice == 1
         # ********************* SEARCH MUSICIAN ***************************
-
         # Get all InstrumentUsers and StyleUsers from the users's input
         instru_user = InstrumentUser.where(instrument: Instrument.find_by_name(params[:instruments]))
         style_user = StyleUser.where(style: Style.find_by_name(params[:styles]))
@@ -23,7 +25,7 @@ class BandsController < ApplicationController
           end
         end
 
-        # FILTER BY ADRESS RADIUS
+        # FILTER BY ADDRESS RADIUS
 
         unless (style_user == nil || instru_user == nil)
           geocoded_address = Geocoder.coordinates(params[:address])
@@ -57,13 +59,12 @@ class BandsController < ApplicationController
 
         needed_instru = NeededInstrument.where(instrument: Instrument.find_by_name(params[:instruments]))
         style_band = StyleBand.where(style: Style.find_by_name(params[:styles]))
-
         all_bands_by_instrument = needed_instru.map do |instru|
           instru.band
         end
 
         all_bands_by_style = style_band.map do |style|
-         style.band
+          style.band
         end
 
 
@@ -95,15 +96,18 @@ class BandsController < ApplicationController
         end
 
       end
+
   end
 
   def new
     @band = Band.new
+    authorize @band
     @band_photo = @band.band_photos.build
   end
 
   def create
     band = Band.new(band_params)
+    authorize band
     band.user = current_user
     if band.save!
       params[:band_photos]['photo'].each do |a|
