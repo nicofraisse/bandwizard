@@ -11,6 +11,12 @@ class ConversationsController < ApplicationController
 
   def new
     @conversation = Conversation.new
+    user1 = current_user
+    user2 = User.find(params_conv[:user2])
+    @conversation = Conversation.new
+    @conversation.user1 = user1
+    @conversation.user2 = user2
+    @conversation.save!
     @message = Message.new
   end
 
@@ -22,5 +28,10 @@ class ConversationsController < ApplicationController
     @conversation.user2 = user2
     @conversation.save!
     redirect to "conversation/#{conversation.id}"
+  end
+
+  private
+  def params_conv
+    params.require(:conversation).permit(:user2)
   end
 end
