@@ -12,6 +12,10 @@ class PagesController < ApplicationController
     @musician = User.find(params[:user_id])
   end
 
+  def public_profile
+    @musician = User.find(params[:user_id])
+  end
+
   private
 
 

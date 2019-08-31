@@ -1,0 +1,3 @@
+<% @musicians.each do |musician| %>
+  <%= link_to musician.username , public_profile_path(musician) %>
+<% end %>
