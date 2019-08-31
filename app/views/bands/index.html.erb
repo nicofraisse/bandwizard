@@ -9,34 +9,39 @@
   <div class="container">
     <h1 class="title">bands</h1>
     <div class="d-flex">
+
       <!-- text -->
       <% unless @bands.nil?%>
         <ul style='padding-inline-start: 0px;'>
-          <% @bands.each  do |band| %>
+          <% @bands.each do |band| %>
             <div class="card-product">
+
             <!--   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> -->
-             <li><%= link_to band.name ,band_path(band) %></li>
-             <div class="card-product-infos">
+              <li><%= link_to band.name ,band_path(band) %></li>
+              <div class="card-product-infos">
                 <li><%= link_to band.bio ,band_path(band) %></li>
-             </div>
-          </div>
-            <% end %>
+
+              </div>
+            </div>
+          <% end %>
         </ul>
       <% end %>
+
       <!-- map -->
       <div
         id="map"
-        class="map-custom col-md-6"
+        class="map-custom"
         style="height: 100%; width: 100%"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
+
     <% end %>
 <% unless @musicians.nil? %>
 
-    <h1>musicians</h1>
+    <h1>Musicians</h1>
       <ul>
-        <% @musicians.each  do |musician| %>
+        <% @musicians.each do |musician| %>
         <li><%= link_to musician.username, public_profile_path(musician) %></li>
           <% end %>
       </ul>
@@ -47,5 +52,7 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   <% end %>
+
+  </div>
 </div>
-</div>
+

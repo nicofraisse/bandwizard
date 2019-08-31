@@ -23,16 +23,15 @@ password = "123123"
 genders = ["Male", "Female"]
 ages = [14..99]
 user_addresses = ["3555 Edouard-Montpetit Montréal", "2630 St Germain Street Montreal QC H1W 2V3", "800 Rue Gagne Lasalle QC H8P 3W3", "3708 Rue St Hubert Montreal QC H2L 4A2", "7766 George Street Lasalle", "251 Av Percival Montreal", "7503 Rue St Denis Montreal", "5139 avenue Casgrain, Montréal, Canada", "5350 avenue Decelles, Montréal, Canada"]
-user_photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Frankie_%28musician%29_2016.jpg/1200px-Frankie_%28musician%29_2016.jpg", "https://overblown.co.uk/wp-content/uploads/2019/02/Musician-Resume.jpg", "https://media.npr.org/assets/img/2018/11/01/hellojunebyjoshsaul-2e187ce8b2e0a894a03e21d768fd03112727967d-s800-c85.jpg"]
+user_photos = ["https://overblown.co.uk/wp-content/uploads/2019/02/Musician-Resume.jpg", "https://media.npr.org/assets/img/2018/11/01/hellojunebyjoshsaul-2e187ce8b2e0a894a03e21d768fd03112727967d-s800-c85.jpg"]
 user_personal_websites = ["https://www.nihttps://www.youtube.com/watch?v=BB0DU4DoPP4"]
 user_youtube_links = ["https://www.youtube.com/watch?v=Jpw5Y2DMai4"]
-
 user_soundcloud_links = ["https://soundcloud.com/rojasonthebeat/look-at-me-ft-xxxtentacion"]
 user_bios = ["Extreme communicator. Problem solver. Avid travel expert. Food specialist. Unapologetic coffee guru.", "Incurable tv evangelist. Alcohol aficionado. Food fan. Social mediaholic. Twitter maven.", "Hardcore alcohol evangelist. Beer buff. Social media fanatic. Troublemaker. Explorer.", "Unapologetic social media lover. Twitter fanatic. Web fan. Tv ninja. Music guru. Baconaholic.", "Gamer. Unable to type with boxing gloves on. Social media lover. Extreme music fan. Passionate troublemaker.", "Travel practitioner. Web fanatic. Problem solver. Reader. General explorer. Music junkie. Twitter aficionado."]
 user_bool = [true, true, false]
 
 # STYLE SEED
-styles = ["Blues", "Country", "Electronic", "Flamenco", "Folk", "Hip Hop", "Jazz", "Latin", "Pop", "R&B", "Soul" "Rock", "Heavy Metal", "Punk"]
+styles = ["Blues", "Country", "Electronic", "Flamenco", "Folk", "Hip Hop", "Jazz", "Latin", "Pop", "R&B", "Soul", "Rock", "Heavy Metal", "Punk"]
 
 # INSTRUMENT SEED
 instruments = ["Guitar", "Bass", "Drums", "Vocals", "Synthesizer", "Saxophone", "Violin"]
@@ -60,6 +59,7 @@ NeededInstrument.delete_all
 StyleBand.delete_all
 StyleUser.delete_all
 InstrumentUser.delete_all
+BandPhoto.delete_all
 Style.delete_all
 Instrument.delete_all
 Message.delete_all
@@ -95,23 +95,6 @@ end
 # Create bands
 puts "Creating bands..."
 all_bands = []
-
-# # FOR DEMO
-# demo_band = Band.new(name: "A cool band",
-#     address: "5417 rue St-Dominique, Montreal, Canada",
-#     personal_website: "www.nickelback.com",
-#     youtube_link: "https://www.youtube.com/watch?v=BB0DU4DoPP4",
-#     soundcloud_link: band_soundcloud_links.sample,
-#     bio: band_bios.sample,
-#     experience: experiences.sample,
-#     is_live: band_bools.sample,
-#     is_recording: band_bools.sample,
-#     is_jamming: band_bools.sample,
-#     is_composition: band_bools.sample,
-#     is_cover: band_bools.sample)
-# all_bands << demo_band
-
-
 band_name.each do |name|
   all_bands << Band.new(name: name,
     address: band_addresses.sample,
@@ -127,6 +110,7 @@ band_name.each do |name|
     is_cover: band_bools.sample)
 end
 
+
 # Associate band(s) to user
 puts "Associating band(s) to users..."
 all_bands.each_with_index do |band, i|
@@ -137,6 +121,18 @@ all_bands.each_with_index do |band, i|
   end
   band.save!
 end
+
+
+# Associate photos to band
+puts "Associating photos to band"
+all_bands.each do |band|
+  photos = user_photos.sample([1,1].sample)
+  photos.each do |photo|
+    BandPhoto.create!(photo: "photo", band: band)
+    band.save!
+  end
+end
+
 
 # Create styles
 puts "Creating styles..."
