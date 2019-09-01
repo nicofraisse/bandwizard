@@ -18,72 +18,74 @@
               <option>Piano</option>
               <option>voice</option>
               <option>Saxophone</option>
+              <option>Violin</option>
             </select>
           </div>
           <br>
           <label class="stylebutton">
-            <input type="checkbox" name="styles[:name]" value="Afro"/>
+            <input type="checkbox" name="style[]" value="Afro"/>
             Afro
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles[:name]" value="Blues"/>
+            <input type="checkbox" name="style[]" value="Blues"/>
             Blues
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Country"/>
+            <input type="checkbox" name="style[]" value="Country"/>
             Country
           </label>
           <br>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Electronic"/>
+            <input type="checkbox" name="style[]" value="Electronic"/>
             Electronic
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Flamenco"/>
+            <input type="checkbox" name="style[]" value="Flamenco"/>
             Flamenco
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Folk"/>
+            <input type="checkbox" name="style[]" value="Folk"/>
             Folk
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Hip Hop"/>
+            <input type="checkbox" name="style[]" value="Hip Hop"/>
             Hip Hop
           </label>
           <br>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Jazz"/>
+            <input type="checkbox" name="style[]" value="Jazz"/>
             Jazz
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Latin"/>
+            <input type="checkbox" name="style[]" value="Latin"/>
             Latin
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Pop"/>
+            <input type="checkbox" name="style[]" value="Pop"/>
             Pop
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="R&B"/>
+            <input type="checkbox" name="style[]" value="R&B"/>
             R&B
           </label>
           <br>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Soul"/>
+            <input type="checkbox" name="style[]" value="Soul"/>
             Soul
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value=" Rock"/>
+            <input type="checkbox" name="style[]" value=" Rock"/>
             Rock
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Heavy Metal"/>
+            <input type="checkbox" name="style[]" value="Heavy Metal"/>
             Heavy Metal
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Punk"/>
+            <input type="checkbox" name="style[]" value="Punk"/>
             Punk
           </label>
+
           <br>
           <input type="text" name="address" placeholder="Address" id="address">
           <br>
@@ -122,66 +124,66 @@
           </div>
           <br>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Afro"/>
+            <input type="checkbox" name="style[]" value="Afro"/>
             Afro
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Blues"/>
+            <input type="checkbox" name="style[]" value="Blues"/>
             Blues
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Country"/>
+            <input type="checkbox" name="style[]" value="Country"/>
             Country
           </label>
           <br>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Electronic"/>
+            <input type="checkbox" name="style[]" value="Electronic"/>
             Electronic
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Flamenco"/>
+            <input type="checkbox" name="style[]" value="Flamenco"/>
             Flamenco
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Folk"/>
+            <input type="checkbox" name="style[]" value="Folk"/>
             Folk
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Hip Hop"/>
+            <input type="checkbox" name="style[]" value="Hip Hop"/>
             Hip Hop
           </label>
           <br>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Jazz"/>
+            <input type="checkbox" name="style[]" value="Jazz"/>
             Jazz
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Latin"/>
+            <input type="checkbox" name="style[]" value="Latin"/>
             Latin
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Pop"/>
+            <input type="checkbox" name="style[]" value="Pop"/>
             Pop
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="R&B"/>
+            <input type="checkbox" name="style[]" value="R&B"/>
             R&B
           </label>
           <br>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Soul"/>
+            <input type="checkbox" name="style[]" value="Soul"/>
             Soul
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value=" Rock"/>
+            <input type="checkbox" name="style[]" value=" Rock"/>
             Rock
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Heavy Metal"/>
+            <input type="checkbox" name="style[]" value="Heavy Metal"/>
             Heavy Metal
           </label>
           <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Punk"/>
+            <input type="checkbox" name="style[]" value="Punk"/>
             Punk
           </label>
           <br>
@@ -216,7 +218,10 @@
       const location = navigator.geolocation.getCurrentPosition( e => {
         const latitude = e.coords.latitude
         const longitude = e.coords.longitude
-        inputForAddress.value = `${latitude.toString()}, ${longitude.toString()}`
+        coordinates = `${latitude.toString()}, ${longitude.toString()}`
+        // inputForAddress.value = `${coordinates}`
+        inputForAddress.value = http.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${coordinates}.json?`)
+
         // currentPosition.set('lat', latitude)
         // currentPosition.set('long', longitude)
       });

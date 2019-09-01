@@ -22,6 +22,8 @@
           </div>
           <% end %>
       </ul>
+
+      <%= link_to "See map", map_path({results:"#{@results}"}) %>
       <!-- map -->
       <div
         id="map"
@@ -36,6 +38,7 @@
 
 
 <% unless @musicians.nil? %>
+
   <div class="container">
     <h1 class="title">Musicians</h1>
     <div class="d-flex">
@@ -49,6 +52,20 @@
         </div>
           <% end %>
       </ul>
+
+
+    <% @results = [] %>
+<!-- convert to hash -->
+<% @musicians.each do |m| %>
+  <% musician = {} %>
+  <% musician["lat"] = m.latitude%>
+  <% musician["long"] = m.longitude %>
+  <% musician["address"] = m.address %>
+  <% musician["username"] = m.username %>
+  <% @results.push(musician) %>
+<% end %>
+
+      <%= link_to "See map", map_path({results:"#{@results}"}) %>
       <!-- map -->
     <div
       id="map"
