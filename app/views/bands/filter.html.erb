@@ -3,20 +3,65 @@
 <% if filter == 1 %>
  <!-- searching for musicien -->
   <form action="/bands" method="get">
-    <input type="text" name="gender" placeholder="demographics">
-    <input type="text" name="experience" placeholder="experience">
+    <div class="slidecontainer">
+            <input type="range" min="Amater" max="advanced" value="intermediate" class="slider" id="slide">
+          </div>
+    <input type="text" name="experience" placeholder="experience" id="range">
     <button type="submit"> confirm</button>
   </form>
   <% else %>
   <!-- searching for band -->
   <form action="/bands" method="get">
-    <input type="text" name="experience" placeholder="experience">
-    <input type="text" name="address" placeholder="Address">
-    <button type="submit"> confirm</button>
+    <div class="slidecontainer">
+            <input type="range" min="1" max="3" value="2" class="slider" id="slide">
+          </div>
+    <input type="text" name="experience" placeholder="experience" id="range">
+
+    <label class="stylebutton">
+      <input type="checkbox" name="is_jumming" value="true"/>
+        Jumming
+    </label>
+    <label class="stylebutton">
+      <input type="checkbox" name="is_live" value="true"/>
+          Live
+    </label>
+    <label class="stylebutton">
+      <input type="checkbox" name="is_composition" value="true"/>
+        Composition
+    </label>
+    <label class="stylebutton">
+      <input type="checkbox" name="is_recording" value="true"/>
+        Recording
+    </label>
+    <label class="stylebutton">
+      <input type="checkbox" name="is_cover" value="true"/>
+        Covering
+    </label>
+    <button type="submit"> Find a band</button>
   </form>
 <% end %>
 
-<!-- i will need these two buttons to go here -->
-<!-- but i need also to bting the previous inputs here by these buttons  -->
-<button type="submit"> <%= link_to "search musician", filter_path(filter:1)=%></button>
-<button type="submit"> <%= link_to "search musician", filter_path(filter:2)=%></button>
+<script>
+  let slider = document.getElementById("slide");
+let output = document.getElementById("range");
+// Display the default slider value
+output.value = "Intermediate";
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  // output.value = this.value;
+  if (slider.value == 1) {
+output.value = "Amater"; // Display the default slider value
+}
+
+else if (slider.value == 2) {
+output.value = "Intermediate";
+
+} else {
+
+output.value = "Advanced";
+
+}
+}
+
+</script>
