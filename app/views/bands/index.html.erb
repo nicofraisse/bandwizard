@@ -1,7 +1,27 @@
+<!-- <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.0/mapbox-gl.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:220px; left: 450px; bottom:0; width:100%; }
+</style> -->
+
 <!-- band search -->
 
 <!-- text -->
 <% unless @bands.nil?%>
+
+<!--   <div class="container">
+    <h2 class="title"><strong>23</strong> search results</h1>
+    <div class="d-flex">
+      <ul style='padding-inline-start: 0px;'>
+        <% @bands.each do |band| %>
+          <div class="card-product">
+            <li><%= link_to band.name ,band_path(band) %></li>
+            <div class="card-product-infos">
+              <li><%=  band.bio %></li>
+ -->
+
   <h2 class="title"><strong>23</strong> search results</h1>
     <div class="card-container">
       <div class="d-flex">
@@ -12,6 +32,7 @@
               <div class="card-band-infos">
                 <li><%=  band.bio %></li>
               </div>
+
             </div>
 
             <% end %>
