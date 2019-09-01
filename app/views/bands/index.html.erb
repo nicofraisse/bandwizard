@@ -13,20 +13,8 @@
                 <li><%=  band.bio %></li>
               </div>
             </div>
-<<<<<<< HEAD
+
             <% end %>
-        </ul>
-        <!-- map -->
-        <div
-          id="map"
-          class="map-custom"
-          style="height: 100%; width: 100%"
-          data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-=======
-          </div>
-          <% end %>
       </ul>
         <% @results = [] %>
       <!-- convert to hash -->
@@ -36,7 +24,7 @@
         <% band["long"] = b.longitude %>
         <% @results.push(band) %>
       <% end %>
-      
+
       <%= link_to "See map", map_path({results:"#{@results}"}) %>
       <!-- map -->
       <div
@@ -45,7 +33,7 @@
         style="height: 100%; width: 100%"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
->>>>>>> e55daffcd9d8a3a9276bb6cc471f9053576178af
+
       </div>
     </div>
 <% end %>
@@ -54,12 +42,10 @@
 
 <!-- text -->
 <% unless @musicians.nil? %>
-<<<<<<< HEAD
+
   <div class="card-container">
-=======
 
   <div class="container">
->>>>>>> e55daffcd9d8a3a9276bb6cc471f9053576178af
     <h1 class="title">Musicians</h1>
       <div class="d-flex">
         <ul style='padding-inline-start: 0px;'>
