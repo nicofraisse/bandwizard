@@ -1,0 +1,26 @@
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.0/mapbox-gl.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:220px; left: 450px; bottom:0; width:100%; }
+</style>
+
+<%@results = JSON.parse params[:results].gsub('=>', ':')  %>
+
+
+<% @markers =  @results.map do |musician|
+            {
+              lat: musician["lat"],
+              lng: musician["long"],
+            }
+          end %>
+
+     <div
+        id="map"
+        class="map-custom"
+        style="height: 50%; width: 50%"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+     </div>
+
