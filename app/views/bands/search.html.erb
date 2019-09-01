@@ -3,6 +3,7 @@
 
 <% if choice == 1 %>
  <!-- searching for musician -->
+
  <div class="container">
   <div class="row">
     <div class="col-6 offset-3">
@@ -11,79 +12,19 @@
           <div class="form-group">
             <label for="exampleFormControlSelect1">What sound is missing in your band?</label>
             <select class="form-control" id="exampleFormControlSelect1" name="instruments">
-              <option>Guitar</option>
-              <option>Bass</option>
-              <option>Drum</option>
-              <option>Synthesizer</option>
-              <option>Piano</option>
-              <option>voice</option>
-              <option>Saxophone</option>
+              <% Instrument.all.each do |instrument| %>
+                <option><%= instrument.name %></option>
+              <% end %>
             </select>
           </div>
-          <br>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles[:name]" value="Afro"/>
-            Afro
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles[:name]" value="Blues"/>
-            Blues
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Country"/>
-            Country
-          </label>
-          <br>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Electronic"/>
-            Electronic
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Flamenco"/>
-            Flamenco
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Folk"/>
-            Folk
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Hip Hop"/>
-            Hip Hop
-          </label>
-          <br>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Jazz"/>
-            Jazz
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Latin"/>
-            Latin
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Pop"/>
-            Pop
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="R&B"/>
-            R&B
-          </label>
-          <br>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Soul"/>
-            Soul
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value=" Rock"/>
-            Rock
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Heavy Metal"/>
-            Heavy Metal
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Punk"/>
-            Punk
-          </label>
+
+          <% Style.all.each do |style| %>
+            <label class="stylebutton">
+              <input type="checkbox" name="styles" value="<%= style.name %>"/>
+              <%= style.name %>
+            </label>
+          <% end %>
+
           <br>
           <input type="text" name="address" placeholder="Address" id="address">
           <br>
@@ -113,77 +54,18 @@
           <div class="form-group">
             <label for="exampleFormControlSelect1">What instrument do you play?</label>
             <select class="form-control" id="exampleFormControlSelect1" name="instruments">
-              <option>Guitar</option>
-              <option>Bass</option>
-              <option>Drum</option>
-              <option>Piano</option>
-              <option>voice</option>
-            </select>
-          </div>
-          <br>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Afro"/>
-            Afro
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Blues"/>
-            Blues
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Country"/>
-            Country
-          </label>
-          <br>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Electronic"/>
-            Electronic
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Flamenco"/>
-            Flamenco
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Folk"/>
-            Folk
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Hip Hop"/>
-            Hip Hop
-          </label>
-          <br>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Jazz"/>
-            Jazz
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Latin"/>
-            Latin
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Pop"/>
-            Pop
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="R&B"/>
-            R&B
-          </label>
-          <br>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Soul"/>
-            Soul
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value=" Rock"/>
-            Rock
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Heavy Metal"/>
-            Heavy Metal
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="styles" value="Punk"/>
-            Punk
-          </label>
+                  <% Instrument.all.each do |instrument| %>
+                    <option><%= instrument.name %></option>
+                  <% end %>
+                </select>
+              </div>
+
+              <% Style.all.each do |style| %>
+                <label class="stylebutton">
+                  <input type="checkbox" name="styles" value="<%= style.name %>"/>
+                  <%= style.name %>
+                </label>
+              <% end %>
           <br>
           <input type="text" name="address" placeholder="Address" id="address">
           <br>
