@@ -88,7 +88,10 @@
           <br>
           <input type="text" name="address" placeholder="Address" id="address">
           <br>
-          <input type="text" name="slider" placeholder="distance (km)">
+          <div class="slidecontainer">
+            <input type="range" min="1" max="10" value="5" class="slider" id="slide">
+          </div>
+          <input type="text" name="slider" placeholder="distance (km)" id="range">
           <input type="hidden" name="choice" value=1>
           <br>
           <div>
@@ -103,7 +106,6 @@
   </div>
 </div>
 <br>
-
 
 <% else %>
 <!-- searching for band -->
@@ -206,6 +208,26 @@
   </div>
 </div>
 <br>
+<script>
+  let slider = document.getElementById("slide");
+let output = document.getElementById("range");
+output.value = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.value = this.value;
+}
+
+</script>
+
+
+
+
+
+
+
+
+
 
 
 <script>
