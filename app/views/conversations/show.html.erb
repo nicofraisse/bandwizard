@@ -1,22 +1,33 @@
 <div class="row col-md-8 col-md-offset-2">
-  <% if @conversation.present? %>
-  <h1><%= @conversation.id %></h1>
 
-<div class="panel panel-default">
-  <% if @conversation.messages.any? %>
-    <div class="panel-body" id="messages">
-      <%= render partial: 'messages/message', collection: @conversation.messages%>
-    </div>
-  <%else%>
+  <% if @conversation.present? %>
+
+    <h1><%= @conversation.id %></h1>
+
+      <div class="panel panel-default">
+
+        <% if @conversation.messages.any? %>
+
+          <div class="panel-body" id="messages">
+            <%= render partial: 'messages/message', collection: @conversation.messages%>
+          </div>
+
+        <% else %>
+
+          <div class="panel-body hidden" id="messages">
+          </div>
+        <% end %>
+
+      </div>
+
+    <%= render partial: 'messages/message_form', locals: {message: @message, conversation: @conversation}%>
+
+  <% else %>
+
     <div class="panel-body hidden" id="messages">
     </div>
-  <%end%>
-</div>
 
-  <%= render partial: 'messages/message_form', locals: {message: @message, conversation: @conversation}%>
+      <%= link_to "add conversation", new_conversation_path({conversation:{user2:@user2}})%>
+  <% end %>
+
 </div>
-<% else %>
-<div class="panel-body hidden" id="messages">
-    </div>
-<%= link_to "add conversation", new_conversation_path({conversation:{user2:@user2}})%>
-<% end %>

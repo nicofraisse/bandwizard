@@ -1,5 +1,15 @@
 .card-container {
   display: flex;
-  flex-direction: inline;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  /*flex-direction: inline;*/
+
+  // justify-content: space-between;
+  background-color: red;
+}
+
+.card-container > div {
+  flex: 0 50%;
+  /*demo*/
+  border: red solid;
+  box-sizing:border-box
 }

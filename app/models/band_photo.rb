@@ -1,4 +1,4 @@
 class BandPhoto < ApplicationRecord
   belongs_to :band
-   mount_uploader :photo, PhotoUploader
+  mount_uploader :photo, PhotoUploader
 end
