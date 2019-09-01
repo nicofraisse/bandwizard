@@ -11,11 +11,15 @@
 <!-- text -->
 <% unless @bands.nil?%>
 
+
+
   <h2 class="title"><strong><%= @bands.count %></strong> search results</h2>
   <div>
     <div style="display: flex;">
       <div class="row">
-        <% @bands.each do |band| %>
+        <% @bands_with_scores_sorted.each do |b| %>
+        <% band = b[0] %>
+        <% score = b[1] %>
           <div class="column">
 
             <div class="card-band">
@@ -28,6 +32,7 @@
                   <% band.styles.each do |style| %>
                     <%= style.name %>
                   <% end %>
+                  <p>Matching score: <%= score %></p>
                 </li>
               </div>
             </div>
