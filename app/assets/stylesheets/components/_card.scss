@@ -1,4 +1,4 @@
-.card-product {
+.card-band {
   overflow: hidden;
   height: 500px;
   width: 50%;
@@ -6,19 +6,19 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-product img {
+.card-band img {
   height: 100%;
   width: 120px;
   object-fit: cover;
 }
 
-.card-product h2 {
+.card-band h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product p {
+.card-band p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -26,6 +26,6 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card-band .card-band-infos {
   padding: 16px;
 }

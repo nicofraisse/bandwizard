@@ -1,4 +1,3 @@
-
 <% choice = params[:choice].to_i %>
 
 <% if choice == 1 %>
@@ -12,6 +11,7 @@
           <div class="form-group">
             <label for="exampleFormControlSelect1">What sound is missing in your band?</label>
             <select class="form-control" id="exampleFormControlSelect1" name="instruments">
+
               <% Instrument.all.each do |instrument| %>
                 <option><%= instrument.name %></option>
               <% end %>
@@ -28,13 +28,17 @@
           <br>
           <input type="text" name="address" placeholder="Address" id="address">
           <br>
-          <input type="text" name="slider" placeholder="distance (km)">
+          <div class="slidecontainer">
+            <input type="range" min="1" max="10" value="5" class="slider" id="slide">
+          </div>
+          <input type="text" name="slider" placeholder="distance (km)" id="range">
           <input type="hidden" name="choice" value=1>
           <br>
           <div>
           <label for="current_position">use my current position</label>
           <input type="checkbox" name="current_position" id="current-position">
           </div>
+          <input type="hidden" name = "address" id="position">
       </div>
     </div>
     <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A MUSICIAN</button>
@@ -42,7 +46,6 @@
   </div>
 </div>
 <br>
-
 
 <% else %>
 <!-- searching for band -->
@@ -54,6 +57,7 @@
           <div class="form-group">
             <label for="exampleFormControlSelect1">What instrument do you play?</label>
             <select class="form-control" id="exampleFormControlSelect1" name="instruments">
+
                   <% Instrument.all.each do |instrument| %>
                     <option><%= instrument.name %></option>
                   <% end %>
@@ -69,7 +73,10 @@
           <br>
           <input type="text" name="address" placeholder="Address" id="address">
           <br>
-          <input type="text" name="slider" placeholder="km">
+          <div class="slidecontainer">
+            <input type="range" min="1" max="10" value="5" class="slider" id="slide">
+          </div>
+          <input type="text" name="slider" placeholder="km" id='range'>
           <input type="hidden" name="choice" value=2>
           <br>
           <div>
@@ -77,6 +84,7 @@
           <input type="checkbox" name="current_position" id="current-position">
           </div>
           <br>
+          <input type="hidden" name = "address" id="position">
       </div>
     </div>
     <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
@@ -85,22 +93,59 @@
   </div>
 </div>
 <br>
+<script>
+  let slider = document.getElementById("slide");
+let output = document.getElementById("range");
+output.value = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.value = this.value;
+}
+
+</script>
+
+
+
+
+
+
+
+
+
 
 
 <script>
+
   const inputButton = document.querySelector('#current-position')
-  const inputForAddress = document.querySelector('#address')
+  const inputForAddress = document.querySelector('#position')
 
   inputButton.addEventListener('click', e => {
     if (e.target.checked) {
       // const currentPosition = new Map
       let string = ''
       const location = navigator.geolocation.getCurrentPosition( e => {
+        document.getElementById("address").disabled = true;
         const latitude = e.coords.latitude
         const longitude = e.coords.longitude
-        inputForAddress.value = `${latitude.toString()}, ${longitude.toString()}`
-        // currentPosition.set('lat', latitude)
-        // currentPosition.set('long', longitude)
+        coordinates = `${latitude.toString()}, ${longitude.toString()}`
+        inputForAddress.value = `${coordinates}`
+
+        // console.log(coordinates)
+        // inputForAddress.value = http.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${coordinates}.json?`)
+  //        request = `https://api.mapbox.com/geocoding/v5/mapbox.places/${coordinates}.json?types=poi&access_token=pk.eyJ1IjoiY2lsYTIwMTkiLCJhIjoiY2swMHhmYXFiMmRrbjNlbWp2Z203bXNpYyJ9.N9bwcX-DoRRQBNXf_DgKoQ`
+  //        request2 = `https://places-dsn.algolia.net/1/places/query --data {"aroundLatLng": "${coordinates}"}`
+
+  //        request3= `http://open.mapquestapi.com/geocoding/v1/reverse?key=KWgRE98qTTA0EAjYTOcPWVhVuRDQgnjF&location=${coordinates}&includeRoadMetadata=true&includeNearestIntersection=true`
+  //       // currentPosition.set('lat', latitude)
+  //       // currentPosition.set('long', longitude)
+  //       fetch(request3)
+  // .then(response => response.json())
+  // .then((data) => {
+  //   console.log(data);
+  // });
+
+        // inputForAddress.value = http.get(request)
       });
 
       // console.log(string)
