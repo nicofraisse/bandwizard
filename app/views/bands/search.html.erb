@@ -208,6 +208,7 @@
 
 
 <script>
+
   const inputButton = document.querySelector('#current-position')
   const inputForAddress = document.querySelector('#address')
 
@@ -219,8 +220,8 @@
         const latitude = e.coords.latitude
         const longitude = e.coords.longitude
         coordinates = `${latitude.toString()}, ${longitude.toString()}`
-        // inputForAddress.value = `${coordinates}`
-        inputForAddress.value = http.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${coordinates}.json?`)
+        inputForAddress.value = `${coordinates}`
+        // inputForAddress.value = http.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${coordinates}.json?`)
 
         // currentPosition.set('lat', latitude)
         // currentPosition.set('long', longitude)
