@@ -11,40 +11,48 @@
 <!-- text -->
 <% unless @bands.nil?%>
 
+  <h2 class="title"><strong><%= @bands.count %></strong> search results</h2>
+  <div>
+    <div style="display: flex;">
+      <div class="row">
+        <% @bands.each do |band| %>
+          <div class="column">
 
-  <h2 class="title"><strong>23</strong> search results</h1>
-    <div class="card-container">
-      <div class="d-flex">
-        <ul style='padding-inline-start: 0px;'>
-          <% @bands.each do |band| %>
             <div class="card-band">
-              <li><%= link_to band.name ,band_path(band) %></li>
-              <div class="card-band-infos">
-                <li><%=  band.bio %></li>
+              <div class="card-band-infos" style="border: 5px solid green;">
+                <li><%= link_to band.name, band_path(band) %></li>
+                <p>Styles:</p>
+                <li>
+                  <% band.styles.each do |style| %>
+                    <%= style.name %>
+                  <% end %>
+                </li>
               </div>
             </div>
-          <% end %>
-        </ul>
 
-        <% @results = [] %>
-      <!-- convert to hash -->
-        <% @bands.each do |b| %>
-          <% band = {} %>
-          <% band["lat"] = b.latitude%>
-          <% band["long"] = b.longitude %>
-          <% @results.push(band) %>
+          </div>
         <% end %>
-
-      <%= link_to "See map", map_path({results:"#{@results}"}) %>
-      <!-- map -->
-      <div
-        id="map"
-        class="map-custom"
-        style="height: 100%; width: 100%"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-    </div>
+
+      <% @results = [] %>
+    <!-- convert to hash -->
+      <% @bands.each do |b| %>
+        <% band = {} %>
+        <% band["lat"] = b.latitude%>
+        <% band["long"] = b.longitude %>
+        <% @results.push(band) %>
+      <% end %>
+
+    <!-- map -->
+<!--       <div
+      id="map"
+      class="map-custom"
+      style="height: 100%; width: 100%"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div> -->
+  </div>
+    <%= link_to "See map", map_path({results:"#{@results}"}) %>
 <% end %>
 
 <!-- musician search -->
@@ -83,12 +91,12 @@
       <%= link_to "See map", map_path({results:"#{@results}"}) %>
 
       <!-- map -->
-      <div
+<!--       <div
         id="map"
         style="height: 300px; width: 600px"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
+      </div> -->
     </div>
   </div>
 <% end %>

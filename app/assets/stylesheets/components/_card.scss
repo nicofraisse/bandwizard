@@ -1,11 +1,19 @@
 .card-band {
   overflow: hidden;
-  height: 500px;
-  width: 50%;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+
+
+.column {
+
+  width: 50%;
+  padding: 5% 5% 5% 5%;
+}
+
+
+/*
 .card-band img {
   height: 100%;
   width: 120px;
@@ -16,6 +24,7 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+
 }
 
 .card-band p {
@@ -29,3 +38,4 @@
 .card-band .card-band-infos {
   padding: 16px;
 }
+*/
