@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "bands/mybands", to: "bands#mybands", as: "mybands"
   get "dashboard/:user_id",  to: "pages#dashboard", as: 'dashboard'
   get "public_profile/:user_id",  to: "pages#public_profile", as: :public_profile
+  get "bands/map",  to: "bands#map", as: :map
   get "edit_profile", to: "pages#edit", as: "edit"
   resources :conversations , only: [:index, :show, :create,:new] do
   end
