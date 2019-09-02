@@ -20,7 +20,7 @@
 
           <% Style.all.each do |style| %>
             <label class="stylebutton">
-              <input type="checkbox" name="styles" value="<%= style.name %>"/>
+              <input type="checkbox" name="style[]" value="<%= style.name %>"/>
               <%= style.name %>
             </label>
           <% end %>
@@ -38,7 +38,7 @@
           <label for="current_position">use my current position</label>
           <input type="checkbox" name="current_position" id="current-position">
           </div>
-          <input type="hidden" name = "address" id="position">
+          <input type="hidden" name = "pos" id="position">
       </div>
     </div>
     <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A MUSICIAN</button>
@@ -85,7 +85,7 @@
           <input type="checkbox" name="current_position" id="current-position">
           </div>
           <br>
-          <input type="hidden" name = "address" id="position">
+          <input type="hidden" name = "pos" id="position">
       </div>
     </div>
     <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
