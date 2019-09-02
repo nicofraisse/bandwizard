@@ -32,7 +32,7 @@
             <input type="range" min="1" max="10" value="5" class="slider" id="slide">
           </div>
           <input type="text" name="slider" placeholder="distance (km)" id="range">
-          <input type="hidden" name="choice" value=1>
+          <input type="hidden" name="myposition" value=1>
           <br>
           <div>
           <label for="current_position">use my current position</label>
@@ -61,7 +61,7 @@
             <label for="exampleFormControlSelect1">What instrument do you play?</label>
             <select class="form-control" id="exampleFormControlSelect1" name="instruments">
 
-                  <% Instrument.all.each do |instrument| %>
+                <% Instrument.all.each do |instrument| %>
                     <option><%= instrument.name %></option>
                   <% end %>
                 </select>
@@ -81,16 +81,39 @@
           </div>
           <input type="text" name="slider" placeholder="km" id='range'>
 
-          <input type="hidden" name="choice" value=2>
+          <input type="hidden" name="experience" value=2>
           <br>
           <div>
           <label for="current_position">use my current position</label>
           <input type="checkbox" name="current_position" id="current-position">
           </div>
           <br>
-
-
           <input type="hidden" name = "pos" id="position">
+
+
+
+          <div class="slidecontainer">
+            <input type="range" min="1" max="3" value="2" class="slider" id="slide">
+          </div>
+          <input type="text" name="experience" placeholder="experience" id="range">
+
+          <label class="stylebutton">
+            <input type="checkbox" name="is_jamming" value="true" checked/> Jamming
+          </label>
+          <label class="stylebutton">
+            <input type="checkbox" name="is_live" value="true" checked/>Play live
+          </label>
+          <label class="stylebutton">
+            <input type="checkbox" name="is_composition" value="true" checked/>Write songs
+          </label>
+          <label class="stylebutton">
+            <input type="checkbox" name="is_recording" value="true" checked/>Record albums
+          </label>
+          <label class="stylebutton">
+            <input type="checkbox" name="is_cover" value="true" checked/>Cover band
+          </label>
+
+
 
         </div>
       </div>
@@ -101,7 +124,7 @@
     </form>
   </div>
   <div class="morefilters">
-    <button class="extrafilters" type="submit"> <%= link_to "MORE FILTERS", filter_path(filter:2)%></button>
+    <button class="extrafilters" type="submit"><%= link_to "MORE FILTERS", filter_path(filter:2)%></button>
   </div>
 </div>
 
