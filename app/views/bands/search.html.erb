@@ -4,8 +4,8 @@
  <!-- searching for musician -->
 
  <div class="container">
-  <div class="row">
-    <div class="col-6 offset-3">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6">
        <div class="searchform">
         <form action="/bands" method="get">
           <div class="form-group">
@@ -18,12 +18,20 @@
             </select>
           </div>
 
-          <% Style.all.each do |style| %>
-            <label class="stylebutton">
-              <input type="checkbox" name="styles[]" value="<%= style.name %>"/>
-              <%= style.name %>
-            </label>
-          <% end %>
+
+
+          <div class="all-filters">
+
+            <% Style.all.each do |style| %>
+              <div class="filter-input">
+                <label class="stylebutton">
+                  <%= style.name %>
+                </label>
+                  <input type="checkbox" name="style[]" value="<%= style.name %>" />
+              </div>
+            <% end %>
+
+          </div>
 
           <br>
           <input type="text" name="address" placeholder="Address" id="address">
@@ -124,7 +132,7 @@ slider.oninput = function() {
 <script>
 
   const inputButton = document.querySelector('#current-position')
-  const inputForAddress = document.querySelector('#position')
+  const inputForAddress = document.querySelector('#address')
 
   inputButton.addEventListener('click', e => {
     if (e.target.checked) {
