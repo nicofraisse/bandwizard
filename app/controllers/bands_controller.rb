@@ -56,26 +56,10 @@ class BandsController < ApplicationController
 
       # ********************* SEARCH BAND ***********************
 
-      # SAME AS SEARCH MUSICIAN
-      # band_instruments = Band.where(needed_instruments: Instrument.where(name: params[:instruments]))
-      # band_styles = Band.where(styles: Style.where(name: params[:styles]))
-      # all_bands = Band.joins(:instruments, :styles).where(instruments: { id: band_instruments.id }, styles: {id: band_styles.id})
 
       # Get all InstrumentBands and StyleBands from the users's input
-
       needed_instru = NeededInstrument.where(instrument: Instrument.find_by_name(params[:instruments]))
       style_band = StyleBand.where(style: Style.find_by_name(params[:styles]))
-
-      all_bands = Band.all
-      unless (style_band == nil || needed_instru == nil)
-        geocoded_address = Geocoder.coordinates(params[:address])
-        geo_bands = Band.near(geocoded_address, params[:slider].to_i,units: :km)
-        near_bands = []
-        geo_bands.each do |element|
-          if all_bands.include?(element)
-            near_bands << element
-          end
-        end
 
 
       score_hash = Hash.new
@@ -104,9 +88,32 @@ class BandsController < ApplicationController
         had_style << "yes"
       end
 
+
+
+
+
+
+
       bands_with_scores = score_hash.to_a
+
+      #  Get _near_bands, the only bands in the search radius
+      all_bands = Band.all
+      geocoded_address = Geocoder.coordinates(params[:Address])
+      geo_bands = Band.near(geocoded_address, params[:slider].to_i,units: :km)
+      near_bands = []
+      geo_bands.each do |element|
+        if all_bands.include?(element)
+          near_bands << element
+        end
+
       @bands_with_scores_sorted = bands_with_scores.sort_by { |e| e[1] }.reverse
+
+      near_bands_with_scores = bands_with_scores.select { |band| near_bands.include?(band[0]) }
+      @near_bands_with_scores_sorted = near_bands_with_scores.sort_by { |e| e[1] }.reverse
+
       @bands_sorted = @bands_with_scores_sorted.map { |e| e[0] }
+      @near_bands_sorted = @near_bands_with_scores_sorted.map { |e| e[0] }
+
       # add a point to all bands which are in these arrays
 
 

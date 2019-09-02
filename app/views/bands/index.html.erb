@@ -17,27 +17,39 @@
   <div>
     <div style="display: flex;">
       <div class="row">
-        <% @bands_with_scores_sorted.each do |b| %>
+        <% @near_bands_with_scores_sorted.each do |b| %>
         <% band = b[0] %>
         <% score = b[1] %>
-          <div class="column">
+          <% unless score == 0 %>
+            <div class="column">
 
-            <div class="card-band">
-              <img style="width: 100%;" src="http://www.8ball-band.co.uk/assets/bxslider/001_1538653226.jpg" alt="Italian Trulli">
+              <div class="card-band">
+                <img style="width: 100%;" src="http://www.8ball-band.co.uk/assets/bxslider/001_1538653226.jpg" alt="Italian Trulli">
 
-              <div class="card-band-infos">
-                <li><%= link_to band.name, band_path(band) %></li>
-                <p>Styles:</p>
-                <li>
-                  <% band.styles.each do |style| %>
-                    <%= style.name %>
-                  <% end %>
+                <div class="card-band-infos">
+                  <%= link_to band.name, band_path(band) %>
+                  <br>
+                  Styles:
+                  <li>
+                    <% band.styles.each do |style| %>
+                      <%= style.name %>
+                    <% end %>
+                  </li>
+                  Needed instruments:
+                  <li>
+                    <% band.instruments.each do |instrument| %>
+                      <%= instrument.name %>
+                    <% end %>
+                  </li>
+                  Address:
+                  <li> <%= band.address %></li>
                   <p>Matching score: <%= score %></p>
-                </li>
-              </div>
-            </div>
 
-          </div>
+                </div>
+              </div>
+
+            </div>
+          <% end %>
         <% end %>
       </div>
 
