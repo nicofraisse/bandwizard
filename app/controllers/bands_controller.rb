@@ -143,69 +143,8 @@ class BandsController < ApplicationController
           }
         end
       end
-    end
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        unless (style_band == nil || needed_instru == nil)
-          if params[:address] == ""
-            address = params[:pos]
-           else
-            address = params[:address]
-           end
-          geocoded_address = Geocoder.coordinates(params[:address])
-          geo_bands = Band.near(geocoded_address, params[:slider].to_i,units: :km)
-          @bands = []
-          geo_bands.each do |element|
-            if c.include?(element)
-              @bands << element
-            end
-          end
-
-
-
-
-
-
-
-
+        end
   def new
     @band = Band.new
     authorize @band
@@ -245,12 +184,4 @@ class BandsController < ApplicationController
     params.require(:band).permit(:name, :bio,:personal_website, :youtube_link, :address, :soundcloud_link, :is_recording,:is_pro,:is_live,:is_jamming, :is_cover,:is_pro,:is_composition,band_photos_attributes:
     [:id, :band_id, :photo])
   end
-  # def filtering_params(params)
-  #   params.slice(:instruments, :styles, :address)
-  # end
-# def params_style
-#   # params.require(:style).permit(:name => [][])
-#   params.permit(:style, {:name => []})
-
-# end
 end
