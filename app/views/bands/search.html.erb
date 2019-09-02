@@ -44,7 +44,7 @@
     </form>
   </div>
     <div class="morefilters">
-      <button class="extrafilters" type="submit"> <%= link_to "MORE FILTERS", filter_path(filter:1)=%></button>
+      <button class="extrafilters" type="submit"> <%= link_to "MORE FILTERS", filter_path(filter:1)%></button>
     </div>
 </div>
     <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A MUSICIAN</button>
@@ -92,16 +92,17 @@
 
           <input type="hidden" name = "pos" id="position">
 
+        </div>
       </div>
-    </div>
+      <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
     </form>
   </div>
-    <div class="morefilters">
-      <button class="extrafilters" type="submit"> <%= link_to "MORE FILTERS", filter_path(filter:2)=%></button>
-    </div>
+  <div class="morefilters">
+    <button class="extrafilters" type="submit"> <%= link_to "MORE FILTERS", filter_path(filter:2)%></button>
+  </div>
 </div>
-    <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
-    <% end %>
+
+<% end %>
 <br>
 <script>
   let slider = document.getElementById("slide");

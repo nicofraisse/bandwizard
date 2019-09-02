@@ -60,7 +60,7 @@ class BandsController < ApplicationController
     else
 
       # ********************* SEARCH BAND ***********************
-
+       # staring band
 
 
       # Get all InstrumentBands and StyleBands from the users's input
