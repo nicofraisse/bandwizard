@@ -18,10 +18,7 @@
             </select>
           </div>
 
-
-
           <div class="all-filters">
-
             <% Style.all.each do |style| %>
               <div class="filter-input">
                 <label class="stylebutton">
@@ -30,7 +27,6 @@
                   <input type="checkbox" name="style[]" value="<%= style.name %>" />
               </div>
             <% end %>
-
           </div>
 
           <br>
@@ -75,12 +71,17 @@
                 </select>
               </div>
 
+             <div class="all-filters">
               <% Style.all.each do |style| %>
-                <label class="stylebutton">
-                  <input type="checkbox" name="styles[]" value="<%= style.name %>"/>
-                  <%= style.name %>
-                </label>
+                <div class="filter-input">
+                  <label class="stylebutton">
+                    <%= style.name %>
+                  </label>
+                    <input type="checkbox" name="style[]" value="<%= style.name %>" />
+                </div>
               <% end %>
+            </div>
+
           <br>
           <input type="text" name="Address" placeholder="Address" id="address">
           <br>
