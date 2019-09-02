@@ -20,7 +20,7 @@
 
           <% Style.all.each do |style| %>
             <label class="stylebutton">
-              <input type="checkbox" name="styles" value="<%= style.name %>"/>
+              <input type="checkbox" name="style[]" value="<%= style.name %>"/>
               <%= style.name %>
             </label>
           <% end %>
@@ -38,7 +38,7 @@
           <label for="current_position">use my current position</label>
           <input type="checkbox" name="current_position" id="current-position">
           </div>
-          <input type="hidden" name = "address" id="position">
+          <input type="hidden" name = "pos" id="position">
       </div>
     </div>
     <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A MUSICIAN</button>
@@ -87,7 +87,10 @@
           <input type="checkbox" name="current_position" id="current-position">
           </div>
           <br>
-          <input type="hidden" name = "banana" id="position">
+
+
+          <input type="hidden" name = "pos" id="position">
+
       </div>
     </div>
     <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
@@ -109,16 +112,6 @@ slider.oninput = function() {
 
 </script>
 
-
-
-
-
-
-
-
-
-
-
 <script>
 
   const inputButton = document.querySelector('#current-position')
@@ -134,31 +127,7 @@ slider.oninput = function() {
         const longitude = e.coords.longitude
         coordinates = `${latitude.toString()}, ${longitude.toString()}`
         inputForAddress.value = `${coordinates}`
-
-        // console.log(coordinates)
-        // inputForAddress.value = http.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${coordinates}.json?`)
-  //        request = `https://api.mapbox.com/geocoding/v5/mapbox.places/${coordinates}.json?types=poi&access_token=pk.eyJ1IjoiY2lsYTIwMTkiLCJhIjoiY2swMHhmYXFiMmRrbjNlbWp2Z203bXNpYyJ9.N9bwcX-DoRRQBNXf_DgKoQ`
-  //        request2 = `https://places-dsn.algolia.net/1/places/query --data {"aroundLatLng": "${coordinates}"}`
-
-  //        request3= `http://open.mapquestapi.com/geocoding/v1/reverse?key=KWgRE98qTTA0EAjYTOcPWVhVuRDQgnjF&location=${coordinates}&includeRoadMetadata=true&includeNearestIntersection=true`
-  //       // currentPosition.set('lat', latitude)
-  //       // currentPosition.set('long', longitude)
-  //       fetch(request3)
-  // .then(response => response.json())
-  // .then((data) => {
-  //   console.log(data);
-  // });
-
-        // inputForAddress.value = http.get(request)
       });
-
-      // console.log(string)
-      // const secret = ...
-      // const url = ...
-      // fetch(url)
-      // .then(response.json())
-      // .then(console.log(data // insert address into dom w/ query select)
-
     }
 
   })
