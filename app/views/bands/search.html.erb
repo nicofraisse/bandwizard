@@ -44,7 +44,7 @@
           <div class="slidecontainer">
             <input type="range" min="1" max="10" value="5" class="slider" id="slide">
           </div>
-          <input type="text" name="slider" placeholder="distance (km)" id="range">
+          <input type="text" name="slider" placeholder="distance (km)" id="range" >
           <input type="hidden" name="myposition" value=1>
           <br>
           <input type="hidden" name = "pos" id="position">
@@ -69,7 +69,8 @@
         <form action="/bands" method="get">
           <div class="form-group">
             <label for="exampleFormControlSelect1">What instrument do you play?</label>
-            <select class="form-control" id="exampleFormControlSelect1" name="instruments">
+
+            <select class="form-control search-band-select" id="exampleFormControlSelect1" name="instruments">
 
 
                 <% Instrument.all.each do |instrument| %>
@@ -98,24 +99,33 @@
           <label for="current_position">use my current position</label>
           <input type="checkbox" name="current_position" id="current-position">
           </div>
-          <div class="slidecontainer">
-            <input type="range" min="1" max="30" value="15" class="slider" id="slide">
-          </div>
-          <input type="text" name="slider" placeholder="km" id='range' >
-
-          <input type="hidden" name="experience" value=2>
-          <br>
-          <br>
-          <input type="hidden" name = "pos" id="position">
-
-
 
           <div class="slidecontainer">
-            <input type="range" min="1" max="3" value="2" class="slider" id="slide">
+            <label for="slide">Distance</label>
+            <input type="range" min="0" max="30" value="15" class="slider" id="slide">
+            <input type="text" name="slider" placeholder="km" id='range-value' hidden>
+            <br>
+            <br>
+            <div class="range-labels">
+              <span class="spanslide">1km</span>
+              <span class="spanslide">15km</span>
+              <span class="spanslide">30km</span>
+            </div>
           </div>
-          <input type="text" name="experience" placeholder="experience" id="range">
-          <br>
-          <br>
+
+          <div class="slidecontainer">
+            <label for="slide">Experience</label>
+            <input type="range" min="1" max="3" value="2" class="slider" id="slider">
+            <input type="text" name="experience" placeholder="experience" id="range-value" hidden>
+            <br>
+            <br>
+            <div class="range-labels">
+              <span class="spanslide">amateur</span>
+              <span class="spanslide">intermediate</span>
+              <span class="spanslide">expert</span>
+            </div>
+          </div>
+
           <div class="all-filters">
             <div class="filter-input">
               <label class="stylebutton">
@@ -142,6 +152,7 @@
                 <input type="checkbox" name="is_cover" value="true" checked/>Cover Band
               </label>
             </div>
+
           </div>
 
 
@@ -157,21 +168,36 @@
   <div class="morefilters">
     <button class="extrafilters" type="submit"><%= link_to "MORE FILTERS", filter_path(filter:2)%></button>
   </div>
+
+  <div id="double-slider">
+    <input type="range" multiple value="10,80" class="multirange" />
+  </div>
 </div>
-
-
 <% end %>
 
 <br>
 <script>
-  let slider = document.getElementById("slide");
-let output = document.getElementById("range");
-output.value = slider.value; // Display the default slider value
+  let sliders = document.querySelectorAll(".slidecontainer");
 
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  output.value = this.value;
-}
+    sliders.forEach( slider => {
+      const sliderElement = slider.querySelector('.slider')
+      const inputValue = slider.querySelector('#range-value')
+      // set the default values
+      inputValue.value = sliderElement.value
+
+      slider.addEventListener('change', e => {
+        inputValue.value = e.target.value
+      })
+    })
+
+
+//   let output = document.getElementById("range");
+// output.value = slider.value; // Display the default slider value
+
+// // Update the current slider value (each time you drag the slider handle)
+// slider.oninput = function() {
+//   output.value = this.value;
+// }
 
 </script>
 
