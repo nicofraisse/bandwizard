@@ -12,9 +12,15 @@ class Band < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode
 
   # search
   scope :instruments, -> (instrument) { where instruments: instrument }
   scope :styles, -> (style) { where styles: style }
   scope :address, -> (address) { where address: address }
+
+  def favorited_by?(user)
+    StarredBand.where(band: self, user: user).count > 0
+  end
 end

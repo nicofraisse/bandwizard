@@ -17,28 +17,61 @@ users = [
   ["simon@gmail.com", "simon", "Simon R"],
   ["esther@gmail.com", "esther", "Esther Dufour"],
   ["paul@gmail.com", "paulo", "Paul Bernard"],
-  ["jennifer@gmail.com", "jennifer", "Jennifer Smith"]
+  ["jennifer@gmail.com", "jennifer", "Jennifer Smith"],
+  ["suzan@gmail.com", "suzan", "Suzan Smith"],
+  ["Greg@gmail.com", "greg", "Gregoire Turo"],
+  ["Jack@gmail.com", "jack", "Jack Slip"],
+  ["Dennis@gmail.com", "dennis", "Dennis Lee"],
+  ["Camille@gmail.com", "camille", "Camille Desautels"],
+  ["Adrien@gmail.com", "adrien", "Adrien Grenier"]
 ]
 password = "123123"
 genders = ["Male", "Female"]
 ages = [14..99]
-user_addresses = ["3555 Edouard-Montpetit Montréal", "2630 St Germain Street Montreal QC H1W 2V3", "800 Rue Gagne Lasalle QC H8P 3W3", "3708 Rue St Hubert Montreal QC H2L 4A2", "7766 George Street Lasalle", "251 Av Percival Montreal", "7503 Rue St Denis Montreal", "5139 avenue Casgrain, Montréal, Canada", "5350 avenue Decelles, Montréal, Canada"]
-user_photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Frankie_%28musician%29_2016.jpg/1200px-Frankie_%28musician%29_2016.jpg", "https://overblown.co.uk/wp-content/uploads/2019/02/Musician-Resume.jpg", "https://media.npr.org/assets/img/2018/11/01/hellojunebyjoshsaul-2e187ce8b2e0a894a03e21d768fd03112727967d-s800-c85.jpg"]
-user_personal_websites = ["https://www.nickelback.com/"]
-user_youtube_links = ["https://www.youtube.com/watch?v=BB0DU4DoPP4"]
+user_addresses = [
+  "3555 Boulevard Edouard-Montpetit, Montréal",
+  "2630 rue St Germain, Montreal, Canada",
+  "773 rue Gagné, Montreal, Canada",
+  "3708 Rue Saint Hubert, Montreal, Canada",
+  "7766 rue George, Lasalle, Canada",
+  "7503 Rue St Denis, Montreal",
+  "5139 avenue Casgrain, Montréal, Canada",
+  "5350 avenue Decelles, Montréal, Canada"
+]
+user_photos = ["https://overblown.co.uk/wp-content/uploads/2019/02/Musician-Resume.jpg", "https://media.npr.org/assets/img/2018/11/01/hellojunebyjoshsaul-2e187ce8b2e0a894a03e21d768fd03112727967d-s800-c85.jpg"]
+user_personal_websites = ["https://www.nihttps://www.youtube.com/watch?v=BB0DU4DoPP4"]
+user_youtube_links = ["https://www.youtube.com/watch?v=Jpw5Y2DMai4"]
 user_soundcloud_links = ["https://soundcloud.com/rojasonthebeat/look-at-me-ft-xxxtentacion"]
 user_bios = ["Extreme communicator. Problem solver. Avid travel expert. Food specialist. Unapologetic coffee guru.", "Incurable tv evangelist. Alcohol aficionado. Food fan. Social mediaholic. Twitter maven.", "Hardcore alcohol evangelist. Beer buff. Social media fanatic. Troublemaker. Explorer.", "Unapologetic social media lover. Twitter fanatic. Web fan. Tv ninja. Music guru. Baconaholic.", "Gamer. Unable to type with boxing gloves on. Social media lover. Extreme music fan. Passionate troublemaker.", "Travel practitioner. Web fanatic. Problem solver. Reader. General explorer. Music junkie. Twitter aficionado."]
 user_bool = [true, true, false]
 
 # STYLE SEED
-styles = ["Blues", "Country", "Electronic", "Flamenco", "Folk", "Hip Hop", "Jazz", "Latin", "Pop", "R&B", "Soul" "Rock", "Heavy Metal", "Punk"]
+# styles = ["Electronic", "Hip Hop", "Jazz", "Rock"]
+styles = ["Blues", "Country", "Electronic", "Flamenco", "Folk", "Hip Hop", "Jazz", "Latin", "Pop", "R&B", "Soul", "Rock", "Heavy Metal", "Punk"]
 
 # INSTRUMENT SEED
-instruments = ["Guitar", "Bass", "Drums", "Vocals", "Synthesizer", "Saxophone", "Violin"]
+instruments = ["Guitar", "Bass", "Drums"]
+# instruments = ["Guitar", "Bass", "Drums", "Vocals", "Synthesizer", "Saxophone", "Violin"]
 
 # BAND SEED
+
 band_name = ["Fateful Local", "Alternate Generation", "Slink Over Acrobat", "Creamy Escort", "Seemingly Yoke Of The Mellow Poetry", "Nickelback", "Nautical Barracuda", "Needy Balboa", "Favored Photograph", "Reverent Banter", "Repressed Wickedly", "Taylor Swift", "Either Cool", "Cool Powder", "Higher Archy", "Spasmodicum", "Wig Week", "Capricult", "Dr. Lov", "Miss Thought", "Dirty Little Secretion"]
 band_bios = ["Communicator. Typical beer trailblazer. Web buff. Professional coffee fanatic. Bacon aficionado.", "Gamer. Incurable twitter junkie. Hardcore analyst. Freelance coffee advocate. Evil pop culture aficionado. Tv guru. Proud student.", "Tv geek. Award-winning travel scholar. Music lover. Student. Coffee junkie. Freelance communicator.", "Typical pop cultureaholic. Music fanatic. Social media buff. Hipster-friendly food scholar. Total gamer. Beer expert.", "Travel enthusiast. Thinker. Total pop culture guru. Infuriatingly humble explorer. Avid bacon geek.", "Bacon nerd. Typical tv fanatic. General twitter evangelist. Beer buff. Lifelong problem solver." ]
+band_addresses = [
+  "3920 boulevard René-Lévesque, Montréal, Canada",
+  "4298 Derry, Malton, Canada",
+  "4470 Pine Street, Alberta, Canada",
+  "4421 Weir Crescent, Toronto, Ontario",
+  "154 Avenue Ballantyne, Montréal",
+  "4205 Bourret Montréal",
+  "459 Rue St Paul Montreal",
+  "10270 rue Meilleur, Montreal",
+  "9167 boulevard Gouin Ouest, Montreal"
+]
+
+
+band_name = ["Fateful Local", "Alternate Generation", "Slink Over Acrobat", "Creamy Escort", "Seemingly Yoke Of The Mellow Poetry", "Nickelback", "Nautical Barracuda", "Needy Balboa", "Favored Photograph", "Reverent Banter", "Repressed Wickedly", "Taylor Swift", "Either Cool", "Cool Powder", "Higher Archy", "Spasmodicum", "Wig Week", "Capricult", "Dr. Lov", "Miss Thought", "Dirty Little Secretion", "Balding Zombies", "The Orange Oysters", "Hipsters in the Windows", "Migraine Birds", "Werewolf Clowns", "Whisky Stew"]
+band_bios = ["Communicator. Typical beer trailblazer. Web buff. Professional coffee fanatic. Bacon aficionado.", "Gamer. Incurable twitter junkie. Hardcore analyst. Freelance coffee advocate. Evil pop culture aficionado. Tv guru. Proud student.", "Tv geek. Award-winning travel scholar. Music lover. Student. Coffee junkie. Freelance communicator.", "Typical pop cultureaholic. Music fanatic. Social media buff. Hipster-friendly food scholar. Total gamer. Beer expert.", "Travel enthusiast. Thinker. Total pop culture guru. Infuriatingly humble explorer. Avid bacon geek.", "Bacon nerd. Typical tv fanatic. General twitter evangelist. Beer buff. Lifelong problem solver.", "" ]
 band_addresses = ["3920 René-Lévesque Blvd, Montréal, Canada", "4298  Derry Rd, Malton, Canada", "4470  Pine Street, Coronation, Alberta, Canada", "4421  Weir Crescent, Toronto, Ontario", "11688 Bd St Germain Montreal", "154 Av Ballantyne N Montréal-Ouest", "4205 Bourret Montréal QC H3S 1X1", "459 Rue St Paul E Montreal QC H2Y 1H5", "10270 Meilleur Street Montreal", "9167 Bd Gouin O Montreal QC H4K 2E2"]
 band_personal_websites = ["http://www.shakaponk.com/"]
 band_youtube_links = ["https://www.youtube.com/watch?v=Jpw5Y2DMai4"]
@@ -46,7 +79,8 @@ band_soundcloud_links = ["https://soundcloud.com/john-talabot/sets/music-for-day
 band_bools = [true, true, true, false]
 
 # MISC SEED
-experiences = ["Beginner", "Intermediate", "Advanced"]
+experiences = ["1", "2", "3"]
+# experiences = ["Beginner", "Intermediate", "Advanced"]
 favorite_artists = ["Radiohead", "Rolling Stones", "Ariana Grande", "The Beatles", "Nickel Back", "Mozart", "LMFAO", "Lil Wayne", "Lil Peep", "Lil Xan", "Lil Pump", "Lil Baby"]
 
 
@@ -59,6 +93,7 @@ NeededInstrument.delete_all
 StyleBand.delete_all
 StyleUser.delete_all
 InstrumentUser.delete_all
+BandPhoto.delete_all
 Style.delete_all
 Instrument.delete_all
 Message.delete_all
@@ -74,6 +109,7 @@ users.each do |user|
     email: user[0],
     username: user[1],
     full_name: user[2],
+    address: user_addresses.sample,
     password: password,
     gender: genders.sample,
     age: ages.sample,
@@ -109,6 +145,7 @@ band_name.each do |name|
     is_cover: band_bools.sample)
 end
 
+
 # Associate band(s) to user
 puts "Associating band(s) to users..."
 all_bands.each_with_index do |band, i|
@@ -119,6 +156,18 @@ all_bands.each_with_index do |band, i|
   end
   band.save!
 end
+
+
+# Associate photos to band
+puts "Associating photos to band"
+all_bands.each do |band|
+  photos = user_photos.sample([1,1].sample)
+  photos.each do |photo|
+    BandPhoto.create!(remote_photo_url: photo, band: band)
+    # band.save!
+  end
+end
+
 
 # Create styles
 puts "Creating styles..."
@@ -179,7 +228,7 @@ end
 # Associate style(s) to bands
 puts "Associating style(s) to bands..."
 all_bands.each do |band|
-  styles = all_styles.sample([2, 2, 2, 2, 3, 3, 1, 1, 1, 4, 5].sample)
+  styles = all_styles.sample([1,2,3,4].sample)
   styles.each do |style|
     StyleBand.create(style: style, band: band)
   end
@@ -189,7 +238,7 @@ end
 puts "Associating needed instrument(s) to users..."
 all_bands.each do |band|
   unless [true, true, true, true, false].sample == false
-    instruments = all_instruments.sample([1, 1, 1, 2].sample)
+    instruments = all_instruments.sample([1, 1, 1, 1].sample)
     instruments.each do |instrument|
       NeededInstrument.create(instrument: instrument, band: band)
     end

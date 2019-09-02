@@ -10,4 +10,23 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [ :username, :full_name, :gender, :age, :address, :photo, :soundcloud_link, :youtube_link, :personal_website, :bio, :is_live, :is_recording, :is_jamming, :is_composition, :is_covers, :is_pro ])
   end
+  # here pundit stuff
+
+  include Pundit
+
+  # Pundit: white-list approach.
+  after_action :verify_authorized, except: [:index, :search,:map, :filter, :show, :public_profile], unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: [:index, :search, :map, :show, :public_profile], unless: :skip_pundit?
+
+  private
+
+  def skip_pundit?
+    devise_controller? || params[:controller] =~ /(^(rails_)?admin).|(^pages$)/
+  end
+
+  def favorite_text
+    return @favorite_exists? "UnHeart" : "Heart"
+  end
+
+ helper_method :favorite_text
 end

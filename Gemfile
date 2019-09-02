@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
-
+gem 'jquery-rails'
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
@@ -17,7 +17,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'geocoder'
-
+gem 'pundit'
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

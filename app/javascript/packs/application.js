@@ -8,9 +8,11 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
-import { initSelect2 } from '../plugins/init_select2';
+import { inputStyling } from '../plugins/input';
+// inputStyling();
+// import { initSelect2 } from '../plugins/init_select2';
 
 
 initMapbox();
 initAutocomplete();
-initSelect2();
+// initSelect2();
