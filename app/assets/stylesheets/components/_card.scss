@@ -2,14 +2,23 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 12px;
+  /*height: 320px;*/
+
 }
 
 
-
 .column {
-
   width: 50%;
-  padding: 5% 5% 5% 5%;
+  padding: 4% 4% 4% 4%;
+}
+
+.bandphoto {
+  width: 90%;
+  padding: 3px;
+  height: 20vh;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 
