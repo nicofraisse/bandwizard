@@ -6,10 +6,9 @@ module ApplicationCable
       self.current_user = find_verified_user
     end
 
-    private
-
     def find_verified_user
-      if verified_user = env["warden"].user
+      verified_user = User.find(UserSession.first.identifier.to_i)
+      if verified_user
         verified_user
       else
         reject_unauthorized_connection
