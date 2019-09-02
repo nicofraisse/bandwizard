@@ -63,6 +63,7 @@ class BandsController < ApplicationController
        # staring band
 
 
+
       # Get all InstrumentBands and StyleBands from the users's input
       needed_instru = NeededInstrument.where(instrument: Instrument.find_by_name(params[:instruments]))
 
