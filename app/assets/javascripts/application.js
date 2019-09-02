@@ -1,4 +1,4 @@
 //= require rails-ujs
-//= require jquery3
+//= require jquery
 //= require_tree .
 //= require_tree ./channels
