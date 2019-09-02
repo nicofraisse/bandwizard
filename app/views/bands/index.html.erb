@@ -9,11 +9,11 @@
 <!-- band search -->
 
 <!-- text -->
-<% unless @bands.nil?%>
+<% unless @near_bands_with_scores_sorted == nil %>
 
 
 
-  <h2 class="title"><strong><%= @bands.count %></strong> search results</h2>
+  <h2 class="title"><strong><%= @near_bands_with_scores_sorted.count %></strong> search results</h2>
   <div>
     <div style="display: flex;">
       <div class="row">
@@ -64,7 +64,7 @@
 
       <% @results = [] %>
     <!-- convert to hash -->
-      <% @bands.each do |b| %>
+      <% @near_bands_sorted.each do |b| %>
         <% band = {} %>
         <% band["lat"] = b.latitude%>
         <% band["long"] = b.longitude %>

@@ -20,7 +20,7 @@
 
           <% Style.all.each do |style| %>
             <label class="stylebutton">
-              <input type="checkbox" name="style[]" value="<%= style.name %>"/>
+              <input type="checkbox" name="styles[]" value="<%= style.name %>"/>
               <%= style.name %>
             </label>
           <% end %>
@@ -69,7 +69,7 @@
 
               <% Style.all.each do |style| %>
                 <label class="stylebutton">
-                  <input type="checkbox" name="styles" value="<%= style.name %>"/>
+                  <input type="checkbox" name="styles[]" value="<%= style.name %>"/>
                   <%= style.name %>
                 </label>
               <% end %>
@@ -94,7 +94,10 @@
 
         </div>
       </div>
-      <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
+
+    </div>
+    <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
+
     </form>
   </div>
   <div class="morefilters">
@@ -102,7 +105,9 @@
   </div>
 </div>
 
+
 <% end %>
+
 <br>
 <script>
   let slider = document.getElementById("slide");
