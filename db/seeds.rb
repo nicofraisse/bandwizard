@@ -259,6 +259,10 @@ message.conversation = conv
 message.user = User.first
 message.save!
 
+# User Session for Action Cable
+puts UserSession.destroy_all
+UserSession.create!(identifier: User.first.id)
+
 puts "************* D O N E *************"
 
 puts("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░")

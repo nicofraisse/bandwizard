@@ -1,5 +1,21 @@
 class ConversationsController < ApplicationController
+  def index
+    @conversations = Conversation.where(user1: current_user).or Conversation.where(user2: current_user)
+  end
+
   def show
+    #  This will
+    # # create a new conversation between you two.
+    # if Conversation.find_by(user1_id: current_user.id, user2_id: params[:user2_id]).nil?
+    #   @conversation = Conversation.create!(user1_id: current_user.id, user2_id: params[:user2_id])
+    # # Link to conversations page from musician profile who you have spoken to before
+    # elsif params[:user2_id]
+    #   @conversation = Conversation.find_by(user1_id: current_user.id, user2_id: params[:user2_id])
+    #
+    # elsif
+    # end
+
+    # Link to conversations page from your 'conversations index' page. params[:id] is the Conversation id.
     if Conversation.where(id: params[:user_id]).present?
       @conversation = Conversation.find_by(id: params[:user_id].to_i)
     else
@@ -15,15 +31,8 @@ class ConversationsController < ApplicationController
         @conversation = Conversation.create!(user1_id: current_user.id, user2_id: params[:user_id])
       end
     end
-    policy_scope(@conversation)
 
     @message = Message.new
-
-  end
-
-  def index
-    @conversations = Conversation.where(user1: current_user).or(Conversation.where(user2: current_user))
-    policy_scope(@conversations)
   end
 
   def new
@@ -38,13 +47,28 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    user1 = current_user
-    user2 = User.find(params[:user_id])
-    @conversation = Conversation.new
-    @conversation.user1 = user1
-    @conversation.user2 = user2
-    @conversation.save!
-    redirect to "conversation/#{conversation.id}"
+
+    # @message = Message.new(message_params)
+    # @message.user = current_user
+    # if message.save!
+    #   puts "MESSAGE SAVED"
+    # else
+    #   redirect_to conversations_path
+    # end
+
+    # user1 = current_user
+    # user2 = User.find(params[:user_id])
+    # @conversation = Conversation.new
+    # @conversation.user1 = user1
+    # @conversation.user2 = user2
+    # @conversation.save!
+    # redirect to "conversation/#{conversation.id}"
+  end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:content, :conversation_id)
   end
 
   private
