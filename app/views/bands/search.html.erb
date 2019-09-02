@@ -67,10 +67,14 @@
 
               <% Style.all.each do |style| %>
                 <label class="stylebutton">
-                  <input type="checkbox" name="styles" value="<%= style.name %>"/>
+                  <input type="checkbox" name="styles[]" value="<%= style.name %>"/>
                   <%= style.name %>
                 </label>
+
+
+
               <% end %>
+
           <br>
           <input type="text" name="Address" placeholder="Address" id="address">
           <br>

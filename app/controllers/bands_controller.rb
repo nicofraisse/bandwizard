@@ -65,7 +65,14 @@ class BandsController < ApplicationController
 
       # Get all InstrumentBands and StyleBands from the users's input
       needed_instru = NeededInstrument.where(instrument: Instrument.find_by_name(params[:instruments]))
-      style_band = StyleBand.where(style: Style.find_by_name(params[:styles]))
+
+      style_band = []
+      params[:styles].each do |style|
+        style_band << StyleBand.where(style: Style.find_by_name(style))
+      end
+      style_band.flatten!
+
+      # style_band = StyleBand.where(style: Style.find_by_name(params[:styles]))
 
       score_hash = Hash.new
       Band.all.each do |band|
@@ -114,27 +121,15 @@ class BandsController < ApplicationController
       @bands_sorted = @bands_with_scores_sorted.map { |e| e[0] }
       @near_bands_sorted = @near_bands_with_scores_sorted.map { |e| e[0] }
 
-      # add a point to all bands which are in these arrays
 
 
-
-      # FORM and array styles and instruments that match the user's input
-
-      # all_bands_by_instrument.each do |element|
-      #   if all_bands_by_style.include?(element)
-      #     c << element
-      #   end
-      # end
 
       # FILTER BY ADDRESS RADIUS
 
 
-        @bands = Band.all
-
-
         # DISPLAY RESULTS ON MAP
 
-        @markers = @bands.map do |band|
+        @markers = @bands_sorted.map do |band|
           {
             lat: band.latitude,
             lng: band.longitude,
@@ -142,8 +137,11 @@ class BandsController < ApplicationController
           }
         end
       end
+    end
   end
-        end
+
+
+
   def new
     @band = Band.new
     authorize @band
