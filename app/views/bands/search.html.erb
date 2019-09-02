@@ -18,6 +18,7 @@
             </select>
           </div>
 
+          <br>
 
           <div class="all-filters">
             <% Style.all.each do |style| %>
@@ -31,18 +32,19 @@
           </div>
 
           <br>
+          <p>What location ?</p>
           <input type="text" name="address" placeholder="Address" id="address">
           <br>
+          <div>
+          <label for="current_position">use my current position</label>
+          <input type="checkbox" name="current_position" id="current-position">
+          </div>
           <div class="slidecontainer">
             <input type="range" min="1" max="10" value="5" class="slider" id="slide">
           </div>
           <input type="text" name="slider" placeholder="distance (km)" id="range">
           <input type="hidden" name="myposition" value=1>
           <br>
-          <div>
-          <label for="current_position">use my current position</label>
-          <input type="checkbox" name="current_position" id="current-position">
-          </div>
           <input type="hidden" name = "pos" id="position">
       </div>
     </div>
@@ -73,6 +75,8 @@
                 </select>
               </div>
 
+              <br>
+
              <div class="all-filters">
               <% Style.all.each do |style| %>
                 <div class="filter-input">
@@ -87,18 +91,17 @@
           <br>
           <input type="text" name="Address" placeholder="Address" id="address">
           <br>
-          <br>
+          <div>
+          <label for="current_position">use my current position</label>
+          <input type="checkbox" name="current_position" id="current-position">
+          </div>
           <div class="slidecontainer">
-            <input type="range" min="1" max="10" value="5" class="slider" id="slide">
+            <input type="range" min="1" max="30" value="15" class="slider" id="slide">
           </div>
           <input type="text" name="slider" placeholder="km" id='range'>
 
           <input type="hidden" name="experience" value=2>
           <br>
-          <div>
-          <label for="current_position">use my current position</label>
-          <input type="checkbox" name="current_position" id="current-position">
-          </div>
           <br>
           <input type="hidden" name = "pos" id="position">
 
