@@ -129,7 +129,7 @@ all_bands.each do |band|
   photos = user_photos.sample([1,1].sample)
   photos.each do |photo|
     BandPhoto.create!(remote_photo_url: photo, band: band)
-    band.save!
+    # band.save!
   end
 end
 
