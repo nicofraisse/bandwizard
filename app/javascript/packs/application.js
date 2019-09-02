@@ -12,6 +12,9 @@ import { inputStyling } from '../plugins/input';
 // inputStyling();
 // import { initSelect2 } from '../plugins/init_select2';
 
+import "../plugins/slider";
+import "../plugins/select2";
+
 
 initMapbox();
 initAutocomplete();
