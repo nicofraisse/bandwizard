@@ -19,4 +19,8 @@ class Band < ApplicationRecord
   scope :instruments, -> (instrument) { where instruments: instrument }
   scope :styles, -> (style) { where styles: style }
   scope :address, -> (address) { where address: address }
+
+  def favorited_by?(user)
+    StarredBand.where(band: self, user: user).count > 0
+  end
 end

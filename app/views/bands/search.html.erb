@@ -1,8 +1,8 @@
 <% choice = params[:choice].to_i %>
 
 <% if choice == 1 %>
- <!-- searching for musician -->
 
+ <!-- SEARCHING FOR MUSICIAN -->
  <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-md-6">
@@ -32,6 +32,7 @@
           </div>
 
           <br>
+          
           <p>What location ?</p>
           <input type="text" name="address" placeholder="Address" id="address">
           <br>
@@ -39,6 +40,7 @@
           <label for="current_position">use my current position</label>
           <input type="checkbox" name="current_position" id="current-position">
           </div>
+
           <div class="slidecontainer">
             <input type="range" min="1" max="10" value="5" class="slider" id="slide">
           </div>
@@ -58,7 +60,8 @@
 <br>
 
 <% else %>
-<!-- searching for band -->
+
+<!-- SEARCHING FOR BAND -->
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-md-6">
@@ -111,22 +114,35 @@
             <input type="range" min="1" max="3" value="2" class="slider" id="slide">
           </div>
           <input type="text" name="experience" placeholder="experience" id="range">
-
-          <label class="stylebutton">
-            <input type="checkbox" name="is_jamming" value="true" checked/> Jamming
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="is_live" value="true" checked/>Play live
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="is_composition" value="true" checked/>Write songs
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="is_recording" value="true" checked/>Record albums
-          </label>
-          <label class="stylebutton">
-            <input type="checkbox" name="is_cover" value="true" checked/>Cover band
-          </label>
+          <br>
+          <br>
+          <div class="all-filters">
+            <div class="filter-input">
+              <label class="stylebutton">
+                <input type="checkbox" name="is_jamming" value="true" checked/>Jamming
+              </label>
+            </div>
+            <div class="filter-input">
+              <label class="stylebutton">
+                <input type="checkbox" name="is_live" value="true" checked/>Play Live
+              </label>
+            </div>
+            <div class="filter-input">
+              <label class="stylebutton">
+                <input type="checkbox" name="is_composition" value="true" checked/>Write Songs
+              </label>
+            </div>
+            <div class="filter-input">
+              <label class="stylebutton">
+                <input type="checkbox" name="is_recording" value="true" checked/>Record Albums
+              </label>
+            </div>
+            <div class="filter-input">
+              <label class="stylebutton">
+                <input type="checkbox" name="is_cover" value="true" checked/>Cover Band
+              </label>
+            </div>
+          </div>
 
 
 
