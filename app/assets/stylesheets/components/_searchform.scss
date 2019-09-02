@@ -1,5 +1,5 @@
 .container {
-  margin-top: 65px;
+
 }
 
 .searchform {
@@ -29,8 +29,12 @@ label {
 
 .slidecontainer {
   margin: 32px auto;
+  width: 10px;
 }
 
+#slide.slider {
+  width: 100%;
+}
 .range-labels {
   display: flex;
   width: 100%;

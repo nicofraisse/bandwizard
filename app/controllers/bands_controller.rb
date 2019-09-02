@@ -1,5 +1,5 @@
 class BandsController < ApplicationController
-   skip_before_action :authenticate_user!, only: [:index, :show,:search,:map, :filter, :public_profile]
+   skip_before_action :authenticate_user!, only: [:index, :show,:search,:map, :filter, :public_profile, :mybands]
    skip_after_action :verify_policy_scoped, only: [:index, :show,:search, :map, :public_profile]
   def index
    @choice = params[:choice].to_i
@@ -153,6 +153,8 @@ class BandsController < ApplicationController
   end
   def mybands
     @bands = Band.where(user: current_user)
+    @bands = policy_scope(Band)
+    authorize @bands
   end
   def musicians
     @musicians = User.all
