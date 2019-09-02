@@ -1,6 +1,7 @@
 class ConversationsController < ApplicationController
   def index
     @conversations = Conversation.where(user1: current_user).or Conversation.where(user2: current_user)
+    policy_scope(@conversations)
   end
 
   def show
@@ -31,18 +32,14 @@ class ConversationsController < ApplicationController
         @conversation = Conversation.create!(user1_id: current_user.id, user2_id: params[:user_id])
       end
     end
+    authorize @conversation
+    policy_scope(@conversation)
 
     @message = Message.new
   end
 
   def new
-    @conversation = Conversation.new
-    user1 = current_user
-    user2 = User.find(params_conv[:user2])
-    @conversation = Conversation.new
-    @conversation.user1 = user1
-    @conversation.user2 = user2
-    @conversation.save!
+      @conversation = Conversation.new
     @message = Message.new
   end
 
