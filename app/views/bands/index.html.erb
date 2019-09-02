@@ -5,7 +5,8 @@
   body { margin:0; padding:0; }
   #map { position:absolute; top:220px; left: 450px; bottom:0; width:100%; }
 </style> -->
-
+<!-- cdn link to paste in your <head> -->
+<head><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"></head>
 <!-- band search -->
 
 <!-- text -->
@@ -30,7 +31,15 @@
                     <div class="card-band-infos">
                       <!-- checkbox for stars -->
                     <% unless current_user.nil? %>
-                     <%= link_to band.favorited_by?(current_user) ? "UnHeart" : "Heart", stars_path(band), method: :post , id:"favorite_link-#{band.id}",remote:true %>
+
+                      <%= button_to stars_path(band), method: :post, id:"favorite_link-#{band.id}",remote:true  do %>
+                        <% if band.favorited_by?(current_user) %>
+                          <i class="fas fa-star"></i>
+                        <% else %>
+                          <i class="far fa-star"></i>
+                        <% end %>
+                      <% end %>
+
                     <% end %>
                      <!-- checkbox for stars -->
                       <!--  -->

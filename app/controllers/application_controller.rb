@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def favorite_text
-    return @favorite_exists? "UnHeart" : "Heart"
+    return @favorite_exists? "<i class='fas fa-star'></i>".html_safe : "<i class='far fa-star'></i>".html_safe
   end
 
  helper_method :favorite_text
