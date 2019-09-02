@@ -62,9 +62,10 @@ class BandsController < ApplicationController
       # ********************* SEARCH BAND ***********************
        # staring band
 
-
       # Get all InstrumentBands and StyleBands from the users's input
       needed_instru = NeededInstrument.where(instrument: Instrument.find_by_name(params[:instruments]))
+      needed_goals = ["is_jamming", "is_live", "is_composition", "is_recording", "is_cover"]
+
 
       style_band = []
       params[:styles].each do |style|
@@ -72,7 +73,6 @@ class BandsController < ApplicationController
       end
       style_band.flatten!
 
-      # style_band = StyleBand.where(style: Style.find_by_name(params[:styles]))
 
       score_hash = Hash.new
       Band.all.each do |band|
@@ -85,10 +85,9 @@ class BandsController < ApplicationController
 
       had_instrument = []
       all_bands_by_instrument.each do |band|
-        score_hash[band] += 1
+        score_hash[band] += 3
         had_instrument << "yup"
       end
-
 
       all_bands_by_style = style_band.map do |style|
         style.band
@@ -101,9 +100,37 @@ class BandsController < ApplicationController
       end
 
 
-      bands_with_scores = score_hash.to_a
+      # GOALS
+      Band.all.each do |band|
+        if band.is_jamming.to_s == params[:is_jamming]
+          score_hash[band] += 1
+        end
+        if band.is_live.to_s == params[:is_live]
+          score_hash[band] += 1
+        end
+        if band.is_composition.to_s == params[:is_composition]
+          score_hash[band] += 1
+        end
+        if band.is_recording.to_s == params[:is_recording]
+          score_hash[band] += 1
+        end
+        if band.is_cover.to_s == params[:is_cover]
+          score_hash[band] += 1
+        end
+      end
+
+
+
+      # EXPERIENCE
+
+      Band.all.each do |band|
+        if band.experience == params[:experience]
+          score_hash[band] += 1
+        end
+      end
 
       #  Get _near_bands, the only bands in the search radius
+      bands_with_scores = score_hash.to_a
       all_bands = Band.all
       geocoded_address = Geocoder.coordinates(params[:Address])
       geo_bands = Band.near(geocoded_address, params[:slider].to_i,units: :km)
@@ -112,6 +139,7 @@ class BandsController < ApplicationController
         if all_bands.include?(element)
           near_bands << element
         end
+      end
 
       @bands_with_scores_sorted = bands_with_scores.sort_by { |e| e[1] }.reverse
 
@@ -122,21 +150,19 @@ class BandsController < ApplicationController
       @near_bands_sorted = @near_bands_with_scores_sorted.map { |e| e[0] }
 
 
-      # raise
-
       # FILTER BY ADDRESS RADIUS
 
 
         # DISPLAY RESULTS ON MAP
 
-        @markers = @bands_sorted.map do |band|
-          {
-            lat: band.latitude,
-            lng: band.longitude,
-            infoWindow: render_to_string(partial: "info_window", locals: { band: band })
-          }
-        end
+      @markers = @bands_sorted.map do |band|
+        {
+          lat: band.latitude,
+          lng: band.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { band: band })
+        }
       end
+
     end
   end
 
