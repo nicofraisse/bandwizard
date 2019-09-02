@@ -59,9 +59,7 @@ class BandsController < ApplicationController
     #render "results"
     else
 
-      # ********************* SEARCH BAND ***********************
-       # staring band
-
+      # ********************* SEARCH BAND **********************
       # Get all InstrumentBands and StyleBands from the users's input
       needed_instru = NeededInstrument.where(instrument: Instrument.find_by_name(params[:instruments]))
       needed_goals = ["is_jamming", "is_live", "is_composition", "is_recording", "is_cover"]

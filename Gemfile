@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
-
+gem 'jquery-rails'
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'

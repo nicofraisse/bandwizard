@@ -26,12 +26,9 @@
 
                 <div class="card-band-infos">
                   <!-- checkbox for stars -->
-
-                <label class="stylebutton">
-                  <input type="checkbox" name="star" value=""/>
-                     heart
-                </label>
-
+                <% unless current_user.nil? %>
+                 <%= link_to band.favorited_by?(current_user) ? "UnHeart" : "Heart", stars_path(band), method: :post , id:"favorite_link-#{band.id}",remote:true %>
+                <% end %>
                  <!-- checkbox for stars -->
                   <!--  -->
                   <%= link_to band.name, band_path(band) %>
