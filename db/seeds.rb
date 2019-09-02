@@ -90,6 +90,7 @@ FavoriteArtistUser.delete_all
 FavoriteBandArtist.delete_all
 FavoriteArtist.delete_all
 NeededInstrument.delete_all
+StarredBand.delete_all
 StyleBand.delete_all
 StyleUser.delete_all
 InstrumentUser.delete_all
