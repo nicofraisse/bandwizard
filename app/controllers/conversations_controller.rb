@@ -1,12 +1,29 @@
 class ConversationsController < ApplicationController
   def show
-    @user2 = User.find(params[:id])
-    @conversation = Conversation.find_by(user1:current_user,user2:@user2)
-    @messages = @conversation.messages if @conversation.present?
+    if Conversation.where(id: params[:user_id]).present?
+      @conversation = Conversation.find_by(id: params[:user_id].to_i)
+    else
+      # Link to conversations page from the musician show page
+      if Conversation.find_by(user1_id: current_user.id, user2_id: params[:user_id])
+        # Find an existing conversation between current user and musician.
+        @conversation = Conversation.find_by(user1_id: current_user.id, user2_id: params[:user_id])
+      elsif Conversation.find_by(user1_id: params[:user_id], user2_id: current_user.id)
+        # Find an existing conversation between current user and musician.
+        @conversation = Conversation.find_by(user1_id: params[:user_id], user2_id: current_user.id)
+      else
+        # Create a new conversation between current user and musician if no musician exists yet.
+        @conversation = Conversation.create!(user1_id: current_user.id, user2_id: params[:user_id])
+      end
+    end
+    policy_scope(@conversation)
+
+    @message = Message.new
+
   end
 
   def index
     @conversations = Conversation.where(user1: current_user).or(Conversation.where(user2: current_user))
+    policy_scope(@conversations)
   end
 
   def new

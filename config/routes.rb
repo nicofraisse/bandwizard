@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers:{sessions: 'sessions'}
 
   mount ActionCable.server => '/cable'
 
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post "bands/:band_id/stars",  to: "starred_bands#create", as: :stars
   get "bands/map",  to: "bands#map", as: :map
   get "edit_profile", to: "pages#edit", as: "edit"
-  resources :conversations , only: [:index, :show, :create,:new] do
+  resources :conversations , only: [:index, :show, :create,:new], param: :user_id do
   end
   resources :messages , only: [:create]
 
