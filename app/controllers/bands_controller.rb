@@ -1,6 +1,6 @@
 class BandsController < ApplicationController
-   skip_before_action :authenticate_user!, only: [:index, :show,:search,:map,:filter]
-   skip_after_action :verify_policy_scoped, only: [:index, :show,:search,:map]
+   skip_before_action :authenticate_user!, only: [:index, :show,:search,:map, :filter, :public_profile]
+   skip_after_action :verify_policy_scoped, only: [:index, :show,:search, :map, :public_profile]
   def index
 
    @choice = params[:choice].to_i
