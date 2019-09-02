@@ -122,7 +122,7 @@ class BandsController < ApplicationController
       @near_bands_sorted = @near_bands_with_scores_sorted.map { |e| e[0] }
 
 
-
+      # raise
 
       # FILTER BY ADDRESS RADIUS
 
