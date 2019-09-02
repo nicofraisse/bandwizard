@@ -45,14 +45,12 @@
                       <!--  -->
                       <%= link_to band.name, band_path(band) %>
                       <br>
-                      Styles:
                       <li>
-                        <% band.styles.each do |style| %>
-                          <%= style.name %>
+                        <% band.styles.each_with_index do |style, i| %>
+                          <%= style.name %><%= i == band.styles.count - 1 ? "" : ", " %>
                         <% end %>
                       </li>
-                      Needed instruments:
-                      <li>
+                      <li style="color: red;">
                         <% band.instruments.each do |instrument| %>
                           <%= instrument.name %>
                         <% end %>
