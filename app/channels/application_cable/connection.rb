@@ -10,14 +10,26 @@ module ApplicationCable
     end
 
     def find_verified_user
-      User.find(2)
-      # verified_user = User.find_by(id: cookies.signed[:user_id])
-      # # binding.pry
-      # if verified_user
-      #   verified_user
-      # else
-      #   reject_unauthorized_connection
-      # end
+      # binding.pry
+
+      # puts "session in cable start"
+      # # puts cookies.signed.size
+      # puts cookies.signed[:user_id]
+      # puts cookies.encrypted[:user_id]
+      # puts "session in cable end"
+      # p "my user session"
+      # p UserSession.last.identifier
+      # puts "session" + session[:user_id].to_s
+      # puts cookies.signed['user_id']
+
+      # User.find(4)
+
+      verified_user = User.find(UserSession.first.identifier.to_i)
+      if verified_user
+        verified_user
+      else
+        reject_unauthorized_connection
+      end
     end
   end
 end

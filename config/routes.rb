@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  root to: 'pages#home', as: "home"
+  devise_for :users, :controllers => { sessions: 'sessions' }
 
   mount ActionCable.server => '/cable'
 
-  resources :conversations, param: :user2_id
+  resources :conversations, param: :user_id
   resources :messages
 
-  root to: 'pages#home', as: "home"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "bands/search", to: "bands#search" ,as: "search"
   get "bands", to: "bands#index"
