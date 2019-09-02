@@ -9,11 +9,9 @@
 <!-- band search -->
 
 <!-- text -->
-<% unless @bands.nil?%>
+<% unless @near_bands_with_scores_sorted == nil%>
 
-
-
-  <h2 class="title"><strong><%= @bands.count %></strong> search results</h2>
+  <h2 class="title"><strong><%= @near_bands_with_scores_sorted.count %></strong> search results</h2>
   <div>
     <div style="display: flex;">
       <div class="row">
@@ -30,11 +28,9 @@
                   <%= link_to band.name, band_path(band) %>
                   <br>
                   Styles:
-                  <li>
-                    <% band.styles.each do |style| %>
-                      <%= style.name %>
-                    <% end %>
-                  </li>
+                  <% band.styles.each do |style| %>
+                    <li><%= style.name %></li>
+                  <% end %>
                   Needed instruments:
                   <li>
                     <% band.instruments.each do |instrument| %>
@@ -55,7 +51,7 @@
 
       <% @results = [] %>
     <!-- convert to hash -->
-      <% @bands.each do |b| %>
+      <% @near_bands_sorted.each do |b| %>
         <% band = {} %>
         <% band["lat"] = b.latitude%>
         <% band["long"] = b.longitude %>
