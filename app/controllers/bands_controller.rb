@@ -68,7 +68,7 @@ class BandsController < ApplicationController
 
 
       style_band = []
-      params[:styles].each do |style|
+      params[:style].each do |style|
         style_band << StyleBand.where(style: Style.find_by_name(style))
       end
       style_band.flatten!
