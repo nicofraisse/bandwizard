@@ -20,6 +20,7 @@
       <br>
       Soundcloud link: <strong><%= @band.soundcloud_link %></strong></p>
     </div>
+    <%= link_to "message ME" ,conversation_path(@band.user)%>
   </div>
     <div class="tab-2">
       <label for="tab2-2">DETAILS</label>
