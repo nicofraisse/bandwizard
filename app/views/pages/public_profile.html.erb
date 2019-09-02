@@ -1,2 +1,79 @@
 <%= @musician.username %>
-<%= link_to "message ME" ,conversation_path(@musician)%>
+
+
+<p class="bandimage">musician PHOTO</p>
+
+<div class="mybands">
+  <div class="titlename">
+    <h2><%=  @musician.username %></h2>
+    <h6><%=  @musician.address %></h6>
+  <div class="tabs">
+    <div class="tab-2">
+      <label for="tab2-1">BIO</label>
+      <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
+    <div>
+      <p><strong><%=  @musician.bio %></strong>
+      <br>
+      <br>
+      Photo: <strong><%=  @musician.photo%></strong>
+      <br>
+      Youtube link: <strong><%=  @musician.youtube_link %></strong>
+      <br>
+      Personal website: <strong><%=  @musician.personal_website %></strong>
+      <br>
+      Soundcloud link: <strong><%=  @musician.soundcloud_link %></strong></p>
+    </div>
+    <%= link_to "message ME" ,conversation_path(@musician)%>
+  </div>
+    <div class="tab-2">
+      <label for="tab2-2">DETAILS</label>
+      <input id="tab2-2" name="tabs-two" type="radio">
+    <div>
+      <p>Open to play live: <strong><%= @musician.is_live %></strong>
+      <br>
+      Open to album recording: <strong><%= @musician.is_recording %></strong>
+      <br>
+      Open for just jamming: <strong><%= @musician.is_jamming %></strong>
+      <br>
+      Open to composing: <strong><%= @musician.is_composition %></strong>
+      <br>
+      Open to playing covers:  <strong><%= @musician.is_cover %></strong>
+      <br>
+      Experience: <strong><%= @musician.experience %></strong>
+      Longitude: <strong><%= @musician.longitude %></strong>
+      Latitude: <strong><%= @musician.latitude %></strong></p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

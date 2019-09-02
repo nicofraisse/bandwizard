@@ -9,11 +9,11 @@
 <!-- band search -->
 
 <!-- text -->
-<% unless @bands.nil?%>
+<% unless @near_bands_with_scores_sorted == nil %>
 
 
 
-  <h2 class="title"><strong><%= @bands.count %></strong> search results</h2>
+  <h2 class="title"><strong><%= @near_bands_with_scores_sorted.count %></strong> search results</h2>
   <div>
     <div style="display: flex;">
       <div class="row">
@@ -27,6 +27,15 @@
                 <img style="width: 100%;" src="http://www.8ball-band.co.uk/assets/bxslider/001_1538653226.jpg" alt="Italian Trulli">
 
                 <div class="card-band-infos">
+                  <!-- checkbox for stars -->
+
+                <label class="stylebutton">
+                  <input type="checkbox" name="star" value=""/>
+                     heart
+                </label>
+
+                 <!-- checkbox for stars -->
+                  <!--  -->
                   <%= link_to band.name, band_path(band) %>
                   <br>
                   Styles:
@@ -55,7 +64,7 @@
 
       <% @results = [] %>
     <!-- convert to hash -->
-      <% @bands.each do |b| %>
+      <% @near_bands_sorted.each do |b| %>
         <% band = {} %>
         <% band["lat"] = b.latitude%>
         <% band["long"] = b.longitude %>
