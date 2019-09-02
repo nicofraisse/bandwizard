@@ -79,7 +79,8 @@ band_soundcloud_links = ["https://soundcloud.com/john-talabot/sets/music-for-day
 band_bools = [true, true, true, false]
 
 # MISC SEED
-experiences = ["Beginner", "Intermediate", "Advanced"]
+experiences = ["1", "2", "3"]
+# experiences = ["Beginner", "Intermediate", "Advanced"]
 favorite_artists = ["Radiohead", "Rolling Stones", "Ariana Grande", "The Beatles", "Nickel Back", "Mozart", "LMFAO", "Lil Wayne", "Lil Peep", "Lil Xan", "Lil Pump", "Lil Baby"]
 
 
