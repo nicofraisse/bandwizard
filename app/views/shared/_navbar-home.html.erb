@@ -1,0 +1,20 @@
+<div class="top-navbar" style="height: 52px;">
+
+  <%= image_tag "hamburger.png", class: "avatar dropdown-toggle", style: "position: absolute; top:24px; right: 16px", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+
+
+    <% if user_signed_in? %>
+      <%= link_to "Home", home_path, class: "dropdown-item" %>
+      <%= link_to "Profile", dashboard_path(current_user), class: "dropdown-item" %>
+      <%= link_to "Messages", conversations_path, class: "dropdown-item" %>
+      <%= link_to "My stars", "#", class: "dropdown-item" %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
+    <% end %>
+  </div>
+</div>

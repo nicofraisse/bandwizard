@@ -1,48 +1,77 @@
 <% filter = params[:filter].to_i %>
 
 <% if filter == 1 %>
- <!-- searching for musicien -->
+ <!-- searching for musician -->
   <form action="/bands" method="get">
-    <div class="slidecontainer">
-            <input type="range" min="Amater" max="advanced" value="intermediate" class="slider" id="slide">
-          </div>
-    <input type="text" name="experience" placeholder="experience" id="range">
-    <button type="submit"> confirm</button>
-  </form>
-  <% else %>
-  <!-- searching for band -->
-  <form action="/bands" method="get">
-    <div class="slidecontainer">
+     <div class="slidecontainer">
             <input type="range" min="1" max="3" value="2" class="slider" id="slide">
           </div>
     <input type="text" name="experience" placeholder="experience" id="range">
+  </form>
 
-    <label class="stylebutton">
-      <input type="checkbox" name="is_jumming" value="true"/>
-        Jumming
-    </label>
-    <label class="stylebutton">
-      <input type="checkbox" name="is_live" value="true"/>
-          Live
-    </label>
-    <label class="stylebutton">
-      <input type="checkbox" name="is_composition" value="true"/>
-        Composition
-    </label>
-    <label class="stylebutton">
-      <input type="checkbox" name="is_recording" value="true"/>
-        Recording
-    </label>
-    <label class="stylebutton">
-      <input type="checkbox" name="is_cover" value="true"/>
-        Covering
-    </label>
-    <button type="submit"> Find a band</button>
+  <% else %>
+  <!-- searching for band -->
+  <br>
+
+  <form action="/bands" method="get">
+
+    <p class="level">Level of Experience</p>
+
+      <div class="slidecontainer">
+        <input type="range" min="1" max="3" value="2" class="slider" id="slide">
+      </div>
+
+        <input type="text" name="experience" placeholder="experience" id="range">
+
+      <br>
+      <br>
+      <br>
+
+      <p class="opento">You are Open To</p>
+
+
+
+    <div class="all-filters">
+
+      <div class="filter-input">
+        <label class="stylebutton">
+          <input type="checkbox" name="is_jamming" value="true"/>
+            Jamming
+        </label>
+      </div>
+      <div class="filter-input">
+        <label class="stylebutton">
+          <input type="checkbox" name="is_live" value="true"/>
+            Live Performance
+        </label>
+      </div>
+      <div class="filter-input">
+        <label class="stylebutton">
+          <input type="checkbox" name="is_composition" value="true"/>
+            Music Composition
+        </label>
+      </div>
+      <div class="filter-input">
+      <label class="stylebutton">
+          <input type="checkbox" name="is_recording" value="true"/>
+            Recording
+        </label>
+      </div>
+      <div class="filter-input">
+        <label class="stylebutton">
+          <input type="checkbox" name="is_cover" value="true"/>
+            Covers
+        </label>
+      </div>
+    </div>
+
+
+    <button class="searchbutton type="submit"> Find a band</button>
   </form>
 <% end %>
 
 <script>
-  let slider = document.getElementById("slide");
+let slider = document.getElementById("slide");
 let output = document.getElementById("range");
 // Display the default slider value
 output.value = "Intermediate";
@@ -51,7 +80,7 @@ output.value = "Intermediate";
 slider.oninput = function() {
   // output.value = this.value;
   if (slider.value == 1) {
-output.value = "Amater"; // Display the default slider value
+output.value = "Amateur"; // Display the default slider value
 }
 
 else if (slider.value == 2) {
