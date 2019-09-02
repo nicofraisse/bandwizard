@@ -3,6 +3,3 @@
 <% @conversations.each do |conversation| %>
   <%= link_to "#{conversation.user1.username} and #{conversation.user2.username}", conversation_path(conversation.id) %>
 <% end %>
-
-signed <%= cookies.signed[:user_id] %>
-encrypted <%= cookies.encrypted[:user_id] %>
