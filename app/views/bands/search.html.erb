@@ -20,7 +20,7 @@
 
           <% Style.all.each do |style| %>
             <label class="stylebutton">
-              <input type="checkbox" name="styles" value="<%= style.name %>"/>
+              <input type="checkbox" name="styles" id=styles value="<%= style.name %>"/>
               <%= style.name %>
             </label>
           <% end %>
@@ -160,3 +160,4 @@ slider.oninput = function() {
   })
 
 </script>
+
