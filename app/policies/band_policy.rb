@@ -3,7 +3,7 @@ class BandPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-
+  end
 
     def show?
       return true # anyone can visit the show page
@@ -25,11 +25,15 @@ class BandPolicy < ApplicationPolicy
       user_is_owner?
     end
 
+    def mybands?
+      true
+    end
+
   private
 
   def user_is_owner?
     puts record
     return user == record.user
   end
-  end
+
 end

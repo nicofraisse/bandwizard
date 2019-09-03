@@ -8,10 +8,6 @@
   </div>
 
 <%= link_to "My Bands", mybands_path %>
-<%= link_to "Edit Profile", edit_path %>
-
-<%= link_to "Add Conversation", new_conversation_path %>
-
 <div class="tabs">
     <div class="tab-2">
       <label for="tab2-1">BIO</label>
@@ -26,21 +22,20 @@
       <br>
       Soundcloud link: <strong><%=  @musician.soundcloud_link %></strong></p>
     </div>
-    <%= link_to "message ME" ,conversation_path(@musician)%>
   </div>
     <div class="tab-2">
       <label for="tab2-2">DETAILS</label>
       <input id="tab2-2" name="tabs-two" type="radio">
     <div>
-      <p>Open to play live: <strong><%= @musician.is_live %></strong>
+      <p>Open to play: <strong><%= "Live" if @musician.is_live? %></strong>
       <br>
-      Open to album recording: <strong><%= @musician.is_recording %></strong>
+       <strong><%= "Recording" if @musician.is_recording? %></strong>
       <br>
-      Open for just jamming: <strong><%= @musician.is_jamming %></strong>
+       <strong><%= "Jamming" if @musician.is_jamming? %></strong>
       <br>
-      Open to composing: <strong><%= @musician.is_composition %></strong>
+       <strong><%= "Composition" if @musician.is_composition? %></strong>
       <br>
-      Open to playing covers:  <strong><%= @musician.is_covers %></strong>
+      <strong><%=  "Covers" if @musician.is_covers? %></strong>
       <br>
       </p>
     </div>
