@@ -1,6 +1,5 @@
 <div style="display: flex; width: 100%; justify-content: center;">
   <h2 style="color: white; position: absolute; top: 0px; margin: 0 auto; z-index: 3000000000; text-align: center; width: 75%;">
-    <%= current_user.username.capitalize %> and <%= current_user.id == @conversation.user1_id ? User.find(@conversation.user2_id).username.capitalize : User.find(@conversation.user1_id).username.capitalize %>
   </h1>
 </div>
 

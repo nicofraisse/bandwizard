@@ -47,7 +47,7 @@ user_bool = [true, true, false]
 
 # STYLE SEED
 # styles = ["Electronic", "Hip Hop", "Jazz", "Rock"]
-styles = ["Blues", "Country", "Electronic", "Flamenco", "Folk", "Hip Hop", "Jazz", "Latin", "Pop", "R&B", "Soul", "Rock", "Heavy Metal", "Punk"]
+styles = ["Blues", "Electronic", "Hip Hop", "Jazz", "Pop", "R&B", "Rock", "Metal", "Punk"]
 
 # INSTRUMENT SEED
 instruments = ["Guitar", "Bass", "Drums"]
