@@ -1,6 +1,11 @@
-<%= form_for message, remote: true, authenticity_token: true do |f| %>
- <%= f.label :your_message %>:
- <%= f.text_area :msg, class: "form-control", data: {textarea: "message"} %>
- <%= f.hidden_field :conversation_id, value: conversation.id %>
- <%= f.submit "send", class: "btn btn-primary", data: {send: "message"} %>
-<% end %>
+<div class="center-msg-container">
+  <div>
+    <%= form_for message, remote: true, authenticity_token: true do |f| %>
+      <%= f.text_area :msg, class: "form-control msg-box", data: {textarea: "message"} %>
+      <%= f.hidden_field :conversation_id, value: conversation.id %>
+  </div>
+  <div>
+      <%= f.submit "Send", class: "btn btn-primary send-btn", data: {send: "message"} %>
+    <% end %>
+  </div>
+</div>
