@@ -7,15 +7,7 @@
   }
 </style>
 
-<%@results = JSON.parse params[:results].gsub('=>', ':')  %>
 
-
-<% @markers =  @results.map do |musician|
-            {
-              lat: musician["lat"],
-              lng: musician["long"],
-            }
-          end %>
 
      <div
         id="map"

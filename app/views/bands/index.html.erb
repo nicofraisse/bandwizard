@@ -66,10 +66,11 @@
           <% @results = [] %>
         <!-- convert to hash -->
           <% @near_bands_sorted.each do |b| %>
-            <% band = {} %>
-            <% band["lat"] = b.latitude%>
-            <% band["long"] = b.longitude %>
-            <% @results.push(band) %>
+          <% @results.push(b.id) %>
+            <%# band = {} %>
+            <%# band["lat"] = b.latitude%>
+            <%# band["long"] = b.longitude %>
+            <%# @results.push(band) %>
           <% end %>
 
         <!-- map -->
@@ -82,7 +83,7 @@
         </div> -->
       </div>
 
-    <%= link_to(image_tag("mapicon.png", size: "70"), map_path({results:"#{@results}"}), :class => "mapbtn") %>
+    <%= link_to(image_tag("mapicon.png", size: "70"), map_path({results: @results}), :class => "mapbtn") %>
     <% end %>
   </div>
 
@@ -111,15 +112,16 @@
     <% @results = [] %>
     <!-- convert to hash -->
     <% @musicians.each do |m| %>
-      <% musician = {} %>
-      <% musician["lat"] = m.latitude%>
-      <% musician["long"] = m.longitude %>
-      <% musician["address"] = m.address %>
-      <% musician["username"] = m.username %>
-      <% @results.push(musician) %>
+    <% @results.push(m.id) %>
+      <%# musician = {} %>
+      <%# musician["lat"] = m.latitude%>
+      <%# musician["long"] = m.longitude %>
+      <%# musician["address"] = m.address %>
+      <%# musician["username"] = m.username %>
+      <%# @results.push(musician) %>
     <% end %>
 
-      <%= link_to "See map", map_path({results:"#{@results}"}) %>
+      <%= link_to "See map", map_path({results: @results}) %>
 
       <!-- map -->
 <!--       <div
