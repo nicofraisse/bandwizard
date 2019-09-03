@@ -1,5 +1,5 @@
 const inputButton = document.querySelector('#current-position')
-  const inputForAddress = document.querySelector('#address')
+  const inputForAddress = document.querySelector('#pos')
 
   inputButton.addEventListener('click', e => {
     if (e.target.checked) {
