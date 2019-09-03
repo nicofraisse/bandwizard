@@ -1,5 +1,5 @@
 console.log('hello from double slider')
-
+import $ from "jquery"
 // import noUiSlider from 'nouislider'
 // var doubleSlider = document.getElementById('double-slider');
 
@@ -27,3 +27,14 @@ console.log('hello from double slider')
         inputValue.value = e.target.value
       })
     })
+
+
+
+    $(".js-range-slider").ionRangeSlider({
+        type: "double",
+        min: 0,
+        max: 1000,
+        from: 200,
+        to: 500,
+        grid: true
+    });
