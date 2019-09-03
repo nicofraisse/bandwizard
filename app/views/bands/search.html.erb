@@ -147,19 +147,32 @@
           <label class="stylebutton">
             Cover Band
           </label>
-            <input type="checkbox" name="is_cover" value="true" checked/>
+          <input type="checkbox" name="is_cover" value="true" checked/>
         </div>
         <br>
         <br>
-<div id="double-slider">
-  <label for="slide">Age ?</label>
-  <input type="text" class="js-range-slider" name="doubleslider" value="" />
-  <input type="text" name="age" id="age-range-values" hidden>
-</div>
-      </div>
-    </div>
-    <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
-  </form>
+        <div id="double-slider">
+          <label for="slide">Age ?</label>
+          <input type="text" class="js-range-slider" name="doubleslider" value="" />
+          <input type="text" name="age" id="age-range-values" hidden>
+        </div>
+        <div class="filter-input">
+
+          <label class="stylebutton">
+           Female
+         </label>
+         <input type="checkbox" name="female" value="true" />
+       </div>
+       <div class="filter-input">
+        <label class="stylebutton">
+         Male
+       </label>
+       <input type="checkbox" name="female" value="true" />
+     </div>
+   </div>
+ </div>
+ <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
+</form>
 </div>
 <div class="morefilters">
   <button class="extrafilters" type="submit"><%= link_to "MORE FILTERS", filter_path(filter:2)%></button>
@@ -170,6 +183,6 @@
 <br>
 
 <script>
-export("../plugins/slider")
-export("../plugins/current-position")
+  export("../plugins/slider")
+  export("../plugins/current-position")
 </script>
