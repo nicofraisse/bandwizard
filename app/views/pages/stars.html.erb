@@ -1,64 +1,64 @@
 <h1>THESE ARE STARS</h1>
 <div class="margin">
-      <h2 class="title"><strong><%= @starred_bands.count %></strong> starred bands</h2>
-      <div>
-        <div style="display: flex;">
-          <div class="row">
+  <h2 class="title"><strong><%= @starred_bands.count %></strong> starred bands</h2>
+  <div>
+    <div style="display: flex;">
+      <div class="row">
 
-            <% @starred_bands.each do |object| %>
-            <% band = object.band %>
+        <% @starred_bands.each do |object| %>
+        <% band = object.band %>
 
-              <div class="column">
+        <div class="column">
 
-                <div class="card-band">
-                  <%= cl_image_tag(band.band_photos.last.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius") %>
-                  <div class="card-band-infos">
-                    <!-- checkbox for stars -->
+          <div class="card-band">
+            <%= cl_image_tag(band.band_photos.last.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius") %>
+            <div class="card-band-infos">
+              <!-- checkbox for stars -->
 
-                  <%= button_to stars_path(band), method: :post, id:"favorite_link-#{band.id}",remote:true  do %>
-                    <% if band.favorited_by?(current_user) %>
-                      <i class="fas fa-star"></i>
-                    <% else %>
-                      <i class="far fa-star"></i>
-                    <% end %>
-
-
-                  <% end %>
-                   <!-- checkbox for stars -->
-                    <!--  -->
-                    <%= link_to band.name, band_path(band) %>
-                    <br>
-                    <li>
-                      <% band.styles.each_with_index do |style, i| %>
-                        <%= style.name %><%= i == band.styles.count - 1 ? "" : ", " %>
-                      <% end %>
-                    </li>
-                    <li style="color: red;">
-                      <% band.instruments.each do |instrument| %>
-                        <%= instrument.name %>
-                      <% end %>
-                    </li>
-                    Distance:  <%= band.distance_to("5350 avenue Decelles, Montréal").round() %>km
-
-                  </div>
-                </div>
-
-              </div>
+              <%= button_to stars_path(band), method: :post, id:"favorite_link-#{band.id}",remote:true do %>
+              <% if band.favorited_by?(current_user) %>
+              <i class="fas fa-star"></i>
+              <% else %>
+              <i class="far fa-star"></i>
               <% end %>
+
+
+              <% end %>
+              <!-- checkbox for stars -->
+              <!--  -->
+              <%= link_to band.name, band_path(band) %>
+              <br>
+              <li>
+                <% band.styles.each_with_index do |style, i| %>
+                <%= style.name %><%= i == band.styles.count - 1 ? "" : ", " %>
+                <% end %>
+              </li>
+              <li style="color: red;">
+                <% band.instruments.each do |instrument| %>
+                <%= instrument.name %>
+                <% end %>
+              </li>
+              Distance:  <%= band.distance_to("5350 avenue Decelles, Montréal").round() %>km
+
+            </div>
           </div>
 
-          <% @results = [] %>
-        <!-- convert to hash -->
-          <% @starred_bands.each do |object| %>
-            <% b = object.band %>
-            <% band = {} %>
-            <% band["lat"] = b.latitude%>
-            <% band["long"] = b.longitude %>
-            <% @results.push(band) %>
-          <% end %>
-
+        </div>
+        <% end %>
       </div>
-      <%= link_to "See map", map_path({results:"#{@results}"}) %>
+
+      <% @results = [] %>
+      <!-- convert to hash -->
+      <% @starred_bands.each do |object| %>
+      <% b = object.band %>
+      <% band = {} %>
+      <% band["lat"] = b.latitude%>
+      <% band["long"] = b.longitude %>
+      <% @results.push(band) %>
+      <% end %>
+
+    </div>
+    <%= link_to "See map", map_path({results:"#{@results}"}) %>
 
   </div>
 </div>

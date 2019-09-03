@@ -61,6 +61,7 @@ class BandsController < ApplicationController
       Band.all.each do |band|
         score_hash[band] = 0
       end
+
       all_bands_by_instrument = needed_instru.map do |instru|
         instru.band
       end
