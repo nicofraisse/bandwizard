@@ -1,29 +1,25 @@
-<div class="row col-md-8 col-md-offset-2">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div id="messages">
-    </div>
+<div style="display: flex; width: 100%; justify-content: center;">
+  <h2 style="color: white; position: absolute; top: 0px; margin: 0 auto; z-index: 3000000000; text-align: center; width: 75%;">
+    <%= current_user.username.capitalize %> and <%= current_user.id == @conversation.user1_id ? User.find(@conversation.user2_id).username.capitalize : User.find(@conversation.user1_id).username.capitalize %>
+  </h1>
+</div>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h1><%= current_user.username %> talking to <%= User.find(@conversation.user2_id).username || User.find(@conversation.user1_id).username%></h1>
+<div class="margin">
 
-      <div class="panel panel-default">
-        <% if @conversation.messages.any? %>
-          <div class="panel-body" id="messages">
-            <%= render partial: 'messages/message', collection: @conversation.messages %>
-          </div>
-        <%else%>
-          <div class="panel-body hidden" id="messages">
-          </div>
-        <%end%>
+  <div class="message-list">
+    <% if @conversation.messages.any? %>
+      <div class="" id="messages">
+        <%= render partial: 'messages/message', collection: @conversation.messages %>
       </div>
-    </div>
+    <%else%>
+      <div class="panel-body hidden" id="messages">
+      </div>
+    <%end%>
   </div>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <%= render partial: 'messages/message_form', locals: {message: @message, conversation: @conversation}%>
-    </div>
+
+  <div class="write-message">
+    <%= render partial: 'messages/message_form', locals: {message: @message, conversation: @conversation}%>
   </div>
+
 </div>

@@ -1,6 +1,7 @@
 const inputButton = document.querySelector('#current-position')
-  const inputForAddress = document.querySelector('#address')
+const inputForAddress = document.querySelector('#address');
 
+if (inputForAddress) {
   inputButton.addEventListener('click', e => {
     if (e.target.checked) {
       // const currentPosition = new Map
@@ -13,5 +14,6 @@ const inputButton = document.querySelector('#current-position')
         inputForAddress.value = `${coordinates}`
       });
     }
-
   })
+}
+

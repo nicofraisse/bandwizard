@@ -1,2 +1,14 @@
-<p><%= message.msg %></p>
+<% if message.user == current_user%>
 
+  <p class="msg me">
+    <strong><%= message.user.full_name %>:</strong>
+    <%= message.msg %>
+  </p>
+<% else %>
+
+  <p class="msg it">
+    <strong><%= message.user.full_name %>:</strong>
+    <%= message.msg %>
+  </p>
+
+<% end %>
