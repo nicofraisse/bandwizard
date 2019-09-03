@@ -1,19 +1,19 @@
 class BandsController < ApplicationController
-   skip_before_action :authenticate_user!, only: [:index, :show,:search,:map, :filter, :public_profile, :mybands]
-   skip_after_action :verify_policy_scoped, only: [:index, :show,:search, :map, :public_profile]
-  def index
+ skip_before_action :authenticate_user!, only: [:index, :show,:search,:map, :filter, :public_profile, :mybands]
+ skip_after_action :verify_policy_scoped, only: [:index, :show,:search, :map, :public_profile]
+ def index
    @choice = params[:choice].to_i
-    if @choice == 1
+   if @choice == 1
       # ********************* SEARCH MUSICIAN ***************************
       # Get all InstrumentUsers and StyleUsers from the users's input
       instru_user = InstrumentUser.where(instrument: Instrument.find_by_name(params[:instruments]))
       style_user = StyleUser.where(style: Style.find_by_name(params[:style]))
       all_users_by_instrument = instru_user.map do |instru|
        instru.user
-      end
-      all_users_by_style = style_user.map do |style|
+     end
+     all_users_by_style = style_user.map do |style|
        style.user
-      end
+     end
       # FORM and array styles and instruments that match the user's input
       c = []
       all_users_by_instrument.each do |element|
@@ -24,9 +24,9 @@ class BandsController < ApplicationController
       # FILTER BY ADDRESS RADIUS
       unless (style_user == nil || instru_user == nil)
         if params[:address] == ""
-            @address = params[:pos]
-           else
-            @address = params[:address]
+          @address = params[:pos]
+        else
+          @address = params[:address]
         end
         geocoded_address = Geocoder.coordinates(@address)
         geo_users = User.near(geocoded_address, params[:slider].to_i,units: :km)
@@ -37,16 +37,16 @@ class BandsController < ApplicationController
           end
         end
       # DISPLAY RESULTS ON MAP
-        @markers = @musicians.map do |musician|
-          {
-            lat: musician.latitude,
-            lng: musician.longitude,
-            infoWindow: render_to_string(partial: "info_window", locals: { musician: musician })
-          }
-        end
+      @markers = @musicians.map do |musician|
+        {
+          lat: musician.latitude,
+          lng: musician.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { musician: musician })
+        }
       end
+    end
     #render "results"
-    else
+  else
       # ********************* SEARCH BAND ***********************
        # staring band
       # Get all InstrumentBands and StyleBands from the users's input
@@ -121,28 +121,41 @@ class BandsController < ApplicationController
       @near_bands_sorted = @near_bands_with_scores_sorted.map { |e| e[0] }
       # FILTER BY ADDRESS RADIUS
         # DISPLAY RESULTS ON MAP
-      @markers = @bands_sorted.map do |band|
+        @markers = @bands_sorted.map do |band|
+          {
+            lat: band.latitude,
+            lng: band.longitude,
+            infoWindow: render_to_string(partial: "info_window", locals: { result: band })
+          }
+        end
+      end
+    end
+    def new
+      @band = Band.new
+      authorize @band
+      @band_photo = @band.band_photos.build
+    end
+
+    def map
+      @results = []
+      params[:results].each { |id| @results << Band.find(id)}
+      @markers = @results.map do |result|
         {
-          lat: band.latitude,
-          lng: band.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { band: band })
+          lat: result.latitude,
+          lng: result.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { result: result })
         }
       end
     end
-  end
-  def new
-    @band = Band.new
-    authorize @band
-    @band_photo = @band.band_photos.build
-  end
-  def create
-    band = Band.new(band_params)
-    authorize band
-    band.user = current_user
-    if band.save!
-      params[:band_photos]['photo'].each do |a|
-      band_photo = band.band_photos.create!(:photo => a, :band_id => band.id)
-      end
+
+    def create
+      band = Band.new(band_params)
+      authorize band
+      band.user = current_user
+      if band.save!
+        params[:band_photos]['photo'].each do |a|
+          band_photo = band.band_photos.create!(:photo => a, :band_id => band.id)
+        end
       # flash[:notice] = "You have successfully created a band."
       redirect_to band_path(band)
     else
@@ -165,6 +178,6 @@ class BandsController < ApplicationController
   private
   def band_params
     params.require(:band).permit(:name, :bio,:personal_website, :youtube_link, :address, :soundcloud_link, :is_recording,:is_pro,:is_live,:is_jamming, :is_cover,:is_pro,:is_composition,band_photos_attributes:
-    [:id, :band_id, :photo])
+      [:id, :band_id, :photo])
   end
 end
