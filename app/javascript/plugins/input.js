@@ -5,7 +5,7 @@ const divToStyle = document.querySelectorAll('.filter-input')
 divToStyle.forEach(d => {
   console.log(d)
   const targetInput = d.querySelector('input')
-    targetInput.addEventListener('click', e => {
+  targetInput.addEventListener('click', e => {
     if (targetInput.checked) {
       d.classList.add('active')
     } else {
