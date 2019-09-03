@@ -51,8 +51,7 @@
                           <%= instrument.name %>
                         <% end %>
                       </li>
-                      <br>
-                      Distance: <%= band.distance_to(@address).round(1) %> km
+                      <i class="fas fa-map-marker-alt"></i> <%= band.distance_to(@address).round(1) %> km
                       <p>Matching score: <%= score %></p>
 
                     </div>
