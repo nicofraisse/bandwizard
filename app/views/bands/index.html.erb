@@ -81,7 +81,8 @@
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div> -->
       </div>
-      <%= link_to "See map", map_path({results:"#{@results}"}) %>
+
+    <%= link_to(image_tag("mapicon.png", size: "70"), map_path({results:"#{@results}"}), :class => "mapbtn") %>
     <% end %>
   </div>
 
