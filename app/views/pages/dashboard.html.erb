@@ -7,10 +7,6 @@
     <%= current_user.address %>
   </div>
 
-<%= link_to "My Bands", mybands_path %>
-<%= link_to "Edit Profile", edit_path %>
-
-<%= link_to "Add Conversation", new_conversation_path %>
 
 <div class="tabs">
     <div class="tab-2">
@@ -20,28 +16,24 @@
       <p><strong><%=  @musician.bio %></strong>
       <br>
       <br>
-      Youtube link: <strong><%=  @musician.youtube_link %></strong>
+      <strong> <i class="fab fa-youtube"></i><%= link_to "Youtube link", @musician.youtube_link %></strong>
       <br>
-      Personal website: <strong><%=  @musician.personal_website %></strong>
+       <strong><i class="fas fa-wifi"></i><%= link_to "Personal website", @musician.personal_website %></strong>
       <br>
-      Soundcloud link: <strong><%=  @musician.soundcloud_link %></strong></p>
+      <strong><i class="fab fa-soundcloud"></i>
+      <%= link_to "Soundcloud link", @musician.soundcloud_link %></strong></p>
     </div>
-    <%= link_to "message ME" ,conversation_path(@musician)%>
   </div>
     <div class="tab-2">
       <label for="tab2-2">DETAILS</label>
       <input id="tab2-2" name="tabs-two" type="radio">
     <div>
-      <p>Open to play live: <strong><%= @musician.is_live %></strong>
-      <br>
-      Open to album recording: <strong><%= @musician.is_recording %></strong>
-      <br>
-      Open for just jamming: <strong><%= @musician.is_jamming %></strong>
-      <br>
-      Open to composing: <strong><%= @musician.is_composition %></strong>
-      <br>
-      Open to playing covers:  <strong><%= @musician.is_covers %></strong>
-      <br>
-      </p>
+      <ul> Open to play:
+        <%if @musician.is_live? %> <li><strong>Live</strong> <% end %></li>
+        <% if @musician.is_recording? %> <li> <strong>Recording</strong> </li><% end %>
+       <%if @musician.is_jamming? %>  <li> <strong>Jamming</strong> </li><% end %>
+         <%if @musician.is_composition? %><li> <strong>Composition</strong></li> <% end %>
+       <%if @musician.is_covers? %> <li> <strong>Covers</strong> </li><% end %>
+      </ul>
     </div>
   </div>
