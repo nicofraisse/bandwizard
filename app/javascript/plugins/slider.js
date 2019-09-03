@@ -15,3 +15,15 @@ console.log('hello from double slider')
 // });
 
 
+  let sliders = document.querySelectorAll(".slidecontainer");
+
+    sliders.forEach( slider => {
+      const sliderElement = slider.querySelector('.slider')
+      const inputValue = slider.querySelector('#range-value')
+      // set the default values
+      inputValue.value = sliderElement.value
+
+      slider.addEventListener('change', e => {
+        inputValue.value = e.target.value
+      })
+    })
