@@ -145,9 +145,17 @@
         </div>
         <div class="filter-input">
           <label class="stylebutton">
-            <input type="checkbox" name="is_cover" value="true" checked/>Cover Band
+            Cover Band
           </label>
+            <input type="checkbox" name="is_cover" value="true" checked/>
         </div>
+        <br>
+        <br>
+<div id="double-slider">
+  <label for="slide">Age ?</label>
+  <input type="text" class="js-range-slider" name="doubleslider" value="" />
+  <input type="text" name="age" id="age-range-values" hidden>
+</div>
       </div>
     </div>
     <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
@@ -155,9 +163,6 @@
 </div>
 <div class="morefilters">
   <button class="extrafilters" type="submit"><%= link_to "MORE FILTERS", filter_path(filter:2)%></button>
-</div>
-<div id="double-slider">
-  <input type="text" class="js-range-slider" name="doubleslider" value=""/>
 </div>
 </div>
 <% end %>

@@ -1,5 +1,6 @@
 console.log('hello from double slider')
 import $ from "jquery"
+import ionRangeSlider from 'ion-rangeslider'
 // import noUiSlider from 'nouislider'
 // var doubleSlider = document.getElementById('double-slider');
 
@@ -15,26 +16,37 @@ import $ from "jquery"
 // });
 
 
-  let sliders = document.querySelectorAll(".slidecontainer");
+let sliders = document.querySelectorAll(".slidecontainer");
 
-    sliders.forEach( slider => {
-      const sliderElement = slider.querySelector('.slider')
-      const inputValue = slider.querySelector('#range-value')
-      // set the default values
-      inputValue.value = sliderElement.value
+  sliders.forEach( slider => {
+    const sliderElement = slider.querySelector('.slider')
+    const inputValue = slider.querySelector('#range-value')
+    // set the default values
+    inputValue.value = sliderElement.value
 
-      slider.addEventListener('change', e => {
-        inputValue.value = e.target.value
-      })
+    slider.addEventListener('change', e => {
+      inputValue.value = e.target.value
     })
+  })
 
 
+const ageHiddenInput = document.getElementById('age-range-values')
 
-    $(".js-range-slider").ionRangeSlider({
-        type: "double",
-        min: 0,
-        max: 1000,
-        from: 200,
-        to: 500,
-        grid: true
+$(".js-range-slider").ionRangeSlider({
+    type: "double",
+    min: 14,
+    max: 99,
+    from: 20,
+    to: 50,
+});
+
+$(".js-range-slider").on("change", function () {
+        var $inp = $(this);
+        var from = $inp.prop("value"); // reading input value
+        var from2 = $inp.data("from"); // reading input data-from attribute
+
+        console.log(from, from2); // FROM value
+        ageHiddenInput.value = `${from}`;
     });
+
+
