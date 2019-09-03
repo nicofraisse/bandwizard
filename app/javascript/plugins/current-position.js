@@ -1,5 +1,7 @@
-const inputButton = document.querySelector('#current-position')
-const inputForAddress = document.querySelector('#address');
+const inputButton = document.querySelector('#current-position');
+
+const inputForAddress = document.querySelector('#pos');
+
 
 if (inputForAddress) {
   inputButton.addEventListener('click', e => {

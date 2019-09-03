@@ -152,11 +152,13 @@ class BandsController < ApplicationController
   def show
     @band = Band.find(params[:id])
   end
+
   def mybands
     @bands = Band.where(user: current_user)
-    @bands = policy_scope(Band)
+    # policy_scope(@bands)
     authorize @bands
   end
+
   def musicians
     @musicians = User.all
   end
