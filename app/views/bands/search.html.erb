@@ -125,7 +125,7 @@
     <form action="/bands" method="get" id ="1">
 <!-- part 1******************** -->
 <div class = "sliding">
-  <div class="slideright">
+  <div class=slideright>
 
         <div class="form-group">
         <label for="exampleFormControlSelect1">What instrument do you play?</label>
@@ -137,7 +137,7 @@
       </div>
 
       <br>
-      <p>Your Musical Styles</p>
+      <p>Your musical styles</p>
       <div class="all-filters">
         <% Style.all.each do |style| %>
         <div class="filter-input">
@@ -150,7 +150,7 @@
       </div>
 
       <br>
-      <p>What Location?</p>
+      <p>What Location ?</p>
       <div style="position: relative;">
         <input type="text" name="Address" placeholder="Address" id="address">
         <input
@@ -172,7 +172,7 @@
           margin-top: 5px;
           margin-right: 5px;
           color: #ffffff4f;
-        ">Click for Geolocalization</span>
+        ">click for geolocalization</span>
       </div>
       <br>
 
@@ -199,13 +199,13 @@
         <br>
         <br>
         <div class="range-labels">
-          <span class="spanslide">Beginner</span>
-          <span class="spanslide">Intermediate</span>
-          <span class="spanslide">Expert</span>
+          <span class="spanslide">beginner</span>
+          <span class="spanslide">intermediate</span>
+          <span class="spanslide">expert</span>
         </div>
       </div>
 
-      <p class="opento">You Are Open To</p>
+      <p>You are open to</p>
       <div class="all-filters">
         <div class="filter-input">
           <label class="stylebutton">
@@ -242,7 +242,7 @@
         </div>
       </div>
 
-      <p class="genderp">Demographics</p>
+      <p>Demographics</p>
       <div class="all-filters">
         <div class="filter-input">
           <label class="stylebutton">
@@ -266,7 +266,7 @@
 </div>
   <div class="morefilters">
     <button class="extrafilters link-to-text-color findbutton" id="btnmore" type="submit">MORE FILTERS</button>
-    <button class="extrafilters link-to-text-color findbutton d-none" id="btnless" type="submit">BACK</button>
+    <button class="extrafilters link-to-text-color findbutton d-none" id="btnless" type="submit">LESS FILTERS</button>
   </div>
 </div>
 <% end %>
@@ -277,8 +277,6 @@ const element1 =  document.querySelector('.slideright')
 const element2 =  document.querySelector('.slideleft')
 btnmore = document.querySelector('#btnmore')
 btnless = document.querySelector('#btnless')
-
-
 btnmore.addEventListener('click', e => {
   element2.classList.toggle('d-none')
   element1.classList.toggle('d-none')
@@ -290,8 +288,6 @@ btnmore.addEventListener('click', e => {
   btnmore.classList.toggle('d-none')
   btnless.classList.toggle('d-none')
 });
-
-
 btnless.addEventListener('click', e => {
   element2.classList.toggle('d-none')
   element1.classList.toggle('d-none')
@@ -304,4 +300,3 @@ btnless.addEventListener('click', e => {
   btnless.classList.toggle('d-none')
 });
 </script>
-
