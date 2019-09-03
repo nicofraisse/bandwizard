@@ -15,14 +15,26 @@ import { inputStyling } from '../plugins/input';
 import "../plugins/slider";
 import "../plugins/select2";
 import "../plugins/current-position";
+import { scrollConvoDown } from '../plugins/scroll_convo_down';
+
 
 
 initMapbox();
 initAutocomplete();
 // initSelect2();
+scrollConvoDown();
 
+global.scrollConvoDown = scrollConvoDown;
 
-const messageList = document.querySelector(".message-list");
-if (messageList) {
-messageList.scrollTop = 1000000000;
+const box = document.querySelector(".msg-box")
+const btn = document.querySelector(".send-btn")
+const msgform = document.querySelector("#new_message")
+
+if (btn) {
+  btn.addEventListener('click',(event) => {
+    event.preventDefault();
+    msgform.submit();
+    box.value = "";
+  });
 }
+

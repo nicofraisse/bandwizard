@@ -10,8 +10,6 @@ class MessagesController < ApplicationController
         messageHTML: render_to_string(partial: "messages/message", locals: { message: message })
       ActionCable.server.broadcast "messages_#{message.conversation.user2_id}",
         messageHTML: render_to_string(partial: "messages/message", locals: { message: message })
-
-      head :ok
     end
   end
 

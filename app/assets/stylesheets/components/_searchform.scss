@@ -1,6 +1,6 @@
-.container {
+// .container {
 
-}
+// }
 
 .searchform {
   text-align: center;
@@ -41,7 +41,6 @@ label {
   justify-content: space-between;
 }
 
-
 #double-slider {
   width: 400px;
   margin-bottom: 50px;
@@ -49,7 +48,15 @@ label {
 
 .margin p {
   color: white;
-  ;
+  font-size: 18px;
+}
+.genderp {
+  color: white;
+  font-size: 19px;
+}
+.opento {
+  color: white;
+  font-size: 19px;
 }
 
 .ap-input, .ap-hint {

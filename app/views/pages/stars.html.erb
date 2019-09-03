@@ -1,6 +1,7 @@
-<h1>Your Favorite Stars</h1>
+<h2 class="starstitle">Your Favorite Stars</h2>
+<br>
 <div class="margin">
-  <h2 class="title"><strong><%= @starred_bands.count %></strong> starred bands</h2>
+  <h4 class="title"><%= @starred_bands.count %> starred bands</h4>
   <div>
     <div style="display: flex;">
       <div class="row">
@@ -11,35 +12,31 @@
         <div class="column">
 
           <div class="card-band">
-            <%= cl_image_tag(band.band_photos.last.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius") %>
+            <%= link_to(cl_image_tag(band.band_photos.last.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius"), band_path(band)) %>
             <div class="card-band-infos">
               <!-- checkbox for stars -->
-
               <%= button_to stars_path(band), method: :post, id:"favorite_link-#{band.id}",remote:true do %>
               <% if band.favorited_by?(current_user) %>
-              <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
               <% else %>
-              <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
               <% end %>
-
 
               <% end %>
               <!-- checkbox for stars -->
               <!--  -->
-              <%= link_to band.name, band_path(band) %>
-              <br>
-              <li>
+              <p><strong><%= band.name %></strong></p>
+              <li style="list-style-type:none;">
                 <% band.styles.each_with_index do |style, i| %>
                 <%= style.name %><%= i == band.styles.count - 1 ? "" : ", " %>
                 <% end %>
               </li>
-              <li style="color: red;">
+              <li style="color: red; list-style-type:none;">
                 <% band.instruments.each do |instrument| %>
                 <%= instrument.name %>
                 <% end %>
               </li>
-              Distance:  <%= band.distance_to("5350 avenue Decelles, Montréal").round() %>km
-
+              <i class="fas fa-map-marker-alt"></i> <%= band.distance_to("5350 avenue Decelles, Montréal").round() %>km
             </div>
           </div>
 

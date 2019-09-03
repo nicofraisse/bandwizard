@@ -1,6 +1,6 @@
 <div class="center-msg-container">
   <div>
-    <%= form_for message, remote: true, authenticity_token: true do |f| %>
+    <%= form_for message do |f| %>
       <%= f.text_area :msg, class: "form-control msg-box", data: {textarea: "message"} %>
       <%= f.hidden_field :conversation_id, value: conversation.id %>
   </div>
