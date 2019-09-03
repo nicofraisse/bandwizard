@@ -64,23 +64,11 @@
           </div>
 
           <% @results = [] %>
-        <!-- convert to hash -->
+
           <% @near_bands_sorted.each do |b| %>
-          <% @results.push(b.id) %>
-            <%# band = {} %>
-            <%# band["lat"] = b.latitude%>
-            <%# band["long"] = b.longitude %>
-            <%# @results.push(band) %>
+            <% @results.push(b.id) %>
           <% end %>
 
-        <!-- map -->
-    <!--       <div
-          id="map"
-          class="map-custom"
-          style="height: 100%; width: 100%"
-          data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div> -->
       </div>
 
     <%= link_to(image_tag("mapicon.png", size: "70"), map_path({results: @results}), :class => "mapbtn") %>
