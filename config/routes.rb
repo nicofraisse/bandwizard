@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :messages
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get "bands/search", to: "bands#search" ,as: "search"
+  get "bands/search", to: "bands#search",as: "search"
   get "bands", to: "bands#index"
   get "musicians", to: "bands#musicians"
   get "bands/filter", to: "bands#filter", as: "filter"
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   post "bands/:band_id/stars",  to: "starred_bands#create", as: :stars
   get "bands/map",  to: "bands#map", as: :map
   get "edit_profile", to: "pages#edit", as: "edit"
-
+  get "stars", to: "pages#stars"
 
   get "users/search", to: "users#search"
   get "users/filter" , to: "users#filter"
