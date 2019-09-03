@@ -1,3 +1,6 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+</head>
 <% choice = params[:choice].to_i %>
 
 <% if choice == 1 %>
@@ -61,11 +64,15 @@
 
 <% else %>
 
-<!-- SEARCHING FOR BAND -->
+<!-- SEARCHING FOR BAND -------------------------------------------------------------->
 <div class="margin">
   <div class="searchform col-12 col-md-6" style="width: 100%">
-    <form action="/bands" method="get">
-      <div class="form-group">
+    <form action="/bands" method="get" id ="1">
+<!-- part 1******************** -->
+<div class = "sliding">
+  <div class=slideright>
+
+        <div class="form-group">
         <label for="exampleFormControlSelect1">What instrument do you play?</label>
         <select class="form-control search-band-select" id="exampleFormControlSelect1" name="instruments">
           <% Instrument.all.each do |instrument| %>
@@ -109,6 +116,9 @@
         </div>
       </div>
 
+      </div>
+      <!-- part 2************************************ -->
+<div class = "slideleft d-none">
       <div class="slidecontainer">
         <label for="slide">Experience</label>
         <input type="range" min="1" max="3" value="2" class="slider" id="slider">
@@ -122,7 +132,9 @@
         </div>
       </div>
 
-      <div class="all-filters">
+
+
+         <div class="all-filters">
         <div class="filter-input">
           <label class="stylebutton">
             <input type="checkbox" name="is_jamming" value="true" checked/>Jamming
@@ -157,13 +169,21 @@
   <input type="text" name="age" id="age-range-values" hidden>
 </div>
       </div>
+       </div>
+
+</div>
+
+
+
+
     </div>
     <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
   </form>
 </div>
-<div class="morefilters">
-  <button class="extrafilters" type="submit"><%= link_to "MORE FILTERS", filter_path(filter:2)%></button>
-</div>
+  <div class="morefilters">
+    <button class="extrafilters link-to-text-color findbutton" id="btnmore" type="submit">MORE FILTERS</button>
+    <button class="extrafilters link-to-text-color findbutton d-none" id="btnless" type="submit">LESS FILTERS</button>
+  </div>
 </div>
 <% end %>
 
@@ -172,4 +192,37 @@
 <script>
 export("../plugins/slider")
 export("../plugins/current-position")
+</script>
+<script>
+// btn = document.querySelector('.extrafilters')
+const element1 =  document.querySelector('.slideright')
+const element2 =  document.querySelector('.slideleft')
+btnmore = document.querySelector('#btnmore')
+btnless = document.querySelector('#btnless')
+
+
+btnmore.addEventListener('click', e => {
+  element2.classList.toggle('d-none')
+  element1.classList.toggle('d-none')
+  element2.classList.remove('animated', 'slideOutRight')
+  element2.classList.add('animated', 'slideInRight')
+  element2.classList.remove('d-none')
+  element1.classList.remove('animated', 'slideInLeft')
+  element1.classList.add('animated', 'slideOutLeft')
+  btnmore.classList.toggle('d-none')
+  btnless.classList.toggle('d-none')
+});
+
+
+btnless.addEventListener('click', e => {
+  element2.classList.toggle('d-none')
+  element1.classList.toggle('d-none')
+  element2.classList.remove('animated', 'slideInRight')
+  element2.classList.add('animated', 'slideOutRight')
+  element2.classList.remove('d-none')
+  element1.classList.remove('animated', 'slideOutLeft')
+  element1.classList.add('animated', 'slideInLeft')
+  btnmore.classList.toggle('d-none')
+  btnless.classList.toggle('d-none')
+});
 </script>
