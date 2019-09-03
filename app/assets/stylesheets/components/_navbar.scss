@@ -1,15 +1,24 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+
+.navbar {
+  width: 100vw;
+  height: 20vh;
+  position: sticky;
+  padding: 0;
+  top: 0px;
+  z-index: 1000000;
+/*  background: linear-gradient(160deg, #3D1820 100%, #3E1924 80%, #3E1B2E, 0%);
+*/
+
+}
+.opaque-to-transparent {
+
+  background-image: url("navbar-background");
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95)  50%, rgba(0, 0, 0, 0) 100%);
+  height: 100%;
+  width: 100%;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
 
 .nav-link {
   margin-left: 20px;
@@ -20,23 +29,4 @@
   font-size: 20px;
 }
 
-.hamburger {
-}
-
-
-.top-navbar {
-  height: 20vh;
-  position: sticky;
-  top: 0px;
-  z-index: 100000;
-  background: linear-gradient(to-bottom, #3D1820 100%, #3E1924 80%, #3E1B2E, 0%);
-}
-
-.red-top {
-  background: linear-gradient(to bottom, #3D1820, rgba(62, 27, 46, 1));
-}
-
-.faded-top {
-  background-image: linear-gradient(to bottom, rgba(62, 27, 46, 1), rgba(62, 27, 46, 0));
-}
 
