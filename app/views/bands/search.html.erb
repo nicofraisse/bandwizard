@@ -130,7 +130,7 @@
       </div>
 
       <br>
-
+      <p>Your musical styles</p>
       <div class="all-filters">
         <% Style.all.each do |style| %>
         <div class="filter-input">
@@ -143,11 +143,11 @@
       </div>
 
       <br>
-
+      <p>What Location ?</p>
       <input type="text" name="Address" placeholder="Address" id="address">
       <br>
       <div>
-        <label for="current_position">use my current position</label>
+        <label for="current_position" hidden>use my current position</label>
         <input type="checkbox" name="current_position" id="current-position">
       </div>
 
@@ -177,6 +177,7 @@
         </div>
       </div>
 
+      <p>You are open to</p>
       <div class="all-filters">
         <div class="filter-input">
           <label class="stylebutton">
@@ -207,12 +208,16 @@
         <br>
         <br>
         <div id="double-slider">
-          <label for="slide">Age ?</label>
+          <label for="slide">Age</label>
           <input type="text" class="js-range-slider" name="doubleslider" value="" />
           <input type="text" name="age" id="age-range-values" hidden>
         </div>
-        <div class="filter-input">
+      </div>
 
+
+      <p>Demographics</p>
+      <div class="all-filters">
+        <div class="filter-input">
           <label class="stylebutton">
            Female
          </label>
@@ -225,8 +230,10 @@
        <input type="checkbox" name="female" value="true" />
      </div>
    </div>
+
  </div>
- <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
+</div>
+<button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
 </form>
 </div>
 <div class="morefilters">

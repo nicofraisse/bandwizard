@@ -45,7 +45,13 @@ label {
 #double-slider {
   width: 400px;
   margin-bottom: 50px;
-
-
 }
 
+p {
+  color: white;
+  ;
+}
+
+.ap-input, .ap-hint {
+  border-radius: 4px;
+}
