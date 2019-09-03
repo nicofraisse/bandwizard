@@ -55,24 +55,46 @@ instruments = ["Guitar", "Bass", "Drums"]
 
 # BAND SEED
 
-band_name = ["Fateful Local", "Alternate Generation", "Slink Over Acrobat", "Creamy Escort", "Seemingly Yoke Of The Mellow Poetry", "Nickelback", "Nautical Barracuda", "Needy Balboa", "Favored Photograph", "Reverent Banter", "Repressed Wickedly", "Taylor Swift", "Either Cool", "Cool Powder", "Higher Archy", "Spasmodicum", "Wig Week", "Capricult", "Dr. Lov", "Miss Thought", "Dirty Little Secretion"]
-band_bios = ["Communicator. Typical beer trailblazer. Web buff. Professional coffee fanatic. Bacon aficionado.", "Gamer. Incurable twitter junkie. Hardcore analyst. Freelance coffee advocate. Evil pop culture aficionado. Tv guru. Proud student.", "Tv geek. Award-winning travel scholar. Music lover. Student. Coffee junkie. Freelance communicator.", "Typical pop cultureaholic. Music fanatic. Social media buff. Hipster-friendly food scholar. Total gamer. Beer expert.", "Travel enthusiast. Thinker. Total pop culture guru. Infuriatingly humble explorer. Avid bacon geek.", "Bacon nerd. Typical tv fanatic. General twitter evangelist. Beer buff. Lifelong problem solver." ]
-band_addresses = [
-  "3920 boulevard René-Lévesque, Montréal, Canada",
-  "4298 Derry, Malton, Canada",
-  "4470 Pine Street, Alberta, Canada",
-  "4421 Weir Crescent, Toronto, Ontario",
-  "154 Avenue Ballantyne, Montréal",
-  "4205 Bourret Montréal",
-  "459 Rue St Paul Montreal",
-  "10270 rue Meilleur, Montreal",
-  "9167 boulevard Gouin Ouest, Montreal"
+band_addresses = []
+
+bands = [
+  [ "Balding Zombies",
+    "Hailing from the garages of Montréal, Balding Zombies busted down the doors of the pop scene in 2016 with their debut album, 'Night of the Blood Beast'. The band's latest album, 'The Two Towers', mixes Mike Nelson's bubbly melodies with straightforward guitar work to concoct a solid record chock full of uber-memorable tunes. With standout tracks like 'Bacon', the music of Balding Zombies appeals to pop fans and non-pop fans alike.",
+    "3920 boulevard René-Lévesque, Montréal, Canada" ]
+  [ "The Orange Oysters",
+    "Though The Orange Oysters have spent their time saturated in music, dance & performance, it is the release of our debut album 'Discovered Spaces' that has marked our true musical introduction to the world of Pop. Within this repertoire, The Orange Oysters have proven a compelling combination of rich pop layers among mixed styles of rhythm & blues, rock & soul. By melding hook-filled melody within hard & heavy beats, we have shown our ability to compact a vast array of influence & experience into a singular masterpiece.",
+    "4298 Derry, Malton, Canada" ]
+  [ "Hipsters in the Windows",
+    "Hipsters in the Windows don’t give no damn. We have been around playing the best vegan blues & jazz. We like to party. The ladies love us & the men want to be us. We are like warm butter on hot bread and our music is fascinating and packs a punch like Avocado Toast. Hipsters in the Windows don’t give no damn.",
+    "154 Avenue Ballantyne, Montréal" ]
+  [ "Migraine Birds",
+    "Migraine Birds is a rock band. Explaining more than that is unnecessary. The beat & bass are undeniable & have been operating for years. The voice has rare balance between anger & mockery; guitars are punchy & stringy, like they should be.",
+    "470 Pine Street, Alberta, Canada" ]
+  [ "Werewolf Clowns",
+    "Werewolf Clowns plays garage-psych music kinda stuff and we throw crazy shows where people actually show up. We practice, record and communicate with the devil in a haunted basement in Hochelaga. The band is Luke Tokyo Drifter, Magic Maggie, and some guy named Nick, who also works at a detective agency. Maggie also is a pastry chef and Luke thinks he works at a bar. We make a Youtube show together called Deep Stuff about how much we love pizza, poutine and beer. We are all best friends. The end.",
+    "9167 boulevard Gouin Ouest, Montréal" ]
+  [ "Whiskey Stew",
+    "Whiskey Stew is a Toronto-based party band playing favourite New Wave, Rock and Pop hits of the 1980s. Adam Weatherman (Guitar), Christian Neonfinder (Bass), and Tim Flabergast (Drums) bring to life beloved songs from the 80s overlooked by most of the retrospective bands out there today. We solely tackle a lot of songs that are heavily dependent on synthesizers; songs that weren’t necessarily #1 hits, but can in no way be referred to as obscure, underground or garbage songs.",
+    "4421 Weir Crescent, Toronto, Ontario" ]
+  [ "Fateful Local",
+    "By exercising remarkable musicianship, heavenly vocals and creative arrangements, along with a keen sense of humor and eccentric fashion, this quartet transforms pop/rock music classics performed in a gypsy jazz style with a hint of bluegrass. Their creativity and virtuosity allows them to take the listener on a entertaining music journey through everything from AC/DC to Stevie Wonders to Michael Jackson to Deee-lite to Kool and the gang to Stromae.",
+    "4205 Bourret Montréal" ]
+  [ "Army Under Reality",
+    "We are a collection of human beings from the community who use guitars, loops, drums, xylophones, white noise and shouting. We tune you up with a pretentious new-age sound and plenty of R&B under the hood. Our sole purpose is to sound unlike anything else you’ve ever heard whilst sounding exactly like everything else you’d ever want to hear. We will cure gout and tennis elbow.",
+    "10270 Rue Meilleur, Montréal" ]
+  [ "Stalin's Teacups",
+    "My gilfriend left me because of my obsession with Linkin Park. But in the end, it doesn't even matter. Stalin's Teacups are trendsetters with minimal content and great fun. We’ve been played on Online Radio One and have played songs at loads of gigs. Our songs are filled with lyrical puns and we love playing interesting random rhythmic patterns. Hit us up if you are looking to get some creative juices going.",
+    "459 Rue St Paul, Montréal" ]
+
+
 ]
 
+# band_name = ["Fateful Local", "Alternate Generation", "Slink Over Acrobat", "Creamy Escort", "Seemingly Yoke Of The Mellow Poetry", "Nickelback", "Nautical Barracuda", "Needy Balboa", "Favored Photograph", "Reverent Banter", "Repressed Wickedly", "Taylor Swift", "Either Cool", "Cool Powder", "Higher Archy", "Spasmodicum", "Wig Week", "Capricult", "Dr. Lov", "Miss Thought", "Dirty Little Secretion", "Balding Zombies", "The Orange Oysters", "Hipsters in the Windows", "Migraine Birds", "Werewolf Clowns", "Whisky Stew"]
+# band_bios = ["Communicator. Typical beer trailblazer. Web buff. Professional coffee fanatic. Bacon aficionado.", "Gamer. Incurable twitter junkie. Hardcore analyst. Freelance coffee advocate. Evil pop culture aficionado. Tv guru. Proud student.", "Tv geek. Award-winning travel scholar. Music lover. Student. Coffee junkie. Freelance communicator.", "Typical pop cultureaholic. Music fanatic. Social media buff. Hipster-friendly food scholar. Total gamer. Beer expert.", "Travel enthusiast. Thinker. Total pop culture guru. Infuriatingly humble explorer. Avid bacon geek.", "Bacon nerd. Typical tv fanatic. General twitter evangelist. Beer buff. Lifelong problem solver.", "" ]
+band_bios = []
 
-band_name = ["Fateful Local", "Alternate Generation", "Slink Over Acrobat", "Creamy Escort", "Seemingly Yoke Of The Mellow Poetry", "Nickelback", "Nautical Barracuda", "Needy Balboa", "Favored Photograph", "Reverent Banter", "Repressed Wickedly", "Taylor Swift", "Either Cool", "Cool Powder", "Higher Archy", "Spasmodicum", "Wig Week", "Capricult", "Dr. Lov", "Miss Thought", "Dirty Little Secretion", "Balding Zombies", "The Orange Oysters", "Hipsters in the Windows", "Migraine Birds", "Werewolf Clowns", "Whisky Stew"]
-band_bios = ["Communicator. Typical beer trailblazer. Web buff. Professional coffee fanatic. Bacon aficionado.", "Gamer. Incurable twitter junkie. Hardcore analyst. Freelance coffee advocate. Evil pop culture aficionado. Tv guru. Proud student.", "Tv geek. Award-winning travel scholar. Music lover. Student. Coffee junkie. Freelance communicator.", "Typical pop cultureaholic. Music fanatic. Social media buff. Hipster-friendly food scholar. Total gamer. Beer expert.", "Travel enthusiast. Thinker. Total pop culture guru. Infuriatingly humble explorer. Avid bacon geek.", "Bacon nerd. Typical tv fanatic. General twitter evangelist. Beer buff. Lifelong problem solver.", "" ]
-band_addresses = ["3920 René-Lévesque Blvd, Montréal, Canada", "4298  Derry Rd, Malton, Canada", "4470  Pine Street, Coronation, Alberta, Canada", "4421  Weir Crescent, Toronto, Ontario", "11688 Bd St Germain Montreal", "154 Av Ballantyne N Montréal-Ouest", "4205 Bourret Montréal QC H3S 1X1", "459 Rue St Paul E Montreal QC H2Y 1H5", "10270 Meilleur Street Montreal", "9167 Bd Gouin O Montreal QC H4K 2E2"]
+
+# band_addresses = ["3920 René-Lévesque Blvd, Montréal, Canada", "4298  Derry Rd, Malton, Canada", "4470  Pine Street, Coronation, Alberta, Canada", "4421  Weir Crescent, Toronto, Ontario", "11688 Bd St Germain Montreal", "154 Av Ballantyne N Montréal-Ouest", "4205 Bourret Montréal QC H3S 1X1", "459 Rue St Paul E Montreal QC H2Y 1H5", "10270 Meilleur Street Montreal", "9167 Bd Gouin O Montreal QC H4K 2E2"]
 band_personal_websites = ["http://www.shakaponk.com/"]
 band_youtube_links = ["https://www.youtube.com/watch?v=Jpw5Y2DMai4"]
 band_soundcloud_links = ["https://soundcloud.com/john-talabot/sets/music-for-days-like-these-nts"]
@@ -131,13 +153,13 @@ end
 # Create bands
 puts "Creating bands..."
 all_bands = []
-band_name.each do |name|
-  all_bands << Band.new(name: name,
-    address: band_addresses.sample,
+band.each do |band|
+  all_bands << Band.new(name: band[0],
+    bio: band[1],
+    address: band[2],
     personal_website: band_personal_websites.sample,
     youtube_link: band_youtube_links.sample,
     soundcloud_link: band_soundcloud_links.sample,
-    bio: band_bios.sample,
     experience: experiences.sample,
     is_live: band_bools.sample,
     is_recording: band_bools.sample,
