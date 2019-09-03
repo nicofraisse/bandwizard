@@ -14,6 +14,7 @@ import { inputStyling } from '../plugins/input';
 
 import "../plugins/slider";
 import "../plugins/select2";
+import "../plugins/current-position";
 
 
 initMapbox();
