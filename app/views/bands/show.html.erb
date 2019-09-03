@@ -2,8 +2,8 @@
 
 <div class="mybands">
   <div class="titlename">
-    <button type="button"><%= link_to "Message Me", conversation_path(@band.user)%></button>
-    <h2><%= @band.name %></h2>
+  <%= link_to(image_tag("chaticon.png", size: "70"), conversation_path(@band.user), :class => 'msgbtn') %>
+    <h1><%= @band.name %></h1>
     <h6><%= @band.address %></h6>
   <div class="tabs">
     <div class="tab-2">
@@ -16,9 +16,12 @@
       Website: <strong><%= link_to @band.personal_website %></strong>
       <br>
       <div class="socialmedia">
-        <iframe allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2F%3C%25%3D%20%40band.name%25%3E&color=orange_white&size=64" style="width: 64px; height: 64px;"></iframe>
-        <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="64" height="64" type="text/html" src="https://www.youtube.com/embed/DBXH9jJRaDk?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com"><div><small><a href="https://youtubeembedcode.com/nl/">youtubeembedcode nl</a></small></div><div><small><a href="http://add-link-exchange.com">visit</a></small></div><div><small><a href="https://youtubeembedcode.com/nl/">youtubeembedcode.com/nl/</a></small></div><div><small><a href="http://add-link-exchange.com">add-link-Exchange</a></small></div></iframe>
+        <iframe class="soundcloudimg" allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2F%3C%25%3D%20%40band.name%25%3E&color=orange_white&size=64" style="width: 64px; height: 64px;"></iframe>
+        <iframe class="youtubeimg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="64" height="64" type="text/html" src="https://www.youtube.com/embed/0s6U_LKSG_M?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com"><div><small><a href="https://youtubeembedcode.com/nl/">youtubeembedcode nl</a></small></div><div><small><a href="http://add-link-exchange.com">visit</a></small></div><div><small><a href="https://youtubeembedcode.com/nl/">youtubeembedcode.com/nl/</a></small></div><div><small><a href="http://add-link-exchange.com">add-link-Exchange</a></small></div></iframe>
       </div>
+      <br>
+      <p class="styleheader"><em>Style</em></p>
+      <span class="bandstyle">Enter Styles</span>
 
     </div>
   </div>
