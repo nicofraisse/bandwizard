@@ -21,10 +21,22 @@
 }
 
 .hamburger {
-
 }
 
 
 .top-navbar {
-  height: 104px;
+  height: 12vh;
+  position: sticky;
+  top: 0px;
+  z-index: 100000;
+  background: linear-gradient(to-bottom, #3D1820 100%, #3E1924 80%, #3E1B2E, 0%);
 }
+
+.red-top {
+  background: linear-gradient(to bottom, #3D1820, rgba(62, 27, 46, 1));
+}
+
+.faded-top {
+  background-image: linear-gradient(to bottom, rgba(62, 27, 46, 1), rgba(62, 27, 46, 0));
+}
+

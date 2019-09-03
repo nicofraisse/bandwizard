@@ -61,6 +61,7 @@ class BandsController < ApplicationController
       Band.all.each do |band|
         score_hash[band] = 0
       end
+
       all_bands_by_instrument = needed_instru.map do |instru|
         instru.band
       end
@@ -134,6 +135,23 @@ class BandsController < ApplicationController
     authorize @band
     @band_photo = @band.band_photos.build
   end
+
+  def map
+    # raise
+    @results = []
+    params[:results].each { |id| @results << Band.find(id)}
+    @markers =  @results.map do |result|
+      {
+        lat: result.latitude,
+        lng: result.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { result: result })
+      }
+    end
+  end
+
+
+
+
   def create
     band = Band.new(band_params)
     authorize band

@@ -20,3 +20,9 @@ import "../plugins/current-position";
 initMapbox();
 initAutocomplete();
 // initSelect2();
+
+
+const messageList = document.querySelector(".message-list");
+if (messageList) {
+messageList.scrollTop = 1000000000;
+}

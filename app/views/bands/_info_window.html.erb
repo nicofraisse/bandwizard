@@ -1,8 +1,8 @@
-<% @choice = params[:choice].to_i  %>
-<% if @choice == 1 %>
-  <h2><%= musician.full_name %></h2>
-  <p><%= musician.address %></p>
-<% else  %>
-  <h2><%= band.name %></h2>
-  <p><%= band.address %></p>
+<% if result.class == Band %>
+<% #raise %>
+  <%= cl_image_tag result.band_photos.first.photo, alt: "alttext", width: '100%' %>
+  <p><%= result.name %></p>
+  <p><%= result.address %></p>
+<% else %>
+  <p><% result.name %></p>
 <% end %>
