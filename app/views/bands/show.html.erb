@@ -29,6 +29,19 @@
       <label for="tab2-2">DETAILS</label>
       <input id="tab2-2" name="tabs-two" type="radio">
     <div>
+      <p class="styleheader"><em>Members</em></p>
+      <span class="bandstyle">User Name</span>
+      <br>
+      <p class="styleheader"><em>Experience</em></p>
+      <span class="bandstyle"><%= @band.experience %></span>
+      <br>
+      <p class="styleheader"><em>Favorite Artists</em></p>
+      <span class="bandstyle">Insert Artists</span>
+      <br>
+      <p class="styleheader"><em>Open To</em></p>
+      <span class="bandstyle">Insert open</span>
+
+
       <p>Open to play live: <strong><%= @band.is_live %></strong>
       <br>
       Open to album recording: <strong><%= @band.is_recording %></strong>
@@ -38,10 +51,8 @@
       Open to composing: <strong><%= @band.is_composition %></strong>
       <br>
       Open to playing covers:  <strong><%= @band.is_cover %></strong>
-      <br>
-      Experience: <strong><%= @band.experience %></strong>
-      Longitude: <strong><%= @band.longitude %></strong>
-      Latitude: <strong><%= @band.latitude %></strong></p>
+
+      </p>
     </div>
   </div>
 </div>
