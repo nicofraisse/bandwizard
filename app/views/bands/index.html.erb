@@ -24,7 +24,7 @@
                 <div class="column">
 
                   <div class="card-band">
-                    <%= cl_image_tag(band.band_photos.last.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius") %>
+                    <%= link_to(cl_image_tag(band.band_photos.last.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius"), band_path(band)) %>
                     <div class="card-band-infos">
                       <!-- checkbox for stars -->
                     <% unless current_user.nil? %>
@@ -36,22 +36,22 @@
                           <i class="far fa-star"></i>
                         <% end %>
                       <% end %>
-
                     <% end %>
                      <!-- checkbox for stars -->
                       <!--  -->
-                      <%= link_to band.name, band_path(band) %>
-                      <br>
-                      <li>
+                      <p><strong><%= band.name %></strong></p>
+
+                      <li style="list-style-type:none;">
                         <% band.styles.each_with_index do |style, i| %>
                           <%= style.name %><%= i == band.styles.count - 1 ? "" : ", " %>
                         <% end %>
                       </li>
-                      <li style="color: red;">
+                      <li style="color: red; list-style-type:none;">
                         <% band.instruments.each do |instrument| %>
                           <%= instrument.name %>
                         <% end %>
                       </li>
+                      <br>
                       Distance: <%= band.distance_to(@address).round(1) %> km
                       <p>Matching score: <%= score %></p>
 
