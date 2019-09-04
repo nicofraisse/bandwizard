@@ -1,0 +1,49 @@
+// First attempt at Modal
+
+// .modal-dialog {
+//       max-width: 800px;
+//       margin: 50px auto;
+//   }
+
+// .modal-body {
+//   position:relative;
+//   padding:10px;
+//   top: 200px;
+
+// }
+// .close {
+//   position:absolute;
+//   right:-30px;
+//   top:200px;
+//   z-index:10040;
+//   font-size:2rem;
+//   font-weight: normal;
+//   // color:#fff;
+//   opacity:1;
+//   overflow:auto;
+//   overflow-y: auto;
+// }
+
+
+// Second attempt at Modal
+
+.bs-example{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.modal-content iframe{
+  margin: 0 auto;
+  display: flex;
+}
+
+.btn-danger {
+  border-radius: 5px;
+  width: 100%;
+}
+.fa-youtube {
+  font-size: 40px;
+}
+.modalmargin {
+  margin-top: 250px;
+}

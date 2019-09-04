@@ -1,8 +1,8 @@
 <% if result && result.class == Band %>
 <% #raise %>
-  <%= cl_image_tag result.band_photos.first.photo, alt: "alttext", width: '100%' %>
-  <p><%= result.name %></p>
-  <p><%= result.address %></p>
+<%= cl_image_tag result.band_photos.first.photo, alt: "alttext", width: '100%' %>
+<p><%= result.name %></p>
+<p><%= result.address %></p>
 <% else %>
-  <p><% result.name %></p>
+<p><% result.name %></p>
 <% end %>
