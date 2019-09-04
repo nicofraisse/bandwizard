@@ -32,7 +32,6 @@
         </div>
         <% end %>
       </div>
-
       <br>
 
       <input type="text" name="Address" placeholder="Address" id="address">
@@ -277,8 +276,6 @@ const element1 =  document.querySelector('.slideright')
 const element2 =  document.querySelector('.slideleft')
 btnmore = document.querySelector('#btnmore')
 btnless = document.querySelector('#btnless')
-
-
 btnmore.addEventListener('click', e => {
   element2.classList.toggle('d-none')
   element1.classList.toggle('d-none')
@@ -290,8 +287,6 @@ btnmore.addEventListener('click', e => {
   btnmore.classList.toggle('d-none')
   btnless.classList.toggle('d-none')
 });
-
-
 btnless.addEventListener('click', e => {
   element2.classList.toggle('d-none')
   element1.classList.toggle('d-none')
@@ -304,4 +299,3 @@ btnless.addEventListener('click', e => {
   btnless.classList.toggle('d-none')
 });
 </script>
-
