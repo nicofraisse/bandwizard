@@ -147,7 +147,7 @@ class BandsController < ApplicationController
 
       geocoded_address = Geocoder.coordinates(params[:Address])
       @address = params[:Address]
-      geo_bands = Band.near(geocoded_address, params[:slider].to_i,units: :km)
+      geo_bands = Band.near(geocoded_address, params[:slider].to_i, units: :km)
       near_bands = []
       geo_bands.each do |element|
         if all_bands.include?(element)

@@ -1,17 +1,17 @@
 // .container {
 
 // }
+label {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
 
 .searchform {
   text-align: center;
   width: 90%;
 }
 
-label {
-  color: white;
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-}
 
 .level {
   color: white;
@@ -21,6 +21,7 @@ label {
 .opento {
   color: white;
   text-align: center;
+  font-size: 19px;
 }
 
 .jamming {
@@ -52,10 +53,6 @@ label {
   font-family: 'Roboto', sans-serif;
 }
 .genderp {
-  color: white;
-  font-size: 19px;
-}
-.opento {
   color: white;
   font-size: 19px;
 }
