@@ -157,6 +157,29 @@ class BandsController < ApplicationController
 
       accepted_bands = right_instrument_bands & near_bands
 
+
+      max_match = 0
+      # instrument
+
+      max_match += 10
+      # location
+
+
+      # distance
+
+      # styles
+      # max_match += band.styles.count
+
+      # experiencw>
+      max_match += 1
+
+      # open to
+      max_match += 5
+
+
+
+
+
       @bands_with_scores_sorted = bands_with_scores.sort_by { |e| e[1] }.reverse
       accepted_bands_with_scores = bands_with_scores.select { |band| accepted_bands.include?(band[0]) }
       @accepted_bands_with_scores_sorted = accepted_bands_with_scores.sort_by { |e| e[1] }.reverse
