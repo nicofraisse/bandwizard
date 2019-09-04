@@ -38,7 +38,7 @@ user_addresses = [
   "5139 avenue Casgrain, Montréal, Canada",
   "5350 avenue Decelles, Montréal, Canada"
 ]
-user_photos = ["https://overblown.co.uk/wp-content/uploads/2019/02/Musician-Resume.jpg", "https://media.npr.org/assets/img/2018/11/01/hellojunebyjoshsaul-2e187ce8b2e0a894a03e21d768fd03112727967d-s800-c85.jpg"]
+user_photos = ["https://overblown.co.uk/wp-content/uploads/2019/02/Musician-Resume.jpg", "https://media.npr.org/assets/img/2018/11/01/hellojunebyjoshsaul-2e187ce8b2e0a894a03e21d768fd03112727967d-s800-c85.jpg", "https://www.themeshband.co.uk/img/wedding-bands-for-hire.jpg", "http://www.deboband.com/wp-content/uploads/2016/03/group-photo-colorful.jpg"]
 user_personal_websites = ["https://www.nihttps://www.youtube.com/watch?v=BB0DU4DoPP4"]
 user_youtube_links = ["https://www.youtube.com/watch?v=Jpw5Y2DMai4"]
 user_soundcloud_links = ["https://soundcloud.com/rojasonthebeat/look-at-me-ft-xxxtentacion"]
@@ -185,7 +185,7 @@ end
 # Associate photos to band
 puts "Associating photos to band"
 all_bands.each do |band|
-  photos = user_photos.sample([1,1].sample)
+  photos = user_photos.sample([1,3].sample)
   photos.each do |photo|
     BandPhoto.create!(remote_photo_url: photo, band: band)
     # band.save!
