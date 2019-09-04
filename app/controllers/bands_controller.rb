@@ -62,22 +62,17 @@ class BandsController < ApplicationController
         end
         style_band.flatten!
       end
+
       score_hash = Hash.new
       Band.all.each do |band|
         score_hash[band] = 0
       end
 
+
+
       @matching_filters = Band.all.to_a.map { |b| [b, []] }.to_h
 
-      all_bands_by_instrument = needed_instru.map do |instru|
-        instru.band
-      end
 
-      had_instrument = []
-      all_bands_by_instrument.each do |band|
-        score_hash[band] += 10
-        @matching_filters[band] << "instrument / 3"
-      end
 
       unless params[:style] == nil
         all_bands_by_style = style_band.map do |style|
@@ -92,6 +87,7 @@ class BandsController < ApplicationController
         score_hash[band] += 1
         @matching_filters[band] << "style / 1"
       end
+
 
       # GOALS
       Band.all.each do |band|
@@ -127,9 +123,28 @@ class BandsController < ApplicationController
       end
 
 
+      all_bands_by_instrument = needed_instru.map do |instru|
+        instru.band
+      end
+
+      had_instrument = []
+      all_bands_by_instrument.each do |band|
+        score_hash[band] += 10
+        @matching_filters[band] << "instrument / 3"
+      end
+
+
       #  Get _near_bands, the only bands in the search radius
       bands_with_scores = score_hash.to_a
       all_bands = Band.all
+
+      right_instrument_bands = []
+      all_bands_by_instrument.each do |band|
+        if all_bands.include?(band)
+          right_instrument_bands << band
+        end
+      end
+
       geocoded_address = Geocoder.coordinates(params[:Address])
       @address = params[:Address]
       geo_bands = Band.near(geocoded_address, params[:slider].to_i,units: :km)
@@ -139,11 +154,14 @@ class BandsController < ApplicationController
           near_bands << element
         end
       end
+
+      accepted_bands = right_instrument_bands & near_bands
+
       @bands_with_scores_sorted = bands_with_scores.sort_by { |e| e[1] }.reverse
-      near_bands_with_scores = bands_with_scores.select { |band| near_bands.include?(band[0]) }
-      @near_bands_with_scores_sorted = near_bands_with_scores.sort_by { |e| e[1] }.reverse
+      accepted_bands_with_scores = bands_with_scores.select { |band| accepted_bands.include?(band[0]) }
+      @accepted_bands_with_scores_sorted = accepted_bands_with_scores.sort_by { |e| e[1] }.reverse
       @bands_sorted = @bands_with_scores_sorted.map { |e| e[0] }
-      @near_bands_sorted = @near_bands_with_scores_sorted.map { |e| e[0] }
+      @accepted_bands_sorted = @accepted_bands_with_scores_sorted.map { |e| e[0] }
       # FILTER BY ADDRESS RADIUS
         # DISPLAY RESULTS ON MAP
         @markers = @bands_sorted.map do |band|
