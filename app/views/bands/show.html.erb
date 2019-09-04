@@ -1,45 +1,61 @@
 
-
 <div class="bandimage">
   <% @band.band_photos.each do |ph| %>
-     <div class="slideImage"><%= cl_image_tag(ph.photo )%></div>
+     <div class="slideImage"><%= cl_image_tag(ph.photo)%>
+     </div>
   <% end %>
 </div>
 
-
 <div class="mybands">
-  <div class="titlename">
-  <%= link_to(image_tag("chaticon.png", size: "70"), conversation_path(@band.user), :class => 'msgbtn') %>
-    <h1><%= @band.name %></h1>
-    <h4>Manager : <%= link_to @band.user.username.capitalize, public_profile_path(@band.user.id), :class => 'manager' %></h4>
-    <h6><%= @band.address.first(43) ... %></h6>
+  <div class="titleband margin">
+    <%= link_to(image_tag("chaticon.png", size: "72"), conversation_path(@band.user)) %>
+    <div class="bandname">
+      <h3><%= @band.name.upcase %></h3>
+      <div class="flex-thing">
+        <div><h5><%= @band.address.split(" ").last %></h5></div>
+        <div><h4>Manager : <%= link_to @band.user.username.capitalize, public_profile_path(@band.user.id), :class => 'manager' %></h4></div>
+      </div>
+    </div>
+  </div>
+
+
+
+   <p><%= @band.address.first(43) ... %></p>
+
+
+
+
+
+
+
   <div class="tabs">
+
+
     <div class="tab-2">
       <label for="tab2-1">BIO</label>
       <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
-    <div>
-      <p class="biop"><em><%= @band.bio %></em>
-      <br>
-      <br>
-      <!-- Website: <strong><%= link_to @band.personal_website %></strong> -->
-      <br>
-      <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/652694018&color=%23981cb8&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-      <div class="socialmedia">
-        <%= link_to(image_tag("webicon.svg", size: "64", :class => 'webbtn'), @band.personal_website) %>
-        <iframe class="soundcloudimg" allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2F%3C%25%3D%20%40band.name%25%3E&color=orange_white&size=64" style="width: 64px; height: 64px;"></iframe>
-        <iframe class="youtubeimg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="64" height="64" type="text/html" src="https://www.youtube.com/embed/0s6U_LKSG_M?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com"><div><small><a href="https://youtubeembedcode.com/nl/">youtubeembedcode nl</a></small></div><div><small><a href="http://add-link-exchange.com">visit</a></small></div><div><small><a href="https://youtubeembedcode.com/nl/">youtubeembedcode.com/nl/</a></small></div><div><small><a href="http://add-link-exchange.com">add-link-Exchange</a></small></div></iframe>
+      <div>
+        <p class="biop"><em><%= @band.bio %></em>
+        <br>
+        <br>
+        <!-- Website: <strong><%= link_to @band.personal_website %></strong> -->
+        <br>
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/652694018&color=%23981cb8&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+        <div class="socialmedia">
+          <%= link_to(image_tag("webicon.svg", size: "64", :class => 'webbtn'), @band.personal_website) %>
+          <iframe class="soundcloudimg" allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2F%3C%25%3D%20%40band.name%25%3E&color=orange_white&size=64" style="width: 64px; height: 64px;"></iframe>
+          <iframe class="youtubeimg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="64" height="64" type="text/html" src="https://www.youtube.com/embed/0s6U_LKSG_M?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com"><div><small><a href="https://youtubeembedcode.com/nl/">youtubeembedcode nl</a></small></div><div><small><a href="http://add-link-exchange.com">visit</a></small></div><div><small><a href="https://youtubeembedcode.com/nl/">youtubeembedcode.com/nl/</a></small></div><div><small><a href="http://add-link-exchange.com">add-link-Exchange</a></small></div></iframe>
+        </div>
+        <br>
+        <p class="styleheader"><em>Style</em></p>
+        <% @band.styles.each do |style| %>
+          <%= style.name %>
+        <% end %>
+        <span class="bandstyle">Insert related Styles</span>
       </div>
-
-      <br>
-      <p class="styleheader"><em>Style</em></p>
-    <% @band.styles.each do |style| %>
-    <%= style.name %>
-    <% end %>
-
-      <span class="bandstyle">Insert related Styles</span>
-
     </div>
-  </div>
+
+
     <div class="tab-2">
       <label for="tab2-2">DETAILS</label>
       <input id="tab2-2" name="tabs-two" type="radio">
@@ -57,6 +73,8 @@
       <span class="bandstyle">Insert open</span>
       </p>
     </div>
+
+
   </div>
 </div>
 
