@@ -69,8 +69,8 @@
                         <% end %>
                       </li>
                       <i class="fas fa-map-marker-alt"></i> <%= band.distance_to(@address).round(1) %> km
-                      <p>Matching score: <%= score %></p>
-                      <p>Max. score: <%= max_match %></p>
+                      <!-- <p>Matching score: <%= score %></p>
+                      <p>Max. score: <%= max_match %></p> -->
                       <p><strong><%= ((score.to_f / max_match.to_f) * 100).to_i %> % match</strong></p>
                     </div>
                   </div>
