@@ -50,13 +50,10 @@ user_bool = [true, true, false]
 styles = ["Blues", "Electronic", "Hip Hop", "Jazz", "Pop", "R&B", "Rock", "Metal", "Punk"]
 
 # INSTRUMENT SEED
-instruments = ["Guitar", "Bass", "Drums"]
+instruments = ["Guitar", "Bass", "Drums", "Vocals", "Piano"]
 # instruments = ["Guitar", "Bass", "Drums", "Vocals", "Synthesizer", "Saxophone", "Violin"]
 
 # BAND SEED
-
-band_addresses = []
-
 
 band_bios = [ "Hailing from the garages of Montréal, we busted down the doors of the music scene in 2016 with our debut album. With our latest album, we mixed some bubbly melodies with straightforward guitar work to concoct a solid record chock full of uber-memorable tunes. Our music appeals to young, old and the deceased fans alike.",
   "Though we have spent our time saturated in music, dance & performance, it is the release of our debut album that has marked our true musical introduction to the world of music. Within this repertoire, we have proven a compelling combination of rich pop layers among mixed styles of rhythm & blues, rock & soul. By melding hook-filled melody within hard & heavy beats, we have shown our ability to compact a vast array of influence & experience into a singular masterpiece.",
@@ -86,8 +83,75 @@ bands = [
   [ "Army Under Reality",
     "10270 Rue Meilleur, Montréal" ],
   [ "Stalin's Teacups",
-    "459 Rue St Paul, Montréal" ]
+    "459 Rue St Paul, Montréal" ],
+  [ "Lifeless Wednesday",
+    "3230 Peel street, Montreal"],
+  ["H.E.A.R.T.",
+    "4130 rue Saint Urbain, Montreal"],
+  ["Veruca Talent",
+    "3420 avenue Park, Montreal"],
+  ["My Lifeless Romance",
+    "5350 boulevard Saint Laurent, Montreal"],
+  ["Hands Ten",
+    "4510 Greene Avenue, Montreal"],
+  ["Ten Seconds to Jupiter",
+    "3333 Jarry street, Montreal"],
+  ["Bigplay",
+    "2200 rue Saint Denis, Montreal"],
+  ["Nigel's Midnight Spacemen",
+   "1490 Gouin Boulevard, Montreal"],
+  ["The Big Can For the Spacemen",
+    "6025 rue de la Gauchetiere, Montreal"],
+  ["The Moon Revival",
+    "6259 rue Saint-Paul, Montreal"],
+  ["Super Joystick",
+    "2600 Chemin Bedford, Montreal"],
+  ["Joy Fighters",
+    "6155 chemin Deacon, Montreal"],
+  ["Nigel Legin",
+    "6701 29e avenue, Montreal"],
+  ["Between the Forks and Me",
+   "11518 avenue Olier, Montreal-Nord"],
+  ["One Zillion Cats",
+    "308 rue saint-michel, Longueuil"],
+  ["Bathtub Smooching",
+    "2810 rue Martigny, Longueuil"],
+  ["TEDDY",
+    "2335 rue de Lorimier, Longueuil"],
+  ["Ron Talent",
+    "480 rue Dubois, Sainte-Catherine"],
+  ["King Ginger",
+    "83 17e avenue, Roxboro"],
+  ["Ronatron",
+    "1098 rue Bessieres, Laval"],
+  ["Megateddy",
+    "590 rue de Chambéry, Laval"],
+  ["No Rest For the Librarians",
+    "118 5e rue, Laval"],
+  ["Of Men and Gerbils",
+   "10719 avenue d'auteuil, Montreal"],
+  ["Screwed Pixel",
+    "2685 rue Blainville, Laval"],
+  ["Aurora Gist",
+    "317 rue Greendale, Rosemere"],
+  ["Dripping Grasshopper",
+    "1739 16e Avenue, pointe-Aux-Trembles"],
+  ["Greasy Overtime",
+   "839 rue Hatin, Saint-Jerome"],
+  ["Addicted Hunt",
+   "400 rue des Pins, Saint-Amable"],
+  ["Mad Discharge",
+   "66 rue Gregoire, Saint-JEan-Sur-Richelieu"],
+  ["Spurt Of Halfway",
+    "33 rue Saint-Maurice, Chateauguay"],
+  ["Face Foreward",
+   "1402 rue Hottin, Joliette"]
 ]
+
+
+
+
+
 
 # band_name = ["Fateful Local", "Alternate Generation", "Slink Over Acrobat", "Creamy Escort", "Seemingly Yoke Of The Mellow Poetry", "Nickelback", "Nautical Barracuda", "Needy Balboa", "Favored Photograph", "Reverent Banter", "Repressed Wickedly", "Taylor Swift", "Either Cool", "Cool Powder", "Higher Archy", "Spasmodicum", "Wig Week", "Capricult", "Dr. Lov", "Miss Thought", "Dirty Little Secretion", "Balding Zombies", "The Orange Oysters", "Hipsters in the Windows", "Migraine Birds", "Werewolf Clowns", "Whisky Stew"]
 # band_bios = ["Communicator. Typical beer trailblazer. Web buff. Professional coffee fanatic. Bacon aficionado.", "Gamer. Incurable twitter junkie. Hardcore analyst. Freelance coffee advocate. Evil pop culture aficionado. Tv guru. Proud student.", "Tv geek. Award-winning travel scholar. Music lover. Student. Coffee junkie. Freelance communicator.", "Typical pop cultureaholic. Music fanatic. Social media buff. Hipster-friendly food scholar. Total gamer. Beer expert.", "Travel enthusiast. Thinker. Total pop culture guru. Infuriatingly humble explorer. Avid bacon geek.", "Bacon nerd. Typical tv fanatic. General twitter evangelist. Beer buff. Lifelong problem solver.", "" ]
