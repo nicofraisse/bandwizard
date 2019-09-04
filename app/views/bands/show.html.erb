@@ -32,6 +32,10 @@
 
       <br>
       <p class="styleheader"><em>Style</em></p>
+    <% @band.styles.each do |style| %>
+    <%= style.name %>
+    <% end %>
+
       <span class="bandstyle">Insert related Styles</span>
 
     </div>
