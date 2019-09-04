@@ -11,14 +11,14 @@
   <div class="titlename">
   <%= link_to(image_tag("chaticon.png", size: "70"), conversation_path(@band.user), :class => 'msgbtn') %>
     <h1><%= @band.name %></h1>
-    <h4>Manager : <%= link_to @band.user.username, public_profile_path(@band.user.id) %></h4>
-    <h6><%= @band.address %></h6>
+    <h4>Manager : <%= link_to @band.user.username.capitalize, public_profile_path(@band.user.id), :class => 'manager' %></h4>
+    <h6><%= @band.address.first(43) ... %></h6>
   <div class="tabs">
     <div class="tab-2">
       <label for="tab2-1">BIO</label>
       <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
     <div>
-      <p><em><%= @band.bio %></em>
+      <p class="biop"><em><%= @band.bio %></em>
       <br>
       <br>
       <!-- Website: <strong><%= link_to @band.personal_website %></strong> -->
@@ -31,7 +31,7 @@
 
       <br>
       <p class="styleheader"><em>Style</em></p>
-      <span class="bandstyle">Enter Styles</span>
+      <span class="bandstyle">Insert related Styles</span>
 
     </div>
   </div>
@@ -40,16 +40,20 @@
       <input id="tab2-2" name="tabs-two" type="radio">
     <div>
       <p class="styleheader"><em>Members</em></p>
-      <span class="bandstyle">User Name</span>
+      <span class="bandstyle"><%= @band.user.username.capitalize %></span>
       <br>
       <p class="styleheader"><em>Experience</em></p>
       <span class="bandstyle"><%= @band.experience %></span>
       <br>
       <p class="styleheader"><em>Favorite Artists</em></p>
-      <span class="bandstyle">Insert Artists</span>
+      <span class="bandstyle">Insert Favorite Artists</span>
       <br>
       <p class="styleheader"><em>Open To</em></p>
       <span class="bandstyle">Insert open</span>
+      </p>
+    </div>
+  </div>
+</div>
 
 
       <!-- <p>Open to play live: <strong><%= @band.is_live %></strong>
@@ -62,7 +66,3 @@
       <br>
       Open to playing covers:  <strong><%= @band.is_cover %></strong> -->
 
-      </p>
-    </div>
-  </div>
-</div>
