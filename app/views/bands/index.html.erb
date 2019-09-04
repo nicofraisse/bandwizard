@@ -19,6 +19,7 @@
           <div class="row">
             <% @near_bands_with_scores_sorted.each do |b| %>
             <% band = b[0] %>
+
             <% score = b[1] %>
               <% unless score == 0 %>
                 <div class="column">
@@ -53,6 +54,8 @@
                       </li>
                       <i class="fas fa-map-marker-alt"></i> <%= band.distance_to(@address).round(1) %> km
                       <p>Matching score: <%= score %></p>
+                      <p>Matching filters: <%= @matching_filters[band] %></p>
+
 
                     </div>
                   </div>

@@ -52,56 +52,81 @@ class BandsController < ApplicationController
       # Get all InstrumentBands and StyleBands from the users's input
       needed_instru = NeededInstrument.where(instrument: Instrument.find_by_name(params[:instruments]))
       needed_goals = ["is_jamming", "is_live", "is_composition", "is_recording", "is_cover"]
-      style_band = []
-      params[:style].each do |style|
-        style_band << StyleBand.where(style: Style.find_by_name(style))
+
+
+
+      unless params[:style] == nil
+        style_band = []
+        params[:style].each do |style|
+          style_band << StyleBand.where(style: Style.find_by_name(style))
+        end
+        style_band.flatten!
       end
-      style_band.flatten!
       score_hash = Hash.new
       Band.all.each do |band|
         score_hash[band] = 0
       end
 
+      @matching_filters = Band.all.to_a.map { |b| [b, []] }.to_h
+
       all_bands_by_instrument = needed_instru.map do |instru|
         instru.band
       end
+
       had_instrument = []
       all_bands_by_instrument.each do |band|
-        score_hash[band] += 3
-        had_instrument << "yup"
+        score_hash[band] += 10
+        @matching_filters[band] << "instrument / 3"
       end
-      all_bands_by_style = style_band.map do |style|
-        style.band
+
+      unless params[:style] == nil
+        all_bands_by_style = style_band.map do |style|
+          style.band
+        end
+      else
+        all_bands_by_style = []
       end
+
       had_style = []
       all_bands_by_style.each do |band|
         score_hash[band] += 1
-        had_style << "yes"
+        @matching_filters[band] << "style / 1"
       end
+
       # GOALS
       Band.all.each do |band|
         if band.is_jamming.to_s == params[:is_jamming]
           score_hash[band] += 1
+          @matching_filters[band] << "is jamming / 1"
         end
         if band.is_live.to_s == params[:is_live]
           score_hash[band] += 1
+          @matching_filters[band] << "is live / 1"
         end
         if band.is_composition.to_s == params[:is_composition]
           score_hash[band] += 1
+          @matching_filters[band] << "is composition / 1"
         end
         if band.is_recording.to_s == params[:is_recording]
           score_hash[band] += 1
+          @matching_filters[band] << "is recording / 1"
         end
         if band.is_cover.to_s == params[:is_cover]
           score_hash[band] += 1
+          @matching_filters[band] << "is cover / 1"
         end
       end
+
+
       # EXPERIENCE
       Band.all.each do |band|
         if band.experience == params[:experience]
           score_hash[band] += 1
+          @matching_filters[band] << "XP / 1"
         end
       end
+
+
       #  Get _near_bands, the only bands in the search radius
       bands_with_scores = score_hash.to_a
       all_bands = Band.all
@@ -129,7 +154,15 @@ class BandsController < ApplicationController
           }
         end
       end
+
+
     end
+
+
+
+
+
+
     def new
       @band = Band.new
       authorize @band
