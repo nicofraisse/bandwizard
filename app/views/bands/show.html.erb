@@ -1,4 +1,11 @@
-<p class="bandimage">BAND PHOTOS</p>
+
+
+<div class="bandimage">
+  <% @band.band_photos.each do |ph| %>
+     <div class="slideImage"><%= cl_image_tag(ph.photo )%></div>
+  <% end %>
+</div>
+
 
 <div class="mybands">
   <div class="titlename">

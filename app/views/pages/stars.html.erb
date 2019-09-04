@@ -44,18 +44,10 @@
         <% end %>
       </div>
 
-      <% @results = [] %>
-      <!-- convert to hash -->
-      <% @starred_bands.each do |object| %>
-      <% b = object.band %>
-      <% band = {} %>
-      <% band["lat"] = b.latitude%>
-      <% band["long"] = b.longitude %>
-      <% @results.push(band) %>
-      <% end %>
+
 
     </div>
-    <%= link_to "See map", map_path({results:"#{@results}"}) %>
+
 
   </div>
 </div>

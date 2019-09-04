@@ -149,6 +149,97 @@
        </div>
        <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
      </form>
+  
+    <form action="/bands" method="get">
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">What instrument are you looking for?</label>
+        <select class="form-control search-band-select" id="exampleFormControlSelect1" name="instruments">
+          <% Instrument.all.each do |instrument| %>
+          <option><%= instrument.name %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <br>
+
+      <div class="all-filters">
+        <% Style.all.each do |style| %>
+        <div class="filter-input">
+          <label class="stylebutton">
+            <%= style.name %>
+          </label>
+          <input type="checkbox" name="style[]" value="<%= style.name %>" />
+        </div>
+        <% end %>
+      </div>
+      <br>
+
+      <input type="text" name="Address" placeholder="Address" id="address">
+      <br>
+      <div>
+        <label for="current_position">Use my current position</label>
+        <input type="checkbox" name="current_position" id="current-position">
+      </div>
+
+      <div class="slidecontainer">
+        <label for="slide">Distance</label>
+        <input type="range" min="0" max="30" value="15" class="slider" id="slide">
+        <input type="text" name="slider" placeholder="km" id='range-value' hidden>
+        <br>
+        <br>
+        <div class="range-labels">
+          <span class="spanslide">1km</span>
+          <span class="spanslide">15km</span>
+          <span class="spanslide">30km</span>
+        </div>
+      </div>
+
+      <div class="slidecontainer">
+        <label for="slide">Experience</label>
+        <input type="range" min="1" max="3" value="2" class="slider" id="slider">
+        <input type="text" name="experience" placeholder="experience" id="range-value" hidden>
+        <br>
+        <br>
+        <div class="range-labels">
+          <span class="spanslide">beginner</span>
+          <span class="spanslide">intermediate</span>
+          <span class="spanslide">expert</span>
+        </div>
+      </div>
+
+      <div class="all-filters">
+        <div class="filter-input">
+          <label class="stylebutton">
+            <input type="checkbox" name="is_jamming" value="true" checked/>Jamming
+          </label>
+        </div>
+        <div class="filter-input">
+          <label class="stylebutton">
+            <input type="checkbox" name="is_live" value="true" checked/>Play Live
+          </label>
+        </div>
+        <div class="filter-input">
+          <label class="stylebutton">
+            <input type="checkbox" name="is_composition" value="true" checked/>Write Songs
+          </label>
+        </div>
+        <div class="filter-input">
+          <label class="stylebutton">
+            <input type="checkbox" name="is_recording" value="true" checked/>Record Albums
+          </label>
+        </div>
+        <div class="filter-input">
+          <label class="stylebutton">
+            <input type="checkbox" name="is_cover" value="true" checked/>Cover Band
+          </label>
+        </div>
+      </div>
+    </div>
+    <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A MUSICIAN</button>
+  </form>
+</div>
+<div class="morefilters">
+  <button class="extrafilters" type="submit"><%= link_to "MORE FILTERS", filter_path(filter:2)%>
 
    </div>
    <div class="morefilters">
