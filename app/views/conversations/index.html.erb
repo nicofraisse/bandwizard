@@ -1,7 +1,7 @@
 <% if @conversations.nil? %>
-      No conversations
-<% elsif @conversations == 1 %>
-     You have one conversation
+      <h3>No conversations</h3>
+<% elsif @conversations.count == 1 %>
+    <h3>You have one conversation</h3>
 <% else %>
    <h1> <%= @conversations.count %> conversations</h1>
 <% end %>
