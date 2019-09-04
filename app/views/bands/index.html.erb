@@ -10,6 +10,7 @@
 <!-- band search -->
 
 <!-- text -->
+<% raise %>
 <% unless @near_bands_with_scores_sorted == nil %>
 
   <div class="margin">
@@ -40,6 +41,7 @@
               <% accepted_bands_with_matches[band] = ((score.to_f / max_match.to_f) * 100).to_i %>
               <% accepted_bands_with_matches_sorted = accepted_bands_with_matches.to_a.sort_by { |e| e[1] }.reverse %>
             <% end %>
+            <% raise %>
             <% accepted_bands_with_matches_sorted.each do |b| %>
               <% band = b[0] %>
               <% score = b[1] %>
