@@ -1,5 +1,55 @@
-<h1 class="messagesection">Conversations</h1>
-
-<% @conversations.each do |conversation| %>
-  <%= link_to "#{conversation.user1.username} and #{conversation.user2.username}", conversation_path(conversation.id) %>
+<% if @conversations.nil? %>
+      <h3>No conversations</h3>
+<% elsif @conversations.count == 1 %>
+    <h3>You have one conversation</h3>
+<% else %>
+   <h1> <%= @conversations.count %> conversations</h1>
 <% end %>
+<div class ="allConversations">
+  <% @conversations.each do |conversation| %>
+    <% if conversation.user1 == current_user %>
+        <%friend = conversation.user2  %>
+    <% else %>
+        <%  friend = conversation.user1%>
+    <% end %>
+    <div class="conversation margin">
+    <div class= "friendAvatar">
+      <%= cl_image_tag(friend.photo,class: "avatar") %>
+    </div>
+    <div class = "message">
+      <div class="friend">
+        <span>
+          <%= link_to friend.username,conversation_path(conversation.id) %>
+          </span>
+        </div>
+
+      <span> <% unless friend.messages.last.nil?%>
+        <%= friend.messages.last.msg %>
+       <% end  %>
+      </span>
+    </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

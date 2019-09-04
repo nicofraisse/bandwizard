@@ -1,29 +1,61 @@
 .bandimage {
   // margin-top: 40px;
-  border: 2px solid white;
-
   max-height: 50vh;
   color: white;
   text-align: center;
 }
-.slideImage{
-  // max-width: 200px;
-  max-height: 50vh;
 
-
+.slideImage img {
+  height: 40vh;
 }
+
 .mybands {
   margin-top: -30px;
   text-align: center;
   font-family: 'Roboto', sans-serif;
 }
 
-.titlename {
+.titleband {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  height: 84px;
   background-color: white;
   text-align: left;
-  padding: 5px;
-  margin-bottom: 10px;
+  color: black;
+  font-weight: bold;
+  h5 {
+    bottom: 224px;
+    position: absolute;
+  }
 }
+
+.bandname h3{
+  font-weight: bold;
+  height: 100%;
+  font-family: 'Roboto';
+  font-size: 24px;
+  margin-top:5px;
+}
+
+.bandname h5{
+  font-family: 'Roboto';
+  color: black;
+}
+
+.flex-thing {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-thing h4 {
+  position: relative;
+  bottom: 392px;
+  font-size: 20px;
+  z-index: 500000000000;
+  color: white;
+}
+
+
 
 .bio {
   font-family: 'Roboto', sans-serif;
@@ -114,6 +146,7 @@ select:focus {
   outline: none; }
 
 .tabs {
+  background-color: rgba(242, 242, 242, 0.75);
   height: 100%;
   display: block;
   display: -webkit-flex;
