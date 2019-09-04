@@ -109,7 +109,7 @@
 
 <!-- SEARCHING FOR BAND -------------------------------------------------------------->
 <div class="margin">
-  <div class="searchform col-12 col-md-6" style="width: 100%">
+  <div class="searchform col-12 col-md-6 col-lg-12" style="width: 100%">
     <form action="/bands" method="get" id ="1">
 <!-- part 1******************** -->
 <!-- <div class = "sliding">
@@ -122,7 +122,7 @@
           <% end %>
         </select>
       </div>
-      <br>
+
       <p>What location?</p>
       <div style="position: relative;">
         <input type="text" name="Address" placeholder="Address" id="address">
@@ -133,7 +133,7 @@
             bottom: 10px;
             width: 20px;
             height: 20px;
-            opacity: 0;
+            opacity: 1;
           "
           type="checkbox"
           name="current_position"
@@ -147,7 +147,6 @@
           color: #ffffff4f;
         ">click for geolocation</span>
       </div>
-      <br>
       <div class="slidecontainer">
         <label for="slide">Distance</label>
         <input type="range" min="0" max="30" value="15" class="slider" id="slide">
@@ -179,7 +178,6 @@
         <label for="slide">Experience</label>
         <input type="range" min="1" max="3" value="2" class="slider" id="slider">
         <input type="text" name="experience" placeholder="experience" id="range-value" hidden>
-        <br>
         <br>
         <div class="range-labels">
           <span class="spanslide">beginner</span>
