@@ -134,20 +134,7 @@
           <% end %>
         </select>
       </div>
-
       <br>
-      <p>Your musical styles</p>
-      <div class="all-filters">
-        <% Style.all.each do |style| %>
-        <div class="filter-input">
-          <label class="stylebutton">
-            <%= style.name %>
-          </label>
-          <input type="checkbox" name="style[]" value="<%= style.name %>" />
-        </div>
-        <% end %>
-      </div>
-
       <br>
       <p>What Location ?</p>
       <div style="position: relative;">
@@ -171,7 +158,7 @@
           margin-top: 5px;
           margin-right: 5px;
           color: #ffffff4f;
-        ">click for geolocalization</span>
+        ">click for gelocation</span>
       </div>
       <br>
 
@@ -186,6 +173,19 @@
           <span class="spanslide">15km</span>
           <span class="spanslide">30km</span>
         </div>
+      </div>
+
+
+      <p>Your musical styles</p>
+      <div class="all-filters">
+        <% Style.all.each do |style| %>
+        <div class="filter-input">
+          <label class="stylebutton">
+            <%= style.name %>
+          </label>
+          <input type="checkbox" name="style[]" value="<%= style.name %>" />
+        </div>
+        <% end %>
       </div>
 
       </div>
@@ -203,6 +203,7 @@
           <span class="spanslide">expert</span>
         </div>
       </div>
+      <br>
 
       <p>You are open to</p>
       <div class="all-filters">
@@ -234,31 +235,31 @@
         </div>
         <br>
         <br>
-        <div id="double-slider">
+        <!-- <div id="double-slider">
           <label for="slide">Age</label>
           <input type="text" class="js-range-slider" name="doubleslider" value="" />
           <input type="text" name="age" id="age-range-values" hidden>
-        </div>
+        </div> -->
       </div>
 
-      <p>Demographics</p>
+      <!-- <p>Demographics</p>
       <div class="all-filters">
         <div class="filter-input">
           <label class="stylebutton">
-           Female
-         </label>
-         <input type="checkbox" name="female" value="true" />
-       </div>
-       <div class="filter-input">
-        <label class="stylebutton">
-         Male
+          Female
+          </label>
+          <input type="checkbox" name="female" value="true" />
+        </div>
+        <div class="filter-input">
+         <label class="stylebutton">
+          Male
        </label>
-       <input type="checkbox" name="female" value="true" />
-     </div>
-   </div>
-
- </div>
+        <input type="checkbox" name="female" value="true" />
+      </div> -->
+    </div>
+  </div>
 </div>
+      <br>
 <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
 </form>
 
