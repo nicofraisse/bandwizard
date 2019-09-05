@@ -83,8 +83,13 @@
                               <% end %>
                             </li>
                             <li class="no-bullet">
-                                Looking for :<strong><% band.instruments.each do |instrument| %>
-                                <%= instrument.name %>
+
+                              looking for :<% band.instruments.each do |instrument| %>
+                              <% if instrument.name == "Piano"   %> Pianist
+                              <% elsif instrument.name == "Guitar" %> Guitarist
+                              <% elsif instrument.name == "Bass" %> Bassist
+                              <% elsif instrument.name == "Drums" %> Drummer
+                              <% else instrument.name == "Vocals" %> Singer
                               <% end %>
                             </strong></li>
 
