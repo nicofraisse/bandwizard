@@ -24,10 +24,9 @@ body {
   color: white;
   font-family: "Roboto";
   font-weight: lighter;
-  padding-top: 28px;
   font-size: 32px;
+/*}*/
 }
-
 .navbar {
   background-color: transparent;
 }
@@ -58,12 +57,15 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   font-size: 20px;
+    text-align: center;
 
 }
 
 .link-to-text-color:hover {
   text-decoration: none;
-  color: #46276C
+  text-align: center;
+  color: white;
+  background-color: #8ce6b0;
 }
 
 .searchbutton {
@@ -72,6 +74,7 @@ body {
   margin-top: 16px;
   margin-bottom: 16px;
   border: none;
+  text-align: center;
   background: #4FB986;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
