@@ -118,6 +118,7 @@ class BandsController < ApplicationController
       end
 
 
+
       all_bands_by_instrument = needed_instru.map do |instru|
         instru.band
       end
@@ -140,9 +141,10 @@ class BandsController < ApplicationController
         end
       end
 
-      geocoded_address = Geocoder.coordinates(params[:Address])
-      @address = params[:Address]
-      geo_bands = Band.near(geocoded_address, params[:slider].to_i,units: :km)
+
+      geocoded_address = Geocoder.coordinates('5333, Avenue Casgrain, Montréal, Canada')
+      @address = '5333, Avenue Casgrain, Montréal, Canada'
+      geo_bands = Band.near([45.526123, -73.5950714], params[:slider].to_i,units: :km)
       near_bands = []
       geo_bands.each do |element|
         if all_bands.include?(element)
@@ -150,7 +152,18 @@ class BandsController < ApplicationController
         end
       end
 
-      accepted_bands = right_instrument_bands & near_bands
+
+
+      # accepted_bands = right_instrument_bands & near_bands
+
+      accepted_bands = []
+      right_instrument_bands.map do |band|
+        if near_bands.include?(band)
+          accepted_bands << band
+        end
+        puts accepted_bands
+      end
+
 
 
       max_match = 0
@@ -174,7 +187,6 @@ class BandsController < ApplicationController
 
 
 
-
       @bands_with_scores_sorted = bands_with_scores.sort_by { |e| e[1] }.reverse
       accepted_bands_with_scores = bands_with_scores.select { |band| accepted_bands.include?(band[0]) }
       @accepted_bands_with_scores_sorted = accepted_bands_with_scores.sort_by { |e| e[1] }.reverse
@@ -190,6 +202,7 @@ class BandsController < ApplicationController
           }
         end
       end
+
 
 
     end

@@ -11,7 +11,7 @@
 
 <!-- text -->
 
-<% unless @accepted_bands_with_scores_sorted == nil %>
+<% unless @accepted_bands_with_scores_sorted.nil? %>
 
   <div class="margin">
     <h3 class="subtitle"><strong><%= @accepted_bands_with_scores_sorted.count %></strong> search results</h3>
@@ -45,6 +45,7 @@
 
 
             <% end %>
+
             <% accepted_bands_with_matches_sorted.each do |b| %>
 
             <% band = b[0] %>
@@ -68,37 +69,33 @@
                       <div class="card-band-infos">
                         <!-- checkbox for stars -->
                        <!-- checkbox for stars -->
-                        <p><strong><%= band.name %></strong></p>
-                        <li style="list-style-type:none;">
-                          <% band.styles.each_with_index do |style, i| %>
-                            <%= style.name %><%= i == band.styles.count - 1 ? "" : ", " %>
-                          <% end %>
-                        </li>
-                        <li style="color: red; list-style-type:none;">
-                          <% band.instruments.each do |instrument| %>
-                            <%= instrument.name %>
-                          <% end %>
-                        </li>
-                        <i class="fas fa-map-marker-alt"></i> <%= band.distance_to(@address).round(1) %> km
+                       <div class="band-header">
+                          <p class="band-name"=><strong><%= band.name %></strong></p>
+                          <p class="km"><i class="fas fa-map-marker-alt"></i> <%= band.distance_to(@address).round(1) %> km</p>
+                       </div>
 
-                        <div class="page">
 
-                          <!-- default -->
-                          <div class="clearfix">
-
-                            <div class="c100 p25">
-                              <span><%= b[1] %></span>
-                              <div class="slice">
-                                <div class="bar"></div>
-                                <div class="fill"></div>
-                              </div>
-                            </div>
+                        <div class="band-card-footer">
+                          <div class="d-flex flex-column">
+                            <li class="no-bullet styles-container">
+                              <% band.styles.each_with_index do |style, i| %>
+                                <span class="styles"><%= style.name %></span>
+                              <% end %>
+                            </li>
+                            <li class="no-bullet">
+                              looking for :<% band.instruments.each do |instrument| %>
+                                <%= instrument.name %>
+                              <% end %>
+                            </li>
 
                           </div>
-                          <!-- /default -->
+
+                          <div class="chart-input">
+                            <input type="text" value="<%= b[1] %>" class="dial">
+                            <span>%</span>
+                          </div>
 
                         </div>
-
 
                       </div>
                     </div>
