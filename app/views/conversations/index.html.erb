@@ -32,7 +32,9 @@
           <div style="font-weight: bold;"><%= conversation.messages.last.updated_at.to_s.first(16) %></div>
         </div>
         <div class="last-message">
+          <% unless conversation.messages.last.msg.nil? %>
           <%= conversation.messages.last.msg.split("").count >= 50 ? conversation.messages.last.msg.first(50)... : conversation.messages.last.msg %>
+          <% end %>
         </div>
       </div>
     </div>
