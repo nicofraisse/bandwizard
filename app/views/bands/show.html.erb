@@ -1,7 +1,9 @@
 <div class="manager-container">
-  <div style="position: absolute; right: 4%;   margin-top: -30px; z-index: 40000000000000000; color: white;"> Manager :
-    <%= link_to @band.user.username.capitalize, public_profile_path(@band.user.id), :class => 'manager' %>
-  </div>
+
+    <div style="position: absolute; right: 4%; display: flex;">
+      <div style="padding-top: 4px; padding-right: 6px">Manager :</div>
+      <div><%= link_to @band.user.username.capitalize, public_profile_path(@band.user.id), :class => 'manager' %></div>
+    </div>
 </div>
 
 <div class="image-container">

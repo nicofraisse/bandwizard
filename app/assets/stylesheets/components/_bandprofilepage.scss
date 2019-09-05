@@ -1,15 +1,20 @@
-.image-container {
-  z-index: 90000000000000000;
-}
-
 .manager-container {
+  margin-top: -39px;
 
-  margin-top: 8px;
+  height: 36px;
   position: relative;
 
-/*  right: 4%;*/
-/*  position: relative;*/
+
+  z-index: 40000000000000000;
+  color: white;
+  width: 100%;
 }
+
+.manager container a {
+  margin-top: 0px;
+}
+
+
 
 .manager {
   padding: 3px 12px;
@@ -20,6 +25,10 @@
   right: 4%;*/
 }
 
+.image-container {
+  z-index: 90000000000000000;
+}
+
 .bandimage {
   margin-top: 10px;
   max-height: 50vh;
@@ -28,7 +37,7 @@
 }
 
 .slideImage img {
-  max-height: 50vh;
+  height: 40vh;
 }
 
 .slick-dots li.slick-active button:before {
@@ -67,6 +76,7 @@
 .titleband img {
   position: absolute;
   top: -40px;
+  right: 4%;
 }
 
 .titleband h3 {
@@ -169,34 +179,6 @@
   border-radius: 5px;
 }
 
-.fa-globe {
-  font-size: 24px;
-  padding-right: 10px;
-}
-
-.website {
-  color: red;
-  text-decoration: none;
-}
-
-.fa-map-marker-alt {
-  margin-right: 5px;
-  margin-left: 10px;
-}
-
-// Manager title with button
-
-// .manager {
-//   padding: 3px 12px;
-//   border-radius: 30px;
-//   background-color: #D9D9D9;
-//   color: #fff;
-// }.manager:hover {
-//   background-color: #624AB6;
-//   color: #fff;
-//   text-decoration: none;
-// }
-
 
 // Tabs for Bio and Details
 
@@ -213,7 +195,7 @@ select:focus {
 
 .tabz-thing {
   position: relative;
-  top:-40px;
+  top:-60px;
 }
 .hii {
     color: white;
@@ -253,8 +235,6 @@ select:focus {
   .tabs [class*=" tab"] [type="radio"] {
     border-bottom: 1px solid rgba(239, 237, 239, 0.5);
     cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     display: block;
     width: 100%;
