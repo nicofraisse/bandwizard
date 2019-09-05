@@ -21,5 +21,6 @@
             centerMode: true,
             variableWidth: true
         });
+
     });
 
