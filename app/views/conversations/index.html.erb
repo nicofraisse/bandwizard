@@ -13,37 +13,42 @@
 
   <% conv_with_date = [] %>
   <% @conversations.each do |conversation| %>
-  <% conv_with_date << [conversation, conversation.messages.last.updated_at] %>
-  <% end %>
-  <% conversations_ordered = conv_with_date.sort_by { |e| e[1] }.reverse %>
-
-    <% conversations_ordered.each do |conv_and_time| %>
-      <% conversation = conv_and_time[0] %>
-
-      <% if conversation.user1 == current_user %>
-          <% friend = conversation.user2  %>
-      <% else %>
-          <% friend = conversation.user1%>
+    <% unless conversation.messages.count == 0 %>
+      <% conv_with_date << [conversation, conversation.messages.last.updated_at] %>
       <% end %>
-      <div class="conversation margin">
+  <% end %>
 
-        <div class= "friendAvatar">
-          <%= cl_image_tag(friend.photo,class: "") %>
-        </div>
-        <div class = "message-pack">
-          <div class="name-and-time">
-            <div><%= link_to friend.full_name.split.map(&:capitalize).join(' '),conversation_path(conversation.id) %></div>
-            <div style="font-weight: bold;"><%= conversation.messages.last.updated_at.to_s.first(16) %></div>
+  <% unless conv_with_date == [] %>
+    <% conversations_ordered = conv_with_date.sort_by { |e| e[1] }.reverse %>
+
+      <% conversations_ordered.each do |conv_and_time| %>
+        <% conversation = conv_and_time[0] %>
+
+        <% if conversation.user1 == current_user %>
+            <% friend = conversation.user2  %>
+        <% else %>
+            <% friend = conversation.user1%>
+        <% end %>
+        <div class="conversation margin">
+
+          <div class= "friendAvatar">
+            <%= cl_image_tag(friend.photo,class: "") %>
           </div>
-          <div class="last-message">
-            <% unless conversation.messages.last.msg.nil? %>
-            <%= conversation.messages.last.msg.split("").count >= 50 ? conversation.messages.last.msg.first(50)... : conversation.messages.last.msg %>
-            <% end %>
+          <div class = "message-pack">
+            <div class="name-and-time">
+              <div><%= link_to friend.full_name.split.map(&:capitalize).join(' '),conversation_path(conversation.id) %></div>
+              <div style="font-weight: bold;"><%= conversation.messages.last.updated_at.to_s.first(16) %></div>
+            </div>
+            <div class="last-message">
+              <% unless conversation.messages.last.msg.nil? %>
+              <%= conversation.messages.last.msg.split("").count >= 50 ? conversation.messages.last.msg.first(50)... : conversation.messages.last.msg %>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
 
 
