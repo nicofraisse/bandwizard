@@ -26,18 +26,10 @@
               <% score = b[1] %>
 
               <% max_match = 0 %>
-              <!-- instrument -->
-              <% max_match += 10 %>
-              <!-- location -->
-              <%  %>
-              <!-- distance -->
-              <%  %>
-              <!-- styles -->
+
               <% max_match += band.styles.count %>
               <!-- experience -->
-              <% max_match += 1 %>
-              <!-- open to -->
-              <% max_match += 5 %>
+              <% max_match += 6 %>
 
               <% accepted_bands_with_matches[band] = ((score.to_f / max_match.to_f) * 100).to_i %>
 
@@ -103,9 +95,9 @@
                 <% end %>
               <% end %>
             </div>
-            <% @results = [] %>
-            <% @accepted_bands_sorted.each do |b| %>
-              <% @results.push(b.id) %>
+            <% @results = {} %>
+            <% @accepted_bands_with_scores_sorted.each do |b| %>
+              <% @results[(b[0].id)] =  b[1] %>
             <% end %>
       </div>
 
