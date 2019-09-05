@@ -2,7 +2,7 @@
 
     <div style="position: absolute; right: 4%; display: flex;">
       <div style="padding-top: 4px; padding-right: 6px">Manager :</div>
-      <div><%= link_to @band.user.username.capitalize, public_profile_path(@band.user.id), :class => 'manager' %></div>
+      <div style="padding-top: 4px; padding-right: 6px"><%= link_to @band.user.username.capitalize, public_profile_path(@band.user.id), :class => 'manager' %></div>
     </div>
 </div>
 

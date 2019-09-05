@@ -1,11 +1,8 @@
 .manager-container {
-  margin-top: -39px;
-
+  margin-top: -18px;
   height: 36px;
   position: relative;
-
-
-  z-index: 40000000000000000;
+  z-index: 0;
   color: white;
   width: 100%;
 }
@@ -30,7 +27,7 @@
 }
 
 .bandimage {
-  margin-top: 10px;
+  margin-top: 8px;
   max-height: 50vh;
   color: white;
   text-align: center;

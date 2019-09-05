@@ -13,8 +13,14 @@
     <% elsif controller_name == "bands" && controller.action_name == "search" %>
           <h1 class="title">Find <%= params[:choice] == "1" ? "musician" : "a band" %></h1>
 
+    <% elsif controller_name == "bands" && controller.action_name == "search" %>
+          <h1 class="title">Find <%= params[:choice] == "1" ? "musician" : "a band" %></h1>
+
     <% elsif controller_name == "bands" && controller.action_name == "index" %>
           <h1 class="title">Find <%= params[:choice] == "1" ? "musician" : "a band" %></h1>
+
+    <% elsif controller_name == "bands" && controller.action_name == "show" %>
+          <h1 class="title">Band Profile</h1>
 
     <% elsif controller_name == "pages" && controller.action_name == "public_profile" %>
           <h1 class="title">Musician Profile</h1>
