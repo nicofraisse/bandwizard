@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home,:public_profile]
+  skip_before_action :authenticate_user!, only: [:home, :public_profile]
 
   def home
   end
@@ -17,7 +17,7 @@ class PagesController < ApplicationController
   end
 
   def stars
-    @starred_bands = StarredBand.all
+    @starred_bands = current_user.starred_bands
   end
 
   private

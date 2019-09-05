@@ -1,2 +1,14 @@
 $('#favorite_link-<%=@band.id%>').html("<%=favorite_text%>");
 
+<% if @favorite %>
+
+  cardToDelete = document.querySelector(".column[data-star-id='<%= @favorite.id %>']");
+
+  if (cardToDelete) {
+    cardToDelete.remove();
+  }
+ document.querySelector("h4.title").innerHTML = "<%= current_user.starred_bands.count %> starred bands";
+
+
+<% end %>
+

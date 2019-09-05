@@ -1,3 +1,25 @@
 .messagesection.h1 {
   color: white;
 }
+
+ a {
+    color: #441a39;
+    text-decoration: none;
+    background-color: transparent;
+    display: flex;
+    margin-top: 18px;
+}
+
+.conversation {
+    -webkit-border-after: 1px solid rgba(150, 150, 150, 0.4);
+    border-block-end: 1px solid rgba(150, 150, 150, 0.4);
+    display: flex;
+    height: 80px;
+    background: #fff;
+    border-radius: 25px;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #4FB986
+}
