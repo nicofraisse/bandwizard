@@ -1,24 +1,25 @@
 
 <div class="navbar">
-  <div class="opaque-to-transparent" style="">
+  <div class="opaque-to-transparent" style="background-image: <% #image_tag('navbar-background') %>">
+
 
     <% if controller_name == "conversations" && controller.action_name == "index" %>
-          <h1 class=title>Messages</h1>
+          <h1 class="title">Messages</h1>
 
     <% elsif controller_name == "conversations" && controller.action_name == "show" %>
-          <h1 class=title> <%= current_user.id == @conversation.user1_id ? User.find(@conversation.user2_id).username.capitalize : User.find(@conversation.user1_id).username.capitalize %></h1>
+          <h1 class="title"> <%= current_user.id == @conversation.user1_id ? User.find(@conversation.user2_id).username.capitalize : User.find(@conversation.user1_id).username.capitalize %></h1>
 
     <% elsif controller_name == "bands" && controller.action_name == "search" %>
-          <h1 class=title>Find <%= params[:choice] == "1" ? "musician" : "a band" %></h1>
+          <h1 class="title">Find <%= params[:choice] == "1" ? "musician" : "a band" %></h1>
 
     <% elsif controller_name == "bands" && controller.action_name == "index" %>
-          <h1 class=title>Find <%= params[:choice] == "1" ? "musician" : "a band" %></h1>
+          <h1 class="title">Find <%= params[:choice] == "1" ? "musician" : "a band" %></h1>
 
     <% elsif controller_name == "pages" && controller.action_name == "public_profile" %>
-          <h1 class=title>Musician Profile</h1>
+          <h1 class="title">Musician Profile</h1>
 
     <% elsif controller_name == "pages" && controller.action_name == "stars" %>
-          <h1 class=title>Stars</h1>
+          <h1 class="title">Stars</h1>
     <% end %>
   </div>
 
@@ -35,6 +36,7 @@
       <%= link_to "Home", home_path, class: "dropdown-item" %>
       <%= link_to "Profile", dashboard_path(current_user), class: "dropdown-item" %>
       <%= link_to "Messages", conversations_path, class: "dropdown-item" %>
+      <%= link_to "My Bands", mybands_path, class: "dropdown-item"  %>
       <%= link_to "My stars", "/stars", class: "dropdown-item" %>
       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
     <% else %>
