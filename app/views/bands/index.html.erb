@@ -45,7 +45,7 @@
 
 
             <% end %>
-            <% raise %>
+
             <% accepted_bands_with_matches_sorted.each do |b| %>
 
             <% band = b[0] %>
@@ -69,25 +69,28 @@
                       <div class="card-band-infos">
                         <!-- checkbox for stars -->
                        <!-- checkbox for stars -->
-                        <p><strong><%= band.name %></strong></p>
-                        <li style="list-style-type:none;">
-                          <% band.styles.each_with_index do |style, i| %>
-                            <%= style.name %><%= i == band.styles.count - 1 ? "" : ", " %>
-                          <% end %>
-                        </li>
-                        <li style="color: red; list-style-type:none;">
-                          <% band.instruments.each do |instrument| %>
-                            <%= instrument.name %>
-                          <% end %>
-                        </li>
+                       <div class="band-header">
+                          <p class="band-name"=><strong><%= band.name %></strong></p>
+                          <p class="km"><i class="fas fa-map-marker-alt"></i> <%= band.distance_to(@address).round(1) %> km</p>
+                       </div>
+
 
                         <div class="band-card-footer">
+                          <div class="d-flex flex-column">
+                            <li class="no-bullet styles-container">
+                              <% band.styles.each_with_index do |style, i| %>
+                                <span class="styles"><%= style.name %></span>
+                              <% end %>
+                            </li>
+                            <li class="no-bullet">
+                              looking for :<% band.instruments.each do |instrument| %>
+                                <%= instrument.name %>
+                              <% end %>
+                            </li>
 
-                          <i class="fas fa-map-marker-alt"></i> <%= band.distance_to(@address).round(1) %> km
-
+                          </div>
 
                           <div class="chart-input">
-
                             <input type="text" value="<%= b[1] %>" class="dial">
                             <span>%</span>
                           </div>

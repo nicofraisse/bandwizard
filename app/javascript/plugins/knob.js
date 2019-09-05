@@ -5,10 +5,11 @@ console.log('knobbing')
 
 $(function(){
   $('.dial').knob({
-    inputColor: "#51BE8A",
-    fgColor: "#51BE8A",
-    width: 120,
-    height: 120
+    readOnly: true,
+    inputColor: "#4EBC87",
+    fgColor: "#4EBC87",
+    width: 100,
+    height: 100
 
   });
 });
