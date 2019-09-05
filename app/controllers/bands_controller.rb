@@ -45,27 +45,29 @@ class BandsController < ApplicationController
       # ********************* SEARCH BAND ***********************
        # staring band
       # Get all InstrumentBands and StyleBands from the users's input
-      needed_instru = NeededInstrument.where(instrument: Instrument.find_by_name(params[:instruments]))
+      needed_instru = NeededInstrument.where(instrument: Instrument.find_by_name(params[:instruments])).includes(:band)
       needed_goals = ["is_jamming", "is_live", "is_composition", "is_recording", "is_cover"]
 
+
+      @all_bands = Band.all.includes(:styles, :instruments, :starred_bands)
 
 
       unless params[:style] == nil
         style_band = []
         params[:style].each do |style|
-          style_band << StyleBand.where(style: Style.find_by_name(style))
+          style_band << StyleBand.where(style: Style.find_by_name(style)).includes(:band)
         end
         style_band.flatten!
       end
 
       score_hash = Hash.new
-      Band.all.each do |band|
+      @all_bands.each do |band|
         score_hash[band] = 0
       end
 
 
 
-      @matching_filters = Band.all.to_a.map { |b| [b, []] }.to_h
+      @matching_filters = @all_bands.to_a.map { |b| [b, []] }.to_h
 
 
 
@@ -85,7 +87,7 @@ class BandsController < ApplicationController
 
 
       # GOALS
-      Band.all.each do |band|
+      @all_bands.each do |band|
         if band.is_jamming.to_s == params[:is_jamming]
           score_hash[band] += 1
           @matching_filters[band] << "is jamming / 1"
@@ -110,14 +112,12 @@ class BandsController < ApplicationController
 
 
       # EXPERIENCE
-      Band.all.each do |band|
+      @all_bands.each do |band|
         if band.experience == params[:experience]
           score_hash[band] += 1
           @matching_filters[band] << "XP / 1"
         end
       end
-
-
 
       all_bands_by_instrument = needed_instru.map do |instru|
         instru.band
@@ -132,7 +132,7 @@ class BandsController < ApplicationController
 
       #  Get _near_bands, the only bands in the search radius
       bands_with_scores = score_hash.to_a
-      all_bands = Band.all
+      all_bands = @all_bands
 
       right_instrument_bands = []
       all_bands_by_instrument.each do |band|
@@ -142,7 +142,7 @@ class BandsController < ApplicationController
       end
 
 
-      geocoded_address = [45.526123,-73.5972601]
+      @geocoded_address = [45.526123,-73.5972601]
       @address = '5333, Avenue Casgrain, Montréal, Canada'
       geo_bands = Band.near([45.526123, -73.5950714], params[:slider].to_i,units: :km)
       near_bands = []
@@ -186,7 +186,6 @@ class BandsController < ApplicationController
 
 
 
-
       @bands_with_scores_sorted = bands_with_scores.sort_by { |e| e[1] }.reverse
       accepted_bands_with_scores = bands_with_scores.select { |band| accepted_bands.include?(band[0]) }
       @accepted_bands_with_scores_sorted = accepted_bands_with_scores.sort_by { |e| e[1] }.reverse
@@ -202,9 +201,6 @@ class BandsController < ApplicationController
           }
         end
       end
-
-
-
     end
 
 

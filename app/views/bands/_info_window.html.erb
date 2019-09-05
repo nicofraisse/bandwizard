@@ -23,9 +23,6 @@
         <%= instrument.name %>
       <% end %>
     </li>
-    <i class="fas fa-map-marker-alt"></i> <%= result.distance_to(@address).round(1) %> km
-
-
-
+    <i class="fas fa-map-marker-alt"></i> <%= Geocoder::Calculations.distance_between([result.latitude, result.longitude], @geocoded_address).round(1) %> km
   </div>
 
