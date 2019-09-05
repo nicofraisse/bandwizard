@@ -8,7 +8,6 @@
 
     $(document).ready(function(){
       console.log('hello zorld' )
-      console.log($('.bandimage'))
 
 
       $('.bandimage').slick(
