@@ -1,5 +1,27 @@
+.image-container {
+  z-index: 90000000000000000;
+}
+
+.manager-container {
+
+  margin-top: 8px;
+  position: relative;
+
+/*  right: 4%;*/
+/*  position: relative;*/
+}
+
+.manager {
+  padding: 3px 12px;
+  border-radius: 30px;
+  background-color: #624AB6;
+  color: #fff;
+/*  position: absolute;
+  right: 4%;*/
+}
+
 .bandimage {
-  // margin-top: 40px;
+  margin-top: 10px;
   max-height: 50vh;
   color: white;
   text-align: center;
@@ -9,10 +31,26 @@
   height: 40vh;
 }
 
+.slick-dots li.slick-active button:before {
+    color: white;
+    position: absolute;
+    opacity: 1;
+}
+
+.slick-dots li button:before {
+    color: white;
+    position: abolute;
+    opacity: 0.5;
+}
+.slick-dots {
+  bottom: -8px;
+}
+
 .mybands {
-  margin-top: -30px;
+  margin-top: -36px;
   text-align: center;
   font-family: 'Roboto', sans-serif;
+
 }
 
 .titleband {
@@ -23,39 +61,40 @@
   text-align: left;
   color: black;
   font-weight: bold;
-  h5 {
-    bottom: 224px;
-    position: absolute;
-  }
+  position: relative;
 }
 
-.bandname h3{
-  font-weight: bold;
-  height: 100%;
+.titleband img {
+  position: absolute;
+  top: -40px;
+}
+
+.titleband h3 {
   font-family: 'Roboto';
-  font-size: 24px;
-  margin-top:5px;
+  color: black;
+  font-weight: bold;
+}
+
+.titleband h5 {
+  font-family: 'Roboto';
+  color: black;
+  bottom: 40px;
+  position: absolute;
+  bottom:0px;
+}
+
+
+.manager:hover {
+  background-color: #C5BFCB;
+  color: #fff;
+  text-decoration: none;
+
 }
 
 .bandname h5{
   font-family: 'Roboto';
   color: black;
 }
-
-.flex-thing {
-  display: flex;
-  justify-content: space-between;
-}
-
-.flex-thing h4 {
-  position: relative;
-  bottom: 392px;
-  font-size: 20px;
-  z-index: 500000000000;
-  color: white;
-}
-
-
 
 .bio {
   font-family: 'Roboto', sans-serif;
@@ -66,6 +105,7 @@
 .biop {
   padding-left: 10px;
   padding-right: 20px;
+  border: 6px solid green;
 
 }
 
@@ -103,6 +143,19 @@
   font-size: 18px;
 }
 
+.profile-bio-container {
+  border: 3px solid yellow;
+}
+
+
+.profile-bio {
+  border: 5px solid blue;
+
+
+
+
+}
+
 .soundcloudimg:hover {
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.75);
   border-radius: 5px;
@@ -122,20 +175,6 @@
   border-radius: 5px;
 }
 
-.manager {
-  padding: 3px 12px;
-  border-radius: 30px;
-  background-color: #D9D9D9;
-  color: #fff;
-}.manager:hover {
-  background-color: #624AB6;
-  color: #fff;
-  text-decoration: none;
-}
-
-
-
-
 
 // Tabs for Bio and Details
 
@@ -144,9 +183,31 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none; }
+#tabz {
+  text-align: center;
+  margin-bottom: 0px;
+  z-index: 900000000000000;
+}
+
+.tabz-thing {
+  position: relative;
+  top:-40px;
+}
+.hii {
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1em;
+    padding: 0.5rem 0;
+    width: 50%;
+
+}
+
 
 .tabs {
-  background-color: rgba(242, 242, 242, 0.75);
+  background: linear-gradient(to bottom, rgb(190,190,190) 36px, rgba(255,255,255,0.6) 20px, rgba(255,255,255,0.2));;
   height: 100%;
   display: block;
   display: -webkit-flex;
@@ -157,14 +218,14 @@ select:focus {
   overflow: hidden; }
   .tabs [class^="tab"] label,
   .tabs [class*=" tab"] label {
-    // background-color: red;
-    color: black;
+
+    color: rgba(1,1,1,0);
     cursor: pointer;
     display: block;
     font-size: 20px;
     font-weight: 300;
     line-height: 1em;
-    padding: 2rem 0;
+    padding: 0.5rem 0;
     text-align: center; }
   .tabs [class^="tab"] [type="radio"],
   .tabs [class*=" tab"] [type="radio"] {
@@ -173,14 +234,14 @@ select:focus {
     appearance: none;
     display: block;
     width: 100%;
-    transition: all 0.3s ease-in-out; }
+    /*transition: all 0.3s ease-in-out;*/ }
     .tabs [class^="tab"] [type="radio"]:hover, .tabs [class^="tab"] [type="radio"]:focus,
     .tabs [class*=" tab"] [type="radio"]:hover,
     .tabs [class*=" tab"] [type="radio"]:focus {
       border-bottom: 2px solid #745DC6; }
     .tabs [class^="tab"] [type="radio"]:checked,
     .tabs [class*=" tab"] [type="radio"]:checked {
-      border: 5px solid #745DC6; }
+      border: 1.25rem solid #745DC6;}
     .tabs [class^="tab"] [type="radio"]:checked + div,
     .tabs [class*=" tab"] [type="radio"]:checked + div {
       opacity: 1; }
@@ -190,12 +251,16 @@ select:focus {
       opacity: 0;
       padding: 2rem 0;
       width: 90%;
+
       transition: all 0.3s ease-in-out; }
   .tabs .tab-2 {
     width: 50%; }
     .tabs .tab-2 [type="radio"] + div {
       width: 200%;
-      margin-left: 200%; }
+      margin-left: 200%;
+
+      }
+
     .tabs .tab-2 [type="radio"]:checked + div {
       margin-left: 0; }
     .tabs .tab-2:last-child [type="radio"] + div {
