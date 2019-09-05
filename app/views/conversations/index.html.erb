@@ -7,8 +7,16 @@
 <% end %>
 <br>
 <div class="allConversations">
-  <% @conversations.each do |conversation| %>
-    <% if conversation.user1 == current_user %>
+
+<% conv_with_date = [] %>
+<% @conversations.each do |conversation| %>
+<% conv_with_date << [conversation, conversation.messages.last.updated_at] %>
+<% end %>
+<% conversations_ordered = conv_with_date.sort_by { |e| e[1] }.reverse %>
+
+  <% conversations_ordered.each do |conv_and_time| %>
+    <% conversation = conv_and_time[0] %>
+       <% if conversation.user1 == current_user %>
         <% friend = conversation.user2  %>
     <% else %>
         <% friend = conversation.user1%>
