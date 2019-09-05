@@ -18,7 +18,7 @@ if (inputForAddress) {
         algoliaElement.style.transition = "opacity 1s ease";
         algoliaElement.style.opacity = "0.5";
 
-        const res = fetch("https://api.mapbox.com/geocoding/v5/mapbox.places/" +  longitude + ","  + latitude + ".json?access_token=pk.eyJ1IjoibG1zc3IiLCJhIjoiY2p6MnNnbG12MDRheDNjbzU3NzJxeDk0NiJ9.6MwlencLqCGQ5kDrOBIgXA").then((response)=> {
+        const res = fetch("https://api.mapbox.com/geocoding/v5/mapbox.places/" +  longitude + ","  + latitude + ".json?access_token=" + ENV['MAPBOX_API_KEY']).then((response)=> {
           return response.json();
         }).then((json) => {
         inputForAddress.value= json["features"][0]["place_name"];

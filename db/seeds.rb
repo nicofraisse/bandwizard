@@ -296,6 +296,9 @@ users.each do |user|
     is_composition: user_bool.sample,
     is_covers: user_bool.sample
     )
+  sleep(1.01)
+  puts "- #{user[1]} created"
+
 end
 
 # Create bands
@@ -327,6 +330,8 @@ all_bands.each_with_index do |band, i|
     band.user = all_users[i]
   end
   band.save!
+  sleep(1.01)
+  puts "- #{band.name} created"
 end
 
 
