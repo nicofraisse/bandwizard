@@ -7,11 +7,11 @@
 </div>
 
 
+<!-- <h4>Manager : <%= link_to @band.user.username.capitalize, public_profile_path(@band.user.id), :class => 'manager' %></h4> -->
 <div class="mybands">
   <div class="titlename">
   <%= link_to(image_tag("chaticon.png", size: "70"), conversation_path(@band.user), :class => 'msgbtn') %>
     <h1><%= @band.name %></h1>
-    <h4>Manager : <%= link_to @band.user.username.capitalize, public_profile_path(@band.user.id), :class => 'manager' %></h4>
     <h6><%= @band.address.first(43) ... %></h6>
   <div class="tabs">
     <div class="tab-2">
@@ -21,7 +21,8 @@
       <p class="biop"><em><%= @band.bio %></em>
       <br>
       <br>
-      <!-- Website: <strong><%= link_to @band.personal_website %></strong> -->
+      <i class="fas fa-globe"></i><strong><%= link_to @band.personal_website, :class => 'website' %></strong>
+      <br>
       <br>
       <div class="soundcloudbox">
         <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/605233650&color=%23745dc6&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
