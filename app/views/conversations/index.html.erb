@@ -1,43 +1,41 @@
 <% if @conversations.nil? %>
-      <h3>No conversations</h3>
+  <h3 style="color: white">No conversations</h3>
 <% elsif @conversations.count == 1 %>
 
 <% else %>
-   <h1> <%= @conversations.count %> conversations</h1>
+   <h1 class="subtitle margin"> <strong><%= @conversations.count %></strong> conversations</h1>
 <% end %>
-<div class ="allConversations">
+<br>
+<div class="allConversations">
   <% @conversations.each do |conversation| %>
     <% if conversation.user1 == current_user %>
-        <%friend = conversation.user2  %>
+        <% friend = conversation.user2  %>
     <% else %>
-        <%  friend = conversation.user1%>
+        <% friend = conversation.user1%>
     <% end %>
     <div class="conversation margin">
-    <div class= "friendAvatar">
-      <%= cl_image_tag(friend.photo,class: "avatar") %>
-    </div>
-    <div class = "message">
-      <div class="friend">
-        <span>
-          <%= link_to friend.username,conversation_path(conversation.id) %>
-          <%= Conversation.last.messages.last.msg %>
-          <%= Conversation.last.messages.last.updated_at %>
-          </span>
-        </div>
 
-      <span> <% unless friend.messages.last.nil?%>
-        <%= friend.messages.last.msg %>
-       <% end  %>
-      </span>
-    </div>
+      <div class= "friendAvatar">
+        <%= cl_image_tag(friend.photo,class: "") %>
+      </div>
+      <div class = "message-pack">
+        <div class="name-and-time">
+          <div><%= link_to friend.full_name.split.map(&:capitalize).join(' '),conversation_path(conversation.id) %></div>
+          <div style="font-weight: bold;"><%= conversation.messages.last.updated_at.to_s.first(16) %></div>
+        </div>
+        <div class="last-message">
+          <%= conversation.messages.last.msg.split("").count >= 50 ? conversation.messages.last.msg.first(50)... : conversation.messages.last.msg %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
 
 
-
-
-
+<!-- Ordonner par date -->
+<!-- Rendre toute la carte cliquable -->
+<!-- Changer de classe quand c'est "lu" -->
+<!-- Notification lorsque nouveau message -->
 
 
 
