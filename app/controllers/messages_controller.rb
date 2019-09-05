@@ -7,9 +7,9 @@ class MessagesController < ApplicationController
     authorize(message)
     if message.save!
       ActionCable.server.broadcast "messages_#{message.conversation.user1_id}",
-        messageHTML: render_to_string(partial: "messages/message", locals: { message: message })
+        messageHTML: render_to_string(partial: "messages/message", locals: { message: message, user_id: message.conversation.user1_id })
       ActionCable.server.broadcast "messages_#{message.conversation.user2_id}",
-        messageHTML: render_to_string(partial: "messages/message", locals: { message: message })
+        messageHTML: render_to_string(partial: "messages/message", locals: { message: message, user_id: message.conversation.user2_id })
     end
   end
 

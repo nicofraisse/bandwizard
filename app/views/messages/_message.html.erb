@@ -1,4 +1,6 @@
-<% if message.user == current_user%>
+<% user_id = current_user.id if user_id.nil? %>
+
+<% if message.user.id == user_id %>
     <div class="msg me">
       <span class="me"><%= message.msg %></span>
     </div>
