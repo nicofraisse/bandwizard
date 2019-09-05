@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "************* B E G I N *************"
 
+srand(777)
+
 # USER SEED
 users = [
   ["bob@gmail.com", "bob", "Bobby Lee"],
@@ -25,6 +27,25 @@ users = [
   ["Camille@gmail.com", "camille", "Camille Desautels"],
   ["Adrien@gmail.com", "adrien", "Adrien Grenier"]
 ]
+
+user_coordinates = [
+  {:email=>"bob@gmail.com", :latitude=>45.424559, :longitude=>-73.6067171},
+  {:email=>"joe@gmail.com", :latitude=>45.4983473, :longitude=>-73.6210866},
+  {:email=>"luc@gmail.com", :latitude=>45.5203880930233, :longitude=>-73.5699152488372},
+  {:email=>"nacera@gmail.com", :latitude=>45.5246812465116, :longitude=>-73.5923374},
+  {:email=>"nicolas@gmail.com", :latitude=>45.4983473, :longitude=>-73.6210866},
+  {:email=>"simon@gmail.com", :latitude=>45.424559, :longitude=>-73.6067171},
+  {:email=>"esther@gmail.com", :latitude=>45.5246812465116, :longitude=>-73.5923374},
+  {:email=>"paul@gmail.com", :latitude=>45.5438734402597, :longitude=>-73.5546520428571},
+  {:email=>"jennifer@gmail.com", :latitude=>45.4983473, :longitude=>-73.6210866},
+  {:email=>"suzan@gmail.com", :latitude=>45.428752871729, :longitude=>-73.60549779686},
+  {:email=>"greg@gmail.com", :latitude=>45.428752871729, :longitude=>-73.60549779686},
+  {:email=>"jack@gmail.com", :latitude=>45.4983473, :longitude=>-73.6210866},
+  {:email=>"dennis@gmail.com", :latitude=>45.5438734402597, :longitude=>-73.5546520428571},
+  {:email=>"camille@gmail.com", :latitude=>45.4975232, :longitude=>-73.6242273},
+  {:email=>"adrien@gmail.com", :latitude=>45.4983473, :longitude=>-73.6210866}
+ ]
+
 password = "123123"
 genders = ["Male", "Female"]
 ages = [14..99]
@@ -232,8 +253,55 @@ bands = [
     "909 Fraser St Vancouver, BC"]
 ]
 
-
-
+band_coordinates = [
+ {:name=>"Balding Zombies", :latitude=>45.4673092, :longitude=>-73.5382863},
+ {:name=>"Orange Oysters", :latitude=>43.7121445, :longitude=>-79.633457},
+ {:name=>"Window Hipsters", :latitude=>45.4507075, :longitude=>-73.6387947727273},
+ {:name=>"Migraine Birds", :latitude=>55.1894081, :longitude=>-113.2089382},
+ {:name=>"Werewolf Clowns", :latitude=>45.5160213426982, :longitude=>-73.7458516241356},
+ {:name=>"Whiskey Stew", :latitude=>43.7721509, :longitude=>-79.1966399},
+ {:name=>"Fateful Local", :latitude=>45.4964939241379, :longitude=>-73.6319093275862},
+ {:name=>"Army Under Reality", :latitude=>45.541134, :longitude=>-73.6692039},
+ {:name=>"Stalin's Teacups", :latitude=>45.4722592, :longitude=>-73.8786104},
+ {:name=>"Lifeless Wednesday", :latitude=>43.623786, :longitude=>-79.5691896},
+ {:name=>"H.E.A.R.T.", :latitude=>45.5163754900921, :longitude=>-73.5820467892204},
+ {:name=>"Veruca Talent", :latitude=>45.4752393, :longitude=>-73.6650864},
+ {:name=>"My Lifeless Romance", :latitude=>45.5248293520537, :longitude=>-73.5969680051957},
+ {:name=>"Hands Ten", :latitude=>45.4840244, :longitude=>-73.5837346},
+ {:name=>"Ten Seconds to Jupiter", :latitude=>45.537762, :longitude=>-73.6288532664013},
+ {:name=>"Bigplay", :latitude=>45.5280202, :longitude=>-73.5918097},
+ {:name=>"Midnight Spacemen", :latitude=>45.68281135, :longitude=>-73.5206964425226},
+ {:name=>"The Big Can", :latitude=>45.6470812, :longitude=>-73.4965248},
+ {:name=>"The Moon Revival", :latitude=>45.4722592, :longitude=>-73.8786104},
+ {:name=>"Super Joystick", :latitude=>45.5034099, :longitude=>-73.6377366},
+ {:name=>"Joy Fighters", :latitude=>45.5124574219512, :longitude=>-73.620492702439},
+ {:name=>"Nigel Legin", :latitude=>45.5691849, :longitude=>-73.5845268},
+ {:name=>"Between the Forks and Me", :latitude=>45.6125676, :longitude=>-73.6124766},
+ {:name=>"One Zillion Cats", :latitude=>45.5328679, :longitude=>-73.4889967},
+ {:name=>"Bathtub Smooching", :latitude=>45.5264993, :longitude=>-73.4505425},
+ {:name=>"TEDDY", :latitude=>45.5181625, :longitude=>-73.5022495},
+ {:name=>"Ron Talent", :latitude=>45.403045, :longitude=>-73.571755},
+ {:name=>"King Ginger", :latitude=>45.4987793, :longitude=>-73.8067133},
+ {:name=>"Ronatron", :latitude=>45.5303561, :longitude=>-73.8045605},
+ {:name=>"Megateddy", :latitude=>45.5600654, :longitude=>-73.7057041},
+ {:name=>"No Rest For the Librarians", :latitude=>45.5601173, :longitude=>-73.6940428},
+ {:name=>"Of Men and Gerbils", :latitude=>45.5531625, :longitude=>-73.6696376},
+ {:name=>"Screwed Pixel", :latitude=>45.5915677, :longitude=>-73.6748157},
+ {:name=>"Aurora Gist", :latitude=>45.645858, :longitude=>-73.795179},
+ {:name=>"Dripping Grasshopper", :latitude=>45.6452105, :longitude=>-73.5012292},
+ {:name=>"Greasy Overtime", :latitude=>45.7727316, :longitude=>-74.0561927},
+ {:name=>"Addicted Hunt", :latitude=>45.6456733, :longitude=>-73.296056},
+ {:name=>"Mad Discharge", :latitude=>45.3129714, :longitude=>-73.258651},
+ {:name=>"Spurt Of Halfway", :latitude=>45.357057, :longitude=>-73.747336},
+ {:name=>"Face Forward", :latitude=>46.0028892, :longitude=>-73.4238793},
+ {:name=>"Beehive Onions", :latitude=>45.5401433010638, :longitude=>-73.6204021765957},
+ {:name=>"Airship Gamma", :latitude=>52.63241695, :longitude=>-1.69252925582386},
+ {:name=>"Vomit Depression", :latitude=>45.6774239, :longitude=>-73.492987},
+ {:name=>"Double Chins", :latitude=>46.8901514, :longitude=>-71.2714247},
+ {:name=>"While Worm", :latitude=>48.8096579451319, :longitude=>-87.264121129569},
+ {:name=>"Stiletto Steves", :latitude=>49.0978772, :longitude=>-116.5163929},
+ {:name=>"The Pens", :latitude=>49.2588122, :longitude=>-123.0891835}
+]
 
 
 
@@ -275,7 +343,7 @@ User.delete_all
 # Create users
 puts "Creating users..."
 all_users = []
-users.each do |user|
+users.each_with_index do |user, index|
   all_users << User.create!(
     email: user[0],
     username: user[1],
@@ -294,9 +362,11 @@ users.each do |user|
     is_recording: user_bool.sample,
     is_jamming: user_bool.sample,
     is_composition: user_bool.sample,
-    is_covers: user_bool.sample
+    is_covers: user_bool.sample,
+    latitude: user_coordinates[index][:latitude],
+    longitude: user_coordinates[index][:longitude]
     )
-  sleep(1.01)
+  # sleep(1.01)
   puts "- #{user[1]} created"
 
 end
@@ -304,11 +374,13 @@ end
 # Create bands
 puts "Creating bands..."
 all_bands = []
-bands.each do |band|
+bands.each_with_index do |band, index|
   all_bands << Band.new(
     name: band[0],
     bio: band_bios.sample,
     address: band[1],
+    latitude: band_coordinates[index][:latitude],
+    longitude: band_coordinates[index][:longitude],
     personal_website: band_personal_websites.sample,
     youtube_link: band_youtube_links.sample,
     soundcloud_link: band_soundcloud_links.sample,
@@ -330,7 +402,7 @@ all_bands.each_with_index do |band, i|
     band.user = all_users[i]
   end
   band.save!
-  sleep(1.01)
+  # sleep(1.01)
   puts "- #{band.name} created"
 end
 
