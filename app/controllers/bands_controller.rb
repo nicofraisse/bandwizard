@@ -144,6 +144,7 @@ class BandsController < ApplicationController
 
       @geocoded_address = [45.526123,-73.5972601]
       @address = '5333, Avenue Casgrain, Montréal, Canada'
+
       geo_bands = Band.near([45.526123, -73.5950714], params[:slider].to_i,units: :km)
       near_bands = []
       geo_bands.each do |element|

@@ -67,17 +67,32 @@
       <input id="tab2-2" name="tabs-two" type="radio" class="tabz-thing">
 
       <div>
-        <p class="styleheader"><em>Members</em></p>
-        <span class="bandstyle"><%= @band.user.username.capitalize %></span>
+        <p class="styleheader"><em>Looking for</em></p>
+        <% @band.instruments.each do |instrument| %>
+                              <% if instrument.name == "Piano"   %><span class="bandstyle">Pianist</span>
+                              <% elsif instrument.name == "Guitar" %> <span class="bandstyle">Guitarist</span>
+                              <% elsif instrument.name == "Bass" %> <span class="bandstyle">Bassist</span>
+                              <% elsif instrument.name == "Drums" %> <span class="bandstyle">Drummer</span>
+                              <% else instrument.name == "Vocals" %> <span class="bandstyle">Singer</span>
+                              <% end %>
+                              <% end %>
         <br>
         <p class="styleheader"><em>Experience</em></p>
-        <span class="bandstyle"><%= @band.experience %></span>
-        <br>
-        <p class="styleheader"><em>Favorite Artists</em></p>
-        <span class="bandstyle">Insert Favorite Artists</span>
+        <span class="bandstyle"><% if @band.experience == 1 %>
+              Beginner
+          <%elsif @band.experience == 2 %>
+              Intermediate
+          <% else %>
+              Advanced
+          <% end %>
+        </span>
         <br>
         <p class="styleheader"><em>Open To</em></p>
-        <span class="bandstyle">Insert open</span>
+        <%if @band.is_live? %><span class="bandstyle"> <strong>Live</strong></span><% end %>
+        <% if @band.is_recording?%><span class="bandstyle"><strong>Recording</strong></span><% end %>
+        <%if @band.is_jamming? %><span class="bandstyle"><strong>Jamming</strong></span><% end %>
+        <%if @band.is_composition? %><span class="bandstyle"><strong>Composition</strong></span><% end %>
+        <%if @band.is_cover? %><span class="bandstyle"> <strong>Covers</strong></span><% end %>
         </p>
       </div>
     </div>
