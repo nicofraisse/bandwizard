@@ -123,11 +123,11 @@ class BandsController < ApplicationController
         instru.band
       end
 
-      had_instrument = []
-      all_bands_by_instrument.each do |band|
-        score_hash[band] += 10
-        @matching_filters[band] << "instrument / 3"
-      end
+      # had_instrument = []
+      # all_bands_by_instrument.each do |band|
+      #   score_hash[band] += 10
+      #   @matching_filters[band] << "instrument / 3"
+      # end
 
 
       #  Get _near_bands, the only bands in the search radius
@@ -190,17 +190,17 @@ class BandsController < ApplicationController
       @bands_with_scores_sorted = bands_with_scores.sort_by { |e| e[1] }.reverse
       accepted_bands_with_scores = bands_with_scores.select { |band| accepted_bands.include?(band[0]) }
       @accepted_bands_with_scores_sorted = accepted_bands_with_scores.sort_by { |e| e[1] }.reverse
-      @bands_sorted = @bands_with_scores_sorted.map { |e| e[0] }
+      # @bands_sorted = @bands_with_scores_sorted.map { |e| e[0] }
       @accepted_bands_sorted = @accepted_bands_with_scores_sorted.map { |e| e[0] }
       # FILTER BY ADDRESS RADIUS
         # DISPLAY RESULTS ON MAP
-        @markers = @bands_sorted.map do |band|
-          {
-            lat: band.latitude,
-            lng: band.longitude,
-            infoWindow: render_to_string(partial: "info_window", locals: { result: band })
-          }
-        end
+        # @markers = @bands_sorted.map do |band|
+        #   {
+        #     lat: band.latitude,
+        #     lng: band.longitude,
+        #     infoWindow: render_to_string(partial: "info_window", locals: { result: band })
+        #   }
+        # end
       end
     end
 
@@ -216,15 +216,18 @@ class BandsController < ApplicationController
     end
 
     def map
-      @results = []
-      params[:results].each { |id| @results << Band.find(id)}
-      @markers = @results.map do |result|
+      @results = {}
+      params[:results].each { |key, value| @results[Band.find(key)] = value}
+      @markers = @results.map do |key, value|
+        # raise
         {
-          lat: result.latitude,
-          lng: result.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { result: result })
+          lat: key.latitude,
+          lng: key.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { result: [key, value] })
         }
       end
+
+
     end
 
     def create

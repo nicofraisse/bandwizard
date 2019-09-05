@@ -1,28 +1,60 @@
+<%# raise %>
 
-  <%= link_to(cl_image_tag(result.band_photos.first.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius"), band_path(result)) %>
+<div class="card-band">
+  <%= link_to(cl_image_tag(result[0].band_photos.first.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius"), band_path(result[0])) %>
   <div class="card-band-infos">
+
     <!-- checkbox for stars -->
-  <% unless current_user.nil? %>
-    <%= button_to stars_path(result), method: :post, id:"favorite_link-#{result.id}",remote:true  do %>
-      <% if result.favorited_by?(current_user) %>
-        <i class="fas fa-star"></i>
+
+    <% unless current_user.nil? %>
+    <div class="star">
+      <%= button_to stars_path(result[0]), method: :post, id:"favorite_link-#{result[0].id}",remote:true  do %>
+      <% if result[0].favorited_by?(current_user) %>
+      <i class="fas fa-star"></i>
       <% else %>
-        <i class="far fa-star"></i>
+      <i class="far fa-star"></i>
       <% end %>
+      <% end %>
+    </div>
     <% end %>
-  <% end %>
-   <!-- checkbox for stars -->
-    <p><strong><%= result.name %></strong></p>
-    <li style="list-style-type:none;">
-      <% result.styles.each_with_index do |style, i| %>
-        <%= style.name %><%= i == result.styles.count - 1 ? "" : ", " %>
-      <% end %>
-    </li>
-    <li style="color: red; list-style-type:none;">
-      <% result.instruments.each do |instrument| %>
-        <%= instrument.name %>
-      <% end %>
-    </li>
-    <i class="fas fa-map-marker-alt"></i> <%= Geocoder::Calculations.distance_between([result.latitude, result.longitude], @geocoded_address).round(1) %> km
+    <div class="card-band-infos">
+      <!-- checkbox for stars -->
+      <!-- checkbox for stars -->
+      <div class="band-header">
+       <!-- checkbox for stars -->
+       <p><strong><%= result[0].name %></strong></p>
+     </div>
+     <div class="band-card-footer">
+      <div class="d-flex flex-column">
+        <li class="no-bullet styles-container">
+          <% result[0].styles.each_with_index do |style, i| %>
+          <span class="styles"><%= style.name %></span>
+          <% end %>
+        </li>
+        <li class="no-bullet">
+          looking for :<% result[0].instruments.each do |instrument| %>
+          <%= instrument.name %>
+          <% end %>
+        </li>
+
+        <% new_score = 0 %>
+        <% new_score += result[0].styles.count %>
+        <% new_score += 6 %>
+        <% score = ((result[1].to_f / new_score.to_f) * 100).to_i %>
+
+
+          <input type="text" value="<%= score %>" class="dial">
+
+          <span>%</span>
+
+      </div>
+
+
+    </div>
+
   </div>
+</div>
+</div>
+
+
 

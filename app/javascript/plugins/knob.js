@@ -3,6 +3,7 @@ import $ from "jquery"
 
 console.log('knobbing')
 
+  console.log($('.dial'))
 $(function(){
   $('.dial').knob({
     readOnly: true,
@@ -10,6 +11,8 @@ $(function(){
     fgColor: "#4EBC87",
     width: 100,
     height: 100
-
   });
 });
+
+
+
