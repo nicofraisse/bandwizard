@@ -28,7 +28,7 @@
 }
 
 .slideImage img {
-  height: 40vh;
+  max-height: 50vh;
 }
 
 .slick-dots li.slick-active button:before {
@@ -185,6 +185,10 @@
   text-decoration: none;
 }
 
+.fa-map-marker-alt {
+  margin-right: 5px;
+  margin-left: 10px;
+}
 
 // Manager title with button
 

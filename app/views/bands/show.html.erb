@@ -36,7 +36,6 @@
       <div class="soundcloudbox">
         <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/605233650&color=%23745dc6&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
       </div>
-    </div>
 
       <!-- YouTube Modal Button -->
       <div class="bs-example">
@@ -57,6 +56,7 @@
       <!-- <%= link_to(image_tag("webicon.svg", size: "64", :class => 'webbtn'), @band.personal_website) %> -->
       <br>
       <p class="styleheader"><em>Style</em></p>
+
     <% @band.styles.each do |style| %>
     <%= style.name %>
     <% end %>
@@ -69,6 +69,8 @@
    </div>
 
 
+    </div>
+  </div>
     <div class="tab-2">
       <label for="tab2-2">DETAILS</label>
       <input id="tab2-2" name="tabs-two" type="radio">
@@ -86,5 +88,9 @@
       <span class="bandstyle">Insert open</span>
       </p>
     </div>
+
    </div>
    </div>
+
+  </div>
+
