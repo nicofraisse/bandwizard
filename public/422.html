@@ -1,6 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>The page you were looking for doesn't exist (404)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+ html,body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+}
+
+.bg-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(https://www.billboard.com/files/media/nickelback-2001-billboard-1548.jpg) no-repeat center center fixed;
+  background-size: cover;
+  background-color: #000;
+  opacity: .5;
+  filter: alpha(opacity=50);
+}
+
+.content {
+  font-family: 'Comic sans ms',Avenir,Helvetica,sans-serif;
+  color: #fff;
+  background-color: none;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+h1 {
+  font-size: 160px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+h2 {
+  margin-top: 0;
+  max-width: 700px;
+  font-size: 30px;
+  width: 90%;
+}
+
+p {
+  text-align: left;
+  padding-bottom: 32px;
+}
+
+.btn {
+  display: inline-block;
+  border: 1px solid #aaa;
+  border-radius: 40px;
+  padding: 15px 30px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  &:hover {
+    color: #e2e2e2;
+    background: rgba(255,255,255,0.10);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .btn {
+    background-color:  #745DC6;
+    color: width;
+    width: 50%;
+  }
+
+  h1 {
+    font-size: 120px;
+  };
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- This file lives in public/404.html -->
+   <div class='container'>
+    <div class='row content'>
+      <div class='col-sm-12'></div>
+      <div class='col-sm-12'>
+        <h1>404</h1>
+        <h2>Oops, the page you're looking for does not exist.</h2>
+        <p>
+          You probably don't wan't to stay here with Nickelback.
+          <br>
+          You may want to head back to the homepage.
+          </br>
+        </p>
+        <span class='btn'>RETURN HOME</span>
+      </div>
+    </div>
+  </div>
+  <div class='bg-img'></div>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
   <title>The change you wanted was rejected (422)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>

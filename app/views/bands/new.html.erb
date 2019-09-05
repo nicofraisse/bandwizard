@@ -21,7 +21,6 @@
         <%= f.input :is_recording,label:"recoding" %>
         <%= f.input :is_jamming , label: "jammings"%>
         <%= f.input :is_composition, label: "composition"%>
-        <%=  f.input :is_pro, label:"professionnel" %>
         <%= f.submit "Add band", class: "btn btn-primary" %>
         <%= link_to "Cancel", dashboard_path(current_user), class: "btn btn-warning" %>
       <% end %>

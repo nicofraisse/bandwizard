@@ -105,28 +105,15 @@
   </button>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
 <% else %>
 
 <!-- SEARCHING FOR BAND -------------------------------------------------------------->
 <div class="margin">
-  <div class="searchform col-12 col-md-6" style="width: 100%">
+  <div class="searchform col-12 col-md-6 col-lg-12" style="width: 100%">
     <form action="/bands" method="get" id ="1">
 <!-- part 1******************** -->
-<div class = "sliding">
-  <div class=slideright>
-
+<!-- <div class = "sliding">
+  <div class=slideright> -->
         <div class="form-group">
         <label for="exampleFormControlSelect1">What instrument do you play?</label>
         <select class="form-control search-band-select" id="exampleFormControlSelect1" name="instruments">
@@ -135,8 +122,7 @@
           <% end %>
         </select>
       </div>
-      <br>
-      <br>
+
       <p>What location?</p>
       <div style="position: relative;">
         <input type="text" name="Address" placeholder="Address" id="address">
@@ -147,7 +133,7 @@
             bottom: 10px;
             width: 20px;
             height: 20px;
-            opacity: 0;
+            opacity: 1;
           "
           type="checkbox"
           name="current_position"
@@ -159,15 +145,12 @@
           margin-top: 5px;
           margin-right: 5px;
           color: #ffffff4f;
-        ">click for gelocation</span>
+        ">click for geolocation</span>
       </div>
-      <br>
-
       <div class="slidecontainer">
         <label for="slide">Distance</label>
         <input type="range" min="0" max="30" value="15" class="slider" id="slide">
         <input type="text" name="slider" placeholder="km" id='range-value' hidden>
-        <br>
         <br>
         <div class="range-labels">
           <span class="spanslide">1km</span>
@@ -175,7 +158,6 @@
           <span class="spanslide">30km</span>
         </div>
       </div>
-
 
       <p>Your musical styles</p>
       <div class="all-filters">
@@ -187,16 +169,15 @@
           <input type="checkbox" name="style[]" value="<%= style.name %>" />
         </div>
         <% end %>
-      </div>
+  <!--     </div>
 
-      </div>
+      </div> -->
       <!-- part 2************************************ -->
-<div class = "slideleft d-none">
-      <div class="slidecontainer">
+<!-- <div class = "slideleft d-none">
+      <div class="slidecontainer"> -->
         <label for="slide">Experience</label>
         <input type="range" min="1" max="3" value="2" class="slider" id="slider">
         <input type="text" name="experience" placeholder="experience" id="range-value" hidden>
-        <br>
         <br>
         <div class="range-labels">
           <span class="spanslide">beginner</span>
@@ -235,7 +216,6 @@
           <input type="checkbox" name="is_cover" value="true" checked/>
         </div>
         <br>
-        <br>
         <!-- <div id="double-slider">
           <label for="slide">Age</label>
           <input type="text" class="js-range-slider" name="doubleslider" value="" />
@@ -257,47 +237,47 @@
        </label>
         <input type="checkbox" name="female" value="true" />
       </div> -->
-    </div>
-  </div>
+  <!--   </div>
+  </div> -->
 </div>
       <br>
 <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
 </form>
 
-</div>
+<!-- </div>
   <div class="morefilters">
     <button class="extrafilters link-to-text-color findbutton" id="btnmore" type="submit">MORE FILTERS</button>
     <button class="extrafilters link-to-text-color findbutton d-none" id="btnless" type="submit">LESS FILTERS</button>
-  </div>
+  </div> -->
 </div>
 <% end %>
 
 <script>
 // btn = document.querySelector('.extrafilters')
-const element1 =  document.querySelector('.slideright')
-const element2 =  document.querySelector('.slideleft')
-btnmore = document.querySelector('#btnmore')
-btnless = document.querySelector('#btnless')
-btnmore.addEventListener('click', e => {
-  element2.classList.toggle('d-none')
-  element1.classList.toggle('d-none')
-  element2.classList.remove('animated', 'slideOutRight')
-  element2.classList.add('animated', 'slideInRight')
-  element2.classList.remove('d-none')
-  element1.classList.remove('animated', 'slideInLeft')
-  element1.classList.add('animated', 'slideOutLeft')
-  btnmore.classList.toggle('d-none')
-  btnless.classList.toggle('d-none')
-});
-btnless.addEventListener('click', e => {
-  element2.classList.toggle('d-none')
-  element1.classList.toggle('d-none')
-  element2.classList.remove('animated', 'slideInRight')
-  element2.classList.add('animated', 'slideOutRight')
-  element2.classList.remove('d-none')
-  element1.classList.remove('animated', 'slideOutLeft')
-  element1.classList.add('animated', 'slideInLeft')
-  btnmore.classList.toggle('d-none')
-  btnless.classList.toggle('d-none')
-});
+// const element1 =  document.querySelector('.slideright')
+// const element2 =  document.querySelector('.slideleft')
+// btnmore = document.querySelector('#btnmore')
+// btnless = document.querySelector('#btnless')
+// btnmore.addEventListener('click', e => {
+//   element2.classList.toggle('d-none')
+//   element1.classList.toggle('d-none')
+//   element2.classList.remove('animated', 'slideOutRight')
+//   element2.classList.add('animated', 'slideInRight')
+//   element2.classList.remove('d-none')
+//   element1.classList.remove('animated', 'slideInLeft')
+//   element1.classList.add('animated', 'slideOutLeft')
+//   btnmore.classList.toggle('d-none')
+//   btnless.classList.toggle('d-none')
+// });
+// btnless.addEventListener('click', e => {
+//   element2.classList.toggle('d-none')
+//   element1.classList.toggle('d-none')
+//   element2.classList.remove('animated', 'slideInRight')
+//   element2.classList.add('animated', 'slideOutRight')
+//   element2.classList.remove('d-none')
+//   element1.classList.remove('animated', 'slideOutLeft')
+//   element1.classList.add('animated', 'slideInLeft')
+//   btnmore.classList.toggle('d-none')
+//   btnless.classList.toggle('d-none')
+// });
 </script>
