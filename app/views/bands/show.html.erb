@@ -24,46 +24,58 @@
     <div class="hii">DETAILS</div>
   </div>
 
+<!-- BIO TAB -->
   <div class="tabs">
-     <div class="tab-2" >
-       <label for="tab2-1" id="tabz">BIO</label>
-       <input id="tab2-1" name="tabs-two" type="radio" checked="checked" class="tabz-thing">
-     <div>
-
+    <div class="tab-2" >
+      <label for="tab2-1" id="tabz">BIO</label>
+      <input id="tab2-1" name="tabs-two" type="radio" checked="checked" class="tabz-thing">
+      <div>
         <div class="margin profile-bio">"<%= @band.bio %>"</div>
-
-       <br>
-       <br>
-       <strong> <i class="fab fa-youtube"></i><%= link_to "Youtube link", @band.youtube_link %></strong>
-       <br>
-       <div class="soundcloudbox">
-         <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/605233650&color=%23745dc6&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-       </div>
+        <br>
+        <div class="soundcloudbox">
+          <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/605233650&color=%23745dc6&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+        </div>
+        <!-- YouTube Modal Button -->
+        <div class="bs-example">
+          <!-- Button HTML (to Trigger Modal) -->
+          <a href="#myModal" class="btn btn-lg btn-danger" data-toggle="modal"><i class="fab fa-youtube"></i></a>
+           <!-- Modal HTML -->
+          <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content modalmargin">
+                <div class="modal-body">
+                  <iframe id="musicVideo" width="100%" height="315" src="https://www.youtube.com/embed/dKDcK-PPl4Y" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <strong><i class="fas fa-wifi"></i><%= link_to "Personal website", @band.personal_website %></strong>
-       <br>
-       <strong><i class="fab fa-soundcloud"></i>
-       <%= link_to "Soundcloud link", @band.soundcloud_link %></strong></p>
-     </div>
-   </div>
+        <br>
+        <strong><i class="fab fa-soundcloud"></i>
+        <%= link_to "Soundcloud link", @band.soundcloud_link %></strong></p>
+      </div>
+    </div>
 
+<!-- DETAILS TAB -->
+    <div class="tab-2">
+      <label for="tab2-2" id="tabz">DETAILS</label>
+      <input id="tab2-2" name="tabs-two" type="radio" class="tabz-thing">
 
-     <div class="tab-2">
-       <label for="tab2-2" id="tabz">DETAILS</label>
-       <input id="tab2-2" name="tabs-two" type="radio" class="tabz-thing">
-
-       <div>
-          <p class="styleheader"><em>Members</em></p>
-          <span class="bandstyle"><%= @band.user.username.capitalize %></span>
-          <br>
-          <p class="styleheader"><em>Experience</em></p>
-          <span class="bandstyle"><%= @band.experience %></span>
-          <br>
-          <p class="styleheader"><em>Favorite Artists</em></p>
-          <span class="bandstyle">Insert Favorite Artists</span>
-          <br>
-          <p class="styleheader"><em>Open To</em></p>
-          <span class="bandstyle">Insert open</span>
-          </p>
-       </div>
-   </div>
-   </div>
+      <div>
+        <p class="styleheader"><em>Members</em></p>
+        <span class="bandstyle"><%= @band.user.username.capitalize %></span>
+        <br>
+        <p class="styleheader"><em>Experience</em></p>
+        <span class="bandstyle"><%= @band.experience %></span>
+        <br>
+        <p class="styleheader"><em>Favorite Artists</em></p>
+        <span class="bandstyle">Insert Favorite Artists</span>
+        <br>
+        <p class="styleheader"><em>Open To</em></p>
+        <span class="bandstyle">Insert open</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
