@@ -1,12 +1,26 @@
 
+// utils
+
+.no-bullet {
+  list-style: none;
+}
+
+
 .card-band {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 12px;
-  height: 320px;
+  // height: 320px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
+  li {
+    font-size: 16px;
+    margin: 8px 0;
+  }
 }
 
 .star {
@@ -18,7 +32,7 @@
 
 }
 .card-band p {
-  color: black;
+  color: rgb(47,46,50);
 }
 
 .margin {
@@ -26,24 +40,78 @@
 }
 
 .column {
-  width: 50%;
+  width: 100%;
   padding: 3% 3% 5% 3%;
 }
 
 .bandphoto {
   width: 90%;
   padding: 3px;
-  height: 20vh;
+  height: 172px !important;
   object-fit: cover;
   border-radius: 12px;
 }
 
 
 .card-band-infos {
-  padding: 0px 8px 8px 8px;
+  padding: 8px;
   // color: black;
 }
 
+.band-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.band-name {
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+p.km {
+  font-size: 14px ;
+  font-weight: light;
+}
+
+.styles-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+span.styles {
+  display: block;
+  background-color: $purple;
+  border-radius: 16px;
+  padding: 4px 12px;
+  color: white;
+  font-size: 16px;
+  margin: 4px 4px;
+}
+
+.band-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+// chart
+
+.chart-input {
+  position: relative;
+
+  span {
+    position: absolute;
+    top: 32%;
+    left: 61%;
+    color: #51BE8A;
+    font-family: $body-font;
+  }
+
+  .dial {
+    margin-left: -82px !important
+  }
+
+}
 
 /*
 .card-band img {
