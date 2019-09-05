@@ -35,6 +35,20 @@
   // color: black;
 }
 
+// chart
+
+.chart-input {
+  position: relative;
+
+  span {
+    position: absolute;
+    top: 34%;
+    left: 48%;
+    color: #51BE8A;
+    font-family: $body-font;
+  }
+
+}
 
 /*
 .card-band img {
