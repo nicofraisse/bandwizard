@@ -23,12 +23,7 @@ class BandsController < ApplicationController
       end
       # FILTER BY ADDRESS RADIUS
       unless (style_user == nil || instru_user == nil)
-        if params[:address] == ""
-          @address = params[:pos]
-        else
-          @address = params[:address]
-        end
-        geocoded_address = Geocoder.coordinates(@address)
+        geocoded_address = Geocoder.coordinates(params[:address])
         geo_users = User.near(geocoded_address, params[:slider].to_i,units: :km)
         @musicians = []
         geo_users.each do |element|

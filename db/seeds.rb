@@ -215,19 +215,18 @@ bands = [
   [ "Spurt Of Halfway",
     "33 rue Saint-Maurice, Chateauguay"],
   [ "Face Forward",
-    "1402 rue Hottin, Joliette"]
-  [ "Beehive Onions",
-    "7503 Rue St-Denis, Montreal"]
+    "1402 rue Hottin, Joliette"],
+  [ "Beehive Onions","7503 Rue St-Denis, Montreal"],
   [ "Airship Gamma",
-    "7766 George Street, Lasalle"]
+    "7766 George Street, Lasalle"],
   [ "Vomit Depression",
-    "11727 Rue Notre Dame E, Montreal"]
+    "11727 Rue Notre Dame E, Montreal"],
   [ "Double Chins",
-    "1092 Rue Du Prince Albert, Quebec "]
+    "1092 Rue Du Prince Albert, Quebec "],
   [ "While Worm",
-    "202 Quebec Schreiber, Ontario "]
+    "202 Quebec Schreiber, Ontario "],
   [ "Stiletto Steves",
-    "818 Vancouver St, Creston, BC"]
+    "818 Vancouver St, Creston, BC"],
   [ "The Pens",
     "909 Fraser St Vancouver, BC"]
 ]
