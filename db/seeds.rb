@@ -216,12 +216,8 @@ bands = [
     "33 rue Saint-Maurice, Chateauguay"],
   [ "Face Forward",
     "1402 rue Hottin, Joliette"],
-<<<<<<< HEAD
-  [ "Beehive Onions","7503 Rue St-Denis, Montreal"],
-=======
   [ "Beehive Onions",
     "7503 Rue St-Denis, Montreal"],
->>>>>>> 22c5b137992a56856f114b8ae12939da9aa9c9bc
   [ "Airship Gamma",
     "7766 George Street, Lasalle"],
   [ "Vomit Depression",
