@@ -80,7 +80,24 @@
                           <% end %>
                         </li>
                         <i class="fas fa-map-marker-alt"></i> <%= band.distance_to(@address).round(1) %> km
-                        <p><strong><%= b[1] %> % match</strong></p>
+
+                        <div class="page">
+
+                          <!-- default -->
+                          <div class="clearfix">
+
+                            <div class="c100 p25">
+                              <span><%= b[1] %></span>
+                              <div class="slice">
+                                <div class="bar"></div>
+                                <div class="fill"></div>
+                              </div>
+                            </div>
+
+                          </div>
+                          <!-- /default -->
+
+                        </div>
 
 
                       </div>

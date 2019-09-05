@@ -1,7 +1,7 @@
 <% if @conversations.nil? %>
       <h3 style="color: white">No conversations</h3>
 <% elsif @conversations.count == 1 %>
-    <h3 style="color: white">You have one conversation</h3>
+
 <% else %>
    <h1 style="color: white"> <%= @conversations.count %> conversations</h1>
 <% end %>
@@ -20,6 +20,8 @@
       <div class="friend">
         <span>
           <%= link_to friend.username,conversation_path(conversation.id) %>
+          <%= Conversation.last.messages.last.msg %>
+          <%= Conversation.last.messages.last.updated_at %>
           </span>
         </div>
 
