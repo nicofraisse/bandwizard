@@ -102,7 +102,7 @@ user_photos = [
   "https://images.unsplash.com/photo-1542491449-d5817c50314f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
   "https://images.unsplash.com/photo-1476382929176-f7b329008e17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
   "https://images.unsplash.com/photo-1489602642804-64dea1e3ebc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-  "https://images.unsplash.com/photo-1423110041833-0d5dfcc552e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1423110041833-0d5dfcc552e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
 
 ]
 
@@ -133,7 +133,7 @@ band_bios = [ "Hailing from the garages of Montréal, we busted down the doors
   "My gilfriend left me because of my obsession with Linkin Park. But in the end, it doesn't even matter. We are trendsetters with minimal content and great fun. We’ve been played on Online Radio One and have played songs at loads of gigs. Our songs are filled with lyrical puns and we love playing interesting random rhythmic patterns. Hit us up if you are looking to get some creative juices going.",
   "From reciting books of the bible in a cult to headlining pride festivals, we tour the world advocating a sense of belonging and a be who you are attitude. Our signature sound evolved through many late nights of watching Twin Peaks, James Bond and Tarantino films – injecting more than a hint of subversiveness into the sexy soundscapes of dangerous spy movies. We have a love of genre melding and pop culture maintaining our roots while bringing underground music to the mainstream.",
   "We love jamming it up and sipping on mojitos. Our group consists of many talents and questionable friendships. We enjoy meshing many styles into our performances and we have fun with it.",
-  "We are the perfect storm of talent and vision...of musicianship and motivation...of business and pleasure. Our style is where arena-rock acts of the eighties meet modern pop and hip-hop shows. Big beats, slick pop vocal harmonies and ripping guitar solos are well-executed and frequently delivered to large crowds of screaming elderly fans.",
+  "We are the perfect storm of talent and vision...of musicianship and motivation...of business and pleasure. Our style is where arena-rock acts of the eighties meet modern pop and hip-hop shows. Big beats, slick pop vocal harmonies and ripping guitar solos are well-executed and frequently delivered to large crowds of screaming elderly fans."
 ]
 bands = [
   [ "Balding Zombies",
@@ -229,7 +229,7 @@ bands = [
   [ "Stiletto Steves",
     "818 Vancouver St, Creston, BC"],
   [ "The Pens",
-    "909 Fraser St Vancouver, BC"],
+    "909 Fraser St Vancouver, BC"]
 ]
 
 
