@@ -34,6 +34,9 @@
       <div>
         <div class="margin profile-bio">"<%= @band.bio %>"</div>
         <br>
+        <span class="website"><i class="fas fa-wifi"></i> <%= link_to @band.personal_website, class: 'website' %></span>
+        <br>
+        <br>
         <div class="soundcloudbox">
           <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/605233650&color=%23745dc6&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
         </div>
@@ -52,10 +55,9 @@
             </div>
           </div>
         </div>
-        <strong><i class="fas fa-wifi"></i><%= link_to "Personal website", @band.personal_website %></strong>
         <br>
-        <strong><i class="fab fa-soundcloud"></i>
-        <%= link_to "Soundcloud link", @band.soundcloud_link %></strong></p>
+        <!-- <strong><i class="fab fa-soundcloud"></i>
+        <%= link_to "Soundcloud link", @band.soundcloud_link %></strong></p> -->
       </div>
     </div>
 
