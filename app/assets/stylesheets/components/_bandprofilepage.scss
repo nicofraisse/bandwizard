@@ -28,7 +28,7 @@
 }
 
 .slideImage img {
-  height: 40vh;
+  max-height: 50vh;
 }
 
 .slick-dots li.slick-active button:before {
@@ -169,6 +169,34 @@
   border-radius: 5px;
 }
 
+.fa-globe {
+  font-size: 24px;
+  padding-right: 10px;
+}
+
+.website {
+  color: red;
+  text-decoration: none;
+}
+
+.fa-map-marker-alt {
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+// Manager title with button
+
+// .manager {
+//   padding: 3px 12px;
+//   border-radius: 30px;
+//   background-color: #D9D9D9;
+//   color: #fff;
+// }.manager:hover {
+//   background-color: #624AB6;
+//   color: #fff;
+//   text-decoration: none;
+// }
+
 
 // Tabs for Bio and Details
 
@@ -225,6 +253,8 @@ select:focus {
   .tabs [class*=" tab"] [type="radio"] {
     border-bottom: 1px solid rgba(239, 237, 239, 0.5);
     cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
     display: block;
     width: 100%;

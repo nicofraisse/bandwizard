@@ -11,6 +11,9 @@ label {
   color: white;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+
 }
 
 .level {
@@ -50,6 +53,8 @@ label {
   color: white;
   font-size: 20px;
   font-family: 'Roboto', sans-serif;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 .genderp {
   color: white;
@@ -62,4 +67,8 @@ label {
 
 .ap-input, .ap-hint {
   border-radius: 4px;
+}
+
+#current-position {
+  cursor: pointer;
 }
