@@ -23,22 +23,28 @@
   }
 }
 
-#favorite_link-59 {
-  background-color: white;
+.fa-star{
+  font-size: 35px;
+  padding: 5px 0px 5px 0px;
+  color: #745DC6;
+
 }
 
-.fa-star{
-  font-size: 25px;
+// To remove white background on star
+.starbtn {
+  background-color: white;
+  border: none;
+  border-radius: 0px 0px 5px 5px;
 }
 
 .star {
-  background-color: rgba(255,255,255,0.9);
   position: absolute;
   top: 0;
-  right: 4%;
+  right: 9%;
   border-radius: 20%;
-
+  margin-top: 0px;
 }
+
 .card-band p {
   color: rgb(47,46,50);
 }
@@ -94,8 +100,6 @@ p.km {
   text-align: right;
   height: 36px;
   text-align: center;
-
-}
 
 .styles-container {
   display: flex;
