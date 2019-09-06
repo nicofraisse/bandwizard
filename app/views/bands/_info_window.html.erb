@@ -7,7 +7,7 @@
     <!-- checkbox for stars -->
 
     <% unless current_user.nil? %>
-    <div class="star">
+    <div class="starmap">
       <%= button_to stars_path(result[0]), method: :post, id:"favorite_link-#{result[0].id}",remote:true  do %>
       <% if result[0].favorited_by?(current_user) %>
       <i class="fas fa-star"></i>

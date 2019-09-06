@@ -14,11 +14,11 @@
 .starprofile {
   background-color: white;
   position: absolute;
-  top: 20.2%;
+  top: 21%;
   right: -2%;
   border-radius: 0px 0px 0px 5px;
-  margin-top: 2px;
-  margin-right: 7px;
+  // margin-top: 2px;
+  margin-right: 8px;
   border: none;
 }
 
@@ -101,7 +101,9 @@
   bottom:0px;
 }
 
-
+.titleband.margin {
+  padding: 10px 24px;
+}
 .manager:hover {
   background-color: #C5BFCB;
   color: #fff;
