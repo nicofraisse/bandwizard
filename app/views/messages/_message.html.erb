@@ -1,12 +1,14 @@
 <% user_id = current_user.id if user_id.nil? %>
 
 <% if message.user.id == user_id %>
+  <div class="message animated fadeIn msg-me">
     <div class="msg me">
       <span><%= message.msg %></span>
     </div>
+  </div>
 <% else %>
-<div style="display: flex; align-elements: center;">
-  <%= image_tag current_user.photo, style: "background-size: cover;
+  <div style="display: flex; align-elements: center;">
+    <%= image_tag current_user.photo, style: "background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     width: 40px;
@@ -16,8 +18,10 @@
     margin-top: 9px;
     "
     %>
-  <div class="msg it">
-    <div><span><%= message.msg %></span></div>
+    <div class="message animated fadeIn msg-it">
+      <div class="msg it">
+        <div><span><%= message.msg %></span></div>
+      </div>
+    </div>
   </div>
-</div>
 <% end %>

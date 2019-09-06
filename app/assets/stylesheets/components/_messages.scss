@@ -21,11 +21,12 @@
 
   &.me {
     align-self: flex-end;
-    background-color: rgba(116, 93, 198, 0.8);
+    background-color: rgba(116, 93, 198, 1);
   }
 
   &.it {
-   background-color: rgba(255,255,255,0.4);
+    align-self: flex-start;
+   background-color: rgb(182, 168, 189);
    max-width: 50%;
   }
 }
@@ -37,7 +38,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(255,255,255, 0.2);
+  background-color: rgba(255,255,255, 0.5);
 }
 
 .center-msg-container {
@@ -47,7 +48,7 @@
 }
 
 .msg-box {
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(255,255,255,0.5);
   word-break: break-word;
   margin: 8px;
   padding: 8px 12px 8px 16px;
@@ -65,6 +66,42 @@
   font-size: 18px;
 }
 
+.chat-effect {
 
+}
 
+.msg {
+  position: relative;
+}
 
+.msg.it:before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: 4px;
+  height: 14px;
+  width: 17px;
+  border-bottom-right-radius: 15px;
+  background-color: rgb(182, 168, 189);
+  bottom: -4px;
+}
+
+.msg.me:before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  right: 4px;
+  height: 14px;
+  width: 17px;
+  border-bottom-left-radius: 15px;
+  background-color: #745dc6;
+  bottom: -4px;
+}
+
+.message {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

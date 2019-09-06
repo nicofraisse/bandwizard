@@ -3,7 +3,7 @@ import $ from "jquery"
 
 console.log('knobbing')
 
-  console.log($('.dial'))
+console.log($('.dial'))
 $(function(){
   $('.dial').knob({
     readOnly: true,
