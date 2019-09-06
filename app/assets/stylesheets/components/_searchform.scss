@@ -12,7 +12,7 @@ label {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   margin-bottom: 20px;
-  margin-top: 20px;
+  // margin-top: 20px;
 
 }
 
@@ -35,6 +35,9 @@ label {
   width: 10px;
 }
 
+.distance {
+  margin-top: -40px;
+}
 #slide.slider {
   width: 100%;
 }
@@ -42,9 +45,13 @@ label {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  margin-top: 30px;
+  margin-top: 15px;
+  margin-bottom: 60px;
 }
 
+.experience {
+  margin-bottom: 25px;
+}
 #double-slider {
   width: 400px;
   margin-bottom: 50px;
@@ -53,7 +60,7 @@ label {
 .margin p {
   color: white;
   font-size: 20px;
-  margin-bottom: 0px;
+  margin-bottom: 5px;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -72,4 +79,8 @@ label {
 
 #current-position {
   cursor: pointer;
+}
+
+.bandsearchbtn {
+  margin-bottom: 50px;
 }

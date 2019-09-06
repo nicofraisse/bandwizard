@@ -13,14 +13,14 @@ srand(777)
 users = [
   ["bob@gmail.com", "bob", "Bobby Lee"],
   ["joe@gmail.com", "joe", "Joe Jackson"],
-  ["luc@gmail.com", "luc", "Luc M"],
+  ["luc@gmail.com", "luc", "Luc Mosser"],
   ["nacera@gmail.com", "nacera", "Nacera H"],
-  ["nicolas@gmail.com", "nicolas", "Nicolas F"],
-  ["simon@gmail.com", "simon", "Simon R"],
+  ["nicolas@gmail.com", "nicolas", "Nicolas Fraisse"],
+  ["simon@gmail.com", "simon", "Simon Ravary"],
   ["esther@gmail.com", "esther", "Esther Dufour"],
   ["paul@gmail.com", "paulo", "Paul Bernard"],
   ["jennifer@gmail.com", "jennifer", "Jennifer Smith"],
-  ["suzan@gmail.com", "suzan", "Suzan Smith"],
+  ["stephane@gmail.com", "stephane", "Stephane Lafontaine"],
   ["Greg@gmail.com", "greg", "Gregoire Turo"],
   ["Jack@gmail.com", "jack", "Jack Slip"],
   ["Dennis@gmail.com", "dennis", "Dennis Lee"],
@@ -38,7 +38,7 @@ user_coordinates = [
   {:email=>"esther@gmail.com", :latitude=>45.5246812465116, :longitude=>-73.5923374},
   {:email=>"paul@gmail.com", :latitude=>45.5438734402597, :longitude=>-73.5546520428571},
   {:email=>"jennifer@gmail.com", :latitude=>45.4983473, :longitude=>-73.6210866},
-  {:email=>"suzan@gmail.com", :latitude=>45.428752871729, :longitude=>-73.60549779686},
+  {:email=>"stephane@gmail.com", :latitude=>45.428752871729, :longitude=>-73.60549779686},
   {:email=>"greg@gmail.com", :latitude=>45.428752871729, :longitude=>-73.60549779686},
   {:email=>"jack@gmail.com", :latitude=>45.4983473, :longitude=>-73.6210866},
   {:email=>"dennis@gmail.com", :latitude=>45.5438734402597, :longitude=>-73.5546520428571},
@@ -59,6 +59,7 @@ user_addresses = [
   "5139 avenue Casgrain, Montréal, Canada",
   "5350 avenue Decelles, Montréal, Canada"
 ]
+
 user_photos = [
   "https://overblown.co.uk/wp-content/uploads/2019/02/Musician-Resume.jpg",
   "https://media.npr.org/assets/img/2018/11/01/hellojunebyjoshsaul-2e187ce8b2e0a894a03e21d768fd03112727967d-s800-c85.jpg",
@@ -124,7 +125,6 @@ user_photos = [
   "https://images.unsplash.com/photo-1476382929176-f7b329008e17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
   "https://images.unsplash.com/photo-1489602642804-64dea1e3ebc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
   "https://images.unsplash.com/photo-1423110041833-0d5dfcc552e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-
 ]
 
 user_personal_websites = ["https://www.nihttps://www.youtube.com/watch?v=BB0DU4DoPP4"]
@@ -304,12 +304,6 @@ band_coordinates = [
 ]
 
 
-
-# band_name = ["Fateful Local", "Alternate Generation", "Slink Over Acrobat", "Creamy Escort", "Seemingly Yoke Of The Mellow Poetry", "Nickelback", "Nautical Barracuda", "Needy Balboa", "Favored Photograph", "Reverent Banter", "Repressed Wickedly", "Taylor Swift", "Either Cool", "Cool Powder", "Higher Archy", "Spasmodicum", "Wig Week", "Capricult", "Dr. Lov", "Miss Thought", "Dirty Little Secretion", "Balding Zombies", "The Orange Oysters", "Hipsters in the Windows", "Migraine Birds", "Werewolf Clowns", "Whisky Stew"]
-# band_bios = ["Communicator. Typical beer trailblazer. Web buff. Professional coffee fanatic. Bacon aficionado.", "Gamer. Incurable twitter junkie. Hardcore analyst. Freelance coffee advocate. Evil pop culture aficionado. Tv guru. Proud student.", "Tv geek. Award-winning travel scholar. Music lover. Student. Coffee junkie. Freelance communicator.", "Typical pop cultureaholic. Music fanatic. Social media buff. Hipster-friendly food scholar. Total gamer. Beer expert.", "Travel enthusiast. Thinker. Total pop culture guru. Infuriatingly humble explorer. Avid bacon geek.", "Bacon nerd. Typical tv fanatic. General twitter evangelist. Beer buff. Lifelong problem solver.", "" ]
-# band_bios = []
-
-
 # band_addresses = ["3920 René-Lévesque Blvd, Montréal, Canada", "4298  Derry Rd, Malton, Canada", "4470  Pine Street, Coronation, Alberta, Canada", "4421  Weir Crescent, Toronto, Ontario", "11688 Bd St Germain Montreal", "154 Av Ballantyne N Montréal-Ouest", "4205 Bourret Montréal QC H3S 1X1", "459 Rue St Paul E Montreal QC H2Y 1H5", "10270 Meilleur Street Montreal", "9167 Bd Gouin O Montreal QC H4K 2E2"]
 band_personal_websites = ["http://www.shakaponk.com/"]
 band_youtube_links = ["https://www.youtube.com/watch?v=Jpw5Y2DMai4"]
@@ -392,6 +386,7 @@ bands.each_with_index do |band, index|
     is_cover: band_bools.sample)
 end
 
+# CREATE 2 BANDS
 
 # Associate band(s) to user
 puts "Associating band(s) to users..."
@@ -405,6 +400,7 @@ all_bands.each_with_index do |band, i|
   # sleep(1.01)
   puts "- #{band.name} created"
 end
+
 
 
 # Associate photos to band
@@ -511,6 +507,90 @@ message.save!
 # User Session for Action Cable
 puts UserSession.destroy_all
 UserSession.create!(identifier: User.first.id)
+
+
+
+# CREATE STEAKHOLDERS
+puts ".....Creating Steakholders....."
+steakholders = Band.create!(
+  name: "Steakholders",
+  bio: "Our band plays garage-psych music kinda stuff and we throw crazy shows where people actually show up. We practice, record and communicate with the devil in a haunted basement in Hochelaga. The band is made of several members. We also make a Youtube show together called Deep Stuff about how much we love pizza, poutine and beer. We are all best friends. The end.",
+  address: "5217 avenue Esplanade, Montreal",
+  latitude: 45.55953695,
+  longitude: -73.552118039629,
+  personal_website: "www.steakholders.com",
+  youtube_link: "https://www.youtube.com/embed/gMOk7kaEqJk",
+  soundcloud_link: "https://soundcloud.com/liltjay/f-n",
+  experience: "2",
+  is_live: true,
+  is_recording: true,
+  is_jamming: true,
+  is_composition: true,
+  is_cover: false,
+
+  user: all_users[9]
+
+)
+
+# Steakholder Styles
+puts ".....Creating Steakholder styles....."
+StyleBand.create!(band: steakholders, style: Style.find_by_name("Jazz"))
+StyleBand.create!(band: steakholders, style: Style.find_by_name("Pop"))
+
+# Steakholder Photos
+puts ".....Creating Steakholder photos....."
+BandPhoto.create!(band: steakholders, remote_photo_url: "https://images.pexels.com/photos/1551019/pexels-photo-1551019.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
+
+BandPhoto.create!(band: steakholders, remote_photo_url: "https://images.unsplash.com/photo-1471565661762-b9dfae862dbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
+
+BandPhoto.create!(band: steakholders, remote_photo_url: "https://images.unsplash.com/photo-1497405417022-3fefbce30a70?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
+
+
+# Steakholder Needed Instruments
+puts ".....Creating Steakholder needed instruments....."
+NeededInstrument.create!(band: steakholders, instrument: Instrument.find_by_name("Drums"))
+
+
+# CREATE TOWEL ATTACK
+puts ".....Creating Towel Attack....."
+towelattack = Band.create(
+  name: "Towel Attack",
+  bio: "Hailing from the garages of Montréal, we busted down the doors of the music scene in 2016 with our debut album. With our latest album, we mixed some bubbly melodies with straightforward guitar work to concoct a solid record chock full of uber-memorable tunes. Our music appeals to young, old and the deceased fans alike.",
+  address: "5022 rue le jeune, Montreal",
+  latitude: 45.5250394241379,
+  longitude: -73.5897133758621,
+  personal_website: "www.towelattack.com",
+  youtube_link: "https://www.youtube.com/embed/gMOk7kaEqJk",
+  soundcloud_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/43227597&color=%237060c0&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
+  experience: "3",
+  is_live: true,
+  is_recording: true,
+  is_jamming: true,
+  is_composition: false,
+  is_cover: false,
+
+  user: all_users[8]
+)
+
+# Towel Attack Styles
+puts ".....Creating Towel Attack styles....."
+StyleBand.create!(band: towelattack, style: Style.find_by_name("Rock"))
+StyleBand.create!(band: towelattack, style: Style.find_by_name("Hip Hop"))
+
+# Towel Attack Photos
+puts ".....Creating Towel Attack photos....."
+BandPhoto.create!(band: towelattack, remote_photo_url: "https://images.pexels.com/photos/1551019/pexels-photo-1551019.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+)
+BandPhoto.create!(band: towelattack, remote_photo_url: "https://images.unsplash.com/photo-1471565661762-b9dfae862dbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+)
+BandPhoto.create!(band: towelattack, remote_photo_url: "https://images.unsplash.com/photo-1497405417022-3fefbce30a70?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+)
+
+# Towel Attack Needed Instruments
+puts ".....Creating Towel Attack needed instruments....."
+NeededInstrument.create!(band: towelattack, instrument: Instrument.find_by_name("Drums"))
+
+
 
 puts "************* D O N E *************"
 
