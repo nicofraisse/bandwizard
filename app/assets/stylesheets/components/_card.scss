@@ -23,22 +23,31 @@
   }
 }
 
-#favorite_link-59 {
-  background-color: white;
+.fa-star{
+  font-size: 40px;
+  color: #745DC6;
+
 }
 
-.fa-star{
-  font-size: 25px;
+// #favorite_link-58 {
+//   background: none;
+//   border: none;
+// }
+
+.starbtn {
+  background: none;
+  border: none;
 }
 
 .star {
-  background-color: rgba(255,255,255,0.9);
   position: absolute;
   top: 0;
   right: 4%;
   border-radius: 20%;
-
+  margin-top: 10px;
+  background: none;
 }
+
 .card-band p {
   color: rgb(47,46,50);
 }
