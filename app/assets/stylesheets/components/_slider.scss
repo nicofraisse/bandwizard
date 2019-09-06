@@ -25,17 +25,14 @@
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
-  width: 20px; /* Set a specific slider handle width */
-  height: 20px; /* Slider handle height */
-  // outline: 1px solid #4FB986;
-  // outline-radius: 50%;
-  // outline-offset: 6px;
-  background: #4FB986; /* Green background */
+  width: 24px; /* Set a specific slider handle width */
+  height: 24px; /* Slider handle height */
+  background: #5CC894; /* Green background */
   cursor: pointer; /* Cursor on hover */
   border-radius: 50%;
   // position: relative;
-  border: 5px solid rgb(153, 153, 153);
-  box-shadow: 0px 0px 0px 3px #4FB986;
+  border: 6px solid rgb(153, 153, 153);
+  box-shadow: 0px 0px 0px 5px #5CC894;
 
 }
 
@@ -52,6 +49,6 @@
 .spanslide{
 
   color: white;
-  font-size: 12px;
+  font-size: 14px;
   }
 
