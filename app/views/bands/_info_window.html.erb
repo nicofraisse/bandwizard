@@ -1,8 +1,8 @@
 <%# raise %>
 
-<div class="card-band">
+<div class="card-band-map">
   <%= link_to(cl_image_tag(result[0].band_photos.first.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius"), band_path(result[0])) %>
-  <div class="card-band-infos">
+  <div class="card-band-infos-map">
 
     <!-- checkbox for stars -->
 
@@ -17,23 +17,23 @@
       <% end %>
     </div>
     <% end %>
-    <div class="card-band-infos">
+    <div class="card-band-infos-map">
       <!-- checkbox for stars -->
       <!-- checkbox for stars -->
-      <div class="band-header">
+      <div class="band-header-map">
        <!-- checkbox for stars -->
-       <p><strong><%= result[0].name %></strong></p>
+       <h6><strong><%= result[0].name %></strong></h6>
      </div>
+        <li class="no-bullet">
+          looking for :<% result[0].instruments.each do |instrument| %>
+          <strong><%= instrument.name %></strong>
+          <% end %>
+        </li>
      <div class="band-card-footer">
       <div class="d-flex flex-column">
         <li class="no-bullet styles-container">
           <% result[0].styles.each_with_index do |style, i| %>
           <span class="styles"><%= style.name %></span>
-          <% end %>
-        </li>
-        <li class="no-bullet">
-          looking for :<% result[0].instruments.each do |instrument| %>
-          <%= instrument.name %>
           <% end %>
         </li>
 
@@ -42,19 +42,27 @@
         <% new_score += 6 %>
         <% score = ((result[1].to_f / new_score.to_f) * 100).to_i %>
 
+          <div style="position: relative;">
+            <input type="text" value="<%= score %>" class="dial" style="">
+            <span style="position: absolute;top: 39px;left: 58px; color:rgb(78, 188, 135);">%</span>
+          </div>
+          <!-- <div style="display:inline;width:100px;height:100px;position: relative;"> -->
+<!--             <canvas width="300" height="300" style="width: 80px;height: 80px;">
 
-          <input type="text" value="<%= score %>" class="dial">
-
-          <span>%</span>
-
+            </canvas> -->
+            <!-- <input type="text" value="62" class="dial" readonly="readonly" style="width: 61px;height: 15px;position: absolute;vertical-align: middle;margin-top: 33px;margin-left: -77px;border: 0px;background: none;font: bold 20px Arial;text-align: center;color: rgb(78, 188, 135);padding: 0px;-webkit-appearance: none;"> -->
+          <!-- </div> -->
       </div>
-
-
     </div>
-
   </div>
 </div>
 </div>
+
+<style>
+  .dial {
+    width: 44px !important;
+  }
+</style>
 
 
 
