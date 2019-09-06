@@ -15,8 +15,8 @@
   background-color: white;
   position: absolute;
   top: 20.2%;
-  right: 4%;
-  border-radius: 0px 0px 5px 5px;
+  right: -2%;
+  border-radius: 0px 0px 0px 5px;
   margin-top: 2px;
   margin-right: 7px;
   border: none;
@@ -83,7 +83,7 @@
 
 .titleband img {
   position: absolute;
-  top: -40px;
+  top: -60px;
   right: 4%;
 }
 
@@ -148,6 +148,7 @@
   font-size: 20px;
   padding-left: 10px;
   padding-right: 20px;
+  text-align: left;
   // margin-top: 30px;
 }
 
@@ -194,6 +195,10 @@
 
 .opentype {
   text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  // justify-content: space-between;
+  align-content: space-around;
 }.experiencelevel {
   text-align: left;
 }
@@ -204,6 +209,15 @@
 
 .lookexperience {
   display: flex;
+}
+
+.openstyle {
+  background-color: #4EBC87;
+  color: #fff;
+  border-radius: 12px;
+  padding: 6px 15px;
+  margin: 0px 10px 10px 10px;
+  font-size: 18px;
 }
 
 
