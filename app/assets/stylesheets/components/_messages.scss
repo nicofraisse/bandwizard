@@ -6,7 +6,7 @@
 
 .message-list {
   overflow-y: scroll;
-  height: 65vh;
+  height: 68vh;
   color: white;
   background: rgba(255,255,255,0.1);
 }
@@ -14,15 +14,19 @@
 .msg {
   max-width: 66%;
   word-break: break-word;
-  background-color: rgba(255,255,255,0.4);
 
   margin: 8px;
   padding: 8px 12px 8px 16px;
-  border-radius: 20px;
+  border-radius: 22px;
 
   &.me {
     align-self: flex-end;
     background-color: rgba(116, 93, 198, 0.8);
+  }
+
+  &.it {
+   background-color: rgba(255,255,255,0.4);
+   max-width: 50%;
   }
 }
 
