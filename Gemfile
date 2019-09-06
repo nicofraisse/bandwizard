@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
+gem 'unread'
 gem 'jquery-rails'
 gem 'jquery-slick-rails'
 gem 'bootsnap', require: false

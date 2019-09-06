@@ -39,6 +39,27 @@
         <% else %>
             <% friend = conversation.user1%>
         <% end %>
+
+        <% if conversation.messages.find { |m| m.unread == true && m.user != current_user }  %>
+        <div class="conversation margin unread">
+
+          <div class= "friendAvatar">
+            <%= cl_image_tag(friend.photo,class: "") %>
+          </div>
+          <div class = "message-pack">
+            <div class="name-and-time">
+              <div><%= link_to friend.full_name.split.map(&:capitalize).join(' '),conversation_path(conversation.id) %></div>
+              <div class ="name" style="font-weight: bold;"><%= conversation.messages.last.updated_at.strftime("%B %-d %-l:%M %p") %></div>
+            </div>
+            <div class="last-message">
+              <% unless conversation.messages.last.msg.nil? %>
+
+              <%= conversation.messages.last.msg.split("").count >= 50 ? conversation.messages.last.msg.first(50)... : conversation.messages.last.msg %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <% else %>
         <div class="conversation margin">
 
           <div class= "friendAvatar">
@@ -52,11 +73,13 @@
             </div>
             <div class="last-message">
               <% unless conversation.messages.last.msg.nil? %>
+
               <%= conversation.messages.last.msg.split("").count >= 50 ? conversation.messages.last.msg.first(50)... : conversation.messages.last.msg %>
               <% end %>
             </div>
           </div>
         </div>
+        <% end %>
       <% end %>
     </div>
   <% end %>
