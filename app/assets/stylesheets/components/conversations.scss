@@ -47,10 +47,11 @@
   justify-content: space-between;
 }
 
-.unread .name-and-time {
-  color: red,
+.unread .name-and-time .name {
+  color: purple;
 }
 
-.unread .last.message {
-
+.unread .last-message {
+  font-weight: bold;
+  color : purple;
 }

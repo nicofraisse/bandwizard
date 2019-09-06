@@ -40,7 +40,7 @@
             <% friend = conversation.user1%>
         <% end %>
 
-        <% if conversation.messages.find { |m| m.unread == true }  %>
+        <% if conversation.messages.find { |m| m.unread == true && m.user != current_user }  %>
         <div class="conversation margin unread">
 
           <div class= "friendAvatar">
@@ -49,7 +49,7 @@
           <div class = "message-pack">
             <div class="name-and-time">
               <div><%= link_to friend.full_name.split.map(&:capitalize).join(' '),conversation_path(conversation.id) %></div>
-              <div style="font-weight: bold;"><%= conversation.messages.last.updated_at.strftime("%B %-d %-l:%M %p") %></div>
+              <div class ="name" style="font-weight: bold;"><%= conversation.messages.last.updated_at.strftime("%B %-d %-l:%M %p") %></div>
             </div>
             <div class="last-message">
               <% unless conversation.messages.last.msg.nil? %>
