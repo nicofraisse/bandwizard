@@ -16,7 +16,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  min-height: 90px;
   li {
     font-size: 16px;
     margin: 8px 0;
@@ -60,16 +60,21 @@
 
 .bandphoto {
   width: 90%;
-  padding: 5px;
+  padding: 6px;
   height: 172px !important;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 16px;
 }
 
 
 .card-band-infos {
-  padding: 8px;
+  padding: 8px 16px 8px 16px;
   // color: black;
+  .styles {
+    font-size: 18px;
+    border-radius: 500px;
+  }
+
 }
 
 .band-header {
@@ -79,14 +84,22 @@
 
 .band-name {
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 24px;
+
+}
+
+p.band-name {
+  margin-bottom: -6px;
 }
 
 p.km {
   font-size: 18px ;
   font-weight: light;
-  margin-right: 12px;
-}
+  margin-bottom: 8px;
+  width: 110px;
+  text-align: right;
+  height: 36px;
+  text-align: center;
 
 .styles-container {
   display: flex;
@@ -123,7 +136,7 @@ span.styles {
   }
 
   .dial {
-    margin-left: -82px !important
+    margin-left: -82px !important;
   }
 
 }

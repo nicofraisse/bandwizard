@@ -114,7 +114,7 @@ class BandsController < ApplicationController
       # EXPERIENCE
       @all_bands.each do |band|
         if band.experience == params[:experience]
-          score_hash[band] += 1
+          score_hash[band] += 3
           @matching_filters[band] << "XP / 1"
         end
       end
