@@ -519,12 +519,12 @@ steakholders = Band.create!(
   latitude: 45.55953695,
   longitude: -73.552118039629,
   personal_website: "www.steakholders.com",
-  youtube_link: "https://www.youtube.com/embed/gMOk7kaEqJk",
-  soundcloud_link: "https://soundcloud.com/liltjay/f-n",
+  youtube_link: "https://www.youtube.com/embed/safr0HTFUHE",
+  soundcloud_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/127926779&color=%237060c0&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
   experience: "2",
   is_live: true,
   is_recording: true,
-  is_jamming: true,
+  is_jamming: false,
   is_composition: true,
   is_cover: false,
 
@@ -534,16 +534,14 @@ steakholders = Band.create!(
 
 # Steakholder Styles
 puts ".....Creating Steakholder styles....."
-StyleBand.create!(band: steakholders, style: Style.find_by_name("Jazz"))
-StyleBand.create!(band: steakholders, style: Style.find_by_name("Pop"))
+StyleBand.create!(band: steakholders, style: Style.find_by_name("Rock"))
+StyleBand.create!(band: steakholders, style: Style.find_by_name("Metal"))
 
 # Steakholder Photos
 puts ".....Creating Steakholder photos....."
-BandPhoto.create!(band: steakholders, remote_photo_url: "https://images.pexels.com/photos/1551019/pexels-photo-1551019.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
-
-BandPhoto.create!(band: steakholders, remote_photo_url: "https://images.unsplash.com/photo-1471565661762-b9dfae862dbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
-
-BandPhoto.create!(band: steakholders, remote_photo_url: "https://images.unsplash.com/photo-1497405417022-3fefbce30a70?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
+BandPhoto.create!(band: steakholders, remote_photo_url: "https://ichef.bbci.co.uk/images/ic/640x360/p06p66cb.jpg")
+BandPhoto.create!(band: steakholders, remote_photo_url: "https://ksassets.timeincuk.net/wp/uploads/sites/55/2016/01/2015Glassjaw_GettyImages-458800994011215-1-920x610.jpg")
+BandPhoto.create!(band: steakholders, remote_photo_url: "http://2.bp.blogspot.com/-h6SeRaIXd4Q/VPqxlQu6VHI/AAAAAAAAFLA/raWUcv-DOIc/s1600/Glassjaw%2BDon%2BFury%2BEra.png")
 
 
 # Steakholder Needed Instruments
@@ -560,30 +558,29 @@ towelattack = Band.create(
   latitude: 45.5250394241379,
   longitude: -73.5897133758621,
   personal_website: "www.towelattack.com",
-  youtube_link: "https://www.youtube.com/embed/gMOk7kaEqJk",
-  soundcloud_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/43227597&color=%237060c0&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
+  youtube_link: "https://www.youtube.com/embed/safr0HTFUHE",
+  soundcloud_link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/242932200&color=%237060c0&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true",
   experience: "3",
   is_live: true,
   is_recording: true,
-  is_jamming: true,
-  is_composition: false,
-  is_cover: false,
+  is_jamming: false,
+  is_composition: true,
+  is_cover: true,
 
-  user: all_users[8]
+  user: all_users[10]
 )
 
 # Towel Attack Styles
 puts ".....Creating Towel Attack styles....."
 StyleBand.create!(band: towelattack, style: Style.find_by_name("Rock"))
-StyleBand.create!(band: towelattack, style: Style.find_by_name("Hip Hop"))
+StyleBand.create!(band: towelattack, style: Style.find_by_name("Blues"))
+StyleBand.create!(band: towelattack, style: Style.find_by_name("Jazz"))
 
 # Towel Attack Photos
 puts ".....Creating Towel Attack photos....."
-BandPhoto.create!(band: towelattack, remote_photo_url: "https://images.pexels.com/photos/1551019/pexels-photo-1551019.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+BandPhoto.create!(band: towelattack, remote_photo_url: "https://images.pexels.com/photos/2167139/pexels-photo-2167139.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
 )
-BandPhoto.create!(band: towelattack, remote_photo_url: "https://images.unsplash.com/photo-1471565661762-b9dfae862dbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-)
-BandPhoto.create!(band: towelattack, remote_photo_url: "https://images.unsplash.com/photo-1497405417022-3fefbce30a70?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+BandPhoto.create!(band: towelattack, remote_photo_url: "https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 )
 
 # Towel Attack Needed Instruments
