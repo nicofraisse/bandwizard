@@ -1,13 +1,12 @@
 <div class="margin">
-  <h4 class="subtitle"><strong><%= @starred_bands.count %></strong> starred bands</h4>
+  <h4 class="subtitle"><strong id="starred_bands_count"><%= @starred_bands.count %></strong> starred bands</h4>
   <div>
     <div style="display: flex;">
       <div class="row">
 
         <% @starred_bands.each do |object| %>
           <% band = object.band %>
-
-          <div class="column">
+          <div class="column" data-star-id="<%= object.id %>">
             <div class="card-band">
               <%= link_to(cl_image_tag(band.band_photos.first.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius"), band_path(band)) %>
               <% unless current_user.nil? %>
