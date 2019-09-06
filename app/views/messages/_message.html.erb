@@ -2,10 +2,22 @@
 
 <% if message.user.id == user_id %>
     <div class="msg me">
-      <span class="me"><%= message.msg %></span>
+      <span><%= message.msg %></span>
     </div>
 <% else %>
+<div style="display: flex; align-elements: center;">
+  <%= image_tag current_user.photo, style: "background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: 9px;
+    "
+    %>
   <div class="msg it">
-    <span class="it"><%= message.msg %></span>
+    <div><span><%= message.msg %></span></div>
   </div>
+</div>
 <% end %>
