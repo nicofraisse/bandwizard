@@ -43,7 +43,7 @@
                       <%= link_to(cl_image_tag(band.band_photos.first.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius"), band_path(band)) %>
                       <% unless current_user.nil? %>
                         <div class="star">
-                          <%= button_to stars_path(band), method: :post, id:"favorite_link-#{band.id}",remote:true  do %>
+                          <%= button_to stars_path(band), class: "starbtn", method: :post, id:"favorite_link-#{band.id}",remote:true  do %>
                           <% if band.favorited_by?(current_user) %>
                             <i class="fas fa-star"></i>
                           <% else %>
@@ -57,7 +57,7 @@
                       <!-- checkbox for stars -->
                       <div class="band-header">
                         <p class="band-name" style="font-size: 24px;"=><strong><%= band.name %></strong></p>
-                        <p class="km" style="font-size: 20px;"><i class="fas fa-map-marker-alt"> </i> <%= Geocoder::Calculations.distance_between([band.latitude, band.longitude], @geocoded_address).round(1) %> km</p>
+                        <p class="km" style="font-size: 18px;"><i class="fas fa-map-marker-alt"> </i> <%= Geocoder::Calculations.distance_between([band.latitude, band.longitude], @geocoded_address).round(1) %> km</p>
                       </div>
                       <div class="band-card-footer">
                         <div class="d-flex flex-column">
@@ -95,7 +95,7 @@
               <% @results[(b[0].id)] =  b[1] %>
             <% end %>
           </div>
-          <%= link_to(image_tag("mapicon.svg", size: "64"), map_path({results: @results}), :class => "mapbtn") %>
+          <%= link_to(image_tag("mapiconp.svg", size: "64"), map_path({results: @results}), :class => "mapbtn") %>
         <% end %>
       </div>
 
