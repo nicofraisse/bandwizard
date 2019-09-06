@@ -12,12 +12,14 @@
 }
 
 .starprofile {
-  // background-color: rgba(255, 255, 255, 0.9);
+  background-color: white;
   position: absolute;
   top: 20.2%;
   right: 4%;
-  border-radius: 20%;
-  margin-top: 10px;
+  border-radius: 0px 0px 5px 5px;
+  margin-top: 2px;
+  margin-right: 7px;
+  border: none;
 }
 
 
@@ -43,6 +45,7 @@
 
 .slideImage img {
   height: 40vh;
+  border-top: 5px solid white;
 }
 
 .slick-dots li.slick-active button:before {
@@ -145,7 +148,7 @@
   font-size: 20px;
   padding-left: 10px;
   padding-right: 20px;
-  margin-top: 30px;
+  // margin-top: 30px;
 }
 
 .bandstyle {
@@ -158,19 +161,29 @@
   font-size: 18px;
 }
 
-.fa-wifi {
+.fa-globe {
   font-size: 22px;
   padding-right: 10px;
+  margin-left: 25px;
 }
 
 .website {
-  font-size: 18px;
+  text-align: left;
+  margin-top: 20px;
+}.website a {
+  font-size: 16px;
+  text-align: right;
+  color: white;
+}.website a:hover {
+  color: #543caa
+}.lookinfor {
   text-align: left;
 }
 
+
 .profile-bio {
   margin-top: -50px;
-  font-size:16px;
+  font-size: 20px;
   text-align: left;
 }
 
@@ -179,20 +192,23 @@
   border-radius: 5px;
 }
 
-// .youtubeimg {
-//   border-radius: 5px;
-// }.youtubeimg:hover {
-//   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.75);
-//   border-radius: 5px;
-//   display: block;
-// }
-
-.webbtn {
-  border-radius: 5px;
-}.webbtn:hover {
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.75);
-  border-radius: 5px;
+.opentype {
+  text-align: left;
+}.experiencelevel {
+  text-align: left;
 }
+
+.bottombioelements {
+  margin-left: 10px;
+}
+
+.lookexperience {
+  display: flex;
+}
+
+
+
+
 
 
 // Tabs for Bio and Details
