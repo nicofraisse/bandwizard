@@ -36,6 +36,8 @@ class ConversationsController < ApplicationController
     policy_scope(@conversation)
 
     @message = Message.new
+    set_messages_as_read(@conversation.messages)
+
   end
 
   def new
@@ -63,6 +65,10 @@ class ConversationsController < ApplicationController
   end
 
   private
+
+  def set_messages_as_read(messages)
+    messages.each {|msg| msg.update!(unread: false)}
+  end
 
   def message_params
     params.require(:message).permit(:content, :conversation_id)
