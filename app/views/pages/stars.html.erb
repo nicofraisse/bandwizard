@@ -27,7 +27,7 @@
                <!-- checkbox for stars -->
                <div class="band-header">
                   <p class="band-name"=><strong><%= band.name %></strong></p>
-                  <p class="km"><i class="fas fa-map-marker-alt"></i> <%= Geocoder::Calculations.distance_between([band.latitude, band.longitude], @geocoded_address).round(1) %> km</p>
+                  <p class="km"><i class="fas fa-map-marker-alt"></i> <%= Geocoder::Calculations.distance_between([band.latitude, band.longitude],[45.524860,-73.592420]).round(1) %> km</p>
                </div>
 
 
