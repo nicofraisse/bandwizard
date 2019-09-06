@@ -122,6 +122,8 @@
           <% end %>
         </select>
       </div>
+      <br>
+      <br>
 
       <p>What location?</p>
       <div style="position: relative;">
@@ -142,13 +144,13 @@
         <span style="
           float: right;
           font-size: 13px;
-          margin-top: 5px;
+          /*margin-top: 5px;*/
           margin-right: 5px;
           color: #ffffff4f;
         ">click for geolocation</span>
       </div>
       <div class="slidecontainer">
-        <label for="slide">Distance</label>
+        <label class="distance" for="slide">Distance</label>
         <input type="range" min="0" max="30" value="15" class="slider" id="slide">
         <input type="text" name="slider" placeholder="km" class='range-value' hidden>
         <br>
@@ -175,11 +177,11 @@
       <!-- part 2************************************ -->
 <!-- <div class = "slideleft d-none"> -->
       <div class="slidecontainer">
-        <label for="slide">Experience</label>
+        <label for="slide">Your Experience</label>
         <input type="range" min="1" max="3" value="2" class="slider" id="slider">
         <input type="text" name="experience" placeholder="experience" class="range-value" hidden>
         <br>
-        <div class="range-labels">
+        <div class="range-labels experience">
           <span class="spanslide">Beginner</span>
           <span class="spanslide">Intermediate</span>
           <span class="spanslide">Advanced</span>
@@ -244,7 +246,7 @@
   </div> -->
 </div>
       <br>
-<button class="searchbutton link-to-text-color findbutton" type="submit">FIND A BAND</button>
+<button class="searchbutton link-to-text-color findbutton bandsearchbtn" type="submit">FIND A BAND</button>
 </form>
 
 <!-- </div>
