@@ -1,11 +1,11 @@
 <div class="center-msg-container">
   <div>
     <%= form_for message do |f| %>
-      <%= f.text_area :msg, class: "form-control msg-box", data: {textarea: "message"} %>
+      <%= f.text_area :msg, class: "form-control msg-box", placeholder: "Your message", data: {textarea: "message"} %>
       <%= f.hidden_field :conversation_id, value: conversation.id %>
   </div>
   <div>
-      <%= f.submit "Send", class: "btn btn-primary send-btn", data: {send: "message"} %>
+      <%= f.submit "Send", class: "btn btn-primary send-btn", style: "border-radius: 60px;", data: {send: "message"} %>
     <% end %>
   </div>
 </div>

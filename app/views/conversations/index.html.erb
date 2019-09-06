@@ -1,9 +1,19 @@
+<% n = 0 %>
+<% unless @conversations.nil? %>
+  <% @conversations.each do |conversation| %>
+    <% unless conversation.messages.count == 0 %>
+      <% n += 1 %>
+    <% end %>
+  <% end %>
+<% end %>
+
+
 <% if @conversations.nil? %>
   <h3 style="color: white">No conversations</h3>
 <% elsif @conversations.count == 1 %>
   <h1 class="subtitle margin"> <strong>1 conversation</h1>
 <% else %>
-  <h1 class="subtitle margin"> <strong><%= @conversations.count %></strong> conversations</h1>
+  <h1 class="subtitle margin"> <strong><%= n %></strong> conversations</h1>
 <% end %>
 <br>
 
