@@ -24,28 +24,25 @@
 }
 
 .fa-star{
-  font-size: 40px;
+  font-size: 35px;
+  padding: 5px 0px 5px 0px;
   color: #745DC6;
 
 }
 
-// #favorite_link-58 {
-//   background: none;
-//   border: none;
-// }
-
+// To remove white background on star
 .starbtn {
-  background: none;
+  background-color: white;
   border: none;
+  border-radius: 0px 0px 5px 5px;
 }
 
 .star {
   position: absolute;
   top: 0;
-  right: 4%;
+  right: 9%;
   border-radius: 20%;
-  margin-top: 10px;
-  background: none;
+  margin-top: 0px;
 }
 
 .card-band p {
@@ -63,7 +60,7 @@
 
 .bandphoto {
   width: 90%;
-  padding: 3px;
+  padding: 5px;
   height: 172px !important;
   object-fit: cover;
   border-radius: 12px;
@@ -88,6 +85,7 @@
 p.km {
   font-size: 18px ;
   font-weight: light;
+  margin-right: 12px;
 }
 
 .styles-container {
