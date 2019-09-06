@@ -95,7 +95,7 @@
       <label for="tab2-2" id="tabz">MUSIC</label>
       <input id="tab2-2" name="tabs-two" type="radio" class="tabz-thing">
         <div class="soundcloudbox">
-          <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/605233650&color=%23745dc6&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+          <iframe width="100%" height="320" scrolling="no" frameborder="no" allow="" src=<%= @band.soundcloud_link %>></iframe>
 
           <!-- YouTube Modal Button -->
           <div class="bs-example">
@@ -106,7 +106,7 @@
               <div class="modal-dialog">
                 <div class="modal-content modalmargin">
                   <div class="modal-body">
-                    <iframe id="musicVideo" width="100%" height="315" src="https://www.youtube.com/embed/dKDcK-PPl4Y" frameborder="0" allowfullscreen></iframe>
+                    <iframe id="musicVideo" width="100%" height="315" src="<%= @band.youtube_link %>" frameborder="0" allowfullscreen ></iframe>
                   </div>
                 </div>
               </div>
