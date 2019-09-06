@@ -47,7 +47,8 @@
           <div class = "message-pack">
             <div class="name-and-time">
               <div><%= link_to friend.full_name.split.map(&:capitalize).join(' '),conversation_path(conversation.id) %></div>
-              <div style="font-weight: bold;"><%= conversation.messages.last.updated_at.strftime("%B %-d %-l:%M %p") %></div>
+              <div style="font-weight: bold;"><%= "#{conversation.messages.last.updated_at.to_s.first(16)}".last(5) %></div>
+
             </div>
             <div class="last-message">
               <% unless conversation.messages.last.msg.nil? %>
