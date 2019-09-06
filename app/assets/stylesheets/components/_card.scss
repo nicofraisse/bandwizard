@@ -1,5 +1,4 @@
 
-// utils
 
 .no-bullet {
   list-style: none;
@@ -30,7 +29,7 @@
 
 }
 
-// To remove white background on star
+/*// To remove white background on star*/
 .starbtn {
   background-color: white;
   border: none;
@@ -69,7 +68,7 @@
 
 .card-band-infos {
   padding: 8px 16px 8px 16px;
-  // color: black;
+  /*// color: black;*/
   .styles {
     font-size: 18px;
     border-radius: 500px;
@@ -104,6 +103,7 @@ p.km {
 .styles-container {
   display: flex;
   flex-wrap: wrap;
+}
 }
 
 span.styles {
