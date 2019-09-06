@@ -14,6 +14,17 @@
     <% end %>
   </div>
 </div>
+ <% unless current_user.nil? %>
+    <div class="starprofile">
+      <%= button_to stars_path(@band), method: :post, id:"favorite_link-#{@band.id}",remote:true  do %>
+      <% if @band.favorited_by?(current_user) %>
+      <i class="fas fa-star"></i>
+      <% else %>
+      <i class="far fa-star"></i>
+      <% end %>
+      <% end %>
+    </div>
+  <% end %>
 
 <div class="mybands">
   <div class="titleband margin">
@@ -23,7 +34,7 @@
   </div>
   <div style="display:flex; height: 0px; position: absolute; z-index: 99999999999999999; width: 100%">
     <div class="hii">BIO</div>
-    <div class="hii">DETAILS</div>
+    <div class="hii">MUSIC</div>
   </div>
 
 <!-- BIO TAB -->
@@ -63,7 +74,7 @@
 
 <!-- DETAILS TAB -->
     <div class="tab-2">
-      <label for="tab2-2" id="tabz">DETAILS</label>
+      <label for="tab2-2" id="tabz">MUSIC</label>
       <input id="tab2-2" name="tabs-two" type="radio" class="tabz-thing">
 
       <div>
@@ -78,9 +89,9 @@
                               <% end %>
         <br>
         <p class="styleheader"><em>Experience</em></p>
-        <span class="bandstyle"><% if @band.experience == 1 %>
+        <span class="bandstyle"><% if @band.experience == "1" %>
               Beginner
-          <%elsif @band.experience == 2 %>
+          <%elsif @band.experience == "2" %>
               Intermediate
           <% else %>
               Advanced
