@@ -7,7 +7,7 @@
         <% @starred_bands.each do |object| %>
           <% band = object.band %>
 
-          <div class="column">
+          <div class="column" data-star-id="<%=object.id %>">
             <div class="card-band">
               <%= link_to(cl_image_tag(band.band_photos.first.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius"), band_path(band)) %>
               <% unless current_user.nil? %>
