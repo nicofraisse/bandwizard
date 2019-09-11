@@ -11,12 +11,22 @@ body {
 
 }
 
+.home-container {
+  /*border: 4px solid red;*/
+  margin-top: 12vh;
+  margin-bottom: 8vh;
+  height: 80vh;
+}
+
+.seperator {
+  padding-bottom: 2%;
+}
+
 .title {
   color: white;
   font-family: "Roboto";
   font-weight: lighter;
   text-align: center;
-  padding-top: 28px;
   font-size: 36px;
 }
 
@@ -79,14 +89,21 @@ body {
   background: #4FB986;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
+
 button.searchbutton {
+  min-width: 280px;
   width: 60%;
-  margin-left: 20%;
-  margin-right: 20%;
+  max-width: 480px;
+  margin: 0 auto;
 }
 
 .findbutton {
   text-align: center;
+}
+
+#first-button {
+  margin-bottom: 20px;
+  margin-top: 8px;
 }
 
 .logintitle {

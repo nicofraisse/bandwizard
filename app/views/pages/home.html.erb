@@ -1,20 +1,33 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 </head>
-<div class="logo">
-  <div class="box fade-in one ">
-    <%= image_tag "wizardlogo.png", class: "bandwizardlogo" %>
-  </div>
-  <div class="box fade-in two">
-    <h1 class="bandwizardtitle"><span>Band</span>Wizard</h1>
-    <h4 class="bandwizardslogan">Musicians like me, near me.</h4>
+<div class="home-container">
 
-    <div class="findbutton">
-      <button class="searchbutton link-to-text-color findbutton" type="submit"><%= link_to "FIND A MUSICIAN", search_path(choice:1), class: 'link-to-text-color'%></button>
+  <div class="home-element">
+    <div class="box fade-in one ">
+      <%= image_tag "wizardlogo.png", class: "bandwizardlogo" %>
     </div>
+  </div>
+  <div class="seperator"></div>
 
-    <div class="findbutton">
-      <button class="searchbutton link-to-text-color findbutton" type="submit"><%= link_to "FIND A BAND", search_path(choice:2), class: 'link-to-text-color'%></button>
+  <div class="home-element">
+    <div class="box fade-in two">
+      <h1 class="bandwizardtitle"><span>Band</span>Wizard</h1>
+      <h4 class="bandwizardslogan">Musicians like me, near me.</h4>
+    </div>
+  </div>
+
+  <div class="seperator"></div>
+
+  <div class="home-element">
+    <div class="box fade-in two lasty">
+      <div class="findbutton" id="first-button">
+        <button class="searchbutton link-to-text-color findbutton" type="submit"><%= link_to "FIND A MUSICIAN", search_path(choice:1), class: 'link-to-text-color'%></button>
+      </div>
+
+      <div class="findbutton">
+        <button class="searchbutton link-to-text-color findbutton" type="submit"><%= link_to "FIND A BAND", search_path(choice:2), class: 'link-to-text-color'%></button>
+      </div>
     </div>
   </div>
 </div>
