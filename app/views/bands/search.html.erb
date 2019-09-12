@@ -97,6 +97,7 @@
       </div>
     </div>
     <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A MUSICIAN</button>
+
   </form>
 </div>
 <div class="morefilters">
@@ -244,10 +245,18 @@
       </div> -->
   <!--   </div>
   </div> -->
-</div>
-      <br>
-<button class="searchbutton link-to-text-color findbutton bandsearchbtn" type="submit">FIND A BAND</button>
+  </div>
+  <br>
+  <br>
+  <div class="findbutton" id="first-button">
+    <div>
+      <%= button_to "FIND A BAND", search_path(choice:1), :method => "get", class:"searchbutton link-to-text-color findbutton"%>
+    </div>
+  </div>
+  <br>
 </form>
+<br>
+<br>
 
 <!-- </div>
   <div class="morefilters">
