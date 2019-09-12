@@ -86,28 +86,24 @@ html, body {
 }
 
 .link-to-text-color:hover {
-  text-decoration: none;
-  text-align: center;
-  color: #4B2472;
-  background-color: #4FB986;
+  color: white;
 }
 
 .searchbutton {
   padding: 16px 0px;
   border-radius: 4px;
-  margin-top: 16px;
-  margin-bottom: 16px;
   border: none;
   text-align: center;
   background: #4FB986;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-}
-
-button.searchbutton {
   min-width: 280px;
   width: 60%;
   max-width: 480px;
   margin: 0 auto;
+}
+
+.searchbutton:hover {
+  background-color: #53eda3;
 }
 
 .findbutton {
