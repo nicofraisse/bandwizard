@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
   after_action :verify_authorized, except: [:index, :search,:map, :filter, :show, :public_profile], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: [:index, :search, :map, :show, :public_profile], unless: :skip_pundit?
 
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
   private
 
   def skip_pundit?
