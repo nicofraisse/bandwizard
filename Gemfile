@@ -4,7 +4,7 @@ gem 'unread'
 gem 'jquery-rails'
 gem 'jquery-slick-rails'
 gem 'bootsnap', require: false
-gem 'devise'
+gem "devise", ">= 4.7.1"
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
