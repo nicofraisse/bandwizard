@@ -1,10 +1,45 @@
-// .container {
 
-// }
+.searchform-container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 
 .searchform {
-  text-align: center;
   width: 90%;
+  max-width: 640px;
+  padding: 0px;
+}
+
+.dropdown-container {
+  width: 92%;
+  margin: 0 auto;
+/*  display: flex;
+  justify-content: center;*/
+}
+
+#exampleFormControlSelect1 {
+  border-radius: 50px;
+  width: 100% !important;
+}
+
+.select2-container--default {
+  max-width: 100% !important;
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+
+}
+.select2-selection--single {
+  min-width: 100% !important;
+  width: 100% !important;
+}
+
+
+
+.col-md-6 {
+  max-width:: 100%;
 }
 
 label {
@@ -37,6 +72,7 @@ label {
 
 .distance {
   margin-top: -40px;
+  margin-bottom: 4px;
 }
 #slide.slider {
   width: 100%;

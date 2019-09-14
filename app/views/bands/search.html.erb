@@ -54,6 +54,7 @@
           <span class="spanslide">30km</span>
         </div>
       </div>
+      <br>
 
       <div class="slidecontainer">
         <label for="slide">Your experience level</label>
@@ -105,24 +106,26 @@
 
 <!-- SEARCHING FOR BAND -------------------------------------------------------------->
 <div class="margin">
-  <div class="searchform col-12 col-md-6 col-lg-12" style="width: 100%">
-    <form action="/bands" method="get" id ="1">
+  <div class="searchform-container col-12 col-md-6 col-lg-12" style="width: 100%">
+    <form action="/bands" method="get" id ="1" class="searchform">
 <!-- part 1******************** -->
 <!-- <div class = "sliding">
   <div class=slideright> -->
         <div class="form-group">
+        <br>
         <label for="exampleFormControlSelect1">What instrument do you play?</label>
-        <select class="form-control search-band-select" id="exampleFormControlSelect1" name="instruments">
-          <% Instrument.all.each do |instrument| %>
-          <option><%= instrument.name %></option>
-          <% end %>
-        </select>
+        <div class="dropdown-container">
+          <select class="form-control search-band-select" id="exampleFormControlSelect1" name="instruments">
+            <% Instrument.all.each do |instrument| %>
+            <option><%= instrument.name %></option>
+            <% end %>
+          </select>
+        </div>
       </div>
       <br>
       <br>
-
       <p>What location?</p>
-      <div style="position: relative;">
+      <div  class="dropdown-container" style="position: relative;">
         <input type="text" name="Address" placeholder="Address" id="address">
         <input
           style="
@@ -172,7 +175,9 @@
       </div> -->
       <!-- part 2************************************ -->
 <!-- <div class = "slideleft d-none"> -->
+      <br>
       <div class="slidecontainer">
+        <br>
         <label for="slide">Your Experience</label>
         <input type="range" min="1" max="3" value="2" class="slider" id="slider">
         <input type="text" name="experience" placeholder="experience" class="range-value" hidden>
@@ -184,7 +189,7 @@
         </div>
       </div>
       <br>
-
+      <br>
       <p>You are open to</p>
       <div class="all-filters">
         <div class="filter-input">
@@ -247,11 +252,12 @@
     <div>
       <%= button_to "FIND A BAND", search_path(choice:1), :method => "get", class:"searchbutton link-to-text-color findbutton"%>
     </div>
+    <br>
+    <br>
+    <br>
   </div>
   <br>
 </form>
-<br>
-<br>
 <!-- </div>
   <div class="morefilters">
     <button class="extrafilters link-to-text-color findbutton" id="btnmore" type="submit">MORE FILTERS</button>
