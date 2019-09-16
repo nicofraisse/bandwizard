@@ -11,11 +11,8 @@
     <% elsif controller_name == "bands" && controller.action_name == "search" %>
           <h1 class="title">Find <%= params[:choice] == "1" ? "musician" : "a band" %></h1>
 
-    <% elsif controller_name == "bands" && controller.action_name == "search" %>
-          <h1 class="title">Find <%= params[:choice] == "1" ? "musician" : "a band" %></h1>
-
     <% elsif controller_name == "bands" && controller.action_name == "index" %>
-          <h1 class="title">Find <%= params[:choice] == "1" ? "musician" : "a band" %></h1>
+          <h1 class="title">Find <%= params[:doubleslider].nil? ? "a band" : "a musician" %></h1>
 
     <% elsif controller_name == "bands" && controller.action_name == "show" %>
           <h1 class="title">Band Profile</h1>

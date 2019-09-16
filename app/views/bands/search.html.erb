@@ -6,22 +6,62 @@
 <% if choice == 1 %>
 
 <!-- SEARCHING FOR MUSICIAN -->
-
-
 <div class="margin">
-  <div class="searchform col-12 col-md-6" style="width: 100%">
-    <form action="/bands" method="get">
-      <div class="form-group">
+  <div class="searchform-container col-12 col-md-6 col-lg-12" style="width: 100%">
+    <form action="/bands" method="get" id ="1" class="searchform">
+<!-- part 1******************** -->
+<!-- <div class = "sliding">
+  <div class=slideright> -->
+        <div class="form-group">
+        <br>
         <label for="exampleFormControlSelect1">What instrument are you looking for?</label>
-        <select class="form-control search-band-select" id="exampleFormControlSelect1" name="instruments">
-          <% Instrument.all.each do |instrument| %>
-          <option><%= instrument.name %></option>
-          <% end %>
-        </select>
+        <div class="dropdown-container">
+          <select class="form-control search-band-select" id="exampleFormControlSelect1" name="instruments">
+            <% Instrument.all.each do |instrument| %>
+            <option><%= instrument.name %></option>
+            <% end %>
+          </select>
+        </div>
+      </div>
+      <br>
+      <br>
+      <p>What location?</p>
+      <div class="dropdown-container" style="position: relative;">
+        <input type="text" name="Address" placeholder="Address" id="address">
+        <input
+          style="
+            position: absolute;
+            right: 15px;
+            bottom: 10px;
+            width: 20px;
+            height: 20px;
+            opacity: 1;
+          "
+          type="checkbox"
+          name="current_position"
+          id="current-position"
+        >
+        <span style="
+          float: right;
+          font-size: 13px;
+          /*margin-top: 5px;*/
+          margin-right: 5px;
+          color: #ffffff4f;
+        ">click for geolocation</span>
+      </div>
+      <div class="slidecontainer">
+        <label class="distance" for="slide">Distance</label>
+        <input type="range" min="0" max="30" value="15" class="slider" id="slide">
+        <input type="text" name="slider" placeholder="km" class='range-value' hidden>
+        <br>
+        <div class="range-labels">
+          <span class="spanslide">1km</span>
+          <span class="spanslide">15km</span>
+          <span class="spanslide">30km</span>
+        </div>
       </div>
 
-      <br>
-
+      <p>Your band's musical styles</p>
       <div class="all-filters">
         <% Style.all.each do |style| %>
         <div class="filter-input">
@@ -31,6 +71,106 @@
           <input type="checkbox" name="style[]" value="<%= style.name %>" />
         </div>
         <% end %>
+  <!--     </div>
+
+      </div> -->
+      <!-- part 2************************************ -->
+<!-- <div class = "slideleft d-none"> -->
+      <br>
+      <div class="slidecontainer">
+        <br>
+        <label for="slide">Your band's level of experience</label>
+        <input type="range" min="1" max="3" value="2" class="slider" id="slider">
+        <input type="text" name="experience" placeholder="experience" class="range-value" hidden>
+        <br>
+        <div class="range-labels experience">
+          <span class="spanslide">Beginner</span>
+          <span class="spanslide">Intermediate</span>
+          <span class="spanslide">Advanced</span>
+        </div>
+      </div>
+      <br>
+      <br>
+      <p>You are open to</p>
+      <div class="all-filters">
+        <div class="filter-input">
+          <label class="stylebutton">
+            <input type="checkbox" name="is_jamming" value="true"/>Just jamming
+          </label>
+        </div>
+        <div class="filter-input">
+          <label class="stylebutton">
+            <input type="checkbox" name="is_composition" value="true"/>Songwriting
+          </label>
+        </div>
+        <div class="filter-input">
+          <label class="stylebutton">
+            <input type="checkbox" name="is_live" value="true"/>Live shows
+          </label>
+        </div>
+        <div class="filter-input">
+          <label class="stylebutton">
+            Cover Band
+          </label>
+          <input type="checkbox" name="is_cover" value="true"/>
+        </div>
+        <div class="filter-input">
+          <label class="stylebutton">
+            <input type="checkbox" name="is_recording" value="true"/>Studio recording
+          </label>
+        </div>
+        <br>
+        <div id="double-slider">
+          <label for="slide">Age</label>
+          <input type="text" class="js-range-slider" name="doubleslider" value="" />
+          <input type="text" name="age" id="age-range-values" hidden>
+        </div>
+      </div>
+
+      <p>Demographics</p>
+      <div class="all-filters">
+        <div class="filter-input">
+          <label class="stylebutton">
+          Female
+          </label>
+          <input type="checkbox" name="female" value="true" />
+        </div>
+        <div class="filter-input">
+         <label class="stylebutton">
+          Male
+       </label>
+        <input type="checkbox" name="female" value="true" />
+      </div>
+  </div>
+  <br>
+  <br>
+  <div class="findbutton" id="first-button">
+    <div>
+      <%= button_to "FIND A MUSICIAN", bands_path(choice:1), :method => "get", class:"searchbutton link-to-text-color findbutton"%>
+    </div>
+    <br>
+    <br>
+    <br>
+  </div>
+  <br>
+</form>
+<!-- </div>
+  <div class="morefilters">
+    <button class="extrafilters link-to-text-color findbutton" id="btnmore" type="submit">MORE FILTERS</button>
+    <button class="extrafilters link-to-text-color findbutton d-none" id="btnless" type="submit">LESS FILTERS</button>
+  </div> -->
+</div>
+<!--
+<div class="margin">
+  <div class="searchform col-12 col-md-6" style="width: 100%">
+    <form action="/bands" method="get">
+      <div class="form-group">
+
+      </div>
+
+      <br>
+
+      <div class="all-filters">
       </div>
 
       <br>
@@ -100,7 +240,7 @@
     <button class="searchbutton link-to-text-color findbutton" type="submit">FIND A MUSICIAN</button>
 
   </form>
-</div>
+</div> -->
 
 <% else %>
 
@@ -265,8 +405,8 @@
   </div> -->
 </div>
 <% end %>
-
 <script>
+
 // btn = document.querySelector('.extrafilters')
 // const element1 =  document.querySelector('.slideright')
 // const element2 =  document.querySelector('.slideleft')
