@@ -2,18 +2,176 @@ class BandsController < ApplicationController
  skip_before_action :authenticate_user!, only: [:index, :show,:search,:map, :filter, :public_profile, :mybands]
  skip_after_action :verify_policy_scoped, only: [:index, :show,:search, :map, :public_profile]
  def index
-   @choice = params[:choice].to_i
-   if @choice == 1
+    @choice = params[:doubleslider].nil? ? 2 : 1
+
+    if @choice == 1
+      relevant_instru = InstrumentUser.where(instrument: Instrument.find_by_name(params[:instruments])).includes(:user)
+      needed_goals = ["is_jamming", "is_live", "is_composition", "is_recording", "is_cover"]
+
+      @all_musicians = User.all.includes(:styles, :instruments) #, :starred_users)
+
+      unless params[:style] == nil
+        style_musician = []
+        params[:style].each do |style|
+          style_musician << StyleUser.where(style: Style.find_by_name(style)).includes(:user)
+        end
+        style_musician.flatten!
+      end
+
+      score_hash = Hash.new
+      @all_musicians.each do |musician|
+        score_hash[musician] = 0
+      end
+
+      @matching_filters = @all_musicians.to_a.map { |b| [b, []] }.to_h
+
+      unless params[:style] == nil
+        all_musicians_by_style = style_musician.map do |style|
+          style.user
+        end
+      else
+        all_musicians_by_style = []
+      end
+
+      had_style = []
+      all_musicians_by_style.each do |musician|
+        score_hash[musician] += 1
+        @matching_filters[musician] << "style / 1"
+      end
+
+      # GOALS
+      @all_musicians.each do |musician|
+        if musician.is_jamming.to_s == params[:is_jamming]
+          score_hash[musician] += 1
+          @matching_filters[musician] << "is jamming / 1"
+        end
+        if musician.is_live.to_s == params[:is_live]
+          score_hash[musician] += 1
+          @matching_filters[musician] << "is live / 1"
+        end
+        if musician.is_composition.to_s == params[:is_composition]
+          score_hash[musician] += 1
+          @matching_filters[musician] << "is composition / 1"
+        end
+        if musician.is_recording.to_s == params[:is_recording]
+          score_hash[musician] += 1
+          @matching_filters[musician] << "is recording / 1"
+        end
+        if musician.is_covers.to_s == params[:is_covers]
+          score_hash[musician] += 1
+          @matching_filters[musician] << "is cover / 1"
+        end
+      end
+
+      # EXPERIENCE
+      relevant_instru.each do |rel_ins|
+        if rel_ins.experience == params[:experience]
+          score_hash[rel_ins.user] += 3
+          @matching_filters[rel_ins.user] << "XP / 1"
+        end
+      end
+
+      all_musicians_by_instrument = relevant_instru.map do |instru|
+        instru.user
+      end
+
+      # had_instrument = []
+      # all_musicians_by_instrument.each do |musician|
+      #   score_hash[musician] += 10
+      #   @matching_filters[musician] << "instrument / 3"
+      # end
+      #  Get _near_musicians, the only musicians in the search radius
+      musicians_with_scores = score_hash.to_a
+      all_musicians = @all_musicians
+
+      right_instrument_musicians = []
+      all_musicians_by_instrument.each do |musician|
+        if all_musicians.include?(musician)
+          right_instrument_musicians << musician
+        end
+      end
+
+
+      @geocoded_address = [45.526123,-73.5972601]
+      @address = '5333, Avenue Casgrain, Montréal, Canada'
+
+      geo_musicians = User.near([45.526123, -73.5950714], params[:slider].to_i,units: :km)
+      near_musicians = []
+      geo_musicians.each do |element|
+        if all_musicians.include?(element)
+          near_musicians << element
+        end
+      end
+
+      # accepted_musicians = right_instrument_musicians & near_musicians
+
+      accepted_musicians = []
+      right_instrument_musicians.map do |musician|
+        if near_musicians.include?(musician)
+          accepted_musicians << musician
+        end
+        puts accepted_musicians
+      end
+
+      max_match = 0
+      # instrument
+      max_match += 10
+      # location
+      # distance
+      # styles
+      # max_match += musician.styles.count
+      # experience
+      max_match += 1
+      # open to
+      max_match += 5
+
+      @musicians_with_scores_sorted = musicians_with_scores.sort_by { |e| e[1] }.reverse
+      accepted_musicians_with_scores = musicians_with_scores.select { |musician| accepted_musicians.include?(musician[0]) }
+      @accepted_musicians_with_scores_sorted = accepted_musicians_with_scores.sort_by { |e| e[1] }.reverse
+      # @musicians_sorted = @musicians_with_scores_sorted.map { |e| e[0] }
+      @accepted_musicians_sorted = @accepted_musicians_with_scores_sorted.map { |e| e[0] }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       # ********************* SEARCH MUSICIAN ***************************
-      # Get all InstrumentUsers and StyleUsers from the users's input
-      instru_user = InstrumentUser.where(instrument: Instrument.find_by_name(params[:instruments]))
-      style_user = StyleUser.where(style: Style.find_by_name(params[:style]))
-      all_users_by_instrument = instru_user.map do |instru|
-       instru.user
-     end
-     all_users_by_style = style_user.map do |style|
-       style.user
-     end
+       # Get all InstrumentUsers and StyleUsers from the users's input
+       instru_user = InstrumentUser.where(instrument: Instrument.find_by_name(params[:instruments]))
+       style_user = StyleUser.where(style: Style.find_by_name(params[:style]))
+       all_users_by_instrument = instru_user.map do |instru|
+        instru.user
+      end
+
+      all_users_by_style = style_user.map do |style|
+        style.user
+      end
+
       # FORM and array styles and instruments that match the user's input
       c = []
       all_users_by_instrument.each do |element|
@@ -41,16 +199,15 @@ class BandsController < ApplicationController
       end
     end
     #render "results"
-  else
+
+    else
       # ********************* SEARCH BAND ***********************
        # staring band
       # Get all InstrumentBands and StyleBands from the users's input
       needed_instru = NeededInstrument.where(instrument: Instrument.find_by_name(params[:instruments])).includes(:band)
       needed_goals = ["is_jamming", "is_live", "is_composition", "is_recording", "is_cover"]
 
-
       @all_bands = Band.all.includes(:styles, :instruments, :starred_bands)
-
 
       unless params[:style] == nil
         style_band = []
@@ -65,11 +222,7 @@ class BandsController < ApplicationController
         score_hash[band] = 0
       end
 
-
-
       @matching_filters = @all_bands.to_a.map { |b| [b, []] }.to_h
-
-
 
       unless params[:style] == nil
         all_bands_by_style = style_band.map do |style|
@@ -84,7 +237,6 @@ class BandsController < ApplicationController
         score_hash[band] += 1
         @matching_filters[band] << "style / 1"
       end
-
 
       # GOALS
       @all_bands.each do |band|
@@ -110,7 +262,6 @@ class BandsController < ApplicationController
         end
       end
 
-
       # EXPERIENCE
       @all_bands.each do |band|
         if band.experience == params[:experience]
@@ -128,8 +279,6 @@ class BandsController < ApplicationController
       #   score_hash[band] += 10
       #   @matching_filters[band] << "instrument / 3"
       # end
-
-
       #  Get _near_bands, the only bands in the search radius
       bands_with_scores = score_hash.to_a
       all_bands = @all_bands
@@ -153,8 +302,6 @@ class BandsController < ApplicationController
         end
       end
 
-
-
       # accepted_bands = right_instrument_bands & near_bands
 
       accepted_bands = []
@@ -165,27 +312,17 @@ class BandsController < ApplicationController
         puts accepted_bands
       end
 
-
-
       max_match = 0
       # instrument
-
       max_match += 10
       # location
-
-
       # distance
-
       # styles
       # max_match += band.styles.count
-
-      # experiencw>
+      # experience
       max_match += 1
-
       # open to
       max_match += 5
-
-
 
       @bands_with_scores_sorted = bands_with_scores.sort_by { |e| e[1] }.reverse
       accepted_bands_with_scores = bands_with_scores.select { |band| accepted_bands.include?(band[0]) }
@@ -201,6 +338,8 @@ class BandsController < ApplicationController
         #     infoWindow: render_to_string(partial: "info_window", locals: { result: band })
         #   }
         # end
+
+
       end
     end
 

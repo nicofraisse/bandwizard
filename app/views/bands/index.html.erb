@@ -7,11 +7,35 @@
 </style> -->
 <!-- cdn link to paste in your <head> -->
 <head><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"></head>
+
+<!-- musician search -->
+<% unless @accepted_musicians_with_scores_sorted.nil? %>
+
+  <div class="card-container">
+    <div class="container">
+      <h1 class="title">Musicians</h1>
+      <div class="d-flex">
+        <ul style='padding-inline-start: 0px;'>
+          <% @accepted_musicians_with_scores_sorted.each do |musician| %>
+          <% m = musician.first %>
+            <div class="card-product">
+              <li><%= link_to m.username, public_profile_path(m) %></li>
+              <div class="card-product-infos">
+                <li> <%=m.bio%></li>
+              </div>
+            </div>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
 <!-- band search -->
 
-<!-- text -->
 
-<% unless @accepted_bands_with_scores_sorted.nil? %>
+<% unless @accepted_bands_with_scores_sorted.nil? || params[:doubleslider] == nil %>
 
   <div class="margin">
     <h3 class="subtitle"><strong><%= @accepted_bands_with_scores_sorted.count %></strong> search results</h3>
@@ -99,52 +123,6 @@
         <% end %>
       </div>
 
-<!-- musician search -->
-
-<!-- text -->
-<% unless @musicians.nil? %>
-
-  <div class="card-container">
-
-  <div class="container">
-    <h1 class="title">Musicians</h1>
-      <div class="d-flex">
-        <ul style='padding-inline-start: 0px;'>
-          <% @musicians.each do |musician| %>
-            <div class="card-product">
-              <li><%= link_to musician.username, public_profile_path(musician) %></li>
-              <div class="card-product-infos">
-                <li> musician.bio%></li>
-              </div>
-            </div>
-          <% end %>
-        </ul>
-
-
-    <% @results = [] %>
-    <!-- convert to hash -->
-    <% @musicians.each do |m| %>
-    <% @results.push(m.id) %>
-      <%# musician = {} %>
-      <%# musician["lat"] = m.latitude%>
-      <%# musician["long"] = m.longitude %>
-      <%# musician["address"] = m.address %>
-      <%# musician["username"] = m.username %>
-      <%# @results.push(musician) %>
-    <% end %>
-
-      <%= link_to "See map", map_path({results: @results}) %>
-
-      <!-- map -->
-<!--       <div
-        id="map"
-        style="height: 300px; width: 600px"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div> -->
-    </div>
-  </div>
-<% end %>
 <br>
 <br>
 <br>
