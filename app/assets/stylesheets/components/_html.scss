@@ -11,12 +11,35 @@ body {
 
 }
 
+html, body {
+  height: 100%;
+  width: 100%;
+ /* overflow: hidden;*/
+}
+
+
+.home-flex {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+}
+.home-container {
+  height: 600px;
+  width: 100%;
+}
+
+.seperator {
+  padding-bottom: 2%;
+}
+
 .title {
   color: white;
   font-family: "Roboto";
   font-weight: lighter;
   text-align: center;
-  padding-top: 28px;
   font-size: 36px;
 }
 
@@ -26,9 +49,6 @@ body {
   font-weight: lighter;
   font-size: 32px;
 /*}*/
-}
-.navbar {
-  background-color: transparent;
 }
 
 // <!-- Homepage elements -->
@@ -63,30 +83,33 @@ body {
 }
 
 .link-to-text-color:hover {
-  text-decoration: none;
-  text-align: center;
-  color: #4B2472;
-  background-color: #4FB986;
+  color: white;
 }
 
 .searchbutton {
   padding: 16px 0px;
   border-radius: 4px;
-  margin-top: 16px;
-  margin-bottom: 16px;
   border: none;
   text-align: center;
   background: #4FB986;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-}
-button.searchbutton {
+  min-width: 280px;
   width: 60%;
-  margin-left: 20%;
-  margin-right: 20%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.searchbutton:hover {
+  background-color: #53eda3;
 }
 
 .findbutton {
   text-align: center;
+}
+
+#first-button {
+  margin-bottom: 20px;
+  margin-top: 8px;
 }
 
 .logintitle {

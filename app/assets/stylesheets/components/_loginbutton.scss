@@ -9,6 +9,11 @@
     text-decoration:none;
     text-shadow:0px 0px 0px #46276c;
     margin-bottom: 17px;
+
+    .col-12 {
+      padding-right: 30px;
+      padding-left: 30px;
+  }
 }
 .loginbutton:hover {
     background-color:#2fbf0f;
@@ -18,7 +23,3 @@
     top:1px;
 }
 
-.col-12 {
-  padding-right: 30px;
-  padding-left: 30px;
-}

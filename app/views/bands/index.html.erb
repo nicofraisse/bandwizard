@@ -7,29 +7,50 @@
 </style> -->
 <!-- cdn link to paste in your <head> -->
 <head><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"></head>
-<!-- band search -->
 
-<!-- text -->
+<!-- musician search -->
+<% unless @accepted_musicians_with_scores_sorted.nil? %>
+  <% unless params[:doubleslider].nil? %>
+    <div class="margin">
+      <h3 class="subtitle">
+        <strong><%= @accepted_musicians_with_scores_sorted.count %></strong> search results
+      </h3>
+      <div style="display: flex;">
+        <div class="row">
+          <% accepted_musicians_with_matches = Hash.new() %>
+          <% accepted_musicians_with_matches_sorted = nil %>
+          <% @accepted_musicians_with_scores_sorted.each do |b| %>
+            <% musician = b[0] %>
+            <% score = b[1] %>
+            <% max_match = 0 %>
+            <!-- styles -->
+            <% max_match += musician.styles.count %>
+            <!-- experience -->
+            <% max_match += 3 %>
+            <% max_match += 4 %>
+            <% accepted_musicians_with_matches[musician] = ((score.to_f / max_match.to_f) * 100).to_i %>
+            <% accepted_musicians_with_matches_sorted = accepted_musicians_with_matches.to_a.sort_by { |e| e[1] }.reverse %>
+          <% end %>
+          <% accepted_musicians_with_matches_sorted.each do |b| %>
+            <% musician = b[0] %>
+            <% score = b[1] %>
+            <% unless score == 0 %>
+              <div class="column">
+                <div class="card-band">
+                  <%  %>
+                  <%= link_to(image_tag(musician.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius")) %>
+                  <% unless current_user.nil? %>
+                    <div class="star">
+                      <%= button_to stars_path(musician), class: "starbtn", method: :post, id:"favorite_link-#{musician.id}",remote:true do %>
+                        <% #if musician.favorited_by?(current_user) %>
+                          <!-- <i class="fas fa-star"></i> -->
+                        <% #else %>
+                          <i class="far fa-star"></i>
+                        <% #end %>
+                      <% end %>
+                    </div>
+                  <% end %>
 
-<% unless @accepted_bands_with_scores_sorted.nil? %>
-
-  <div class="margin">
-    <h3 class="subtitle"><strong><%= @accepted_bands_with_scores_sorted.count %></strong> search results</h3>
-      <div>
-        <div style="display: flex;">
-          <div class="row">
-
-            <% accepted_bands_with_matches = Hash.new() %>
-            <% accepted_bands_with_matches_sorted = nil %>
-            <% @accepted_bands_with_scores_sorted.each do |b| %>
-                <% band = b[0] %>
-                <% score = b[1] %>
-                <% max_match = 0 %>
-                <!-- styles -->
-                <% max_match += band.styles.count %>
-                <!-- experience -->
-                <% max_match += 3 %>
-                <% max_match += 4 %>
 
                 <% accepted_bands_with_matches[band] = ((score.to_f / max_match.to_f) * 100).to_i %>
                 <% accepted_bands_with_matches_sorted = accepted_bands_with_matches.to_a.sort_by { |e| e[1] }.reverse %>
@@ -48,102 +69,147 @@
                             <i class="fas fa-star"></i>
                           <% else %>
                             <i class="far fa-star"></i>
-                          <% end %>
-                        <% end %>
-                      </div>
-                    <% end %>
-                    <div class="card-band-infos">
-                      <!-- checkbox for stars -->
-                      <!-- checkbox for stars -->
-                      <div class="band-header">
-                        <p class="band-name" style="font-size: 24px;"=><strong><%= band.name %></strong></p>
-                        <p class="km" style="font-size: 18px;"><i class="fas fa-map-marker-alt"> </i> <%= Geocoder::Calculations.distance_between([band.latitude, band.longitude], @geocoded_address).round(1) %> km</p>
-                      </div>
-                      <div class="band-card-footer">
-                        <div class="d-flex flex-column">
-                          <li class="no-bullet">
-                            Looking for :<strong><% band.instruments.each do |instrument| %>
-                              <% if instrument.name == "Piano"%> Pianist
-                              <% elsif instrument.name == "Guitar" %> Guitarist
-                              <% elsif instrument.name == "Bass" %> Bassist
-                              <% elsif instrument.name == "Drums" %> Drummer
-                              <% else instrument.name == "Vocals" %> Singer
-                              <% end %>
-                              <% end %>
-                            </strong>
-                          </li>
-                          <li class="no-bullet styles-container">
-                            <% band.styles.each_with_index do |style, i| %>
-                              <span class="styles"><%= style.name %></span>
-                            <% end %>
-                          </li>
 
-                          </div>
-                          <div class="chart-input">
-                            <input type="text" value="<%= b[1] %>" class="dial">
-                            <span>%</span>
-                          </div>
-                        </div>
+                  <div class="card-band-infos">
+                    <!-- checkbox for stars -->
+                    <!-- checkbox for stars -->
+                    <div class="band-header">
+                      <p class="band-name" style="font-size: 24px;"=>
+                        <strong><%= musician.full_name %></strong>
+                      </p>
+                      <p class="km" style="font-size: 18px;">
+                        <i class="fas fa-map-marker-alt"> </i> <%= Geocoder::Calculations.distance_between([musician.latitude, musician.longitude], @geocoded_address).round(1) %> km
+                      </p>
+                    </div>
+                    <div class="band-card-footer">
+                      <div class="d-flex flex-column">
+                        <li class="no-bullet">
+                          Looking for :
+                          <strong><% musician.instruments.each do |instrument| %>
+                            <% if instrument.name == "Piano"%> Pianist
+                            <% elsif instrument.name == "Guitar" %> Guitarist
+                            <% elsif instrument.name == "Bass" %> Bassist
+                            <% elsif instrument.name == "Drums" %> Drummer
+                            <% else instrument.name == "Vocals" %> Singer
+                            <% end %>
+
+                          <% end %>
+                          </strong>
+                        </li>
+                        <li class="no-bullet styles-container">
+                          <% musician.styles.each_with_index do |style, i| %>
+                            <span class="styles">
+                              <%= style.name %>
+                            </span>
+                          <% end %>
+                        </li>
+                      </div>
+                      <div class="chart-input">
+                        <input type="text" value="<%= b[1] %>" class="dial"><span>%</span>
                       </div>
                     </div>
                   </div>
-                <% end %>
-              <% end %>
-            </div>
-            <% @results = {} %>
-            <% @accepted_bands_with_scores_sorted.each do |b| %>
-              <% @results[(b[0].id)] =  b[1] %>
-            <% end %>
-          </div>
-          <%= link_to(image_tag("mapiconp.svg", size: "64"), map_path({results: @results}), :class => "mapbtn") %>
-        <% end %>
-      </div>
-
-<!-- musician search -->
-
-<!-- text -->
-<% unless @musicians.nil? %>
-
-  <div class="card-container">
-
-  <div class="container">
-    <h1 class="title">Musicians</h1>
-      <div class="d-flex">
-        <ul style='padding-inline-start: 0px;'>
-          <% @musicians.each do |musician| %>
-            <div class="card-product">
-              <li><%= link_to musician.username, public_profile_path(musician) %></li>
-              <div class="card-product-infos">
-                <li> musician.bio%></li>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        </ul>
-
-
-    <% @results = [] %>
-    <!-- convert to hash -->
-    <% @musicians.each do |m| %>
-    <% @results.push(m.id) %>
-      <%# musician = {} %>
-      <%# musician["lat"] = m.latitude%>
-      <%# musician["long"] = m.longitude %>
-      <%# musician["address"] = m.address %>
-      <%# musician["username"] = m.username %>
-      <%# @results.push(musician) %>
-    <% end %>
-
-      <%= link_to "See map", map_path({results: @results}) %>
-
-      <!-- map -->
-<!--       <div
-        id="map"
-        style="height: 300px; width: 600px"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div> -->
+        </div>
+      </div>
+      <%= link_to(image_tag("mapiconp.svg", size: "64"), map_path({results: @results}), :class => "mapbtn") %>
     </div>
-  </div>
+  <% end %>
+<% end %>
+
+<!-- BANDS RESULTS -->
+
+<% unless @accepted_bands_with_scores_sorted.nil? %>
+  <% if params[:doubleslider].nil?  %>
+    <div class="margin">
+      <h3 class="subtitle">
+        <strong><%= @accepted_bands_with_scores_sorted.count %></strong> search results
+      </h3>
+      <div style="display: flex;">
+        <div class="row">
+          <% accepted_bands_with_matches = Hash.new() %>
+          <% accepted_bands_with_matches_sorted = nil %>
+          <% @accepted_bands_with_scores_sorted.each do |b| %>
+            <% band = b[0] %>
+            <% score = b[1] %>
+            <% max_match = 0 %>
+            <!-- styles -->
+            <% max_match += band.styles.count %>
+            <!-- experience -->
+            <% max_match += 3 %>
+            <% max_match += 4 %>
+            <% accepted_bands_with_matches[band] = ((score.to_f / max_match.to_f) * 100).to_i %>
+            <% accepted_bands_with_matches_sorted = accepted_bands_with_matches.to_a.sort_by { |e| e[1] }.reverse %>
+          <% end %>
+          <% accepted_bands_with_matches_sorted.each do |b| %>
+            <% band = b[0] %>
+            <% score = b[1] %>
+            <% unless score == 0 %>
+              <div class="column">
+                <div class="card-band">
+                  <%= link_to(cl_image_tag(band.band_photos.first.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius"), band_path(band)) %>
+                  <% unless current_user.nil? %>
+                    <div class="star">
+                      <%= button_to stars_path(band), class: "starbtn", method: :post, id:"favorite_link-#{band.id}",remote:true do %>
+                        <% if band.favorited_by?(current_user) %>
+                          <i class="fas fa-star"></i>
+                        <% else %>
+                          <i class="far fa-star"></i>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  <% end %>
+
+                  <div class="card-band-infos">
+                    <!-- checkbox for stars -->
+                    <!-- checkbox for stars -->
+                    <div class="band-header">
+                      <p class="band-name" style="font-size: 24px;"=>
+                        <strong><%= band.name %></strong>
+                      </p>
+                      <p class="km" style="font-size: 18px;">
+                        <i class="fas fa-map-marker-alt"> </i> <%= Geocoder::Calculations.distance_between([band.latitude, band.longitude], @geocoded_address).round(1) %> km
+                      </p>
+                    </div>
+                    <div class="band-card-footer">
+                      <div class="d-flex flex-column">
+                        <li class="no-bullet">
+                          Looking for :
+                          <strong><% band.instruments.each do |instrument| %>
+                            <% if instrument.name == "Piano"%> Pianist
+                            <% elsif instrument.name == "Guitar" %> Guitarist
+                            <% elsif instrument.name == "Bass" %> Bassist
+                            <% elsif instrument.name == "Drums" %> Drummer
+                            <% else instrument.name == "Vocals" %> Singer
+                            <% end %>
+                          <% end %>
+                          </strong>
+                        </li>
+                        <li class="no-bullet styles-container">
+                          <% band.styles.each_with_index do |style, i| %>
+                            <span class="styles">
+                              <%= style.name %>
+                            </span>
+                          <% end %>
+                        </li>
+                      </div>
+                      <div class="chart-input">
+                        <input type="text" value="<%= b[1] %>" class="dial"><span>%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <%= link_to(image_tag("mapiconp.svg", size: "64"), map_path({results: @results}), :class => "mapbtn") %>
+    </div>
+  <% end %>
 <% end %>
 <br>
 <br>

@@ -1,19 +1,24 @@
 
-.navbar {
+.the-navbar {
   width: 100vw;
   height: 17vh;
   position: sticky;
   padding: 0;
   top: 0px;
-  z-index: 10000000000000000000000000000000000000000;
+  z-index: 25;;
   /*background: linear-gradient(160deg, #3D1820 100%, #3E1924 80%, #3E1B2E, 0%);*/
-
 }
+
+/*.navbar {
+  background-color: transparent;
+}*/
+
 .opaque-to-transparent {
   background-image: url("https://res.cloudinary.com/fssdcqd/image/upload/v1567710724/navbar-background_vortue.png");
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1)  55%, rgba(0, 0, 0, 0) 100%);
   height: 100%;
   width: 100%;
+  background-repeat: round;
 }
 
 .nav-link {
@@ -28,6 +33,9 @@
 .dropdown-menu {
   top: 50%;
   border-radius: 5px;
-  z-index: 4000;
+}
 
+h1.title {
+  position: relative;
+  top:28px;
 }

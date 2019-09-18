@@ -1,0 +1,5 @@
+meta_product_name: "BandWizard"
+meta_title: "BandWizard - Musicians like me, near me"
+meta_description: "Are you a musician looking for a band or is yourde band looking for a musician? BandWizard is an app that matches musicians with bands according to location, years of experience, favorite musical styles, and more."
+meta_image: "wizardlogo.png" # should exist in `app/assets/images/`
+twitter_account: "@BandWizard1"   # required for Twitter Cards
