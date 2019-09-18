@@ -7,12 +7,11 @@
   width: 100vw;
   max-width: 520px;
   box-shadow: 0px 0px 16px rgba(0,0,0,0.2);
-
 }
 
 .manager-container {
   display: flex;
- margin-top: 12px;
+  margin-top: 12px;
 }
 
 .manager container a {
@@ -46,17 +45,9 @@
   border: none;
 }
 
-.bandimage {
-  margin-top: 8px;
-  max-height: 50vh;
-  color: white;
-  text-align: center;
-  width: 100%;
-}
-
 .slideImage {
   height: 40vh;
-  border-top: 5px solid white;
+  /*border-top: 5px solid white;*/
   width: 100vw;
   object-fit: cover;
   background-position: 50% 50%;
@@ -93,7 +84,7 @@
 .titleband {
   padding-top: 12px;
   padding-bottom: 12px;
-  height: 84px;
+  /*height: 84px;*/
   background-color: white;
   text-align: left;
   color: black;
@@ -112,15 +103,15 @@
   color: black;
   font-weight: bold;
   padding-top: 5px;
+  width: 69vw;
+  margin-bottom: 0px;
 }
 
 .titleband h5 {
   font-family: 'Roboto';
   color: black;
-  bottom: 44px;
-  position: absolute;
-  bottom:0px;
-  padding-bottom: 4px;
+  margin-bottom: 0px;
+
 }
 
 .titleband.margin {
@@ -205,11 +196,27 @@
   text-align: left;
 }
 
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  border: 1px solid #ccc;
+  border-top: none;
+  animation: fadeEffect 1s;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.6) 20px, rgba(255,255,255,0.2));;
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
 
 .profile-bio {
-  margin-top: -50px;
   font-size: 20px;
   text-align: left;
+}
+.margin.profile-bio {
+  padding-top: 20px;
 }
 
 .soundcloudimg:hover {
@@ -223,7 +230,9 @@
   flex-wrap: wrap;
   // justify-content: space-between;
   align-content: space-around;
-}.experiencelevel {
+}
+
+.experiencelevel {
   text-align: left;
 }
 
@@ -279,64 +288,33 @@ select:focus {
 }
 
 
-.tabs {
-  background: linear-gradient(to bottom, rgb(190,190,190) 36px, rgba(255,255,255,0.6) 20px, rgba(255,255,255,0.2));;
-  height: 100%;
-  display: block;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0;
-  overflow: hidden; }
-  .tabs [class^="tab"] label,
-  .tabs [class*=" tab"] label {
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
 
-    color: rgba(1,1,1,0);
-    cursor: pointer;
-    display: block;
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 1em;
-    padding: 0.5rem 0;
-    text-align: center; }
-  .tabs [class^="tab"] [type="radio"],
-  .tabs [class*=" tab"] [type="radio"] {
-    border-bottom: 1px solid rgba(239, 237, 239, 0.5);
-    cursor: pointer;
-    appearance: none;
-    display: block;
-    width: 100%;
-    /*transition: all 0.3s ease-in-out;*/ }
-    .tabs [class^="tab"] [type="radio"]:hover, .tabs [class^="tab"] [type="radio"]:focus,
-    .tabs [class*=" tab"] [type="radio"]:hover,
-    .tabs [class*=" tab"] [type="radio"]:focus {
-      border-bottom: 2px solid #745DC6; }
-    .tabs [class^="tab"] [type="radio"]:checked,
-    .tabs [class*=" tab"] [type="radio"]:checked {
-      border: 1.88rem solid #745DC6;}
-    .tabs [class^="tab"] [type="radio"]:checked + div,
-    .tabs [class*=" tab"] [type="radio"]:checked + div {
-      opacity: 1; }
-    .tabs [class^="tab"] [type="radio"] + div,
-    .tabs [class*=" tab"] [type="radio"] + div {
-      display: block;
-      opacity: 0;
-      padding: 2rem 0;
-      width: 90%;
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
 
-      transition: all 0.3s ease-in-out; }
-  .tabs .tab-2 {
-    width: 50%; }
-    .tabs .tab-2 [type="radio"] + div {
-      width: 200%;
-      margin-left: 200%;
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
 
-      }
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
 
-    .tabs .tab-2 [type="radio"]:checked + div {
-      margin-left: 0; }
-    .tabs .tab-2:last-child [type="radio"] + div {
-      margin-left: 100%; }
-    .tabs .tab-2:last-child [type="radio"]:checked + div {
-      margin-left: -100%; }
+
+
