@@ -38,7 +38,7 @@
                 <% band = b[0] %>
                 <% score = b[1] %>
                 <% unless score == 0 %>
-                  <div class="column">
+                  <div class="column col-sm-6">
                     <div class="card-band">
                       <%= link_to(cl_image_tag(band.band_photos.first.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius"), band_path(band)) %>
                       <% unless current_user.nil? %>
