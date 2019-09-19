@@ -1,3 +1,4 @@
+
 <!-- Tab links -->
 <!-- <div class="tab">
   <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'bio')">BIO</button>
@@ -15,28 +16,13 @@
   <p>Paris is the capital of France.</p>
 </div> -->
 
-<div class="profile-container">
-  <div class="profile">
-    <div class="image-container">
-      <div class="bandimage">
-        <% @band.band_photos.each do |ph| %>
-          <div class="slideImage">
-            <%= cl_image_tag(ph.photo, :class => "slideImage")%>
-          </div>
-        <% end %>
-      </div>
-      <% unless current_user.nil? %>
-        <div class="starprofile">
-          <%= button_to stars_path(@band), class: "starbtn", method: :post, id:"favorite_link-#{@band.id}",remote:true  do %>
-            <% if @band.favorited_by?(current_user) %>
-              <i class="fas fa-star"></i>
-            <% else %>
-              <i class="far fa-star"></i>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
+
+    <div style="position: absolute; right: 4%; display: flex;">
+      <div style="padding-top: 4px; padding-right: 6px; font-family: 'Roboto'; font-size: 16px;"><em>Manager :</em></div>
+      <div style="padding-top: 4px; padding-right: 6px"><%= link_to @band.user.username.capitalize, public_profile_path(@band.user.id), :class => 'manager' %></div>
     </div>
+</div>
+
 
     <div class="mybands">
       <div class="titleband margin">
@@ -120,28 +106,46 @@
             <div style="padding-top: 4px; padding-right: 6px">
               <%= link_to @band.user.username.capitalize, public_profile_path(@band.user.id), :class => 'manager' %>
             </div>
+            <br>
+            <p class="styleheader"><em>Open to:</em></p>
+          <div class="opentype">
+            <%if @band.is_live? %><span class="openstyle"> Live</span><% end %>
+            <%if @band.is_recording?%><span class="openstyle">Recording</span><% end %>
+            <%if @band.is_jamming? %><span class="openstyle">Jamming</span><% end %>
+            <%if @band.is_composition? %><span class="openstyle">Composition</span><% end %>
+            <%if @band.is_cover? %><span class="openstyle"> Covers</span><% end %>
+            </p>
           </div>
         </div>
-      </div>
-      <br>
+
+              </div>
+              <br>
 
 
-      <!-- MUSIC TAB -->
-      <div id="music" class="tabcontent">
-        <div class="soundcloudbox">
-          <iframe width="100%" height="580" style="margin-top: -20px" scrolling="no" frameborder="no" allow="" src=<%= @band.soundcloud_link %>></iframe>
-          <!-- YouTube Modal Button -->
-          <div class="bs-example">
-            <!-- Button HTML (to Trigger Modal) -->
-            <a href="#myModal" class="btn btn-lg btn-danger" data-toggle="modal">
-              <i class="fab fa-youtube"></i>
-            </a>
-            <!-- Modal HTML -->
-            <div id="myModal" class="modal fade">
-              <div class="modal-dialog">
-                <div class="modal-content modalmargin">
-                  <div class="modal-body" id="iFrameContainer">
-                    <iframe id="musicVideo" width="100%" height="315" src="https://www.youtube.com/embed/safr0HTFUHE" frameborder="0" allowfullscreen ></iframe>
+              <!-- MUSIC TAB -->
+              <div id="music" class="tabcontent">
+                <div class="soundcloudbox">
+                  <iframe width="100%" height="580" style="margin-top: -20px" scrolling="no" frameborder="no" allow="" src=<%= @band.soundcloud_link %>></iframe>
+                  <!-- YouTube Modal Button -->
+                  <div class="bs-example">
+                    <!-- Button HTML (to Trigger Modal) -->
+                    <a href="#myModal" class="btn btn-lg btn-danger" data-toggle="modal">
+                      <i class="fab fa-youtube"></i>
+                    </a>
+                    <!-- Modal HTML -->
+
+                    <br>
+                    </div>
+                  </div>
+
+                  <div id="myModal" class="modal fade">
+                    <div class="modal-dialog">
+                      <div class="modal-content modalmargin">
+                        <div class="modal-body" id="iFrameContainer">
+                          <iframe id="musicVideo" width="100%" height="315" src="https://www.youtube.com/embed/safr0HTFUHE" frameborder="0" allowfullscreen ></iframe>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -170,4 +174,3 @@
     evt.currentTarget.className += " active";
   }
 </script>
-

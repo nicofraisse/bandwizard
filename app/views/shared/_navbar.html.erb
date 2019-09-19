@@ -1,35 +1,39 @@
 
-<div class="the-navbar">
+<div class="navbar">
   <div class="opaque-to-transparent">
+
     <% if controller_name == "conversations" && controller.action_name == "index" %>
-      <h1 class="title">Messages</h1>
+          <h1 class="title">Messages</h1>
+
     <% elsif controller_name == "conversations" && controller.action_name == "show" %>
-      <h1 class="title"> <%= current_user.id == @conversation.user1_id ? User.find(@conversation.user2_id).username.capitalize : User.find(@conversation.user1_id).username.capitalize %></h1>
+          <h1 class="title"> <%= current_user.id == @conversation.user1_id ? User.find(@conversation.user2_id).username.capitalize : User.find(@conversation.user1_id).username.capitalize %></h1>
+
     <% elsif controller_name == "bands" && controller.action_name == "search" %>
-      <h1 class="title">Find <%= params[:choice] == "1" ? "musician" : "a band" %></h1>
+          <h1 class="title">Find <%= params[:choice] == "1" ? "musician" : "a band" %></h1>
 
     <% elsif controller_name == "bands" && controller.action_name == "index" %>
-      <h1 class="title">Find <%= params[:doubleslider].nil? ? "a band" : "a musician" %></h1>
+          <h1 class="title">Find <%= params[:doubleslider].nil? ? "a band" : "a musician" %></h1>
 
     <% elsif controller_name == "bands" && controller.action_name == "show" %>
-      <h1 class="title">Band Profile</h1>
+          <h1 class="title">Band Profile</h1>
 
     <% elsif controller_name == "pages" && controller.action_name == "public_profile" %>
-      <h1 class="title">Musician Profile</h1>
+          <h1 class="title">Musician Profile</h1>
 
     <% elsif controller_name == "pages" && controller.action_name == "band" %>
-      <h1 class="title">Band Profile</h1>
+          <h1 class="title">Band Profile</h1>
 
     <% elsif controller_name == "pages" && controller.action_name == "stars" %>
-      <h1 class="title">Stars</h1>
+          <h1 class="title">Stars</h1>
     <% end %>
   </div>
 
-  <%= link_to image_tag("back-highres.png", class: "avatar dropdown-toggle", style: "position: absolute; top:24px; left: 16px"), :back %>
   <%= image_tag "hamburger.png", class: "avatar dropdown-toggle", style: "position: absolute; top:24px; right: 16px", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
 
+  <%= link_to image_tag("back-highres.png", class: "avatar dropdown-toggle", style: "position: absolute; top:24px; left: 16px"), :back %>
 
-  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
     <% if user_signed_in? %>
       <%= link_to "Home", home_path, class: "dropdown-item" %>
       <%= link_to "Profile", dashboard_path(current_user), class: "dropdown-item" %>
