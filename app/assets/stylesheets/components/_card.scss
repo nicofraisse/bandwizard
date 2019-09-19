@@ -6,6 +6,8 @@
 
 
 .card-band {
+  margin: 0 auto;
+  max-width: 400px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -117,6 +119,7 @@ span.styles {
 .band-card-footer {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 // chart
@@ -140,7 +143,15 @@ span.styles {
 
 }
 
-@media (min-width: 34em) {
+
+@media (min-width: 0em) {
+    .card-columns {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
+}
+@media (min-width: 44em) {
     .card-columns {
         -webkit-column-count: 2;
         -moz-column-count: 2;
