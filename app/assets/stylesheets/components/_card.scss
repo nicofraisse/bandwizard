@@ -1,5 +1,3 @@
-
-
 .no-bullet {
   list-style: none;
 }
@@ -7,7 +5,7 @@
 
 .card-band {
   margin: 0 auto;
-  max-width: 400px;
+  max-width: 340px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -53,9 +51,9 @@
   padding: 0px 24px;
 }
 
-.column {
+.card-container2 {
   width: 100%;
-  padding: 3% 3% 3% 3%;
+  padding: 0% 3%;
 }
 
 .bandphoto {
@@ -85,6 +83,7 @@
 .band-name {
   text-transform: uppercase;
   font-size: 24px;
+  padding-bottom: 16px;
 
 }
 
@@ -104,6 +103,7 @@ p.km {
  .styles-container {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 16px;
   }
 
 span.styles {
@@ -113,13 +113,13 @@ span.styles {
   padding: 4px 12px;
   color: white;
   font-size: 16px;
-  margin: 4px 4px;
+  margin: 4px 4px 8px 0px;
 }
 
 .band-card-footer {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 // chart
@@ -149,9 +149,10 @@ span.styles {
         -webkit-column-count: 1;
         -moz-column-count: 1;
         column-count: 1;
+        min-width: 240px;
     }
 }
-@media (min-width: 44em) {
+@media (min-width: 760px) {
     .card-columns {
         -webkit-column-count: 2;
         -moz-column-count: 2;
@@ -159,6 +160,24 @@ span.styles {
     }
 }
 
+@media (min-width: 1280px) {
+    .card-columns {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media (max-width: 760px) {
+    .column {
+      display: flex;
+      justify-content: center;
+    }
+}
+
+.card-columns .card:first-child {
+  margin-bottom: 0.74rem;
+}
 
 /*
 .card-band img {
