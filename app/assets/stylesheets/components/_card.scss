@@ -10,7 +10,6 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 12px;
-  // height: 320px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -18,7 +17,7 @@
   min-height: 90px;
   li {
     font-size: 16px;
-    margin: 8px 0;
+    margin: 6px 0;
   }
 }
 
@@ -54,7 +53,7 @@
 
 .column {
   width: 100%;
-  padding: 3% 3% 5% 3%;
+  padding: 3% 3% 3% 3%;
 }
 
 .bandphoto {
@@ -118,13 +117,14 @@ span.styles {
 .band-card-footer {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
 }
 
 // chart
 
 .chart-input {
   position: relative;
+  top: 0;
+
 
   span {
     position: absolute;
@@ -139,6 +139,15 @@ span.styles {
   }
 
 }
+
+@media (min-width: 34em) {
+    .card-columns {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
+
 
 /*
 .card-band img {
