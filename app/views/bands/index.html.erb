@@ -102,14 +102,18 @@
 
 <!-- BANDS RESULTS -->
 
+
 <% unless @accepted_bands_with_scores_sorted.nil? %>
   <% if params[:doubleslider].nil?  %>
     <div class="margin">
-      <h3 class="subtitle">
-        <strong><%= @accepted_bands_with_scores_sorted.count %></strong> search results
-      </h3>
-      <div style="display: flex;">
-        <div class="row">
+      <div style="display: flex; justify-content: center">
+        <h3 class="subtitle" style="width: 110%; max-width: 720px; margin: 0px -15px 0px -15px; padding: 0px 24px;">
+          <strong><%= @accepted_bands_with_scores_sorted.count %></strong> search results
+        </h3>
+      </div>
+      <div style="display: flex; justify-content: center">
+        <div class="card-columns" style="max-width: 720px; width: 100%;">
+
           <% accepted_bands_with_matches = Hash.new() %>
           <% accepted_bands_with_matches_sorted = nil %>
           <% @accepted_bands_with_scores_sorted.each do |b| %>
@@ -128,8 +132,8 @@
             <% band = b[0] %>
             <% score = b[1] %>
             <% unless score == 0 %>
-              <div class="column">
-                <div class="card-band">
+              <div class="column" style="width: 100%; margin-bottom: 24px;">
+                <div class="card-band" style="">
                   <%= link_to(cl_image_tag(band.band_photos.first.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius"), band_path(band)) %>
                   <% unless current_user.nil? %>
                     <div class="star">
@@ -191,6 +195,24 @@
     </div>
   <% end %>
 <% end %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>

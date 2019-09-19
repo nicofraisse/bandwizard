@@ -46,11 +46,6 @@
   padding: 0px 24px;
 }
 
-.column {
-  width: 100%;
-  padding: 3% 3% 5% 3%;
-}
-
 .bandphoto {
   width: 90%;
   padding: 5px;
@@ -94,12 +89,6 @@ span.styles {
   margin: 4px 4px;
 }
 
-.band-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
 // chart
 
 .chart-input {
@@ -114,7 +103,8 @@ span.styles {
   }
 
   .dial {
-    margin-left: -82px !important
+    margin-left: -82px !important;
+    height: 300px;
   }
 
 }
