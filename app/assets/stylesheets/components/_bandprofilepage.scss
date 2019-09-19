@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 .profile-container {
   display: flex;
@@ -13,6 +14,15 @@
 .manager-container {
   display: flex;
   margin-top: 12px;
+=======
+.manager-container {
+  margin-top: -18px;
+  height: 36px;
+  position: relative;
+  z-index: 0;
+  color: white;
+  width: 100%;
+>>>>>>> parent of d2fc86e... responsive band profile
 }
 
 .manager container a {
@@ -42,10 +52,21 @@
 
 .image-container {
   z-index: 90000000000000000;
+<<<<<<< HEAD
+=======
 }
 
-.slideImage {
+.bandimage {
+  margin-top: 8px;
+  max-height: 50vh;
+  color: white;
+  text-align: center;
+>>>>>>> parent of d2fc86e... responsive band profile
+}
+
+.slideImage img {
   height: 40vh;
+<<<<<<< HEAD
   /*border-top: 5px solid white;*/
   width: 100vw;
   object-fit: cover;
@@ -55,6 +76,9 @@
   left: 0;
   right:0;
   width: 520px;
+=======
+  border-top: 5px solid white;
+>>>>>>> parent of d2fc86e... responsive band profile
 }
 
 .slick-dots li.slick-active button:before {
