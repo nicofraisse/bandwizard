@@ -18,3 +18,18 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
+
+.wizard-avatar {
+  width: 44px;
+  position: absolute;
+  top:24px;
+  left: 24px;
+  // -webkit-filter: drop-shadow(0px 0px 8px red);
+  // filter: drop-shadow(0px 0px 8px blue);
+  &:hover {
+
+    transition: transform .2s, filter .1s;
+    filter: drop-shadow(0px 0px 2px rgba(255,255,150,0.9));
+    transform: scale(1.1)
+  }
+}
