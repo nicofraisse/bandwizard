@@ -26,8 +26,6 @@
 
   <%= link_to image_tag("back-highres.png", class: "avatar dropdown-toggle", style: "position: absolute; top:24px; left: 16px"), :back %>
   <%= image_tag "hamburger.png", class: "avatar dropdown-toggle", style: "position: absolute; top:24px; right: 16px", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-
-
   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
     <% if user_signed_in? %>
       <%= link_to "Home", home_path, class: "dropdown-item" %>
@@ -41,4 +39,17 @@
       <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
     <% end %>
   </div>
+  <!-- NOTIFICATION for messages-->
+<% @conversations = Conversation.where(user1: current_user).or Conversation.where(user2: current_user) %>
+              <span class="badge">
+
+              <i class="far fa-comment"></i>
+              <% c = 0 %>
+                <% @conversations.each do |con| con.messages.each do |m| %>
+                        <% c+=1 if (m.user != current_user && m.unread) %>
+                   <%end%>
+                   <%end%>
+                   <%= link_to "#{c}", conversations_path %>
+
+              </span>
 </div>
