@@ -94,8 +94,14 @@
 
 .titleband img {
   position: absolute;
-  top: -32px;
-  right: 4%;
+  top: -36px;
+  right: 4.5%;
+
+  &:hover {
+    -webkit-filter: brightness(125%);
+    transition: transform .1s;
+    transform: scale(1.1)
+  }
 }
 
 .titleband h3 {
