@@ -19,6 +19,13 @@
     font-size: 16px;
     margin: 6px 0;
   }
+  -webkit-transition: padding 2s;
+  transition: transform .3s ease-in-out;
+
+  &:hover {
+    transition: 0.5s;
+    transform: scale(1.05);
+  }
 }
 
 .fa-star{
