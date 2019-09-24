@@ -1,0 +1,27 @@
+.badge {
+    color: white;
+    position: absolute;
+    z-index: 9999999999999999999;
+    top: 32px;
+    right: 80px;
+    background-color: rgba(155,155,155,0.5);
+    height: 32px;
+    width: 48px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .badge-text {
+      font-size: 16px;
+      color: rgb(200,200,200)
+    }
+}
+
+.badge:hover {
+  background-color: rgba(155,155,155,0.75);
+  .badge-text {
+    color: white;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+}

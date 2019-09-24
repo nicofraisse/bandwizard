@@ -17,7 +17,7 @@ import "../plugins/select2";
 import "../plugins/current-position";
 import { scrollConvoDown } from '../plugins/scroll_convo_down';
 import "../plugins/init_youtubemodal.js";
-
+import "../plugins/tabs.js";
 import "../plugins/knob";
 
 
@@ -39,5 +39,7 @@ if (btn) {
     box.value = "";
   });
 }
+
+
 
 

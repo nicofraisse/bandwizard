@@ -33,4 +33,6 @@ class ApplicationController < ActionController::Base
   end
 
  helper_method :favorite_text
+
+
 end

@@ -1,5 +1,22 @@
 
+
 <div class="the-navbar">
+    <!-- NOTIFICATION for messages-->
+    <% @conversations = Conversation.where(user1: current_user).or Conversation.where(user2: current_user) %>
+      <% c = 0 %>
+      <% @conversations.each do |con| con.messages.each do |m| %>
+          <% c += 1 if (m.user != current_user && m.unread) %>
+        <%end%>
+      <%end%>
+    <% unless c == 0 %>
+      <div class="badge">
+        <%= link_to  conversations_path do %>
+          <div class="badge-text">
+            <i class="far fa-comment"></i> <%= c %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   <div class="opaque-to-transparent">
     <% if controller_name == "conversations" && controller.action_name == "index" %>
       <h1 class="title">Messages</h1>
@@ -25,15 +42,13 @@
     <% end %>
   </div>
 
-  <%= link_to image_tag("back-highres.png", class: "avatar dropdown-toggle", style: "position: absolute; top:24px; left: 16px"), :back %>
+  <%= link_to image_tag("wizardlogo.png", class: "wizard-avatar"), :home %>
   <%= image_tag "hamburger.png", class: "avatar dropdown-toggle", style: "position: absolute; top:24px; right: 16px", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-
-
   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
     <% if user_signed_in? %>
       <%= link_to "Home", home_path, class: "dropdown-item" %>
       <%= link_to "Profile", dashboard_path(current_user), class: "dropdown-item" %>
-      <%= link_to "Messages", conversations_path, class: "dropdown-item" %>
+      <%= link_to "Messages (#{c})", conversations_path, class: "dropdown-item" %>
       <%= link_to "My Bands", mybands_path, class: "dropdown-item"  %>
       <%= link_to "My Stars", "/stars", class: "dropdown-item" %>
       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
@@ -42,4 +57,5 @@
       <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
     <% end %>
   </div>
+
 </div>

@@ -1,3 +1,19 @@
+<!-- Tab links -->
+<!-- <div class="tab">
+  <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'bio')">BIO</button>
+  <button class="tablinks" onclick="openTab(event, 'music')">MUSIC</button>
+</div> -->
+
+<!-- Tab content -->
+<!-- <div id="bio" class="tabcontent">
+  <h3>London</h3>
+  <p>London is the capital city of England.</p>
+</div>
+
+<div id="music" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p>
+</div> -->
 
 <div class="profile-container">
   <div class="profile">
@@ -22,116 +38,110 @@
       <% end %>
     </div>
 
-
-
     <div class="mybands">
       <div class="titleband margin">
         <%= link_to(image_tag("chaticon.png", size: "72"), conversation_path(@band.user)) %>
         <h3><%= @band.name.upcase %></h3>
         <h5><%= @band.address.split(" ").last %></h5>
       </div>
-      <div style="display:flex; height: 100%; position: absolute; z-index: 99999999999999999; width: 100%;">
-        <div class="hii">BIO</div>
-        <div class="hii">MUSIC</div>
+    </div>
+
+    <div class="tab">
+      <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'bio')">BIO</button>
+      <button class="tablinks" onclick="openTab(event, 'music')">MUSIC</button>
+    </div>
+
+
+    <!-- BIO TAB -->
+    <div id="bio" class="tabcontent">
+      <div class="margin profile-bio">
+        "<%= @band.bio %>"
       </div>
-      <!-- BIO TAB -->
-      <div class="tabs">
-        <div class="tab-2" >
-          <label for="tab2-1" id="tabz">BIO</label>
-          <input id="tab2-1" name="tabs-two" type="radio" checked="checked" class="tabz-thing">
-          <div>
-            <div class="margin profile-bio">
-              "<%= @band.bio %>"
-            </div>
-            <br>
-            <div class="website">
-              <i class="fas fa-globe"></i>
-              <em><%= link_to @band.personal_website, class: 'website' %></em>
-            </div>
-            <br>
-            <br>
-            <div class="bottombioelements">
-              <div class="lookexperience">
-                <div class="lookinfor">
-                  <p class="styleheader"><em>Looking for:</em></p>
-                  <% @band.instruments.each do |instrument| %>
-                    <% if instrument.name == "Piano" %>
-                      <span class="bandstyle">Pianist</span>
-                    <% elsif instrument.name == "Guitar" %>
-                      <span class="bandstyle">Guitarist</span>
-                    <% elsif instrument.name == "Bass" %>
-                      <span class="bandstyle">Bassist</span>
-                    <% elsif instrument.name == "Drums" %>
-                      <span class="bandstyle">Drummer</span>
-                    <% else instrument.name == "Vocals" %>
-                      <span class="bandstyle">Singer</span>
-                    <% end %>
-                  <% end %>
-                </div>
-                <br>
-                <div class="experiencelevel">
-                  <p class="styleheader"><em>Experience:</em></p>
-                  <span class="bandstyle">
-                    <% if @band.experience == "1" %>
-                      Beginner
-                    <% elsif @band.experience == "2" %>
-                      Intermediate
-                    <% else %>
-                      Advanced
-                    <% end %>
-                  </span>
-                </div>
-              </div>
-              <br>
-              <p class="styleheader"><em>Open to:</em></p>
-              <div class="opentype">
-                <%if @band.is_live? %>
-                  <span class="openstyle">Live</span>
-                <% end %>
-                <%if @band.is_recording?%>
-                  <span class="openstyle">Recording</span>
-                <% end %>
-                <%if @band.is_jamming? %>
-                  <span class="openstyle">Jamming</span>
-                <% end %>
-                <%if @band.is_composition? %>
-                  <span class="openstyle">Composition</span>
-                <% end %>
-                <%if @band.is_cover? %>
-                  <span class="openstyle"> Covers</span>
-                <% end %>
-              </div>
-                <div class="manager-container">
-                  <p class="styleheader"><em>Manager:</em></p>
-                  <div style="padding-top: 4px; padding-right: 6px">
-                    <%= link_to @band.user.username.capitalize, public_profile_path(@band.user.id), :class => 'manager' %>
-                  </div>
-                </div>
+      <br>
+      <div class="website">
+        <i class="fas fa-globe"></i>
+        <em><%= link_to @band.personal_website, class: 'website' %></em>
+      </div>
+      <br>
+      <br>
+      <div class="bottombioelements">
+        <div class="lookexperience">
+          <div class="lookinfor">
+            <p class="styleheader"><em>Looking for:</em></p>
+            <% @band.instruments.each do |instrument| %>
+              <% if instrument.name == "Piano" %>
+                <span class="bandstyle">Pianist</span>
+              <% elsif instrument.name == "Guitar" %>
+                <span class="bandstyle">Guitarist</span>
+              <% elsif instrument.name == "Bass" %>
+                <span class="bandstyle">Bassist</span>
+              <% elsif instrument.name == "Drums" %>
+                <span class="bandstyle">Drummer</span>
+              <% else instrument.name == "Vocals" %>
+                <span class="bandstyle">Singer</span>
+              <% end %>
+            <% end %>
+          </div>
+          <br>
+          <div class="experiencelevel">
+            <p class="styleheader"><em>Experience:</em></p>
+            <span class="bandstyle">
+              <% if @band.experience == "1" %>
+                Beginner
+              <% elsif @band.experience == "2" %>
+                Intermediate
+              <% else %>
+                Advanced
+              <% end %>
+            </span>
+          </div>
+        </div>
+        <br>
+        <p class="styleheader"><em>Open to:</em></p>
+        <div class="opentype">
+          <%if @band.is_live? %>
+            <span class="openstyle">Live</span>
+          <% end %>
+          <%if @band.is_recording?%>
+            <span class="openstyle">Recording</span>
+          <% end %>
+          <%if @band.is_jamming? %>
+            <span class="openstyle">Jamming</span>
+          <% end %>
+          <%if @band.is_composition? %>
+            <span class="openstyle">Composition</span>
+          <% end %>
+          <%if @band.is_cover? %>
+            <span class="openstyle"> Covers</span>
+          <% end %>
+        </div>
+          <div class="manager-container">
+            <p class="styleheader"><em>Manager:</em></p>
+            <div style="padding-top: 4px; padding-right: 6px">
+              <%= link_to @band.user.username.capitalize, public_profile_path(@band.user.id), :class => 'manager' %>
             </div>
           </div>
         </div>
+      </div>
       <br>
 
 
-        <!-- MUSIC TAB -->
-        <div class="tab-2">
-          <label for="tab2-2" id="tabz">MUSIC</label>
-          <input id="tab2-2" name="tabs-two" type="radio" class="tabz-thing">
-          <div class="soundcloudbox">
-            <iframe width="100%" height="580" style="margin-top: -20px" scrolling="no" frameborder="no" allow="" src=<%= @band.soundcloud_link %>></iframe>
-            <!-- YouTube Modal Button -->
-            <div class="bs-example">
-              <!-- Button HTML (to Trigger Modal) -->
-              <a href="#myModal" class="btn btn-lg btn-danger" data-toggle="modal">
-                <i class="fab fa-youtube"></i>
-              </a>
-              <!-- Modal HTML -->
-              <div id="myModal" class="modal fade">
-                <div class="modal-dialog">
-                  <div class="modal-content modalmargin">
-                    <div class="modal-body" id="iFrameContainer">
-                      <iframe id="musicVideo" width="100%" height="315" src="https://www.youtube.com/embed/safr0HTFUHE" frameborder="0" allowfullscreen ></iframe>
-                    </div>
+      <!-- MUSIC TAB -->
+      <div id="music" class="tabcontent">
+        <div class="soundcloudbox">
+          <iframe width="100%" height="580" style="margin-top: -20px" scrolling="no" frameborder="no" allow="" src=<%= @band.soundcloud_link %>></iframe>
+          <!-- YouTube Modal Button -->
+          <div class="bs-example">
+            <!-- Button HTML (to Trigger Modal) -->
+            <a href="#myModal" class="btn btn-lg btn-danger" data-toggle="modal">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <!-- Modal HTML -->
+            <div id="myModal" class="modal fade">
+              <div class="modal-dialog">
+                <div class="modal-content modalmargin">
+                  <div class="modal-body" id="iFrameContainer">
+                    <iframe id="musicVideo" width="100%" height="315" src="https://www.youtube.com/embed/safr0HTFUHE" frameborder="0" allowfullscreen ></iframe>
                   </div>
                 </div>
               </div>
@@ -142,3 +152,22 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  document.getElementById("defaultOpen").click();
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+</script>
+

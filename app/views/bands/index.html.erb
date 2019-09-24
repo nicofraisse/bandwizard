@@ -102,14 +102,18 @@
 
 <!-- BANDS RESULTS -->
 
+
 <% unless @accepted_bands_with_scores_sorted.nil? %>
   <% if params[:doubleslider].nil?  %>
     <div class="margin">
-      <h3 class="subtitle">
-        <strong><%= @accepted_bands_with_scores_sorted.count %></strong> search results
-      </h3>
-      <div style="display: flex;">
-        <div class="row">
+      <div style="display: flex; justify-content: center;">
+        <h3 class="subtitle" style="width: 110%; max-width: 704px; margin: 0px -15px 0px -15px; padding: 0px 24px;">
+          <strong><%= @accepted_bands_with_scores_sorted.count %></strong> search results
+        </h3>
+      </div>
+      <div style="display: flex; justify-content: center;">
+        <div class="card-columns">
+
           <% accepted_bands_with_matches = Hash.new() %>
           <% accepted_bands_with_matches_sorted = nil %>
           <% @accepted_bands_with_scores_sorted.each do |b| %>
@@ -128,8 +132,8 @@
             <% band = b[0] %>
             <% score = b[1] %>
             <% unless score == 0 %>
-              <div class="column">
-                <div class="card-band">
+              <div class="card-container2" style="width: 100%;">
+                <div class="card card-band" style="margin-top: 24px;">
                   <%= link_to(cl_image_tag(band.band_photos.first.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius"), band_path(band)) %>
                   <% unless current_user.nil? %>
                     <div class="star">
@@ -155,8 +159,8 @@
                       </p>
                     </div>
                     <div class="band-card-footer">
-                      <div class="d-flex flex-column">
-                        <li class="no-bullet">
+                      <div class="d-flex flex-column" style="max-width: 70%">
+                        <div>
                           Looking for :
                           <strong><% band.instruments.each do |instrument| %>
                             <% if instrument.name == "Piano"%> Pianist
@@ -167,14 +171,14 @@
                             <% end %>
                           <% end %>
                           </strong>
-                        </li>
-                        <li class="no-bullet styles-container">
+                        </div>
+                        <div class="styles-container">
                           <% band.styles.each_with_index do |style, i| %>
                             <span class="styles">
                               <%= style.name %>
                             </span>
                           <% end %>
-                        </li>
+                        </div>
                       </div>
                       <div class="chart-input">
                         <input type="text" value="<%= b[1] %>" class="dial"><span>%</span>
@@ -184,6 +188,7 @@
                 </div>
               </div>
             <% end %>
+
           <% end %>
         </div>
       </div>
@@ -193,5 +198,4 @@
 <% end %>
 <br>
 <br>
-<br>
-<br>
+
