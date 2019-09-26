@@ -4,7 +4,7 @@ console.log("hello world ----------------")
 
 <% if @favorite %>
 
-  cardToDelete = document.querySelector(".column[data-star-id='<%= @favorite.id %>']");
+  cardToDelete = document.querySelector(".card-container2[data-star-id='<%= @favorite.id %>']");
 
   if (cardToDelete) {
     // updated starred_bands count
