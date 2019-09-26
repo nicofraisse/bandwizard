@@ -1,60 +1,57 @@
-  <div class="margin">
-  <div style="display: flex; justify-content: center;">
-    <h3 class="subtitle" style="width: 110%; max-width: 704px; margin: 0px -15px 0px -15px; padding: 0px 24px;"><strong id="starred_bands_count"><%= @starred_bands.count %></strong> starred bands</h3>
-    </div>
-    <div style="display: flex; justify-content: center;">
-    <div class="card-columns">
-      <div style="display: flex;">
-        <div class="row">
+<div class="margin">
 
-          <% @starred_bands.each do |object| %>
-            <% band = object.band %>
+  <h4 class="subtitle"><strong id="starred_bands_count"><%= @starred_bands.count %></strong> starred bands</h4>
+  <div class="card-columns">
+    <div style="display: flex;">
+      <div class="row">
 
-            <div class="card-container2" style="width: 100%;" data-star-id="<%= object.id %>">
+        <% @starred_bands.each do |object| %>
+          <% band = object.band %>
 
-              <div class="card card-band" style="margin-top: 24px;">
-                <%= link_to(cl_image_tag(band.band_photos.first.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius"), band_path(band)) %>
-                <% unless current_user.nil? %>
-                  <div class="star">
-                    <%= button_to stars_path(band), class: 'starbtn', method: :post, id:"favorite_link-#{band.id}",remote:true  do %>
-                      <% if band.favorited_by?(current_user) %>
-                        <i class="fas fa-star"></i>
-                      <% else %>
-                        <i class="far fa-star"></i>
-                      <% end %>
+          <div class="card-container2" data-star-id="<%= object.id %>">
+
+            <div class="card card-band">
+              <%= link_to(cl_image_tag(band.band_photos.first.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius"), band_path(band)) %>
+              <% unless current_user.nil? %>
+                <div class="star">
+                  <%= button_to stars_path(band), class: 'starbtn', method: :post, id:"favorite_link-#{band.id}",remote:true  do %>
+                    <% if band.favorited_by?(current_user) %>
+                      <i class="fas fa-star"></i>
+                    <% else %>
+                      <i class="far fa-star"></i>
                     <% end %>
-                  </div>
-                <% end %>
-                <div class="card-band-infos">
-                  <!-- checkbox for stars -->
-                 <!-- checkbox for stars -->
-                 <div class="band-header">
-                    <p class="band-name"=><strong><%= band.name %></strong></p>
-                    <p class="km"><i class="fas fa-map-marker-alt"></i> <%= Geocoder::Calculations.distance_between([band.latitude, band.longitude],[45.524860,-73.592420]).round(1) %> km</p>
-                 </div>
+                  <% end %>
+                </div>
+              <% end %>
+              <div class="card-band-infos">
+                <!-- checkbox for stars -->
+               <!-- checkbox for stars -->
+               <div class="band-header">
+                  <p class="band-name"=><strong><%= band.name %></strong></p>
+                  <p class="km"><i class="fas fa-map-marker-alt"></i> <%= Geocoder::Calculations.distance_between([band.latitude, band.longitude],[45.524860,-73.592420]).round(1) %> km</p>
+               </div>
 
 
-                  <div class="band-card-footer">
-                    <div class="d-flex flex-column">
-                      <li class="no-bullet">
-                        Looking for :<strong><% band.instruments.each do |instrument| %>
-                          <%= instrument.name %>
-                        <% end %>
-                      </strong>
-                      </li>
-                      <li class="no-bullet styles-container">
-                        <% band.styles.each_with_index do |style, i| %>
-                          <span class="styles"><%= style.name %></span>
-                        <% end %>
-                      </li>
-                    </div>
+                <div class="band-card-footer">
+                  <div class="d-flex flex-column">
+                    <li class="no-bullet">
+                      Looking for :<strong><% band.instruments.each do |instrument| %>
+                        <%= instrument.name %>
+                      <% end %>
+                    </strong>
+                    </li>
+                    <li class="no-bullet styles-container">
+                      <% band.styles.each_with_index do |style, i| %>
+                        <span class="styles"><%= style.name %></span>
+                      <% end %>
+                    </li>
                   </div>
                 </div>
               </div>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-  </div>
+</div>
