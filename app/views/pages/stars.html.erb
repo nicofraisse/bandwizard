@@ -1,11 +1,11 @@
 <div class="margin">
   <div style="display: flex; justify-content: center;">
     <h3 class="subtitle">
-      <strong><%= @starred_bands.count %></strong> starred bands
+      <strong id="starred_bands_count"><%= @starred_bands.count %></strong> starred bands
     </h3>
   </div>
-    <div style="display: flex; justify-content: center;">
-  <div class="card-columns">
+  <div style="display: flex; justify-content: center;">
+    <div class="card-columns" >
       <!-- <div class="row"> -->
 
         <% @starred_bands.each do |object| %>

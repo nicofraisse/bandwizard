@@ -48,8 +48,15 @@ html, body {
   font-family: "Roboto";
   font-weight: lighter;
   font-size: 32px;
-  width: 340px;
-  margin: 0px -15px 0px -15px;
+  width: 240px;
+  margin: 8px -15px 0px -0px;
+}
+
+@media (min-width: 400px) {
+  .subtitle {
+    width: 340px;
+    margin-top: 12px;
+  }
 }
 
 @media (min-width: 760px) {
