@@ -9,7 +9,9 @@ console.log("hello world ----------------")
   if (cardToDelete) {
     // updated starred_bands count
     document.getElementById("starred_bands_count").innerHTML = "<%= current_user.starred_bands.count %>";
+    console.log(cardToDelete);
     cardToDelete.remove();
+
   }
  document.querySelector("h4.title").innerHTML = "<%= current_user.starred_bands.count %> starred bands";
 
