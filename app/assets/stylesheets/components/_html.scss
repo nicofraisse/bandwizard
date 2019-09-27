@@ -48,7 +48,21 @@ html, body {
   font-family: "Roboto";
   font-weight: lighter;
   font-size: 32px;
-/*}*/
+  width: 340px;
+  margin: 0px -15px 0px -15px;
+}
+
+@media (min-width: 760px) {
+  .subtitle {
+    width: 720px;
+    margin-top: 12px;
+  }
+}
+@media (min-width: 1280px) {
+  .subtitle {
+    width: 1088px;
+    margin-top: 16px;
+  }
 }
 
 // <!-- Homepage elements -->
