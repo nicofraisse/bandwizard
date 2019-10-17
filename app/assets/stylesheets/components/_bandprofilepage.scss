@@ -6,12 +6,12 @@
 .profile {
   width: 100vw;
   max-width: 560px;
-  box-shadow: 0px   0px 16px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 16px rgba(0,0,0,0.2);
 }
 
 .manager-container {
   display: flex;
-  margin-top: 12px;
+  margin-top: 24px;
 }
 
 .manager container a {
@@ -176,14 +176,15 @@
 
 .website {
   text-align: left;
-  margin-top: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }.website a {
   font-size: 16px;
   text-align: right;
   color: white;
 }.website a:hover {
   color: #543caa
-}.lookinfor {
+}.categ {
   text-align: left;
 }
 
@@ -242,6 +243,9 @@
   margin-left: 10px;
   margin-right: 10px;
   font-size: 18px;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .bandstyle {
