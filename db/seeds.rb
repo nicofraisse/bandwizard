@@ -64,8 +64,6 @@ user_photos = [
   "https://overblown.co.uk/wp-content/uploads/2019/02/Musician-Resume.jpg",
   "https://media.npr.org/assets/img/2018/11/01/hellojunebyjoshsaul-2e187ce8b2e0a894a03e21d768fd03112727967d-s800-c85.jpg",
   "https://www.themeshband.co.uk/img/wedding-bands-for-hire.jpg",
-  "http://www.deboband.com/wp-content/uploads/2016/03/group-photo-colorful.jpg",
-  "https://www.redwallpapers.com/public/redwallpapers-large-thumb/ray-band-reggae-funk-hip-hop-free-stock-photos-images-hd-wallpaper.jpg",
   "https://budapestlocal.com/wp-content/uploads/2014/11/random-04.jpg",
   "https://i0.wp.com/www.phatmandrums.com/wp-content/uploads/2011/12/rent2010-band2.jpg",
   "https://www.huntsvillemusic.com/pictures/decorative/allyfree/allyfreefb2.jpg",
@@ -81,14 +79,11 @@ user_photos = [
   "https://images.pexels.com/photos/210887/pexels-photo-210887.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
   "https://images.pexels.com/photos/1343331/pexels-photo-1343331.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
   "https://images.pexels.com/photos/2479312/pexels-photo-2479312.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-  "https://www.redwallpapers.com/download/original/ranetki-girls-band-members-smile-free-stock-photos-images-hd-wallpaper.jpg",
-  "https://www.redwallpapers.com/download/original/group-1-crew-band-girl-haircuts-daylight-free-stock-photos-images-hd-wallpaper.jpg",
   "https://infotel.ca/news/medialibrary/image/orig-mediaitemid63936-1566.jpg",
   "https://makingmusicmag.com/wp-content/uploads/2019/08/Live-music-WEB.jpg",
   "https://www.liveabout.com/thmb/MlK2slhL5u7cnOI-bbsu2ilDvYU=/1280x877/filters:no_upscale():max_bytes(150000):strip_icc()/52454579-58b8a7113df78c353ce0913b.jpg",
   "https://images.pexels.com/photos/462442/pexels-photo-462442.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
   "https://images.pexels.com/photos/1309240/pexels-photo-1309240.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-  "https://images.pexels.com/photos/1849200/pexels-photo-1849200.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
   "https://images.pexels.com/photos/2601215/pexels-photo-2601215.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
   "https://images.pexels.com/photos/756241/pexels-photo-756241.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
   "https://images.pexels.com/photos/1576280/pexels-photo-1576280.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
@@ -409,6 +404,7 @@ all_bands.each do |band|
   photos = user_photos.sample([1,3].sample)
   photos.each do |photo|
     BandPhoto.create!(remote_photo_url: photo, band: band)
+    puts 'added ' + photo
     # band.save!
   end
 end

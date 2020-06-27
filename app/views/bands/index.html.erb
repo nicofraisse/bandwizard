@@ -9,6 +9,8 @@
 <head><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"></head>
 
 <!-- musician search -->
+
+
 <% unless @accepted_musicians_with_scores_sorted.nil? %>
   <% unless params[:doubleslider].nil? %>
     <div class="margin">
@@ -37,7 +39,6 @@
             <% unless score == 0 %>
               <div class="column">
                 <div class="card-band">
-                  <%  %>
                   <%= link_to(image_tag(musician.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius")) %>
                   <% unless current_user.nil? %>
                     <div class="star">
@@ -50,30 +51,38 @@
                       <% end %>
                     </div>
                   <% end %>
-
                   <div class="card-band-infos">
-                    <!-- checkbox for stars -->
                     <!-- checkbox for stars -->
                     <div class="band-header">
                       <p class="band-name" style="font-size: 24px;"=>
                         <strong><%= musician.full_name %></strong>
                       </p>
                       <p class="km" style="font-size: 18px;">
-                        <i class="fas fa-map-marker-alt"> </i> <%= Geocoder::Calculations.distance_between([musician.latitude, musician.longitude], @geocoded_address).round(1) %> km
+                        <i class="fas fa-map-marker-alt"></i>
+                        <%= Geocoder::Calculations.distance_between([musician.latitude, musician.longitude], @geocoded_address).round(1) %> km
                       </p>
                     </div>
                     <div class="band-card-footer">
                       <div class="d-flex flex-column">
                         <li class="no-bullet">
-                          Looking for :
-                          <strong><% musician.instruments.each do |instrument| %>
-                            <% if instrument.name == "Piano"%> Pianist
-                            <% elsif instrument.name == "Guitar" %> Guitarist
-                            <% elsif instrument.name == "Bass" %> Bassist
-                            <% elsif instrument.name == "Drums" %> Drummer
-                            <% else instrument.name == "Vocals" %> Singer
+                          <% str = "" %>
+                          <% musician.instruments.each do |instrument| %>
+                            <% if instrument.name == "Piano"%>
+                              <% str += "Pianist " %>
+                            <% elsif instrument.name == "Guitar" %>
+                              <% str += "Guitarist " %>
+                            <% elsif instrument.name == "Bass" %>
+                              <% str += "Bassist " %>
+                            <% elsif instrument.name == "Drums" %>
+                              <% str += "Drummer " %>
+                            <% else instrument.name == "Vocals" %>
+                              <% str += "Singer " %>
                             <% end %>
                           <% end %>
+                          <% str = str.split(' ').join(', ') %>
+                          Looking for:
+                          <strong>
+                            <%= str %>
                           </strong>
                         </li>
                         <li class="no-bullet styles-container">
@@ -113,7 +122,6 @@
       </div>
       <div style="display: flex; justify-content: center;">
         <div class="card-columns">
-
           <% accepted_bands_with_matches = Hash.new() %>
           <% accepted_bands_with_matches_sorted = nil %>
           <% @accepted_bands_with_scores_sorted.each do |b| %>
@@ -188,7 +196,6 @@
                 </div>
               </div>
             <% end %>
-
           <% end %>
         </div>
       </div>
@@ -198,4 +205,3 @@
 <% end %>
 <br>
 <br>
-
