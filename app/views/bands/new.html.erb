@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-6 offset-3">
-      <h1 class="">New Band</h1>
+      <h1 class="text-white">New Band</h1>
       <%= simple_form_for(@band, :html => { :multipart => true }) do |f| %>
         <%= f.input :name %>
         <%= f.input :youtube_link %>
@@ -12,18 +12,25 @@
          <%= f.fields_for :band_photos do |p| %>
           <div class="field">
             <%= p.label :photo %><br>
-            <%= p.file_field :photo, :multiple => true, name:     "band_photos[photo][]" %>
+            <%= p.file_field :photo, :multiple => true, name: "band_photos[photo][]", class: "text-white" %>
           </div>
           <% end %>
-        Are you open for :
+        <p class="text-white">Are you open for :</p>
         <%= f.input :is_cover, label: "Covering"%>
         <%= f.input :is_live ,label: "Live" %>
         <%= f.input :is_recording,label:"recoding" %>
         <%= f.input :is_jamming , label: "jammings"%>
         <%= f.input :is_composition, label: "composition"%>
-        <%= f.submit "Add band", class: "btn btn-primary" %>
+        <%= f.submit "Add band", class: "btn btn-primary mr-2" %>
         <%= link_to "Cancel", dashboard_path(current_user), class: "btn btn-warning" %>
       <% end %>
     </div>
   </div>
 </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+

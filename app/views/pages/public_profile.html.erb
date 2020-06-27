@@ -1,51 +1,164 @@
-<%= @musician.username %>
+<!-- Tab links -->
+<!-- <div class="tab">
+  <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'bio')">BIO</button>
+  <button class="tablinks" onclick="openTab(event, 'music')">MUSIC</button>
+</div> -->
 
+<!-- Tab content -->
+<!-- <div id="bio" class="tabcontent">
+  <h3>London</h3>
+  <p>London is the capital city of England.</p>
+</div>
 
-<p class="bandimage">musician PHOTO</p>
+<div id="music" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p>
+</div> -->
 
-<div class="mybands">
-  <div class="titlename">
-    <h2><%=  @musician.username %></h2>
-    <h6><%=  @musician.address %></h6>
-  <div class="tabs">
-    <div class="tab-2">
-      <label for="tab2-1">BIO</label>
-      <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
-    <div>
-      <p><strong><%=  @musician.bio %></strong>
-      <br>
-      <br>
-      Photo: <strong><%=  @musician.photo%></strong>
-      <br>
-      Youtube link: <strong><%=  @musician.youtube_link %></strong>
-      <br>
-      Personal website: <strong><%=  @musician.personal_website %></strong>
-      <br>
-      Soundcloud link: <strong><%=  @musician.soundcloud_link %></strong></p>
+<div class="profile-container">
+  <div class="profile">
+    <div class="image-container">
+      <div class="bandimage">
+          <div class="slideImage">
+            <%= cl_image_tag(@musician.photo, :class => "slideImage")%>
+          </div>
+      </div>
+      <!-- Here add feature to save musician to favorites -->
     </div>
-    <%= link_to "message ME" ,conversation_path(@musician)%>
-  </div>
-    <div class="tab-2">
-      <label for="tab2-2">DETAILS</label>
-      <input id="tab2-2" name="tabs-two" type="radio">
-    <div>
-      <p>Open to play live: <strong><%= @musician.is_live %></strong>
-      <br>
-      Open to album recording: <strong><%= @musician.is_recording %></strong>
-      <br>
-      Open for just jamming: <strong><%= @musician.is_jamming %></strong>
-      <br>
-      Open to composing: <strong><%= @musician.is_composition %></strong>
-      <br>
-      Open to playing covers:  <strong><%= @musician.is_covers %></strong>
-      <br>
+
+    <div class="mybands">
+      <div class="titleband margin">
+        <% unless @musician == current_user %>
+        <%= link_to(image_tag("chaticon.png", size: "72"), conversation_path(@musician)) %>
+        <% end %>
+        <h3><%= @musician.full_name.upcase %></h3>
+        <h5><%= @musician.address.split(" ").last %></h5>
+      </div>
+    </div>
+
+    <div class="tab">
+      <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'bio')">BIO</button>
+      <button class="tablinks" onclick="openTab(event, 'music')">MUSIC</button>
+    </div>
 
 
-      Longitude: <strong><%= @musician.longitude %></strong>
-      Latitude: <strong><%= @musician.latitude %></strong></p>
+    <!-- BIO TAB -->
+    <div id="bio" class="tabcontent">
+      <div class="margin profile-bio mt-3">
+        "<%= @musician.bio %>"
+      </div>
+      <br>
+      <br>
+      <div class="bottombioelements">
+        <div class="lookexperience">
+          <div class="lookinfor">
+            <p class="styleheader"><em>Instruments played:</em></p>
+            <% @musician.instrument_users.each do |instrument_user| %>
+              <% xp = "" %>
+              <% if instrument_user.experience == '1' %>
+                <% xp = "beginner" %>
+              <% elsif instrument_user.experience == '2' %>
+                <% xp = 'intermediate' %>
+              <% else %>
+                <% xp = 'advanced' %>
+              <% end %>
+              <% if instrument_user.instrument.name == "Piano" %>
+                <span class="bandstyle">Pianist (<span><%= xp %></span>)</span>
+              <% elsif instrument_user.instrument.name == "Guitar" %>
+                <span class="bandstyle">Guitarist (<span><%= xp %></span>)</span>
+              <% elsif instrument_user.instrument.name == "Bass" %>
+                <span class="bandstyle">Bassist (<span><%= xp %></span>)</span>
+              <% elsif instrument_user.instrument.name == "Drums" %>
+                <span class="bandstyle">Drummer (<span><%= xp %></span>)</span>
+              <% else instrument_user.instrument.name == "Vocals" %>
+                <span class="bandstyle">Singer (<span><%= xp %></span>)</span>
+              <% end %>
+            <% end %>
+          </div>
+          <br>
+        </div>
+        <br>
+        <p class="styleheader"><em>Open to:</em></p>
+        <div class="opentype">
+          <%if @musician.is_live? %>
+            <span class="openstyle mb-3">Live</span>
+          <% end %>
+          <%if @musician.is_recording?%>
+            <span class="openstyle mb-3">Recording</span>
+          <% end %>
+          <%if @musician.is_jamming? %>
+            <span class="openstyle mb-3">Jamming</span>
+          <% end %>
+          <%if @musician.is_composition? %>
+            <span class="openstyle mb-3">Composition</span>
+          <% end %>
+          <%if @musician.is_covers? %>
+            <span class="openstyle mb-3"> Covers</span>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="website px-4 m-20 mt-4">
+        <i class="fas fa-globe m-0"></i>
+        <em><%= link_to "view artist website", @musician.personal_website, class: 'website' %></em>
+      </div>
+      <br>
+    </div>
+
+
+      <!-- MUSIC TAB -->
+    <div id="music" class="tabcontent">
+      <div class="soundcloudbox">
+        <!-- YouTube Modal Button -->
+        <div class="bs-example">
+          <!-- Button HTML (to Trigger Modal) -->
+          <a href="#myModal" class="btn btn-lg btn-danger" data-toggle="modal">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <!-- Modal HTML -->
+          <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content modalmargin">
+                <div class="modal-body" id="iFrameContainer">
+                  <iframe id="musicVideo" width="100%" height="315" src="https://www.youtube.com/embed/safr0HTFUHE" frameborder="0" allowfullscreen ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/7777342&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/thecollectivesounds" title="thecollectivesounds" target="_blank" style="color: #cccccc; text-decoration: none;">thecollectivesounds</a> · <a href="https://soundcloud.com/thecollectivesounds/aaron-lewis-country-boy" title="Aaron Lewis - &quot;Country Boy&quot;" target="_blank" style="color: #cccccc; text-decoration: none;">Aaron Lewis - &quot;Country Boy&quot;</a></div>
+      </div>
     </div>
   </div>
 </div>
+<br>
+<br>
+<br>
+<script>
+  document.getElementById("defaultOpen").click();
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+</script>
+
+
+
+
+
+
+
+
+
 
 
 

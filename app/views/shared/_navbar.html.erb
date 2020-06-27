@@ -1,5 +1,3 @@
-
-
 <div class="the-navbar">
     <!-- NOTIFICATION for messages-->
     <% @conversations = Conversation.where(user1: current_user).or Conversation.where(user2: current_user) %>
@@ -43,11 +41,11 @@
   </div>
 
   <%= link_to image_tag("wizardlogo.png", class: "wizard-avatar"), :home %>
-  <%= image_tag "hamburger.png", class: "avatar dropdown-toggle", style: "position: absolute; top:24px; right: 16px", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  <%= image_tag "hamburger.png", class: "avatar dropdown-toggle", style: "position: fixed; top: 24px; right: 16px", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
     <% if user_signed_in? %>
       <%= link_to "Home", home_path, class: "dropdown-item" %>
-      <%= link_to "Profile", dashboard_path(current_user), class: "dropdown-item" %>
+      <%= link_to "Profile", public_profile_path(current_user), class: "dropdown-item" %>
       <%= link_to "Messages (#{c})", conversations_path, class: "dropdown-item" %>
       <%= link_to "My Bands", mybands_path, class: "dropdown-item"  %>
       <%= link_to "My Stars", "/stars", class: "dropdown-item" %>
@@ -57,5 +55,4 @@
       <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
     <% end %>
   </div>
-
 </div>
