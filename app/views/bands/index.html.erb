@@ -14,11 +14,13 @@
 <% unless @accepted_musicians_with_scores_sorted.nil? %>
   <% unless params[:doubleslider].nil? %>
     <div class="margin">
-      <h3 class="subtitle">
-        <strong><%= @accepted_musicians_with_scores_sorted.count %></strong> search results
-      </h3>
-      <div style="display: flex;">
-        <div class="row">
+      <div style="display: flex; justify-content: center;">
+        <h3 class="subtitle">
+          <strong><%= @accepted_musicians_with_scores_sorted.count %></strong> search results
+        </h3>
+      </div>
+      <div style="display: flex; justify-content: center;">
+        <div class="card-columns">
           <% accepted_musicians_with_matches = Hash.new() %>
           <% accepted_musicians_with_matches_sorted = nil %>
           <% @accepted_musicians_with_scores_sorted.each do |b| %>
@@ -37,22 +39,22 @@
             <% musician = b[0] %>
             <% score = b[1] %>
             <% unless score == 0 %>
-              <div class="column">
-                <div class="card-band">
+              <div class="card-container2">
+                <div class="card card-band">
                   <%= link_to(image_tag(musician.photo, class: "bandphoto", style: "width: 100%; height: 20vh; object-fit: cover; border-radius")) %>
-                  <% unless current_user.nil? %>
-                    <div class="star">
-                      <%= button_to stars_path(musician), class: "starbtn", method: :post, id:"favorite_link-#{musician.id}",remote:true do %>
+                  <!-- Here we would have the favorite musician icon, but needs to be a favorited_by? method for musician to begin with -->
+                  <% #unless current_user.nil? %>
+                    <!-- <div class="star"> -->
+                      <% #button_to stars_path(musician), class: "starbtn", method: :post, id:"favorite_link-#{musician.id}",remote:true do %>
                         <% #if musician.favorited_by?(current_user) %>
                           <!-- <i class="fas fa-star"></i> -->
                         <% #else %>
-                          <i class="far fa-star"></i>
+                          <!-- <i class="far fa-star"></i> -->
                         <% #end %>
-                      <% end %>
-                    </div>
-                  <% end %>
+                      <% #end %>
+                    <!-- </div> -->
+                  <% #end %>
                   <div class="card-band-infos">
-                    <!-- checkbox for stars -->
                     <div class="band-header">
                       <p class="band-name" style="font-size: 24px;"=>
                         <strong><%= musician.full_name %></strong>
@@ -65,24 +67,9 @@
                     <div class="band-card-footer">
                       <div class="d-flex flex-column">
                         <li class="no-bullet">
-                          <% str = "" %>
-                          <% musician.instruments.each do |instrument| %>
-                            <% if instrument.name == "Piano"%>
-                              <% str += "Pianist " %>
-                            <% elsif instrument.name == "Guitar" %>
-                              <% str += "Guitarist " %>
-                            <% elsif instrument.name == "Bass" %>
-                              <% str += "Bassist " %>
-                            <% elsif instrument.name == "Drums" %>
-                              <% str += "Drummer " %>
-                            <% else instrument.name == "Vocals" %>
-                              <% str += "Singer " %>
-                            <% end %>
-                          <% end %>
-                          <% str = str.split(' ').join(', ') %>
-                          Looking for:
+                          Instruments played:
                           <strong>
-                            <%= str %>
+                            <%= musician.instruments.map{|i| i.name}.join(', ') %>
                           </strong>
                         </li>
                         <li class="no-bullet styles-container">
@@ -156,8 +143,6 @@
                   <% end %>
 
                   <div class="card-band-infos">
-                    <!-- checkbox for stars -->
-                    <!-- checkbox for stars -->
                     <div class="band-header">
                       <p class="band-name" style="font-size: 24px;"=>
                         <strong><%= band.name %></strong>
@@ -169,15 +154,24 @@
                     <div class="band-card-footer">
                       <div class="d-flex flex-column" style="max-width: 70%">
                         <div>
-                          Looking for :
-                          <strong><% band.instruments.each do |instrument| %>
-                            <% if instrument.name == "Piano"%> Pianist
-                            <% elsif instrument.name == "Guitar" %> Guitarist
-                            <% elsif instrument.name == "Bass" %> Bassist
-                            <% elsif instrument.name == "Drums" %> Drummer
-                            <% else instrument.name == "Vocals" %> Singer
+                          <% str = "" %>
+                          <% band.instruments.each do |instrument| %>
+                            <% if instrument.name == "Piano"%>
+                              <% str += "Pianist " %>
+                            <% elsif instrument.name == "Guitar" %>
+                              <% str += "Guitarist " %>
+                            <% elsif instrument.name == "Bass" %>
+                              <% str += "Bassist " %>
+                            <% elsif instrument.name == "Drums" %>
+                              <% str += "Drummer " %>
+                            <% else instrument.name == "Vocals" %>
+                              <% str += "Singer " %>
                             <% end %>
                           <% end %>
+                          <% str = str.split(' ').join(', ') %>
+                          Looking for:
+                          <strong>
+                            <%= str %>
                           </strong>
                         </div>
                         <div class="styles-container">
