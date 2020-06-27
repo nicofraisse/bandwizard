@@ -109,7 +109,7 @@
   color: black;
   font-weight: bold;
   padding-top: 5px;
-  width: 69vw;
+  width: 69%;
   margin-bottom: 0px;
 }
 
@@ -241,6 +241,7 @@
   padding: 6px 15px;
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 10px;
   font-size: 18px;
 }
 
@@ -248,10 +249,12 @@
   background-color: #4EBC87;
   color: #fff;
   border-radius: 50px;
+  margin-bottom: 10px;
   padding: 6px 15px;
   margin-left: 10px;
   margin-right: 10px;
   font-size: 18px;
+  display: inline-block;
 }
 
 .manager {

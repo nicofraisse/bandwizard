@@ -1,13 +1,12 @@
 class BandsController < ApplicationController
- skip_before_action :authenticate_user!, only: [:index, :show,:search,:map, :filter, :public_profile, :mybands]
- skip_after_action :verify_policy_scoped, only: [:index, :show,:search, :map, :public_profile]
- def index
+  skip_before_action :authenticate_user!, only: [:index, :show,:search,:map, :filter, :public_profile, :mybands]
+  skip_after_action :verify_policy_scoped, only: [:index, :show,:search, :map, :public_profile]
+  def index
     @choice = params[:doubleslider].nil? ? 2 : 1
 
     if @choice == 1
       relevant_instru = InstrumentUser.where(instrument: Instrument.find_by_name(params[:instruments])).includes(:user)
       needed_goals = ["is_jamming", "is_live", "is_composition", "is_recording", "is_cover"]
-
       @all_musicians = User.all.includes(:styles, :instruments) #, :starred_users)
 
       unless params[:style] == nil
@@ -130,33 +129,6 @@ class BandsController < ApplicationController
       @accepted_musicians_with_scores_sorted = accepted_musicians_with_scores.sort_by { |e| e[1] }.reverse
       # @musicians_sorted = @musicians_with_scores_sorted.map { |e| e[0] }
       @accepted_musicians_sorted = @accepted_musicians_with_scores_sorted.map { |e| e[0] }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -338,15 +310,8 @@ class BandsController < ApplicationController
         #     infoWindow: render_to_string(partial: "info_window", locals: { result: band })
         #   }
         # end
-
-
       end
     end
-
-
-
-
-
 
     def new
       @band = Band.new
@@ -356,7 +321,7 @@ class BandsController < ApplicationController
 
     def map
       @results = {}
-      params[:results].each { |key, value| @results[Band.find(key)] = value}
+      map_params.each { |key, value| @results[Band.find(key)] = value}
       @markers = @results.map do |key, value|
         # raise
         {
@@ -400,5 +365,8 @@ class BandsController < ApplicationController
   def band_params
     params.require(:band).permit(:name, :bio,:personal_website, :youtube_link, :address, :soundcloud_link, :is_recording,:is_pro,:is_live,:is_jamming, :is_cover,:is_pro,:is_composition,band_photos_attributes:
       [:id, :band_id, :photo])
+  end
+  def map_params
+    params.permit(:results)
   end
 end

@@ -1,5 +1,15 @@
-<% @bands.each do |band| %>
-<%= link_to band.name, band_path(band.id) %>
-<% end %>
+<div class="container pl-5">
 
-<%= link_to "Add Band", new_band_path%>
+  <h1 class="text-white mb-4">My bands (<%= @bands.count %>)</h1>
+
+  <ul class="mt-4">
+    <% @bands.each do |band| %>
+      <li class="text-white mt-1">
+        <%= link_to band.name, band_path(band.id) %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Add Band", new_band_path, class: "btn btn-primary mt-3" %>
+
+</div>

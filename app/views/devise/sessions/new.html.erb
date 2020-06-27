@@ -1,8 +1,10 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
       <h2 class="logintitle">Login</h2>
-
+      <p style="color: white; margin-top: 40px;margin-bottom: 20px;">
+        Hint: for a demo account to test the app features, use <strong>bob@gmail.com</strong> and <strong>123123</strong> sign in.
+      </p>
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs">
           <%= f.input :email,
